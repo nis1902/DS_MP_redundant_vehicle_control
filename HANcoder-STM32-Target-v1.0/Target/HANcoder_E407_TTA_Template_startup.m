@@ -138,6 +138,14 @@ TM_Type_bc0(end+1)  = COMP;
 TM_Data_bc1 = TM_Data_bc0(1:4);
 TM_Type_bc1 = TM_Type_bc0(1:4);
 
+% Reset variables
+TM_Reset_Var_bc1         = TM_Check_TOuts + COMP_duration;     % COMP Check TimeOuts
+TM_Data_bc1(end+1)       = TM_Reset_Var_bc1;
+TM_Type_bc1(end+1)       = COMP;
+TM_Reset_Var_bc1_2       = TM_Reset_Var_bc1 + 2;                         % COMP Reset Variables
+TM_Data_bc1(end+1)       = TM_Reset_Var_bc1_2;
+TM_Type_bc1(end+1)       = COMP;
+
 % matrix scheduling constants
 basic_cycle_duration_bc0 = TM_Reset_Board   + COMP_duration; % cycle duration in NTU
 basic_cycle_duration_bc1 = basic_cycle_duration_bc0;         % cycle duration in NTU
@@ -149,6 +157,11 @@ Sync_ID = 1;
 Vote1_ID = 11;
 Vote2_ID = 12;
 Vote3_ID = 13;
+SetValues_ID = 21;
+SensorValues_ID = 22;
+OutControl1_ID = 23;
+OutControl2_ID = 24;
+OutEmulator_ID = 25;
 
 % Communication delay: time from message sent until message received
 comm_delay_measured1 = 0.0003; % [1Mb/s -> 0.3 ms]
