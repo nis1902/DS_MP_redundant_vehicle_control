@@ -212,171 +212,170 @@
  216 00a0 00000000 		.word	0
  217 00a4 00004640 		.word	1078329344
  218 00a8 00000000 		.word	0
- 219 00ac 00004840 		.word	1078460416
+ 219 00ac 00006140 		.word	1080098816
  220 00b0 00000000 		.word	0
- 221 00b4 00004440 		.word	1078198272
+ 221 00b4 00004840 		.word	1078460416
  222 00b8 00000000 		.word	0
- 223 00bc 00005640 		.word	1079377920
+ 223 00bc 00004440 		.word	1078198272
  224 00c0 00000000 		.word	0
- 225 00c4 00005040 		.word	1078984704
+ 225 00c4 00005640 		.word	1079377920
  226 00c8 00000000 		.word	0
- 227 00cc 0000903F 		.word	1066401792
+ 227 00cc 00806040 		.word	1080066048
  228 00d0 00000000 		.word	0
- 229 00d4 00005040 		.word	1078984704
+ 229 00d4 0000903F 		.word	1066401792
  230 00d8 00000000 		.word	0
- 231 00dc 0000903F 		.word	1066401792
+ 231 00dc 00005040 		.word	1078984704
  232 00e0 00000000 		.word	0
- 233 00e4 00002040 		.word	1075838976
+ 233 00e4 0000C03F 		.word	1069547520
  234 00e8 00000000 		.word	0
- 235 00ec 0000C03F 		.word	1069547520
+ 235 00ec 00002040 		.word	1075838976
  236 00f0 00000000 		.word	0
  237 00f4 0000903F 		.word	1066401792
  238 00f8 00000000 		.word	0
  239 00fc 00005040 		.word	1078984704
  240 0100 00000000 		.word	0
- 241 0104 0000C03F 		.word	1069547520
+ 241 0104 00006940 		.word	1080623104
  242 0108 00000000 		.word	0
- 243 010c 00002040 		.word	1075838976
+ 243 010c 00806940 		.word	1080655872
  244 0110 00000000 		.word	0
- 245 0114 0000903F 		.word	1066401792
+ 245 0114 00806A40 		.word	1080721408
  246 0118 00000000 		.word	0
- 247 011c 00005040 		.word	1078984704
+ 247 011c 00006A40 		.word	1080688640
  248 0120 00000000 		.word	0
- 249 0124 00006940 		.word	1080623104
+ 249 0124 00004640 		.word	1078329344
  250 0128 00000000 		.word	0
- 251 012c 00806940 		.word	1080655872
+ 251 012c 00004840 		.word	1078460416
  252 0130 00000000 		.word	0
- 253 0134 00806A40 		.word	1080721408
+ 253 0134 00004A40 		.word	1078591488
  254 0138 00000000 		.word	0
- 255 013c 00006A40 		.word	1080688640
+ 255 013c 00005940 		.word	1079574528
  256 0140 00000000 		.word	0
- 257 0144 00004640 		.word	1078329344
+ 257 0144 00005840 		.word	1079508992
  258 0148 00000000 		.word	0
- 259 014c 00004840 		.word	1078460416
+ 259 014c 00806240 		.word	1080197120
  260 0150 00000000 		.word	0
- 261 0154 00004A40 		.word	1078591488
+ 261 0154 00006240 		.word	1080164352
  262 0158 00000000 		.word	0
- 263 015c 00005940 		.word	1079574528
+ 263 015c 00806840 		.word	1080590336
  264 0160 00000000 		.word	0
- 265 0164 00005840 		.word	1079508992
+ 265 0164 00006840 		.word	1080557568
  266 0168 00000000 		.word	0
- 267 016c 00806240 		.word	1080197120
+ 267 016c 00004440 		.word	1078198272
  268 0170 00000000 		.word	0
- 269 0174 00006240 		.word	1080164352
+ 269 0174 00806740 		.word	1080524800
  270 0178 00000000 		.word	0
- 271 017c 00806840 		.word	1080590336
+ 271 017c 00005740 		.word	1079443456
  272 0180 00000000 		.word	0
- 273 0184 00006840 		.word	1080557568
+ 273 0184 00806140 		.word	1080131584
  274 0188 00000000 		.word	0
- 275 018c 00004440 		.word	1078198272
- 276 0190 00000000 		.word	0
- 277 0194 00806740 		.word	1080524800
- 278 0198 00000000 		.word	0
- 279 019c 00005740 		.word	1079443456
- 280 01a0 00000000 		.word	0
- 281 01a4 00806140 		.word	1080131584
- 282 01a8 00000000 		.word	0
- 283 01ac 0000F03F 		.word	1072693248
- 284 01b0 0000     		.short	0
- 285 01b2 00       		.byte	0
- 286 01b3 00       		.byte	0
- 287 01b4 00       		.byte	0
- 288 01b5 00       		.byte	0
- 289 01b6 00       		.byte	0
- 290 01b7 00       		.byte	0
- 291 01b8 01       		.byte	1
- 292 01b9 00       		.byte	0
- 293 01ba 01       		.byte	1
- 294 01bb 00       		.byte	0
- 295 01bc 00       		.byte	0
- 296 01bd 01       		.byte	1
- 297 01be 0000     		.space	2
- 298 01c0 01000000 		.word	1
- 299 01c4 01000000 		.word	1
- 300 01c8 01000000 		.word	1
- 301 01cc 01000000 		.word	1
- 302 01d0 00       		.byte	0
- 303 01d1 00       		.byte	0
- 304 01d2 00       		.byte	0
- 305 01d3 00       		.byte	0
- 306 01d4 15000000 		.word	21
- 307 01d8 15000000 		.word	21
- 308 01dc 15000000 		.word	21
- 309 01e0 15000000 		.word	21
- 310 01e4 00       		.byte	0
- 311 01e5 00       		.byte	0
- 312 01e6 00       		.byte	0
- 313 01e7 00       		.byte	0
- 314 01e8 01000000 		.word	1
- 315 01ec 01000000 		.word	1
- 316 01f0 01000000 		.word	1
- 317 01f4 01000000 		.word	1
- 318 01f8 00       		.byte	0
- 319 01f9 00       		.byte	0
- 320 01fa 00       		.byte	0
- 321 01fb 00       		.byte	0
- 322 01fc 01000000 		.word	1
- 323 0200 01000000 		.word	1
- 324 0204 01000000 		.word	1
- 325 0208 01000000 		.word	1
- 326 020c 00       		.byte	0
- 327 020d 00       		.byte	0
- 328 020e 00       		.byte	0
- 329 020f 00       		.byte	0
- 330 0210 15000000 		.word	21
- 331 0214 15000000 		.word	21
- 332 0218 15000000 		.word	21
- 333 021c 15000000 		.word	21
- 334 0220 00       		.byte	0
- 335 0221 00       		.byte	0
- 336 0222 00       		.byte	0
- 337 0223 00       		.byte	0
- 338 0224 0D000000 		.word	13
- 339 0228 0D000000 		.word	13
- 340 022c 0D000000 		.word	13
- 341 0230 0D000000 		.word	13
- 342 0234 00       		.byte	0
- 343 0235 00       		.byte	0
- 344 0236 00       		.byte	0
- 345 0237 00       		.byte	0
- 346 0238 0C000000 		.word	12
- 347 023c 0C000000 		.word	12
- 348 0240 0C000000 		.word	12
- 349 0244 0C000000 		.word	12
- 350 0248 00       		.byte	0
- 351 0249 00       		.byte	0
- 352 024a 00       		.byte	0
- 353 024b 00       		.byte	0
- 354 024c 0B000000 		.word	11
- 355 0250 0B000000 		.word	11
- 356 0254 0B000000 		.word	11
- 357 0258 0B000000 		.word	11
- 358 025c 00       		.byte	0
- 359 025d 00       		.byte	0
- 360 025e 00       		.byte	0
- 361 025f 00       		.byte	0
- 362 0260 01000000 		.word	1
- 363 0264 01000000 		.word	1
- 364 0268 01000000 		.word	1
- 365 026c 01000000 		.word	1
- 366 0270 00       		.byte	0
- 367 0271 00       		.byte	0
- 368 0272 00       		.byte	0
- 369 0273 00       		.byte	0
- 370 0274 00000000 		.space	4
- 371              		.text
- 372              	.Letext0:
- 373              		.file 1 "c:\\program files (x86)\\gnu tools arm embedded\\5.4 2016q2\\arm-none-eabi\\include\\mach
- 374              		.file 2 "rtwtypes.h"
- 375              		.file 3 "c:\\program files (x86)\\gnu tools arm embedded\\5.4 2016q2\\arm-none-eabi\\include\\sys\
- 376              		.file 4 "HANcoder_E407_TTA_Group2.h"
- 377              		.file 5 "../blockset/rtw/STM32/inc/STM32_E407/core_cm4.h"
- 378              		.file 6 "HANcoder_E407_TTA_Group2_data.c"
+ 275 018c 0000F03F 		.word	1072693248
+ 276 0190 01000000 		.word	1
+ 277 0194 01000000 		.word	1
+ 278 0198 0000     		.short	0
+ 279 019a 00       		.byte	0
+ 280 019b 00       		.byte	0
+ 281 019c 00       		.byte	0
+ 282 019d 00       		.byte	0
+ 283 019e 00       		.byte	0
+ 284 019f 00       		.byte	0
+ 285 01a0 01       		.byte	1
+ 286 01a1 00       		.byte	0
+ 287 01a2 01       		.byte	1
+ 288 01a3 00       		.byte	0
+ 289 01a4 00       		.byte	0
+ 290 01a5 01       		.byte	1
+ 291 01a6 0000     		.space	2
+ 292 01a8 01000000 		.word	1
+ 293 01ac 01000000 		.word	1
+ 294 01b0 01000000 		.word	1
+ 295 01b4 01000000 		.word	1
+ 296 01b8 00       		.byte	0
+ 297 01b9 00       		.byte	0
+ 298 01ba 00       		.byte	0
+ 299 01bb 00       		.byte	0
+ 300 01bc 15000000 		.word	21
+ 301 01c0 15000000 		.word	21
+ 302 01c4 15000000 		.word	21
+ 303 01c8 15000000 		.word	21
+ 304 01cc 00       		.byte	0
+ 305 01cd 00       		.byte	0
+ 306 01ce 00       		.byte	0
+ 307 01cf 00       		.byte	0
+ 308 01d0 01000000 		.word	1
+ 309 01d4 01000000 		.word	1
+ 310 01d8 01000000 		.word	1
+ 311 01dc 01000000 		.word	1
+ 312 01e0 00       		.byte	0
+ 313 01e1 00       		.byte	0
+ 314 01e2 00       		.byte	0
+ 315 01e3 00       		.byte	0
+ 316 01e4 01000000 		.word	1
+ 317 01e8 01000000 		.word	1
+ 318 01ec 00       		.byte	0
+ 319 01ed 00       		.byte	0
+ 320 01ee 00       		.byte	0
+ 321 01ef 00       		.byte	0
+ 322 01f0 01000000 		.word	1
+ 323 01f4 01000000 		.word	1
+ 324 01f8 01000000 		.word	1
+ 325 01fc 01000000 		.word	1
+ 326 0200 00       		.byte	0
+ 327 0201 00       		.byte	0
+ 328 0202 00       		.byte	0
+ 329 0203 00       		.byte	0
+ 330 0204 15000000 		.word	21
+ 331 0208 15000000 		.word	21
+ 332 020c 15000000 		.word	21
+ 333 0210 15000000 		.word	21
+ 334 0214 00       		.byte	0
+ 335 0215 00       		.byte	0
+ 336 0216 00       		.byte	0
+ 337 0217 00       		.byte	0
+ 338 0218 0D000000 		.word	13
+ 339 021c 0D000000 		.word	13
+ 340 0220 0D000000 		.word	13
+ 341 0224 0D000000 		.word	13
+ 342 0228 00       		.byte	0
+ 343 0229 00       		.byte	0
+ 344 022a 00       		.byte	0
+ 345 022b 00       		.byte	0
+ 346 022c 0C000000 		.word	12
+ 347 0230 0C000000 		.word	12
+ 348 0234 0C000000 		.word	12
+ 349 0238 0C000000 		.word	12
+ 350 023c 00       		.byte	0
+ 351 023d 00       		.byte	0
+ 352 023e 00       		.byte	0
+ 353 023f 00       		.byte	0
+ 354 0240 0B000000 		.word	11
+ 355 0244 0B000000 		.word	11
+ 356 0248 0B000000 		.word	11
+ 357 024c 0B000000 		.word	11
+ 358 0250 00       		.byte	0
+ 359 0251 00       		.byte	0
+ 360 0252 00       		.byte	0
+ 361 0253 00       		.byte	0
+ 362 0254 01000000 		.word	1
+ 363 0258 01000000 		.word	1
+ 364 025c 01000000 		.word	1
+ 365 0260 01000000 		.word	1
+ 366 0264 00       		.byte	0
+ 367 0265 00       		.byte	0
+ 368 0266 00       		.byte	0
+ 369 0267 00       		.byte	0
+ 370              		.text
+ 371              	.Letext0:
+ 372              		.file 1 "c:\\program files (x86)\\gnu tools arm embedded\\5.4 2016q2\\arm-none-eabi\\include\\mach
+ 373              		.file 2 "rtwtypes.h"
+ 374              		.file 3 "c:\\program files (x86)\\gnu tools arm embedded\\5.4 2016q2\\arm-none-eabi\\include\\sys\
+ 375              		.file 4 "HANcoder_E407_TTA_Group2.h"
+ 376              		.file 5 "../blockset/rtw/STM32/inc/STM32_E407/core_cm4.h"
+ 377              		.file 6 "HANcoder_E407_TTA_Group2_data.c"
 DEFINED SYMBOLS
                             *ABS*:00000000 HANcoder_E407_TTA_Group2_data.c
-C:\Users\cheff\AppData\Local\Temp\ccPkReyI.s:26     .rodata.rtConstP:00000000 rtConstP
-C:\Users\cheff\AppData\Local\Temp\ccPkReyI.s:175    .rodata.rtConstB:00000000 rtConstB
-C:\Users\cheff\AppData\Local\Temp\ccPkReyI.s:23     .rodata.rtConstP:00000000 $d
-C:\Users\cheff\AppData\Local\Temp\ccPkReyI.s:172    .rodata.rtConstB:00000000 $d
+C:\Users\cheff\AppData\Local\Temp\ccYVhMak.s:26     .rodata.rtConstP:00000000 rtConstP
+C:\Users\cheff\AppData\Local\Temp\ccYVhMak.s:175    .rodata.rtConstB:00000000 rtConstB
+C:\Users\cheff\AppData\Local\Temp\ccYVhMak.s:23     .rodata.rtConstP:00000000 $d
+C:\Users\cheff\AppData\Local\Temp\ccYVhMak.s:172    .rodata.rtConstB:00000000 $d
 
 NO UNDEFINED SYMBOLS

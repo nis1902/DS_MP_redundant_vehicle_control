@@ -44,14 +44,13 @@ Board_2_error_counter_s
 Board_3_error_counter_s
 msg_count_DEBUG_s
 Desync_Sync_bc1_s
-rxDeltaA
-rxDeltaF
-rxSpeedV
 Desync_Sync_bc0_s
 TM1_timeout_counter_s
 TM2_timeout_counter_s
 TM3_timeout_counter_s
 Rx_init_LT
+rxDeltaA
+rxDeltaF
 Vote_s
 Rx_init_id
 Rx_init_mc
@@ -65,6 +64,7 @@ BC0_sync_processed_s
 BC0_vote1_processed_s
 BC0_vote2_processed_s
 BC0_vote3_processed_s
+new_sensor_rx_s
 new_set_rx_s
 reset_s
 Tx_temporal_msg_CAN2

@@ -10,7 +10,7 @@
  *
  * Model version              : 1.160
  * Simulink Coder version : 9.0 (R2018b) 24-May-2018
- * C source code generated on : Wed May 18 15:27:31 2022
+ * C source code generated on : Wed May 18 18:12:41 2022
  * 
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -23,7 +23,7 @@
 
 ASAP2_VERSION  1 31   /* Version 1.31 */
 
-/begin PROJECT ProjectName "HANcoder_E407_TTA_Group2_softwareID_v1_180522_152709"
+/begin PROJECT ProjectName "HANcoder_E407_TTA_Group2_softwareID_v1_180522_181218"
   
   /begin HEADER "Header Comments go here"
     
@@ -34,12 +34,12 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     
     /begin MOD_PAR "MOD PAR Comment Goes Here"
       
-    	ADDR_EPK		0x0800c48c
+    	ADDR_EPK		0x0800c47c
 		CPU_TYPE		"STM32F407"
 		ECU				"E407"
-		EPK				"HANcoder_E407_TTA_Group2_softwareID_v1_180522_152709"
+		EPK				"HANcoder_E407_TTA_Group2_softwareID_v1_180522_181218"
 		SYSTEM_CONSTANT	"XcpStationID string length"  "0x00000034"
-		SYSTEM_CONSTANT	"RAM-FlashOffset"  "-402512416"
+		SYSTEM_CONSTANT	"RAM-FlashOffset"  "-402510560"
 	/end MOD_PAR
     
     /begin MOD_COMMON  "Mod Common Comment Here" 
@@ -339,7 +339,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      -1.7E+308
       /* Upper limit            */      1.7E+308
-      ECU_ADDRESS                       0x2000be08
+      ECU_ADDRESS                       0x2000be10
     /end MEASUREMENT
     
     
@@ -352,7 +352,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      -1.7E+308
       /* Upper limit            */      1.7E+308
-      ECU_ADDRESS                       0x2000bdc0
+      ECU_ADDRESS                       0x2000bdc8
     /end MEASUREMENT
     
     
@@ -365,7 +365,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      -1.7E+308
       /* Upper limit            */      1.7E+308
-      ECU_ADDRESS                       0x2000bd38
+      ECU_ADDRESS                       0x2000bd40
     /end MEASUREMENT
     
     
@@ -378,7 +378,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      0
       /* Upper limit            */      4294967295
-      ECU_ADDRESS                       0x2000bd84
+      ECU_ADDRESS                       0x2000bd8c
     /end MEASUREMENT
     
     
@@ -391,7 +391,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      0
       /* Upper limit            */      4294967295
-      ECU_ADDRESS                       0x2000be20
+      ECU_ADDRESS                       0x2000be28
     /end MEASUREMENT
     
     
@@ -404,7 +404,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      0
       /* Upper limit            */      65535
-      ECU_ADDRESS                       0x2000c0b2
+      ECU_ADDRESS                       0x2000c0da
     /end MEASUREMENT
     
     
@@ -417,7 +417,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      0
       /* Upper limit            */      255
-      ECU_ADDRESS                       0x2000c07a
+      ECU_ADDRESS                       0x2000c0aa
     /end MEASUREMENT
     
     
@@ -430,7 +430,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      0
       /* Upper limit            */      1
-      ECU_ADDRESS                       0x2000bdb8
+      ECU_ADDRESS                       0x2000bdc0
     /end MEASUREMENT
     
     
@@ -443,7 +443,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      -1.7E+308
       /* Upper limit            */      1.7E+308
-      ECU_ADDRESS                       0x2000bde0
+      ECU_ADDRESS                       0x2000bde8
     /end MEASUREMENT
     
     
@@ -456,7 +456,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      -1.7E+308
       /* Upper limit            */      1.7E+308
-      ECU_ADDRESS                       0x2000bd68
+      ECU_ADDRESS                       0x2000bd70
     /end MEASUREMENT
     
     
@@ -469,7 +469,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      -1.7E+308
       /* Upper limit            */      1.7E+308
-      ECU_ADDRESS                       0x2000bd40
+      ECU_ADDRESS                       0x2000bd48
     /end MEASUREMENT
     
     
@@ -482,7 +482,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      -1.7E+308
       /* Upper limit            */      1.7E+308
-      ECU_ADDRESS                       0x2000bd88
+      ECU_ADDRESS                       0x2000bd90
     /end MEASUREMENT
     
     
@@ -547,7 +547,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      -1.7E+308
       /* Upper limit            */      1.7E+308
-      ECU_ADDRESS                       0x2000bdb0
+      ECU_ADDRESS                       0x2000bdb8
     /end MEASUREMENT
     
     
@@ -573,7 +573,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      -1.7E+308
       /* Upper limit            */      1.7E+308
-      ECU_ADDRESS                       0x2000c0b8
+      ECU_ADDRESS                       0x2000c0e0
     /end MEASUREMENT
     
     
@@ -586,7 +586,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      -1.7E+308
       /* Upper limit            */      1.7E+308
-      ECU_ADDRESS                       0x2000bd98
+      ECU_ADDRESS                       0x2000bda0
     /end MEASUREMENT
     
     
@@ -599,7 +599,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      -1.7E+308
       /* Upper limit            */      1.7E+308
-      ECU_ADDRESS                       0x2000c0a0
+      ECU_ADDRESS                       0x2000c0c8
     /end MEASUREMENT
     
     
@@ -612,7 +612,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      -1.7E+308
       /* Upper limit            */      1.7E+308
-      ECU_ADDRESS                       0x2000c080
+      ECU_ADDRESS                       0x2000c0b0
     /end MEASUREMENT
     
     
@@ -625,7 +625,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      -1.7E+308
       /* Upper limit            */      1.7E+308
-      ECU_ADDRESS                       0x2000bd48
+      ECU_ADDRESS                       0x2000bd50
     /end MEASUREMENT
     
     
@@ -638,7 +638,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      -1.7E+308
       /* Upper limit            */      1.7E+308
-      ECU_ADDRESS                       0x2000bd78
+      ECU_ADDRESS                       0x2000bd80
     /end MEASUREMENT
     
     
@@ -664,7 +664,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      -1.7E+308
       /* Upper limit            */      1.7E+308
-      ECU_ADDRESS                       0x2000c068
+      ECU_ADDRESS                       0x2000c098
     /end MEASUREMENT
     
     
@@ -677,7 +677,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      -1.7E+308
       /* Upper limit            */      1.7E+308
-      ECU_ADDRESS                       0x2000bd60
+      ECU_ADDRESS                       0x2000bd68
     /end MEASUREMENT
     
     
@@ -690,46 +690,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      -1.7E+308
       /* Upper limit            */      1.7E+308
-      ECU_ADDRESS                       0x2000bdf0
-    /end MEASUREMENT
-    
-    
-    /begin MEASUREMENT
-      /* Name                   */      rxDeltaA
-      /* Long identifier        */      ""
-      /* Data type              */      FLOAT64_IEEE
-      /* Conversion method      */      HANcoder_E407_TTA_Group2_CM_double
-      /* Resolution (Not used)  */      0
-      /* Accuracy (Not used)    */      0
-      /* Lower limit            */      -1.7E+308
-      /* Upper limit            */      1.7E+308
-      ECU_ADDRESS                       0x2000c060
-    /end MEASUREMENT
-    
-    
-    /begin MEASUREMENT
-      /* Name                   */      rxDeltaF
-      /* Long identifier        */      ""
-      /* Data type              */      FLOAT64_IEEE
-      /* Conversion method      */      HANcoder_E407_TTA_Group2_CM_double
-      /* Resolution (Not used)  */      0
-      /* Accuracy (Not used)    */      0
-      /* Lower limit            */      -1.7E+308
-      /* Upper limit            */      1.7E+308
-      ECU_ADDRESS                       0x2000be00
-    /end MEASUREMENT
-    
-    
-    /begin MEASUREMENT
-      /* Name                   */      rxSpeedV
-      /* Long identifier        */      ""
-      /* Data type              */      FLOAT64_IEEE
-      /* Conversion method      */      HANcoder_E407_TTA_Group2_CM_double
-      /* Resolution (Not used)  */      0
-      /* Accuracy (Not used)    */      0
-      /* Lower limit            */      -1.7E+308
-      /* Upper limit            */      1.7E+308
-      ECU_ADDRESS                       0x2000c088
+      ECU_ADDRESS                       0x2000bdf8
     /end MEASUREMENT
     
     
@@ -755,7 +716,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      -1.7E+308
       /* Upper limit            */      1.7E+308
-      ECU_ADDRESS                       0x2000bd50
+      ECU_ADDRESS                       0x2000bd58
     /end MEASUREMENT
     
     
@@ -768,7 +729,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      -1.7E+308
       /* Upper limit            */      1.7E+308
-      ECU_ADDRESS                       0x2000be18
+      ECU_ADDRESS                       0x2000be20
     /end MEASUREMENT
     
     
@@ -781,7 +742,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      -1.7E+308
       /* Upper limit            */      1.7E+308
-      ECU_ADDRESS                       0x2000bda0
+      ECU_ADDRESS                       0x2000bda8
     /end MEASUREMENT
     
     
@@ -794,7 +755,33 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      0
       /* Upper limit            */      65535
-      ECU_ADDRESS                       0x2000bdfe
+      ECU_ADDRESS                       0x2000be06
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      rxDeltaA
+      /* Long identifier        */      ""
+      /* Data type              */      UWORD
+      /* Conversion method      */      HANcoder_E407_TTA_Group2_CM_ufix16_En7
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      511.9921875
+      ECU_ADDRESS                       0x2000c090
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      rxDeltaF
+      /* Long identifier        */      ""
+      /* Data type              */      UWORD
+      /* Conversion method      */      HANcoder_E407_TTA_Group2_CM_ufix16_En7
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      511.9921875
+      ECU_ADDRESS                       0x2000be08
     /end MEASUREMENT
     
     
@@ -820,7 +807,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      0
       /* Upper limit            */      255
-      ECU_ADDRESS                       0x2000c070
+      ECU_ADDRESS                       0x2000c0a0
     /end MEASUREMENT
     
     
@@ -833,7 +820,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      0
       /* Upper limit            */      255
-      ECU_ADDRESS                       0x2000c079
+      ECU_ADDRESS                       0x2000c0a9
     /end MEASUREMENT
     
     
@@ -846,7 +833,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      0
       /* Upper limit            */      255
-      ECU_ADDRESS                       0x2000bd80
+      ECU_ADDRESS                       0x2000bd88
     /end MEASUREMENT
     
     
@@ -859,7 +846,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      0
       /* Upper limit            */      255
-      ECU_ADDRESS                       0x2000bd70
+      ECU_ADDRESS                       0x2000bd78
     /end MEASUREMENT
     
     
@@ -872,7 +859,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      0
       /* Upper limit            */      1
-      ECU_ADDRESS                       0x2000be10
+      ECU_ADDRESS                       0x2000be18
     /end MEASUREMENT
     
     
@@ -885,7 +872,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      0
       /* Upper limit            */      1
-      ECU_ADDRESS                       0x2000c071
+      ECU_ADDRESS                       0x2000c0a1
     /end MEASUREMENT
     
     
@@ -898,7 +885,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      0
       /* Upper limit            */      1
-      ECU_ADDRESS                       0x2000bdaa
+      ECU_ADDRESS                       0x2000bdb2
     /end MEASUREMENT
     
     
@@ -911,7 +898,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      0
       /* Upper limit            */      1
-      ECU_ADDRESS                       0x2000c078
+      ECU_ADDRESS                       0x2000c0a8
     /end MEASUREMENT
     
     
@@ -937,7 +924,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      0
       /* Upper limit            */      1
-      ECU_ADDRESS                       0x2000bdc9
+      ECU_ADDRESS                       0x2000bdd1
     /end MEASUREMENT
     
     
@@ -950,7 +937,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      0
       /* Upper limit            */      1
-      ECU_ADDRESS                       0x2000be24
+      ECU_ADDRESS                       0x2000be2c
     /end MEASUREMENT
     
     
@@ -963,7 +950,20 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      0
       /* Upper limit            */      1
-      ECU_ADDRESS                       0x2000bdd8
+      ECU_ADDRESS                       0x2000bde0
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      new_sensor_rx_s
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      HANcoder_E407_TTA_Group2_CM_boolean
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      1
+      ECU_ADDRESS                       0x2000bd89
     /end MEASUREMENT
     
     
@@ -989,7 +989,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      0
       /* Upper limit            */      1
-      ECU_ADDRESS                       0x2000bdfc
+      ECU_ADDRESS                       0x2000be04
     /end MEASUREMENT
     
     
@@ -1002,7 +1002,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      -1.7E+308
       /* Upper limit            */      1.7E+308
-      ECU_ADDRESS                       0x2000bd58
+      ECU_ADDRESS                       0x2000bd60
     /end MEASUREMENT
     
     
@@ -1015,7 +1015,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      0
       /* Upper limit            */      4294967295
-      ECU_ADDRESS                       0x2000bdf8
+      ECU_ADDRESS                       0x2000be00
     /end MEASUREMENT
     
     
@@ -1041,7 +1041,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      -1.7E+308
       /* Upper limit            */      1.7E+308
-      ECU_ADDRESS                       0x2000c098
+      ECU_ADDRESS                       0x2000c0c0
     /end MEASUREMENT
     
     
@@ -1054,7 +1054,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      0
       /* Upper limit            */      4294967295
-      ECU_ADDRESS                       0x2000bde8
+      ECU_ADDRESS                       0x2000bdf0
     /end MEASUREMENT
     
     
@@ -1067,7 +1067,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      0
       /* Upper limit            */      4294967295
-      ECU_ADDRESS                       0x2000c090
+      ECU_ADDRESS                       0x2000c0b8
     /end MEASUREMENT
     
     
@@ -1080,7 +1080,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      0
       /* Upper limit            */      65535
-      ECU_ADDRESS                       0x2000c0b0
+      ECU_ADDRESS                       0x2000c0d8
     /end MEASUREMENT
     
     
@@ -1093,7 +1093,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      -1.7E+308
       /* Upper limit            */      1.7E+308
-      ECU_ADDRESS                       0x2000bdd0
+      ECU_ADDRESS                       0x2000bdd8
     /end MEASUREMENT
     
     
@@ -1106,7 +1106,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      0
       /* Upper limit            */      4294967295
-      ECU_ADDRESS                       0x2000bd30
+      ECU_ADDRESS                       0x2000bd38
     /end MEASUREMENT
     
     
@@ -1119,7 +1119,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      0
       /* Upper limit            */      4294967295
-      ECU_ADDRESS                       0x2000bdac
+      ECU_ADDRESS                       0x2000bdb4
     /end MEASUREMENT
     
     
@@ -1132,7 +1132,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      0
       /* Upper limit            */      65535
-      ECU_ADDRESS                       0x2000bda8
+      ECU_ADDRESS                       0x2000bdb0
     /end MEASUREMENT
     
     
@@ -1145,7 +1145,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      -1.7E+308
       /* Upper limit            */      1.7E+308
-      ECU_ADDRESS                       0x2000c0a8
+      ECU_ADDRESS                       0x2000c0d0
     /end MEASUREMENT
     
     
@@ -1158,7 +1158,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      0
       /* Upper limit            */      4294967295
-      ECU_ADDRESS                       0x2000c074
+      ECU_ADDRESS                       0x2000c0a4
     /end MEASUREMENT
     
     
@@ -1171,7 +1171,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      0
       /* Upper limit            */      4294967295
-      ECU_ADDRESS                       0x2000bd90
+      ECU_ADDRESS                       0x2000bd98
     /end MEASUREMENT
     
     /begin COMPU_METHOD
@@ -1217,6 +1217,15 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Format                 */      "%3.0"
       /* Units                  */      ""
       /* Coefficients           */      COEFFS 0 1 0 0 0 1
+    /end COMPU_METHOD
+    
+    /begin COMPU_METHOD
+      /* Name of CompuMethod    */      HANcoder_E407_TTA_Group2_CM_ufix16_En7
+      /* Long identifier        */      "Q = V*128.000000"
+      /* Conversion Type        */      RAT_FUNC
+      /* Format                 */      "%10.7"
+      /* Units                  */      ""
+      /* Coefficients           */      COEFFS 0 128.000000 0.000000 0 0 1.000000
     /end COMPU_METHOD
     
     /begin GROUP 
@@ -1517,8 +1526,10 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /begin SUB_GROUP
         S163_COMM_Task___Set_Values
         S163_COMM_Task___Sync_bc_1
+        S163_COMM_Task___Test
         S163_COMP_Task___Rx_Set_Values_Check
         S163_COMP_Task___Sync_bc1_check
+        S163_COMP_Task___Test
       /end SUB_GROUP
     /end GROUP
     
@@ -1547,9 +1558,9 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Name                   */       S160_input_generator_basic_cycle_0
       /* Long identifier        */       "HANcoder_E407_TTA_Group2/HANcoder STM32 Target - E407-STM32 algorithm/TTA CAN System/TTA System/Matrix Cycle Manager/Input Generator Matrix Cycle/input generator basic cycle 0"
       /begin SUB_GROUP
-        S518_COMM_Task___Sync_bc_0
-        S518_COMP_Task___Reset_Board
-        S518_COMP_Task___Sync_bc0_check
+        S569_COMM_Task___Sync_bc_0
+        S569_COMP_Task___Reset_Board
+        S569_COMP_Task___Sync_bc0_check
       /end SUB_GROUP
     /end GROUP
     
@@ -1557,9 +1568,9 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Name                   */       S160_input_generator_basic_cycle_1
       /* Long identifier        */       "HANcoder_E407_TTA_Group2/HANcoder STM32 Target - E407-STM32 algorithm/TTA CAN System/TTA System/Matrix Cycle Manager/Input Generator Matrix Cycle/input generator basic cycle 1"
       /begin SUB_GROUP
-        S519_COMM_Task___Set_Values
-        S519_COMM_Task___Sync_bc_1
-        S519_COMP_Task___Sync_bc1_check
+        S570_COMM_Task___Set_Values
+        S570_COMM_Task___Sync_bc_1
+        S570_COMP_Task___Sync_bc1_check
       /end SUB_GROUP
     /end GROUP
     
@@ -1662,10 +1673,18 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP 
+      /* Name                   */       S163_COMM_Task___Test
+      /* Long identifier        */       "HANcoder_E407_TTA_Group2/HANcoder STM32 Target - E407-STM32 algorithm/TTA CAN System/TTA System/Matrix Cycle Manager/Controller Matrix Cycle/controller basic cycle 1/COMM Task - Test"
+      /begin SUB_GROUP
+        S388_Transmission_subtasks1
+      /end SUB_GROUP
+    /end GROUP
+    
+    /begin GROUP 
       /* Name                   */       S163_COMP_Task___Rx_Set_Values_Check
       /* Long identifier        */       "HANcoder_E407_TTA_Group2/HANcoder STM32 Target - E407-STM32 algorithm/TTA CAN System/TTA System/Matrix Cycle Manager/Controller Matrix Cycle/controller basic cycle 1/COMP Task - Rx_Set_Values_Check"
       /begin SUB_GROUP
-        S389_Update_Msg_buffer
+        S390_Update_Msg_buffer
       /end SUB_GROUP
     /end GROUP
     
@@ -1673,20 +1692,28 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Name                   */       S163_COMP_Task___Sync_bc1_check
       /* Long identifier        */       "HANcoder_E407_TTA_Group2/HANcoder STM32 Target - E407-STM32 algorithm/TTA CAN System/TTA System/Matrix Cycle Manager/Controller Matrix Cycle/controller basic cycle 1/COMP Task - Sync bc1 check"
       /begin SUB_GROUP
-        S390_Process_Messages
+        S391_Process_Messages
       /end SUB_GROUP
     /end GROUP
     
     /begin GROUP 
-      /* Name                   */       S518_COMM_Task___Sync_bc_0
+      /* Name                   */       S163_COMP_Task___Test
+      /* Long identifier        */       "HANcoder_E407_TTA_Group2/HANcoder STM32 Target - E407-STM32 algorithm/TTA CAN System/TTA System/Matrix Cycle Manager/Controller Matrix Cycle/controller basic cycle 1/COMP Task - Test"
+      /begin SUB_GROUP
+        S392_Update_Msg_buffer
+      /end SUB_GROUP
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S569_COMM_Task___Sync_bc_0
       /* Long identifier        */       "HANcoder_E407_TTA_Group2/HANcoder STM32 Target - E407-STM32 algorithm/TTA CAN System/TTA System/Matrix Cycle Manager/Input Generator Matrix Cycle/input generator basic cycle 0/COMM Task - Sync bc 0"
       /begin SUB_GROUP
-        S521_Transmission_subtasks
+        S572_Transmission_subtasks
       /end SUB_GROUP
     /end GROUP
     
     /begin GROUP 
-      /* Name                   */       S518_COMP_Task___Reset_Board
+      /* Name                   */       S569_COMP_Task___Reset_Board
       /* Long identifier        */       "HANcoder_E407_TTA_Group2/HANcoder STM32 Target - E407-STM32 algorithm/TTA CAN System/TTA System/Matrix Cycle Manager/Input Generator Matrix Cycle/input generator basic cycle 0/COMP Task - Reset Board"
       /begin REF_MEASUREMENT
         reset_ing_s
@@ -1694,34 +1721,34 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP 
-      /* Name                   */       S518_COMP_Task___Sync_bc0_check
+      /* Name                   */       S569_COMP_Task___Sync_bc0_check
       /* Long identifier        */       "HANcoder_E407_TTA_Group2/HANcoder STM32 Target - E407-STM32 algorithm/TTA CAN System/TTA System/Matrix Cycle Manager/Input Generator Matrix Cycle/input generator basic cycle 0/COMP Task - Sync bc0 check"
       /begin SUB_GROUP
-        S524_Process_Messages
+        S575_Process_Messages
       /end SUB_GROUP
     /end GROUP
     
     /begin GROUP 
-      /* Name                   */       S519_COMM_Task___Set_Values
+      /* Name                   */       S570_COMM_Task___Set_Values
       /* Long identifier        */       "HANcoder_E407_TTA_Group2/HANcoder STM32 Target - E407-STM32 algorithm/TTA CAN System/TTA System/Matrix Cycle Manager/Input Generator Matrix Cycle/input generator basic cycle 1/COMM Task - Set_Values"
       /begin SUB_GROUP
-        S580_Transmission_subtasks
+        S631_Transmission_subtasks
       /end SUB_GROUP
     /end GROUP
     
     /begin GROUP 
-      /* Name                   */       S519_COMM_Task___Sync_bc_1
+      /* Name                   */       S570_COMM_Task___Sync_bc_1
       /* Long identifier        */       "HANcoder_E407_TTA_Group2/HANcoder STM32 Target - E407-STM32 algorithm/TTA CAN System/TTA System/Matrix Cycle Manager/Input Generator Matrix Cycle/input generator basic cycle 1/COMM Task - Sync bc 1"
       /begin SUB_GROUP
-        S581_Transmission_subtasks
+        S632_Transmission_subtasks
       /end SUB_GROUP
     /end GROUP
     
     /begin GROUP 
-      /* Name                   */       S519_COMP_Task___Sync_bc1_check
+      /* Name                   */       S570_COMP_Task___Sync_bc1_check
       /* Long identifier        */       "HANcoder_E407_TTA_Group2/HANcoder STM32 Target - E407-STM32 algorithm/TTA CAN System/TTA System/Matrix Cycle Manager/Input Generator Matrix Cycle/input generator basic cycle 1/COMP Task - Sync bc1 check"
       /begin SUB_GROUP
-        S585_Process_Messages
+        S636_Process_Messages
       /end SUB_GROUP
     /end GROUP
     
@@ -1815,9 +1842,9 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Name                   */       S386_Transmission_subtasks
       /* Long identifier        */       "HANcoder_E407_TTA_Group2/HANcoder STM32 Target - E407-STM32 algorithm/TTA CAN System/TTA System/Matrix Cycle Manager/Controller Matrix Cycle/controller basic cycle 1/COMM Task - Set_Values/Transmission subtasks"
       /begin SUB_GROUP
-        S393_Check_msg_transmission_CAN1
-        S393_Check_msg_transmission_CAN2
-        S393_Msg_Value_Data_Encoded
+        S395_Check_msg_transmission_CAN1
+        S395_Check_msg_transmission_CAN2
+        S395_Msg_Value_Data_Encoded
       /end SUB_GROUP
     /end GROUP
     
@@ -1825,71 +1852,88 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Name                   */       S387_Transmission_subtasks1
       /* Long identifier        */       "HANcoder_E407_TTA_Group2/HANcoder STM32 Target - E407-STM32 algorithm/TTA CAN System/TTA System/Matrix Cycle Manager/Controller Matrix Cycle/controller basic cycle 1/COMM Task - Sync bc 1/Transmission subtasks1"
       /begin SUB_GROUP
-        S420_Check_msg_transmission_CAN1
-        S420_Check_msg_transmission_CAN2
+        S422_Check_msg_transmission_CAN1
+        S422_Check_msg_transmission_CAN2
       /end SUB_GROUP
     /end GROUP
     
     /begin GROUP 
-      /* Name                   */       S389_Update_Msg_buffer
-      /* Long identifier        */       "HANcoder_E407_TTA_Group2/HANcoder STM32 Target - E407-STM32 algorithm/TTA CAN System/TTA System/Matrix Cycle Manager/Controller Matrix Cycle/controller basic cycle 1/COMP Task - Rx_Set_Values_Check/Update Msg buffer"
+      /* Name                   */       S388_Transmission_subtasks1
+      /* Long identifier        */       "HANcoder_E407_TTA_Group2/HANcoder STM32 Target - E407-STM32 algorithm/TTA CAN System/TTA System/Matrix Cycle Manager/Controller Matrix Cycle/controller basic cycle 1/COMM Task - Test/Transmission subtasks1"
       /begin SUB_GROUP
-        S441_Set_Values_Update
+        S440_Check_msg_transmission_CAN1
+        S440_Check_msg_transmission_CAN2
       /end SUB_GROUP
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S390_Update_Msg_buffer
+      /* Long identifier        */       "HANcoder_E407_TTA_Group2/HANcoder STM32 Target - E407-STM32 algorithm/TTA CAN System/TTA System/Matrix Cycle Manager/Controller Matrix Cycle/controller basic cycle 1/COMP Task - Rx_Set_Values_Check/Update Msg buffer"
       /begin REF_MEASUREMENT
         new_set_rx_s
       /end REF_MEASUREMENT
     /end GROUP
     
     /begin GROUP 
-      /* Name                   */       S390_Process_Messages
+      /* Name                   */       S391_Process_Messages
       /* Long identifier        */       "HANcoder_E407_TTA_Group2/HANcoder STM32 Target - E407-STM32 algorithm/TTA CAN System/TTA System/Matrix Cycle Manager/Controller Matrix Cycle/controller basic cycle 1/COMP Task - Sync bc1 check/Process_Messages"
       /begin SUB_GROUP
-        S485_Desync_calculation
+        S505_Desync_calculation
       /end SUB_GROUP
     /end GROUP
     
     /begin GROUP 
-      /* Name                   */       S521_Transmission_subtasks
+      /* Name                   */       S392_Update_Msg_buffer
+      /* Long identifier        */       "HANcoder_E407_TTA_Group2/HANcoder STM32 Target - E407-STM32 algorithm/TTA CAN System/TTA System/Matrix Cycle Manager/Controller Matrix Cycle/controller basic cycle 1/COMP Task - Test/Update Msg buffer"
+      /begin SUB_GROUP
+        S536_Set_Values_Update
+      /end SUB_GROUP
+      /begin REF_MEASUREMENT
+        new_sensor_rx_s
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S572_Transmission_subtasks
       /* Long identifier        */       "HANcoder_E407_TTA_Group2/HANcoder STM32 Target - E407-STM32 algorithm/TTA CAN System/TTA System/Matrix Cycle Manager/Input Generator Matrix Cycle/input generator basic cycle 0/COMM Task - Sync bc 0/Transmission subtasks"
       /begin SUB_GROUP
-        S527_Check_msg_transmission_CAN1
-        S527_Check_msg_transmission_CAN2
+        S578_Check_msg_transmission_CAN1
+        S578_Check_msg_transmission_CAN2
       /end SUB_GROUP
     /end GROUP
     
     /begin GROUP 
-      /* Name                   */       S524_Process_Messages
+      /* Name                   */       S575_Process_Messages
       /* Long identifier        */       "HANcoder_E407_TTA_Group2/HANcoder STM32 Target - E407-STM32 algorithm/TTA CAN System/TTA System/Matrix Cycle Manager/Input Generator Matrix Cycle/input generator basic cycle 0/COMP Task - Sync bc0 check/Process_Messages"
       /begin SUB_GROUP
-        S547_Desync_calculation
+        S598_Desync_calculation
       /end SUB_GROUP
     /end GROUP
     
     /begin GROUP 
-      /* Name                   */       S580_Transmission_subtasks
+      /* Name                   */       S631_Transmission_subtasks
       /* Long identifier        */       "HANcoder_E407_TTA_Group2/HANcoder STM32 Target - E407-STM32 algorithm/TTA CAN System/TTA System/Matrix Cycle Manager/Input Generator Matrix Cycle/input generator basic cycle 1/COMM Task - Set_Values/Transmission subtasks"
       /begin SUB_GROUP
-        S588_Check_msg_transmission_CAN1
-        S588_Check_msg_transmission_CAN2
-        S588_Msg_Value_Data_Encoded
+        S639_Check_msg_transmission_CAN1
+        S639_Check_msg_transmission_CAN2
+        S639_Msg_Value_Data_Encoded
       /end SUB_GROUP
     /end GROUP
     
     /begin GROUP 
-      /* Name                   */       S581_Transmission_subtasks
+      /* Name                   */       S632_Transmission_subtasks
       /* Long identifier        */       "HANcoder_E407_TTA_Group2/HANcoder STM32 Target - E407-STM32 algorithm/TTA CAN System/TTA System/Matrix Cycle Manager/Input Generator Matrix Cycle/input generator basic cycle 1/COMM Task - Sync bc 1/Transmission subtasks"
       /begin SUB_GROUP
-        S615_Check_msg_transmission_CAN1
-        S615_Check_msg_transmission_CAN2
+        S666_Check_msg_transmission_CAN1
+        S666_Check_msg_transmission_CAN2
       /end SUB_GROUP
     /end GROUP
     
     /begin GROUP 
-      /* Name                   */       S585_Process_Messages
+      /* Name                   */       S636_Process_Messages
       /* Long identifier        */       "HANcoder_E407_TTA_Group2/HANcoder STM32 Target - E407-STM32 algorithm/TTA CAN System/TTA System/Matrix Cycle Manager/Input Generator Matrix Cycle/input generator basic cycle 1/COMP Task - Sync bc1 check/Process_Messages"
       /begin SUB_GROUP
-        S636_Desync_calculation
+        S687_Desync_calculation
       /end SUB_GROUP
     /end GROUP
     
@@ -2002,7 +2046,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP 
-      /* Name                   */       S393_Check_msg_transmission_CAN1
+      /* Name                   */       S395_Check_msg_transmission_CAN1
       /* Long identifier        */       "HANcoder_E407_TTA_Group2/HANcoder STM32 Target - E407-STM32 algorithm/TTA CAN System/TTA System/Matrix Cycle Manager/Controller Matrix Cycle/controller basic cycle 1/COMM Task - Set_Values/Transmission subtasks/Check msg transmission CAN1"
       /begin REF_CHARACTERISTIC
         COMM_Phase1
@@ -2011,7 +2055,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP 
-      /* Name                   */       S393_Check_msg_transmission_CAN2
+      /* Name                   */       S395_Check_msg_transmission_CAN2
       /* Long identifier        */       "HANcoder_E407_TTA_Group2/HANcoder STM32 Target - E407-STM32 algorithm/TTA CAN System/TTA System/Matrix Cycle Manager/Controller Matrix Cycle/controller basic cycle 1/COMM Task - Set_Values/Transmission subtasks/Check msg transmission CAN2"
       /begin REF_CHARACTERISTIC
         COMM_Phase2
@@ -2020,7 +2064,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP 
-      /* Name                   */       S393_Msg_Value_Data_Encoded
+      /* Name                   */       S395_Msg_Value_Data_Encoded
       /* Long identifier        */       "HANcoder_E407_TTA_Group2/HANcoder STM32 Target - E407-STM32 algorithm/TTA CAN System/TTA System/Matrix Cycle Manager/Controller Matrix Cycle/controller basic cycle 1/COMM Task - Set_Values/Transmission subtasks/Msg_Value_Data_Encoded"
       /begin REF_CHARACTERISTIC
         delta_a_set
@@ -2030,7 +2074,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP 
-      /* Name                   */       S420_Check_msg_transmission_CAN1
+      /* Name                   */       S422_Check_msg_transmission_CAN1
       /* Long identifier        */       "HANcoder_E407_TTA_Group2/HANcoder STM32 Target - E407-STM32 algorithm/TTA CAN System/TTA System/Matrix Cycle Manager/Controller Matrix Cycle/controller basic cycle 1/COMM Task - Sync bc 1/Transmission subtasks1/Check msg transmission CAN1"
       /begin REF_CHARACTERISTIC
         COMM_Phase1
@@ -2039,7 +2083,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP 
-      /* Name                   */       S420_Check_msg_transmission_CAN2
+      /* Name                   */       S422_Check_msg_transmission_CAN2
       /* Long identifier        */       "HANcoder_E407_TTA_Group2/HANcoder STM32 Target - E407-STM32 algorithm/TTA CAN System/TTA System/Matrix Cycle Manager/Controller Matrix Cycle/controller basic cycle 1/COMM Task - Sync bc 1/Transmission subtasks1/Check msg transmission CAN2"
       /begin REF_CHARACTERISTIC
         COMM_Phase2
@@ -2048,17 +2092,25 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP 
-      /* Name                   */       S441_Set_Values_Update
-      /* Long identifier        */       "HANcoder_E407_TTA_Group2/HANcoder STM32 Target - E407-STM32 algorithm/TTA CAN System/TTA System/Matrix Cycle Manager/Controller Matrix Cycle/controller basic cycle 1/COMP Task - Rx_Set_Values_Check/Update Msg buffer/Set Values Update"
-      /begin SUB_GROUP
-        S468_uint8_2float
-        S468_uint8_2float1
-        S468_uint8_2float2
-      /end SUB_GROUP
+      /* Name                   */       S440_Check_msg_transmission_CAN1
+      /* Long identifier        */       "HANcoder_E407_TTA_Group2/HANcoder STM32 Target - E407-STM32 algorithm/TTA CAN System/TTA System/Matrix Cycle Manager/Controller Matrix Cycle/controller basic cycle 1/COMM Task - Test/Transmission subtasks1/Check msg transmission CAN1"
+      /begin REF_CHARACTERISTIC
+        COMM_Phase1
+        COMM_Phase_init1
+      /end REF_CHARACTERISTIC
     /end GROUP
     
     /begin GROUP 
-      /* Name                   */       S485_Desync_calculation
+      /* Name                   */       S440_Check_msg_transmission_CAN2
+      /* Long identifier        */       "HANcoder_E407_TTA_Group2/HANcoder STM32 Target - E407-STM32 algorithm/TTA CAN System/TTA System/Matrix Cycle Manager/Controller Matrix Cycle/controller basic cycle 1/COMM Task - Test/Transmission subtasks1/Check msg transmission CAN2"
+      /begin REF_CHARACTERISTIC
+        COMM_Phase2
+        COMM_Phase_init2
+      /end REF_CHARACTERISTIC
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S505_Desync_calculation
       /* Long identifier        */       "HANcoder_E407_TTA_Group2/HANcoder STM32 Target - E407-STM32 algorithm/TTA CAN System/TTA System/Matrix Cycle Manager/Controller Matrix Cycle/controller basic cycle 1/COMP Task - Sync bc1 check/Process_Messages/Desync calculation"
       /begin REF_CHARACTERISTIC
         COMM_Phase1
@@ -2070,7 +2122,16 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP 
-      /* Name                   */       S527_Check_msg_transmission_CAN1
+      /* Name                   */       S536_Set_Values_Update
+      /* Long identifier        */       "HANcoder_E407_TTA_Group2/HANcoder STM32 Target - E407-STM32 algorithm/TTA CAN System/TTA System/Matrix Cycle Manager/Controller Matrix Cycle/controller basic cycle 1/COMP Task - Test/Update Msg buffer/Set Values Update"
+      /begin REF_MEASUREMENT
+        rxDeltaA
+        rxDeltaF
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S578_Check_msg_transmission_CAN1
       /* Long identifier        */       "HANcoder_E407_TTA_Group2/HANcoder STM32 Target - E407-STM32 algorithm/TTA CAN System/TTA System/Matrix Cycle Manager/Input Generator Matrix Cycle/input generator basic cycle 0/COMM Task - Sync bc 0/Transmission subtasks/Check msg transmission CAN1"
       /begin REF_CHARACTERISTIC
         COMM_Phase1
@@ -2079,7 +2140,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP 
-      /* Name                   */       S527_Check_msg_transmission_CAN2
+      /* Name                   */       S578_Check_msg_transmission_CAN2
       /* Long identifier        */       "HANcoder_E407_TTA_Group2/HANcoder STM32 Target - E407-STM32 algorithm/TTA CAN System/TTA System/Matrix Cycle Manager/Input Generator Matrix Cycle/input generator basic cycle 0/COMM Task - Sync bc 0/Transmission subtasks/Check msg transmission CAN2"
       /begin REF_CHARACTERISTIC
         COMM_Phase2
@@ -2088,7 +2149,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP 
-      /* Name                   */       S547_Desync_calculation
+      /* Name                   */       S598_Desync_calculation
       /* Long identifier        */       "HANcoder_E407_TTA_Group2/HANcoder STM32 Target - E407-STM32 algorithm/TTA CAN System/TTA System/Matrix Cycle Manager/Input Generator Matrix Cycle/input generator basic cycle 0/COMP Task - Sync bc0 check/Process_Messages/Desync calculation"
       /begin REF_CHARACTERISTIC
         COMM_Phase1
@@ -2100,7 +2161,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP 
-      /* Name                   */       S588_Check_msg_transmission_CAN1
+      /* Name                   */       S639_Check_msg_transmission_CAN1
       /* Long identifier        */       "HANcoder_E407_TTA_Group2/HANcoder STM32 Target - E407-STM32 algorithm/TTA CAN System/TTA System/Matrix Cycle Manager/Input Generator Matrix Cycle/input generator basic cycle 1/COMM Task - Set_Values/Transmission subtasks/Check msg transmission CAN1"
       /begin REF_CHARACTERISTIC
         COMM_Phase1
@@ -2109,7 +2170,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP 
-      /* Name                   */       S588_Check_msg_transmission_CAN2
+      /* Name                   */       S639_Check_msg_transmission_CAN2
       /* Long identifier        */       "HANcoder_E407_TTA_Group2/HANcoder STM32 Target - E407-STM32 algorithm/TTA CAN System/TTA System/Matrix Cycle Manager/Input Generator Matrix Cycle/input generator basic cycle 1/COMM Task - Set_Values/Transmission subtasks/Check msg transmission CAN2"
       /begin REF_CHARACTERISTIC
         COMM_Phase2
@@ -2118,7 +2179,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP 
-      /* Name                   */       S588_Msg_Value_Data_Encoded
+      /* Name                   */       S639_Msg_Value_Data_Encoded
       /* Long identifier        */       "HANcoder_E407_TTA_Group2/HANcoder STM32 Target - E407-STM32 algorithm/TTA CAN System/TTA System/Matrix Cycle Manager/Input Generator Matrix Cycle/input generator basic cycle 1/COMM Task - Set_Values/Transmission subtasks/Msg_Value_Data_Encoded"
       /begin REF_CHARACTERISTIC
         delta_a_set
@@ -2131,7 +2192,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP 
-      /* Name                   */       S615_Check_msg_transmission_CAN1
+      /* Name                   */       S666_Check_msg_transmission_CAN1
       /* Long identifier        */       "HANcoder_E407_TTA_Group2/HANcoder STM32 Target - E407-STM32 algorithm/TTA CAN System/TTA System/Matrix Cycle Manager/Input Generator Matrix Cycle/input generator basic cycle 1/COMM Task - Sync bc 1/Transmission subtasks/Check msg transmission CAN1"
       /begin REF_CHARACTERISTIC
         COMM_Phase1
@@ -2140,7 +2201,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP 
-      /* Name                   */       S615_Check_msg_transmission_CAN2
+      /* Name                   */       S666_Check_msg_transmission_CAN2
       /* Long identifier        */       "HANcoder_E407_TTA_Group2/HANcoder STM32 Target - E407-STM32 algorithm/TTA CAN System/TTA System/Matrix Cycle Manager/Input Generator Matrix Cycle/input generator basic cycle 1/COMM Task - Sync bc 1/Transmission subtasks/Check msg transmission CAN2"
       /begin REF_CHARACTERISTIC
         COMM_Phase2
@@ -2149,7 +2210,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP 
-      /* Name                   */       S636_Desync_calculation
+      /* Name                   */       S687_Desync_calculation
       /* Long identifier        */       "HANcoder_E407_TTA_Group2/HANcoder STM32 Target - E407-STM32 algorithm/TTA CAN System/TTA System/Matrix Cycle Manager/Input Generator Matrix Cycle/input generator basic cycle 1/COMP Task - Sync bc1 check/Process_Messages/Desync calculation"
       /begin REF_CHARACTERISTIC
         COMM_Phase1
@@ -2157,30 +2218,6 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /end REF_CHARACTERISTIC
       /begin REF_MEASUREMENT
         Desync_Sync_bc1_ing_s
-      /end REF_MEASUREMENT
-    /end GROUP
-    
-    /begin GROUP 
-      /* Name                   */       S468_uint8_2float
-      /* Long identifier        */       "HANcoder_E407_TTA_Group2/HANcoder STM32 Target - E407-STM32 algorithm/TTA CAN System/TTA System/Matrix Cycle Manager/Controller Matrix Cycle/controller basic cycle 1/COMP Task - Rx_Set_Values_Check/Update Msg buffer/Set Values Update/uint8_2float"
-      /begin REF_MEASUREMENT
-        rxDeltaF
-      /end REF_MEASUREMENT
-    /end GROUP
-    
-    /begin GROUP 
-      /* Name                   */       S468_uint8_2float1
-      /* Long identifier        */       "HANcoder_E407_TTA_Group2/HANcoder STM32 Target - E407-STM32 algorithm/TTA CAN System/TTA System/Matrix Cycle Manager/Controller Matrix Cycle/controller basic cycle 1/COMP Task - Rx_Set_Values_Check/Update Msg buffer/Set Values Update/uint8_2float1"
-      /begin REF_MEASUREMENT
-        rxDeltaA
-      /end REF_MEASUREMENT
-    /end GROUP
-    
-    /begin GROUP 
-      /* Name                   */       S468_uint8_2float2
-      /* Long identifier        */       "HANcoder_E407_TTA_Group2/HANcoder STM32 Target - E407-STM32 algorithm/TTA CAN System/TTA System/Matrix Cycle Manager/Controller Matrix Cycle/controller basic cycle 1/COMP Task - Rx_Set_Values_Check/Update Msg buffer/Set Values Update/uint8_2float2"
-      /begin REF_MEASUREMENT
-        rxSpeedV
       /end REF_MEASUREMENT
     /end GROUP
     
