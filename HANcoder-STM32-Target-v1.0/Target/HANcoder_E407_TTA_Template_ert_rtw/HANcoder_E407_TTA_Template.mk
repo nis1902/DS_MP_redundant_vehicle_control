@@ -199,8 +199,8 @@ HANcoder_INCLUDES = \
 
 # Additional includes
 ADD_INCLUDES = \
-	-I"C:\Users\Diego\Desktop\HAN\MAJORP~1\MP_Code\TTA_CO~1\HANCOD~1.0\Target" \
-	-I"C:\Users\Diego\Desktop\HAN\MAJORP~1\MP_Code\TTA_CO~1\HANCOD~1.0\Target\HANcoder_E407_TTA_Template_ert_rtw" \
+	-I"C:\Users\cheff\Documents\DS_MP_redundant_vehicle_control\HANcoder-STM32-Target-v1.0\Target" \
+	-I"C:\Users\cheff\Documents\DS_MP_redundant_vehicle_control\HANcoder-STM32-Target-v1.0\Target\HANcoder_E407_TTA_Template_ert_rtw" \
 	-I"$(MATLAB_ROOT)\extern\include" \
 	-I"$(MATLAB_ROOT)\simulink\include" \
 	-I"$(MATLAB_ROOT)\rtw\c\src" \

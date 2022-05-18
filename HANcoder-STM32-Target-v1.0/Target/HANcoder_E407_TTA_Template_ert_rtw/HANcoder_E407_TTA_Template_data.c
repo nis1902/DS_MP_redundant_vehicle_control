@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'HANcoder_E407_TTA_Template'.
  *
- * Model version                  : 1.154
+ * Model version                  : 1.155
  * Simulink Coder version         : 9.0 (R2018b) 24-May-2018
- * C/C++ source code generated on : Tue Feb 15 09:48:55 2022
+ * C/C++ source code generated on : Wed May 11 17:03:55 2022
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -24,7 +24,7 @@
 const ConstBlockIO rtConstB = {
   /* Start of '<S10>/TTA System' */
   {
-    288.0,                             /* '<S162>/Sum18' */
+    204.0,                             /* '<S162>/Sum18' */
     44.0,                              /* '<S162>/Sum1' */
     48.0,                              /* '<S162>/Sum2' */
     40.0,                              /* '<S162>/Sum4' */
@@ -173,11 +173,21 @@ const ConstParam rtConstP = {
   { 0.0, 40.0, 44.0, 46.0, 48.0, 50.0, 52.0, 92.0, 96.0, 100.0, 140.0, 142.0,
     144.0, 148.0, 188.0, 192.0, 196.0, 200.0, 204.0, 208.0 },
 
+  /* Expression: TM_Data_bc1
+   * Referenced by: '<S127>/Constant4'
+   */
+  { 0.0, 40.0, 44.0, 46.0, 200.0, 202.0 },
+
   /* Expression: TM_Type_bc0
    * Referenced by: '<S127>/Constant1'
    */
   { 0.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 1.0, 1.0, 0.0, 1.0, 1.0, 1.0, 0.0, 1.0,
     1.0, 1.0, 1.0, 1.0, 1.0 },
+
+  /* Expression: TM_Type_bc1
+   * Referenced by: '<S127>/Constant5'
+   */
+  { 0.0, 1.0, 1.0, 1.0, 1.0, 1.0 },
 
   /* Computed Parameter: Logic_table
    * Referenced by: '<S21>/Logic'

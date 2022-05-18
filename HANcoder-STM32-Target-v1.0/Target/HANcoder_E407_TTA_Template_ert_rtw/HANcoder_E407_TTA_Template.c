@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'HANcoder_E407_TTA_Template'.
  *
- * Model version                  : 1.154
+ * Model version                  : 1.155
  * Simulink Coder version         : 9.0 (R2018b) 24-May-2018
- * C/C++ source code generated on : Tue Feb 15 09:48:55 2022
+ * C/C++ source code generated on : Wed May 11 17:03:55 2022
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -8445,11 +8445,11 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
         /* Outputs for Enabled SubSystem: '<S162>/COMP Task - Reset Variables BC1' incorporates:
          *  EnablePort: '<S386>/Enable'
          */
-        if ((*rtd_Local_Ticks >= 284.0) && (*rtd_Local_Ticks < localC->Sum18)) {
+        if ((*rtd_Local_Ticks >= 200.0) && (*rtd_Local_Ticks < localC->Sum18)) {
           /* Outputs for Enabled SubSystem: '<S386>/Check Timeouts' incorporates:
            *  EnablePort: '<S407>/Enable'
            */
-          if (*rtd_Local_Ticks == 284.0) {
+          if (*rtd_Local_Ticks == 200.0) {
             /* Logic: '<S407>/AND9' incorporates:
              *  DataStoreRead: '<S407>/Data Store Read25'
              *  DataStoreWrite: '<S407>/Data Store Write8'
@@ -8478,7 +8478,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
           /* Outputs for Enabled SubSystem: '<S386>/Reset Variables' incorporates:
            *  EnablePort: '<S408>/Enable'
            */
-          if (*rtd_Local_Ticks == 286.0) {
+          if (*rtd_Local_Ticks == 202.0) {
             /* DataStoreWrite: '<S408>/Data Store Write' incorporates:
              *  Constant: '<S408>/Constant'
              */
@@ -10415,16 +10415,12 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
       memcpy(&rtb_signal1[0], rtConstP.Constant_Value_f, 20U * sizeof(real_T));
       memcpy(&rtb_signal2[0], rtConstP.Constant1_Value, 20U * sizeof(real_T));
     } else {
-      localDW->Switch_1_DIMS1 = 4;
-      localDW->Switch_2_DIMS1 = 4;
-      rtb_signal1[0] = 0.0;
-      rtb_signal2[0] = 0.0;
-      rtb_signal1[1] = 40.0;
-      rtb_signal2[1] = 1.0;
-      rtb_signal1[2] = 44.0;
-      rtb_signal2[2] = 1.0;
-      rtb_signal1[3] = 46.0;
-      rtb_signal2[3] = 1.0;
+      localDW->Switch_1_DIMS1 = 6;
+      localDW->Switch_2_DIMS1 = 6;
+      for (sigIdx = 0; sigIdx < 6; sigIdx++) {
+        rtb_signal1[sigIdx] = rtConstP.Constant4_Value[sigIdx];
+        rtb_signal2[sigIdx] = rtConstP.Constant5_Value[sigIdx];
+      }
     }
 
     /* End of Switch: '<S127>/Switch' */

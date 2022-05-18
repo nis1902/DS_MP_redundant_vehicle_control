@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'HANcoder_E407_TTA_Template'.
  *
- * Model version                  : 1.154
+ * Model version                  : 1.155
  * Simulink Coder version         : 9.0 (R2018b) 24-May-2018
- * C/C++ source code generated on : Tue Feb 15 09:48:55 2022
+ * C/C++ source code generated on : Wed May 11 17:03:55 2022
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -743,10 +743,20 @@ typedef struct {
    */
   real_T Constant_Value_f[20];
 
+  /* Expression: TM_Data_bc1
+   * Referenced by: '<S127>/Constant4'
+   */
+  real_T Constant4_Value[6];
+
   /* Expression: TM_Type_bc0
    * Referenced by: '<S127>/Constant1'
    */
   real_T Constant1_Value[20];
+
+  /* Expression: TM_Type_bc1
+   * Referenced by: '<S127>/Constant5'
+   */
+  real_T Constant5_Value[6];
 
   /* Computed Parameter: Logic_table
    * Referenced by: '<S21>/Logic'
