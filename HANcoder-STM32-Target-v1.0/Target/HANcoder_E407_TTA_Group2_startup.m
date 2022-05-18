@@ -31,7 +31,7 @@ Controller1_Board = 1;
 Controller2_Board = 2;
 Controller3_Board = 3;
 
-Input_Gen_Board = 4;
+Input_Gen_Board = 8;
 
 % COMMunication Model
 COMM_Period = 40;
@@ -286,6 +286,15 @@ SI_CPUload = Simulink.Signal;
 SI_CPUload.StorageClass = 'ExportedGlobal';
 SI_FreeHeap = Simulink.Signal;
 SI_FreeHeap.StorageClass = 'ExportedGlobal';
+
+% Temporary values
+rxDeltaF = Simulink.Signal;
+rxDeltaF.StorageClass = 'ExportedGlobal';
+rxDeltaA = Simulink.Signal;
+rxDeltaA.StorageClass = 'ExportedGlobal';
+rxSpeedV = Simulink.Signal;
+rxSpeedV.StorageClass = 'ExportedGlobal';
+
 
 %% Parameters
 % Defining a parameter for editing in HANtune
