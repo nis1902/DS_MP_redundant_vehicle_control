@@ -62,56 +62,7 @@ DEBUG_wait = 20000; % insert this in a TM to make the system wait there for DEBU
 basic_cycle_start = 0;
 COMM_duration = COMM_Period;
 COMP_duration = 4;
-%% Value Domain Constants
-%   Name            Definition          U       Range       Value   Prec
-% track_l_f     Track width front axle	m       0.5..1.0	0,60	0,001
-% track_l_a     Track width aft axle	m       0.5..1.0	0,60	0,001
-% wheelbase_l	Wheel base distance     m       0.9..1.5	1,00	0,001
-%               front to aft
-% mass_v        Effective vehicle mass	kg      90..200   100,00    1
-% mass_f        Effective front axle    kg      20..30     25,00    0,1
-%               mass
-% mass_a        Effective aft axle mass	kg      20..30     25,00	0,1
-% inertia_f     Effective moment of   Nm^2/rad	1..3        2,25	0,001
-%               inertia front axle	
-% inertia_a     Effective moment of   Nm^2/rad	1..3        2,25	0,001
-%               inertia aft axle
-% radius_w_fr	Wheel radius front      m       0.09..0.11	0,10	0,001
-%               right
-% radius_w_fl	Wheel radius front left	m       0.09..0.11	0,10	0,001
-% radius_w_ar	Wheel radius aft right	m       0.09..0.11	0,10	0,001
-% radius_w_ar	Wheel radius aft left	m       0.09..0.11	0,10	0,001
 
-Tl_f = 0.6; % m [0.5-1.0], 0.001
-Tl_a = 0.6; % m [0.5-1.0], 0.001
-W_b  = 1.0; % m [0.9-1.5], 0.001
-m_v  = 100.0; % kg [90.0 - 200.0], 1.0
-m_f  = 25.0;  % kg [20.0 - 30.0], 0.1
-m_a  = 25.0;  % kg [20.0 - 30.0], 0.1
-I_f  = 2.25; % Nm^2/rad	[1.0 - 3.0], 0.001
-I_a  = 2.25; % Nm^2/rad	[1.0 - 3.0], 0.001
-R_fr = 0.10; % m [0.09 - 0.11], 0.001
-R_fl = 0.10; % m [0.09 - 0.11], 0.001
-R_ar = 0.10; % m [0.09 - 0.11], 0.001
-R_al = 0.10; % m [0.09 - 0.11], 0.001
-
-% Signal bounds
-speed_max =  10;
-speed_min = -10;
-delta_max =   1;
-delta_min =  -1;
-theta_max = (speed_max/R_fr)*matrix_cycle_duration*frequency_IRQ/hardware_granularity;
-theta_min = (-1)*theta_max;
-tau_max   =   5;
-tau_min   =  -5;
-tau_range = abs(tau_max) + abs(tau_min);
-e_width   = 0.1; % 10\%
-
-% Signal precision <bits reserved for this value>
-torque_precision = 4; % bits
-delta_precision  = 6; % bits
-theta_precision  = 7-(fix(log2(theta_max))+1); % bits
-speed_precision  = 3; % bits
 %% Definition of Time marks
 % Time mark types
 COMM = 0;
@@ -251,6 +202,56 @@ min_desync = (-1)*max_desync;
 % Initialization
 idle_time_init = basic_cycle_duration_bc0 + basic_cycle_duration_bc1; % time waiting by Board 1 before becoming Master
 
+%% Value Domain Constants
+%   Name            Definition          U       Range       Value   Prec
+% track_l_f     Track width front axle	m       0.5..1.0	0,60	0,001
+% track_l_a     Track width aft axle	m       0.5..1.0	0,60	0,001
+% wheelbase_l	Wheel base distance     m       0.9..1.5	1,00	0,001
+%               front to aft
+% mass_v        Effective vehicle mass	kg      90..200   100,00    1
+% mass_f        Effective front axle    kg      20..30     25,00    0,1
+%               mass
+% mass_a        Effective aft axle mass	kg      20..30     25,00	0,1
+% inertia_f     Effective moment of   Nm^2/rad	1..3        2,25	0,001
+%               inertia front axle	
+% inertia_a     Effective moment of   Nm^2/rad	1..3        2,25	0,001
+%               inertia aft axle
+% radius_w_fr	Wheel radius front      m       0.09..0.11	0,10	0,001
+%               right
+% radius_w_fl	Wheel radius front left	m       0.09..0.11	0,10	0,001
+% radius_w_ar	Wheel radius aft right	m       0.09..0.11	0,10	0,001
+% radius_w_ar	Wheel radius aft left	m       0.09..0.11	0,10	0,001
+
+Tl_f = 0.6; % m [0.5-1.0], 0.001
+Tl_a = 0.6; % m [0.5-1.0], 0.001
+W_b  = 1.0; % m [0.9-1.5], 0.001
+m_v  = 100.0; % kg [90.0 - 200.0], 1.0
+m_f  = 25.0;  % kg [20.0 - 30.0], 0.1
+m_a  = 25.0;  % kg [20.0 - 30.0], 0.1
+I_f  = 2.25; % Nm^2/rad	[1.0 - 3.0], 0.001
+I_a  = 2.25; % Nm^2/rad	[1.0 - 3.0], 0.001
+R_fr = 0.10; % m [0.09 - 0.11], 0.001
+R_fl = 0.10; % m [0.09 - 0.11], 0.001
+R_ar = 0.10; % m [0.09 - 0.11], 0.001
+R_al = 0.10; % m [0.09 - 0.11], 0.001
+
+% Signal bounds
+speed_max =  10;
+speed_min = -10;
+delta_max =   1;
+delta_min =  -1;
+theta_max = (speed_max/R_fr)*matrix_cycle_duration*frequency_IRQ/hardware_granularity;
+theta_min = (-1)*theta_max;
+tau_max   =   5;
+tau_min   =  -5;
+tau_range = abs(tau_max) + abs(tau_min);
+e_width   = 0.1; % 10\%
+
+% Signal precision <bits reserved for this value>
+torque_precision = 4; % bits
+delta_precision  = 6; % bits
+theta_precision  = 7-(fix(log2(theta_max))+1); % bits
+speed_precision  = 3; % bits
 
 %% Parameters
 % Defining a parameter for editing in HANtune
