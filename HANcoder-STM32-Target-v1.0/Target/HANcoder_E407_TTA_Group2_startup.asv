@@ -31,7 +31,7 @@ Controller1_Board = 1;
 Controller2_Board = 2;
 Controller3_Board = 3;
 
-Input_Gen_Board = 4;
+Input_Gen_board
 
 % COMMunication Model
 COMM_Period = 40;
