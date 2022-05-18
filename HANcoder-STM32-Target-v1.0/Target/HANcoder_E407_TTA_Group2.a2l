@@ -8,9 +8,9 @@
  * 
  * Code generation for model "HANcoder_E407_TTA_Group2".
  *
- * Model version              : 1.160
+ * Model version              : 1.161
  * Simulink Coder version : 9.0 (R2018b) 24-May-2018
- * C source code generated on : Wed May 18 18:12:41 2022
+ * C source code generated on : Wed May 18 18:55:39 2022
  * 
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -23,7 +23,7 @@
 
 ASAP2_VERSION  1 31   /* Version 1.31 */
 
-/begin PROJECT ProjectName "HANcoder_E407_TTA_Group2_softwareID_v1_180522_181218"
+/begin PROJECT ProjectName "HANcoder_E407_TTA_Group2_softwareID_v1_180522_185516"
   
   /begin HEADER "Header Comments go here"
     
@@ -37,9 +37,9 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     	ADDR_EPK		0x0800c47c
 		CPU_TYPE		"STM32F407"
 		ECU				"E407"
-		EPK				"HANcoder_E407_TTA_Group2_softwareID_v1_180522_181218"
+		EPK				"HANcoder_E407_TTA_Group2_softwareID_v1_180522_185516"
 		SYSTEM_CONSTANT	"XcpStationID string length"  "0x00000034"
-		SYSTEM_CONSTANT	"RAM-FlashOffset"  "-402510560"
+		SYSTEM_CONSTANT	"RAM-FlashOffset"  "-402510496"
 	/end MOD_PAR
     
     /begin MOD_COMMON  "Mod Common Comment Here" 
@@ -1863,6 +1863,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /begin SUB_GROUP
         S440_Check_msg_transmission_CAN1
         S440_Check_msg_transmission_CAN2
+        S440_Msg_Value_Data_Encoded
       /end SUB_GROUP
     /end GROUP
     
@@ -2106,6 +2107,14 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /begin REF_CHARACTERISTIC
         COMM_Phase2
         COMM_Phase_init2
+      /end REF_CHARACTERISTIC
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S440_Msg_Value_Data_Encoded
+      /* Long identifier        */       "HANcoder_E407_TTA_Group2/HANcoder STM32 Target - E407-STM32 algorithm/TTA CAN System/TTA System/Matrix Cycle Manager/Controller Matrix Cycle/controller basic cycle 1/COMM Task - Test/Transmission subtasks1/Msg_Value_Data_Encoded"
+      /begin REF_CHARACTERISTIC
+        delta_f_set
       /end REF_CHARACTERISTIC
     /end GROUP
     

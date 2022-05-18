@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'HANcoder_E407_TTA_Group2'.
  *
- * Model version                  : 1.160
+ * Model version                  : 1.161
  * Simulink Coder version         : 9.0 (R2018b) 24-May-2018
- * C/C++ source code generated on : Wed May 18 18:12:41 2022
+ * C/C++ source code generated on : Wed May 18 18:55:39 2022
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -575,8 +575,8 @@ typedef struct {
   uint8_T Plus_b;                      /* '<S657>/Plus' */
   uint8_T Plus_c;                      /* '<S658>/Plus' */
   uint8_T Constant_m;                  /* '<S444>/Constant' */
-  uint8_T Constant1;                   /* '<S444>/Constant1' */
   uint8_T Constant2;                   /* '<S444>/Constant2' */
+  uint8_T DataTypeConversion;          /* '<S444>/Data Type Conversion' */
   uint8_T Constant_l;                  /* '<S399>/Constant' */
   uint8_T Plus_j;                      /* '<S412>/Plus' */
   uint8_T Plus_bx;                     /* '<S413>/Plus' */
@@ -1232,6 +1232,7 @@ extern real_T delta_a_set;             /* Variable: delta_a_set
 extern real_T delta_f_set;             /* Variable: delta_f_set
                                         * Referenced by:
                                         *   '<S399>/Constant10'
+                                        *   '<S444>/Constant10'
                                         *   '<S643>/Constant10'
                                         */
 extern real_T script_run;              /* Variable: script_run

@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'HANcoder_E407_TTA_Group2'.
  *
- * Model version                  : 1.160
+ * Model version                  : 1.161
  * Simulink Coder version         : 9.0 (R2018b) 24-May-2018
- * C/C++ source code generated on : Wed May 18 18:12:41 2022
+ * C/C++ source code generated on : Wed May 18 18:55:39 2022
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -198,6 +198,7 @@ real_T delta_a_set = 0.0;              /* Variable: delta_a_set
 real_T delta_f_set = 0.0;              /* Variable: delta_f_set
                                         * Referenced by:
                                         *   '<S399>/Constant10'
+                                        *   '<S444>/Constant10'
                                         *   '<S643>/Constant10'
                                         */
 real_T script_run = 0.0;               /* Variable: script_run
@@ -7576,7 +7577,6 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
    *  Constant: '<S443>/Constant24'
    *  Constant: '<S443>/Constant8'
    *  Constant: '<S444>/Constant'
-   *  Constant: '<S444>/Constant1'
    *  Constant: '<S444>/Constant2'
    *  Constant: '<S569>/Constant'
    *  Constant: '<S569>/Constant17'
@@ -10900,8 +10900,25 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
              */
             if (*rtd_Local_Ticks == 92.0) {
               localB->Constant_m = ((uint8_T)0U);
-              localB->Constant1 = ((uint8_T)6U);
               localB->Constant2 = ((uint8_T)9U);
+
+              /* DataTypeConversion: '<S444>/Data Type Conversion' incorporates:
+               *  Constant: '<S444>/Constant'
+               *  Constant: '<S444>/Constant10'
+               *  Constant: '<S444>/Constant2'
+               */
+              rtb_Switch1_f = fabs(delta_f_set);
+              if (rtb_Switch1_f < 4.503599627370496E+15) {
+                if (rtb_Switch1_f >= 0.5) {
+                  localB->DataTypeConversion = (uint8_T)floor(delta_f_set + 0.5);
+                } else {
+                  localB->DataTypeConversion = 0U;
+                }
+              } else {
+                localB->DataTypeConversion = (uint8_T)delta_f_set;
+              }
+
+              /* End of DataTypeConversion: '<S444>/Data Type Conversion' */
             }
 
             /* End of Outputs for SubSystem: '<S440>/Msg_Value_Data_Encoded' */
@@ -10949,7 +10966,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
                 rtd_Msg_Tx_CAN1->Buffer_1 = (uint8_T)((uint32_T)(uint8_T)
                   ((uint32_T)localB->BitShift1_mp.y + localB->BitShift_i.y) +
                   (uint8_T)*rtd_Board_ID);
-                rtd_Msg_Tx_CAN1->Buffer_2 = localB->Constant1;
+                rtd_Msg_Tx_CAN1->Buffer_2 = localB->DataTypeConversion;
                 rtd_Msg_Tx_CAN1->Buffer_3 = localB->Constant2;
                 rtd_Msg_Tx_CAN1->Buffer_4 = localB->Constant_m;
                 rtd_Msg_Tx_CAN1->Buffer_5 = localB->Constant_m;
@@ -11030,7 +11047,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
                 rtd_Msg_Tx_CAN2->Buffer_1 = (uint8_T)((uint32_T)(uint8_T)
                   ((uint32_T)localB->BitShift1_d.y + localB->BitShift_g.y) +
                   (uint8_T)*rtd_Board_ID);
-                rtd_Msg_Tx_CAN2->Buffer_2 = localB->Constant1;
+                rtd_Msg_Tx_CAN2->Buffer_2 = localB->DataTypeConversion;
                 rtd_Msg_Tx_CAN2->Buffer_3 = localB->Constant2;
                 rtd_Msg_Tx_CAN2->Buffer_4 = localB->Constant_m;
                 rtd_Msg_Tx_CAN2->Buffer_5 = localB->Constant_m;
@@ -11179,7 +11196,6 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
          *  Constant: '<S443>/Constant24'
          *  Constant: '<S443>/Constant8'
          *  Constant: '<S444>/Constant'
-         *  Constant: '<S444>/Constant1'
          *  Constant: '<S444>/Constant2'
          *  DataStoreRead: '<S163>/Data Store Read11'
          *  DataStoreRead: '<S163>/Data Store Read2'
@@ -11579,7 +11595,6 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
        *  Constant: '<S443>/Constant24'
        *  Constant: '<S443>/Constant8'
        *  Constant: '<S444>/Constant'
-       *  Constant: '<S444>/Constant1'
        *  Constant: '<S444>/Constant2'
        *  DataStoreRead: '<S132>/Data Store Read10'
        *  DataStoreRead: '<S163>/Data Store Read11'
@@ -14184,7 +14199,6 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
      *  Constant: '<S443>/Constant24'
      *  Constant: '<S443>/Constant8'
      *  Constant: '<S444>/Constant'
-     *  Constant: '<S444>/Constant1'
      *  Constant: '<S444>/Constant2'
      *  Constant: '<S569>/Constant'
      *  Constant: '<S569>/Constant17'
