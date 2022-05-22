@@ -263,16 +263,17 @@ script_run.StorageClass = 'ExportedGlobal'; % Only Exported Global will be visib
 script_run.DataType = 'double';
 script_run.Value = 0; 
 
-% Input generator
-v_set = Simulink.Parameter; % Define as parameter
-v_set.StorageClass = 'ExportedGlobal'; % Only Exported Global will be visible in HANtune
-v_set.Value = 0;
-delta_f_set = Simulink.Parameter; % Define as parameter
-delta_f_set.StorageClass = 'ExportedGlobal'; % Only Exported Global will be visible in HANtune
-delta_f_set.Value = 0;
-delta_a_set = Simulink.Parameter; % Define as parameter
-delta_a_set.StorageClass = 'ExportedGlobal'; % Only Exported Global will be visible in HANtune
-delta_a_set.Value = 0;
+% Test Values
+
+testV_1 = Simulink.Parameter; % Define as parameter
+testV_1.StorageClass = 'ExportedGlobal'; % Only Exported Global will be visible in HANtune
+testV_1.Value = 0;
+testV_2 = Simulink.Parameter; % Define as parameter
+testV_2.StorageClass = 'ExportedGlobal'; % Only Exported Global will be visible in HANtune
+testV_2.Value = 0;
+testV_3 = Simulink.Parameter; % Define as parameter
+testV_3.StorageClass = 'ExportedGlobal'; % Only Exported Global will be visible in HANtune
+testV_3.Value = 0;
 
 %% Signals
 % Defining signals for viewing in HANtune

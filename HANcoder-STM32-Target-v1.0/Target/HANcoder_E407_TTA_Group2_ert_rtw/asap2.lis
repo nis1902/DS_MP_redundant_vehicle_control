@@ -12,6 +12,12 @@ delta_f_set
 
 script_run 
 
+testV_1 
+
+testV_2 
+
+testV_3 
+
 v_set 
 
 HANtuneOverride 
@@ -49,8 +55,9 @@ TM1_timeout_counter_s
 TM2_timeout_counter_s
 TM3_timeout_counter_s
 Rx_init_LT
-beer_s
-panda_s
+test2_s
+test1_s
+test3_s
 Vote_s
 Rx_init_id
 Rx_init_mc
