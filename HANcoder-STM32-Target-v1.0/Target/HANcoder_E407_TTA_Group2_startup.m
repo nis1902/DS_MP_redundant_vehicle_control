@@ -287,14 +287,6 @@ SI_CPUload.StorageClass = 'ExportedGlobal';
 SI_FreeHeap = Simulink.Signal;
 SI_FreeHeap.StorageClass = 'ExportedGlobal';
 
-% Temporary values
-rxDeltaF = Simulink.Signal;
-rxDeltaF.StorageClass = 'ExportedGlobal';
-rxDeltaA = Simulink.Signal;
-rxDeltaA.StorageClass = 'ExportedGlobal';
-rxSpeedV = Simulink.Signal;
-rxSpeedV.StorageClass = 'ExportedGlobal';
-
 
 %% Parameters
 % Defining a parameter for editing in HANtune

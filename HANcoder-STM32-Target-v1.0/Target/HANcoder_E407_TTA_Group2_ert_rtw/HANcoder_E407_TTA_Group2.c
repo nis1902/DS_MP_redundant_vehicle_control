@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'HANcoder_E407_TTA_Group2'.
  *
- * Model version                  : 1.161
+ * Model version                  : 1.163
  * Simulink Coder version         : 9.0 (R2018b) 24-May-2018
- * C/C++ source code generated on : Wed May 18 18:55:39 2022
+ * C/C++ source code generated on : Sun May 22 14:05:37 2022
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -70,8 +70,8 @@ real_T TM1_timeout_counter_s;          /* '<S255>/Switch' */
 real_T TM2_timeout_counter_s;          /* '<S256>/Switch' */
 real_T TM3_timeout_counter_s;          /* '<S257>/Switch' */
 uint16_T Rx_init_LT;                   /* '<S141>/Cast' */
-uint16_T rxDeltaA;                     /* '<S563>/Gain1' */
-uint16_T rxDeltaF;                     /* '<S563>/Gain' */
+uint16_T beer_s;                       /* '<S563>/Gain1' */
+uint16_T panda_s;                      /* '<S563>/Gain' */
 uint8_T Vote_s;                        /* '<S295>/Cast' */
 uint8_T Rx_init_id;                    /* '<S145>/bit_shift' */
 uint8_T Rx_init_mc;                    /* '<S144>/bit_shift' */
@@ -10320,14 +10320,14 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
               /* Gain: '<S563>/Gain1' incorporates:
                *  DataStoreRead: '<S536>/Data Store Read6'
                */
-              rxDeltaA = (uint16_T)((uint32_T)((uint8_T)128U) *
-                                    localDW->Msg_Rx_f.Buffer_3);
+              beer_s = (uint16_T)((uint32_T)((uint8_T)128U) *
+                                  localDW->Msg_Rx_f.Buffer_3);
 
               /* Gain: '<S563>/Gain' incorporates:
                *  DataStoreRead: '<S536>/Data Store Read6'
                */
-              rxDeltaF = (uint16_T)((uint32_T)((uint8_T)128U) *
-                                    localDW->Msg_Rx_f.Buffer_2);
+              panda_s = (uint16_T)((uint32_T)((uint8_T)128U) *
+                                   localDW->Msg_Rx_f.Buffer_2);
             }
 
             /* End of Outputs for SubSystem: '<S536>/Set Values Update' */

@@ -49,8 +49,8 @@ TM1_timeout_counter_s
 TM2_timeout_counter_s
 TM3_timeout_counter_s
 Rx_init_LT
-rxDeltaA
-rxDeltaF
+beer_s
+panda_s
 Vote_s
 Rx_init_id
 Rx_init_mc

@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'HANcoder_E407_TTA_Group2'.
  *
- * Model version                  : 1.161
+ * Model version                  : 1.163
  * Simulink Coder version         : 9.0 (R2018b) 24-May-2018
- * C/C++ source code generated on : Wed May 18 18:55:39 2022
+ * C/C++ source code generated on : Sun May 22 14:05:37 2022
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -1097,8 +1097,8 @@ extern real_T TM1_timeout_counter_s;   /* '<S255>/Switch' */
 extern real_T TM2_timeout_counter_s;   /* '<S256>/Switch' */
 extern real_T TM3_timeout_counter_s;   /* '<S257>/Switch' */
 extern uint16_T Rx_init_LT;            /* '<S141>/Cast' */
-extern uint16_T rxDeltaA;              /* '<S563>/Gain1' */
-extern uint16_T rxDeltaF;              /* '<S563>/Gain' */
+extern uint16_T beer_s;                /* '<S563>/Gain1' */
+extern uint16_T panda_s;               /* '<S563>/Gain' */
 extern uint8_T Vote_s;                 /* '<S295>/Cast' */
 extern uint8_T Rx_init_id;             /* '<S145>/bit_shift' */
 extern uint8_T Rx_init_mc;             /* '<S144>/bit_shift' */
