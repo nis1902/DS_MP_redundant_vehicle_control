@@ -30,11 +30,12 @@ Slave_Role = 2;
 Controller1_Board = 1;
 Controller2_Board = 2;
 Controller3_Board = 3;
+Controller4_Board = 4;
 
 Input_Gen_Board = 5;
 
 % COMMunication Model
-COMM_Period = 40;
+COMM_Period = 80;
 % COMM_PHASE
 % CAN1
 % init
@@ -163,6 +164,15 @@ TM_Check_Sensor_Values_2 = TM_Check_Sensor_Values + 2;                   % <Cont
 TM_Data_bc1(end+1)       = TM_Check_Sensor_Values_2;                     % <Input gen.: Reset Board>
 TM_Type_bc1(end+1)       = COMP;
 
+% Steer
+TM_Steer                 = TM_Check_Sensor_Values + COMP_duration;       % COMP Steer
+TM_Data_bc1(end+1)       = TM_Steer;
+TM_Type_bc1(end+1)       = COMP;
+% Torque
+TM_Torque                = TM_Steer + COMP_duration;                     % COMP Torque
+TM_Data_bc1(end+1)       = TM_Torque;
+TM_Type_bc1(end+1)       = COMP;
+
 % Reset variables
 TM_Reset_Var_bc1         = TM_Check_TOuts + COMP_duration;     % COMP Check TimeOuts
 TM_Data_bc1(end+1)       = TM_Reset_Var_bc1;
@@ -257,6 +267,17 @@ speed_precision  = 3; % bits
 
 %% Parameters
 % Defining a parameter for editing in HANtune
+% Input generator
+v_set = Simulink.Parameter; % Define as parameter
+v_set.StorageClass = 'ExportedGlobal'; % Only Exported Global will be visible in HANtune
+v_set.Value = 0;
+delta_f_set = Simulink.Parameter; % Define as parameter
+delta_f_set.StorageClass = 'ExportedGlobal'; % Only Exported Global will be visible in HANtune
+delta_f_set.Value = 0;
+delta_a_set = Simulink.Parameter; % Define as parameter
+delta_a_set.StorageClass = 'ExportedGlobal'; % Only Exported Global will be visible in HANtune
+delta_a_set.Value = 0;
+
 % HANTune scripts ON/OFF control
 script_run = Simulink.Parameter; % Define as parameter
 script_run.StorageClass = 'ExportedGlobal'; % Only Exported Global will be visible in HANtune
@@ -275,6 +296,18 @@ testV_3 = Simulink.Parameter; % Define as parameter
 testV_3.StorageClass = 'ExportedGlobal'; % Only Exported Global will be visible in HANtune
 testV_3.Value = 0;
 
+board1_online = Simulink.Parameter; % Define as parameter
+board1_online.StorageClass = 'ExportedGlobal'; % Only Exported Global will be visible in HANtune
+board1_online.Value = 0;
+board2_online = Simulink.Parameter; % Define as parameter
+board2_online.StorageClass = 'ExportedGlobal'; % Only Exported Global will be visible in HANtune
+board2_online.Value = 0;
+board3_online = Simulink.Parameter; % Define as parameter
+board3_online.StorageClass = 'ExportedGlobal'; % Only Exported Global will be visible in HANtune
+board3_online.Value = 0;
+board4_online = Simulink.Parameter; % Define as parameter
+board4_online.StorageClass = 'ExportedGlobal'; % Only Exported Global will be visible in HANtune
+board4_online.Value = 0;
 %% Signals
 % Defining signals for viewing in HANtune
 LedValue = Simulink.Signal; % Define as signal

@@ -6,6 +6,14 @@ COMM_Phase_init1
 
 COMM_Phase_init2 
 
+board1_online 
+
+board2_online 
+
+board3_online 
+
+board4_online 
+
 delta_a_set 
 
 delta_f_set 
@@ -30,6 +38,10 @@ SI_FreeStack
 local_ticks_interrupt
 SI_CPUload
 LedValue
+tmr1_s
+tmr2_s
+tmr3_s
+tmr4_s
 Master_ID_ing_s
 Role_ID_ing_s
 sync_bc1_miss_counter_ing
@@ -49,11 +61,13 @@ Board_1_error_counter_s
 Board_2_error_counter_s
 Board_3_error_counter_s
 msg_count_DEBUG_s
+error_flag_s
 Desync_Sync_bc1_s
 Desync_Sync_bc0_s
 TM1_timeout_counter_s
 TM2_timeout_counter_s
 TM3_timeout_counter_s
+voting_out_s
 Rx_init_LT
 test2_s
 test1_s

@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'HANcoder_E407_TTA_Group2'.
  *
- * Model version                  : 1.168
+ * Model version                  : 1.188
  * Simulink Coder version         : 9.0 (R2018b) 24-May-2018
- * C/C++ source code generated on : Sun May 22 19:10:39 2022
+ * C/C++ source code generated on : Wed May 25 19:29:32 2022
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -24,235 +24,259 @@
 const ConstBlockIO rtConstB = {
   /* Start of '<S10>/TTA System' */
   {
-    136.0,                             /* '<S574>/Sum5' */
-    204.0,                             /* '<S574>/Sum18' */
-    92.0,                              /* '<S574>/Sum6' */
-    44.0,                              /* '<S574>/Sum1' */
-    48.0,                              /* '<S574>/Sum2' */
-    40.0,                              /* '<S574>/Sum4' */
-    88.0,                              /* '<S574>/Sum3' */
-    0.015625,                          /* '<S660>/Power' */
-    64.0,                              /* '<S660>/Power1' */
-    0.125,                             /* '<S661>/Power' */
-    8.0,                               /* '<S661>/Power1' */
+    256.0,                             /* '<S576>/Sum5' */
+    364.0,                             /* '<S576>/Sum18' */
+    172.0,                             /* '<S576>/Sum6' */
+    84.0,                              /* '<S576>/Sum1' */
+    88.0,                              /* '<S576>/Sum2' */
+    80.0,                              /* '<S576>/Sum4' */
+    168.0,                             /* '<S576>/Sum3' */
     0.015625,                          /* '<S662>/Power' */
     64.0,                              /* '<S662>/Power1' */
-    52.0,                              /* '<S573>/Sum17' */
-    208.0,                             /* '<S573>/Sum16' */
-    44.0,                              /* '<S573>/Sum1' */
-    48.0,                              /* '<S573>/Sum2' */
-    40.0,                              /* '<S573>/Sum4' */
-    204.0,                             /* '<S163>/Sum18' */
-    92.0,                              /* '<S163>/Sum5' */
-    44.0,                              /* '<S163>/Sum1' */
-    136.0,                             /* '<S163>/Sum6' */
-    48.0,                              /* '<S163>/Sum2' */
-    40.0,                              /* '<S163>/Sum4' */
-    88.0,                              /* '<S163>/Sum3' */
-    132.0,                             /* '<S163>/Sum7' */
-    0.015625,                          /* '<S414>/Power' */
-    64.0,                              /* '<S414>/Power1' */
-    0.125,                             /* '<S415>/Power' */
-    8.0,                               /* '<S415>/Power1' */
-    0.015625,                          /* '<S416>/Power' */
-    64.0,                              /* '<S416>/Power1' */
-    200.0,                             /* '<S162>/Sum14' */
-    204.0,                             /* '<S162>/Sum15' */
-    212.0,                             /* '<S162>/Sum17' */
-    208.0,                             /* '<S162>/Sum16' */
-    44.0,                              /* '<S162>/Sum1' */
-    48.0,                              /* '<S162>/Sum2' */
-    52.0,                              /* '<S162>/Sum3' */
-    100.0,                             /* '<S162>/Sum7' */
-    96.0,                              /* '<S162>/Sum6' */
-    148.0,                             /* '<S162>/Sum10' */
-    144.0,                             /* '<S162>/Sum9' */
-    196.0,                             /* '<S162>/Sum11' */
-    192.0,                             /* '<S162>/Sum13' */
-    40.0,                              /* '<S162>/Sum4' */
-    188.0,                             /* '<S162>/Sum12' */
-    92.0,                              /* '<S162>/Sum5' */
-    140.0,                             /* '<S162>/Sum8' */
+    0.125,                             /* '<S663>/Power' */
+    8.0,                               /* '<S663>/Power1' */
+    0.015625,                          /* '<S664>/Power' */
+    64.0,                              /* '<S664>/Power1' */
+    92.0,                              /* '<S575>/Sum17' */
+    368.0,                             /* '<S575>/Sum16' */
+    84.0,                              /* '<S575>/Sum1' */
+    88.0,                              /* '<S575>/Sum2' */
+    80.0,                              /* '<S575>/Sum4' */
+    260.0,                             /* '<S164>/Sum8' */
+    364.0,                             /* '<S164>/Sum18' */
+    172.0,                             /* '<S164>/Sum5' */
+    84.0,                              /* '<S164>/Sum1' */
+    256.0,                             /* '<S164>/Sum6' */
+    88.0,                              /* '<S164>/Sum2' */
+    264.0,                             /* '<S164>/Sum9' */
+    80.0,                              /* '<S164>/Sum4' */
+    168.0,                             /* '<S164>/Sum3' */
+    252.0,                             /* '<S164>/Sum7' */
+    0.015625,                          /* '<S415>/Power' */
+    64.0,                              /* '<S415>/Power1' */
+    0.125,                             /* '<S416>/Power' */
+    8.0,                               /* '<S416>/Power1' */
+    0.015625,                          /* '<S417>/Power' */
+    64.0,                              /* '<S417>/Power1' */
+    360.0,                             /* '<S163>/Sum14' */
+    364.0,                             /* '<S163>/Sum15' */
+    372.0,                             /* '<S163>/Sum17' */
+    368.0,                             /* '<S163>/Sum16' */
+    84.0,                              /* '<S163>/Sum1' */
+    88.0,                              /* '<S163>/Sum2' */
+    92.0,                              /* '<S163>/Sum3' */
+    180.0,                             /* '<S163>/Sum7' */
+    176.0,                             /* '<S163>/Sum6' */
+    268.0,                             /* '<S163>/Sum10' */
+    264.0,                             /* '<S163>/Sum9' */
+    356.0,                             /* '<S163>/Sum11' */
+    352.0,                             /* '<S163>/Sum13' */
+    80.0,                              /* '<S163>/Sum4' */
+    348.0,                             /* '<S163>/Sum12' */
+    172.0,                             /* '<S163>/Sum5' */
+    260.0,                             /* '<S163>/Sum8' */
     1.0,                               /* '<S115>/Add1' */
     0U,                                /* '<S140>/Cast' */
-    0U,                                /* '<S688>/Cast6' */
-    0U,                                /* '<S600>/Cast6' */
-    0U,                                /* '<S261>/Cast6' */
+    0U,                                /* '<S690>/Cast6' */
+    0U,                                /* '<S602>/Cast6' */
+    0U,                                /* '<S262>/Cast6' */
     0U,                                /* '<S140>/Cast1' */
     0U,                                /* '<S115>/Cast' */
-    0,                                 /* '<S688>/Cast' */
-    1,                                 /* '<S688>/NOT' */
-    0,                                 /* '<S600>/Cast' */
-    1,                                 /* '<S600>/NOT' */
+    0,                                 /* '<S690>/Cast' */
+    1,                                 /* '<S690>/NOT' */
+    0,                                 /* '<S602>/Cast' */
+    1,                                 /* '<S602>/NOT' */
+    0,                                 /* '<S263>/Cast' */
     0,                                 /* '<S262>/Cast' */
-    0,                                 /* '<S261>/Cast' */
-    1,                                 /* '<S261>/NOT' */
+    1,                                 /* '<S262>/NOT' */
 
-    /* Start of '<S574>/COMM Task - Sync bc 1' */
+    /* Start of '<S576>/COMM Task - Sync bc 1' */
     {
-      /* Start of '<S165>/Transmission subtasks' */
+      /* Start of '<S166>/Transmission subtasks' */
       {
-        1U,                            /* '<S681>/Cast8' */
-        1U                             /* '<S675>/Cast' */
+        1U,                            /* '<S683>/Cast8' */
+        1U                             /* '<S677>/Cast' */
       }
       ,
 
-      /* End of '<S165>/Transmission subtasks' */
+      /* End of '<S166>/Transmission subtasks' */
 
-      /* Start of '<S165>/Reception substasks' */
+      /* Start of '<S166>/Reception substasks' */
       {
-        1U,                            /* '<S671>/Cast13' */
-        1U,                            /* '<S671>/Cast3' */
-        0U,                            /* '<S671>/Cast15' */
-        0U,                            /* '<S671>/Cast6' */
-        0,                             /* '<S671>/Cast14' */
-        0                              /* '<S671>/Cast5' */
+        1U,                            /* '<S673>/Cast13' */
+        1U,                            /* '<S673>/Cast3' */
+        0U,                            /* '<S673>/Cast15' */
+        0U,                            /* '<S673>/Cast6' */
+        0,                             /* '<S673>/Cast14' */
+        0                              /* '<S673>/Cast5' */
       }
-      /* End of '<S165>/Reception substasks' */
+      /* End of '<S166>/Reception substasks' */
     }
     ,
 
-    /* End of '<S574>/COMM Task - Sync bc 1' */
+    /* End of '<S576>/COMM Task - Sync bc 1' */
 
-    /* Start of '<S643>/Check msg transmission CAN2' */
+    /* Start of '<S645>/Check msg transmission CAN2' */
     {
-      21U                              /* '<S654>/Cast8' */
+      21U                              /* '<S656>/Cast8' */
     }
     ,
 
-    /* End of '<S643>/Check msg transmission CAN2' */
+    /* End of '<S645>/Check msg transmission CAN2' */
 
-    /* Start of '<S643>/Check msg transmission CAN1' */
+    /* Start of '<S645>/Check msg transmission CAN1' */
     {
-      21U                              /* '<S648>/Cast' */
+      21U                              /* '<S650>/Cast' */
     }
     ,
 
-    /* End of '<S643>/Check msg transmission CAN1' */
+    /* End of '<S645>/Check msg transmission CAN1' */
 
-    /* Start of '<S635>/Reception substasks' */
+    /* Start of '<S637>/Reception substasks' */
     {
-      21U,                             /* '<S644>/Cast13' */
-      21U,                             /* '<S644>/Cast3' */
-      0U,                              /* '<S644>/Cast15' */
-      0U,                              /* '<S644>/Cast6' */
-      0,                               /* '<S644>/Cast14' */
-      0                                /* '<S644>/Cast5' */
+      21U,                             /* '<S646>/Cast13' */
+      21U,                             /* '<S646>/Cast3' */
+      0U,                              /* '<S646>/Cast15' */
+      0U,                              /* '<S646>/Cast6' */
+      0,                               /* '<S646>/Cast14' */
+      0                                /* '<S646>/Cast5' */
     }
     ,
 
-    /* End of '<S635>/Reception substasks' */
+    /* End of '<S637>/Reception substasks' */
 
-    /* Start of '<S573>/COMM Task - Sync bc 0' */
+    /* Start of '<S575>/COMM Task - Sync bc 0' */
     {
-      /* Start of '<S165>/Transmission subtasks' */
+      /* Start of '<S166>/Transmission subtasks' */
       {
-        1U,                            /* '<S593>/Cast8' */
-        1U                             /* '<S587>/Cast' */
+        1U,                            /* '<S595>/Cast8' */
+        1U                             /* '<S589>/Cast' */
       }
       ,
 
-      /* End of '<S165>/Transmission subtasks' */
+      /* End of '<S166>/Transmission subtasks' */
 
-      /* Start of '<S165>/Reception substasks' */
+      /* Start of '<S166>/Reception substasks' */
       {
-        1U,                            /* '<S583>/Cast13' */
-        1U,                            /* '<S583>/Cast3' */
-        0U,                            /* '<S583>/Cast15' */
-        0U,                            /* '<S583>/Cast6' */
-        0,                             /* '<S583>/Cast14' */
-        0                              /* '<S583>/Cast5' */
+        1U,                            /* '<S585>/Cast13' */
+        1U,                            /* '<S585>/Cast3' */
+        0U,                            /* '<S585>/Cast15' */
+        0U,                            /* '<S585>/Cast6' */
+        0,                             /* '<S585>/Cast14' */
+        0                              /* '<S585>/Cast5' */
       }
-      /* End of '<S165>/Reception substasks' */
+      /* End of '<S166>/Reception substasks' */
     }
     ,
 
-    /* End of '<S573>/COMM Task - Sync bc 0' */
+    /* End of '<S575>/COMM Task - Sync bc 0' */
 
-    /* Start of '<S442>/Check msg transmission CAN2' */
+    /* Start of '<S443>/Check msg transmission CAN2' */
     {
-      22U                              /* '<S453>/Cast8' */
+      22U                              /* '<S454>/Cast8' */
     }
     ,
 
-    /* End of '<S442>/Check msg transmission CAN2' */
+    /* End of '<S443>/Check msg transmission CAN2' */
 
-    /* Start of '<S442>/Check msg transmission CAN1' */
+    /* Start of '<S443>/Check msg transmission CAN1' */
     {
-      22U                              /* '<S447>/Cast' */
+      22U                              /* '<S448>/Cast' */
     }
     ,
 
-    /* End of '<S442>/Check msg transmission CAN1' */
+    /* End of '<S443>/Check msg transmission CAN1' */
+
+    /* Start of '<S389>/Reception substasks' */
+    {
+      22U,                             /* '<S444>/Cast13' */
+      22U,                             /* '<S444>/Cast3' */
+      0U,                              /* '<S444>/Cast15' */
+      0U,                              /* '<S444>/Cast6' */
+      0,                               /* '<S444>/Cast14' */
+      0                                /* '<S444>/Cast5' */
+    }
+    ,
+
+    /* End of '<S389>/Reception substasks' */
+
+    /* Start of '<S388>/Transmission subtasks1' */
+    {
+      1U,                              /* '<S436>/Cast8' */
+      1U                               /* '<S430>/Cast' */
+    }
+    ,
+
+    /* End of '<S388>/Transmission subtasks1' */
 
     /* Start of '<S388>/Reception substasks' */
     {
-      22U,                             /* '<S443>/Cast13' */
-      22U,                             /* '<S443>/Cast3' */
-      0U,                              /* '<S443>/Cast15' */
-      0U,                              /* '<S443>/Cast6' */
-      0,                               /* '<S443>/Cast14' */
-      0                                /* '<S443>/Cast5' */
+      1U,                              /* '<S426>/Cast13' */
+      1U,                              /* '<S426>/Cast3' */
+      0U,                              /* '<S426>/Cast15' */
+      0U,                              /* '<S426>/Cast6' */
+      0,                               /* '<S426>/Cast14' */
+      0                                /* '<S426>/Cast5' */
     }
     ,
 
     /* End of '<S388>/Reception substasks' */
 
-    /* Start of '<S387>/Transmission subtasks1' */
+    /* Start of '<S398>/Check msg transmission CAN2' */
     {
-      1U,                              /* '<S435>/Cast8' */
-      1U                               /* '<S429>/Cast' */
+      21U                              /* '<S409>/Cast8' */
     }
     ,
 
-    /* End of '<S387>/Transmission subtasks1' */
+    /* End of '<S398>/Check msg transmission CAN2' */
+
+    /* Start of '<S398>/Check msg transmission CAN1' */
+    {
+      21U                              /* '<S403>/Cast' */
+    }
+    ,
+
+    /* End of '<S398>/Check msg transmission CAN1' */
 
     /* Start of '<S387>/Reception substasks' */
     {
-      1U,                              /* '<S425>/Cast13' */
-      1U,                              /* '<S425>/Cast3' */
-      0U,                              /* '<S425>/Cast15' */
-      0U,                              /* '<S425>/Cast6' */
-      0,                               /* '<S425>/Cast14' */
-      0                                /* '<S425>/Cast5' */
+      21U,                             /* '<S399>/Cast13' */
+      21U,                             /* '<S399>/Cast3' */
+      0U,                              /* '<S399>/Cast15' */
+      0U,                              /* '<S399>/Cast6' */
+      0,                               /* '<S399>/Cast14' */
+      0                                /* '<S399>/Cast5' */
     }
     ,
 
     /* End of '<S387>/Reception substasks' */
 
-    /* Start of '<S397>/Check msg transmission CAN2' */
+    /* Start of '<S169>/Transmission subtasks' */
     {
-      21U                              /* '<S408>/Cast8' */
+      13U,                             /* '<S249>/Cast8' */
+      13U                              /* '<S243>/Cast' */
     }
     ,
 
-    /* End of '<S397>/Check msg transmission CAN2' */
+    /* End of '<S169>/Transmission subtasks' */
 
-    /* Start of '<S397>/Check msg transmission CAN1' */
+    /* Start of '<S169>/Reception substasks' */
     {
-      21U                              /* '<S402>/Cast' */
+      13U,                             /* '<S239>/Cast13' */
+      13U,                             /* '<S239>/Cast3' */
+      0U,                              /* '<S239>/Cast15' */
+      0U,                              /* '<S239>/Cast6' */
+      0,                               /* '<S239>/Cast14' */
+      0                                /* '<S239>/Cast5' */
     }
     ,
 
-    /* End of '<S397>/Check msg transmission CAN1' */
-
-    /* Start of '<S386>/Reception substasks' */
-    {
-      21U,                             /* '<S398>/Cast13' */
-      21U,                             /* '<S398>/Cast3' */
-      0U,                              /* '<S398>/Cast15' */
-      0U,                              /* '<S398>/Cast6' */
-      0,                               /* '<S398>/Cast14' */
-      0                                /* '<S398>/Cast5' */
-    }
-    ,
-
-    /* End of '<S386>/Reception substasks' */
+    /* End of '<S169>/Reception substasks' */
 
     /* Start of '<S168>/Transmission subtasks' */
     {
-      13U,                             /* '<S248>/Cast8' */
-      13U                              /* '<S242>/Cast' */
+      12U,                             /* '<S231>/Cast8' */
+      12U                              /* '<S225>/Cast' */
     }
     ,
 
@@ -260,12 +284,12 @@ const ConstBlockIO rtConstB = {
 
     /* Start of '<S168>/Reception substasks' */
     {
-      13U,                             /* '<S238>/Cast13' */
-      13U,                             /* '<S238>/Cast3' */
-      0U,                              /* '<S238>/Cast15' */
-      0U,                              /* '<S238>/Cast6' */
-      0,                               /* '<S238>/Cast14' */
-      0                                /* '<S238>/Cast5' */
+      12U,                             /* '<S221>/Cast13' */
+      12U,                             /* '<S221>/Cast3' */
+      0U,                              /* '<S221>/Cast15' */
+      0U,                              /* '<S221>/Cast6' */
+      0,                               /* '<S221>/Cast14' */
+      0                                /* '<S221>/Cast5' */
     }
     ,
 
@@ -273,8 +297,8 @@ const ConstBlockIO rtConstB = {
 
     /* Start of '<S167>/Transmission subtasks' */
     {
-      12U,                             /* '<S230>/Cast8' */
-      12U                              /* '<S224>/Cast' */
+      11U,                             /* '<S213>/Cast8' */
+      11U                              /* '<S207>/Cast' */
     }
     ,
 
@@ -282,62 +306,40 @@ const ConstBlockIO rtConstB = {
 
     /* Start of '<S167>/Reception substasks' */
     {
-      12U,                             /* '<S220>/Cast13' */
-      12U,                             /* '<S220>/Cast3' */
-      0U,                              /* '<S220>/Cast15' */
-      0U,                              /* '<S220>/Cast6' */
-      0,                               /* '<S220>/Cast14' */
-      0                                /* '<S220>/Cast5' */
+      11U,                             /* '<S203>/Cast13' */
+      11U,                             /* '<S203>/Cast3' */
+      0U,                              /* '<S203>/Cast15' */
+      0U,                              /* '<S203>/Cast6' */
+      0,                               /* '<S203>/Cast14' */
+      0                                /* '<S203>/Cast5' */
     }
     ,
 
     /* End of '<S167>/Reception substasks' */
 
-    /* Start of '<S166>/Transmission subtasks' */
+    /* Start of '<S163>/COMM Task - Sync bc 0' */
     {
-      11U,                             /* '<S212>/Cast8' */
-      11U                              /* '<S206>/Cast' */
-    }
-    ,
-
-    /* End of '<S166>/Transmission subtasks' */
-
-    /* Start of '<S166>/Reception substasks' */
-    {
-      11U,                             /* '<S202>/Cast13' */
-      11U,                             /* '<S202>/Cast3' */
-      0U,                              /* '<S202>/Cast15' */
-      0U,                              /* '<S202>/Cast6' */
-      0,                               /* '<S202>/Cast14' */
-      0                                /* '<S202>/Cast5' */
-    }
-    ,
-
-    /* End of '<S166>/Reception substasks' */
-
-    /* Start of '<S162>/COMM Task - Sync bc 0' */
-    {
-      /* Start of '<S165>/Transmission subtasks' */
+      /* Start of '<S166>/Transmission subtasks' */
       {
-        1U,                            /* '<S194>/Cast8' */
-        1U                             /* '<S188>/Cast' */
+        1U,                            /* '<S195>/Cast8' */
+        1U                             /* '<S189>/Cast' */
       }
       ,
 
-      /* End of '<S165>/Transmission subtasks' */
+      /* End of '<S166>/Transmission subtasks' */
 
-      /* Start of '<S165>/Reception substasks' */
+      /* Start of '<S166>/Reception substasks' */
       {
-        1U,                            /* '<S184>/Cast13' */
-        1U,                            /* '<S184>/Cast3' */
-        0U,                            /* '<S184>/Cast15' */
-        0U,                            /* '<S184>/Cast6' */
-        0,                             /* '<S184>/Cast14' */
-        0                              /* '<S184>/Cast5' */
+        1U,                            /* '<S185>/Cast13' */
+        1U,                            /* '<S185>/Cast3' */
+        0U,                            /* '<S185>/Cast15' */
+        0U,                            /* '<S185>/Cast6' */
+        0,                             /* '<S185>/Cast14' */
+        0                              /* '<S185>/Cast5' */
       }
-      /* End of '<S165>/Reception substasks' */
+      /* End of '<S166>/Reception substasks' */
     }
-    /* End of '<S162>/COMM Task - Sync bc 0' */
+    /* End of '<S163>/COMM Task - Sync bc 0' */
   }
   /* End of '<S10>/TTA System' */
 };
@@ -347,13 +349,14 @@ const ConstParam rtConstP = {
   /* Expression: TM_Data_bc0
    * Referenced by: '<S127>/Constant'
    */
-  { 0.0, 40.0, 44.0, 46.0, 48.0, 50.0, 52.0, 92.0, 96.0, 100.0, 140.0, 142.0,
-    144.0, 148.0, 188.0, 192.0, 196.0, 200.0, 204.0, 208.0 },
+  { 0.0, 80.0, 84.0, 86.0, 88.0, 90.0, 92.0, 172.0, 176.0, 180.0, 260.0, 262.0,
+    264.0, 268.0, 348.0, 352.0, 356.0, 360.0, 364.0, 368.0 },
 
   /* Expression: TM_Data_bc1
    * Referenced by: '<S127>/Constant4'
    */
-  { 0.0, 40.0, 44.0, 46.0, 48.0, 88.0, 90.0, 92.0, 132.0, 134.0, 200.0, 202.0 },
+  { 0.0, 80.0, 84.0, 86.0, 88.0, 168.0, 170.0, 172.0, 252.0, 254.0, 256.0, 260.0,
+    360.0, 362.0 },
 
   /* Expression: TM_Type_bc0
    * Referenced by: '<S127>/Constant1'
@@ -364,7 +367,7 @@ const ConstParam rtConstP = {
   /* Expression: TM_Type_bc1
    * Referenced by: '<S127>/Constant5'
    */
-  { 0.0, 1.0, 1.0, 1.0, 0.0, 1.0, 1.0, 0.0, 1.0, 1.0, 1.0, 1.0 },
+  { 0.0, 1.0, 1.0, 1.0, 0.0, 1.0, 1.0, 0.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0 },
 
   /* Computed Parameter: Logic_table
    * Referenced by: '<S21>/Logic'
