@@ -25,7 +25,8 @@ LED_ticks_toggle = 10000; % 10000 local ticks to toggle LED (toggles every 1 sec
 % Roles
 Free_Role = 0;
 Master_Role = 1;
-Slave_Role = 2;
+Voter_Role = 2;
+Slave_Role = 3;
 % Boards
 Controller1_Board = 1;
 Controller2_Board = 2;
@@ -172,6 +173,23 @@ TM_Type_bc1(end+1)       = COMP;
 TM_Torque                = TM_Steer + COMP_duration;                     % COMP Torque
 TM_Data_bc1(end+1)       = TM_Torque;
 TM_Type_bc1(end+1)       = COMP;
+% Velocity
+TM_Velocity              = TM_Torque + COMP_duration;                    % COMP Velocity
+TM_Data_bc1(end+1)       = TM_Velocity;
+TM_Type_bc1(end+1)       = COMM;
+% Output Controller 1
+TM_COMM_Output_Control1  = TM_Velocity + COMM_duration;                  % COMM Output Controller 1
+TM_Data_bc1(end+1)       = TM_COMM_Output_Control1;
+TM_Type_bc1(end+1)       = COMP;
+
+TM_COMM_Output_Control1_2 = TM_COMM_Output_Control1 + 2;                   % <Controller: Update msg>
+TM_Data_bc1(end+1)        = TM_COMM_Output_Control1_2;                     % <Input gen.: Reset Board>
+TM_Type_bc1(end+1)        = COMP;
+
+TM_Check_Output_Control1 = TM_COMM_Output_Control1 + COMP_duration; % COMP Check Output Controller 1
+TM_Data_bc1(end+1) = TM_Check_Output_Control1;
+TM_Type_bc1(end+1) = COMP;
+
 
 % Reset variables
 TM_Reset_Var_bc1         = TM_Check_TOuts + COMP_duration;     % COMP Check TimeOuts
@@ -298,16 +316,16 @@ testV_3.Value = 0;
 
 board1_online = Simulink.Parameter; % Define as parameter
 board1_online.StorageClass = 'ExportedGlobal'; % Only Exported Global will be visible in HANtune
-board1_online.Value = 0;
+board1_online.Value = 1;
 board2_online = Simulink.Parameter; % Define as parameter
 board2_online.StorageClass = 'ExportedGlobal'; % Only Exported Global will be visible in HANtune
-board2_online.Value = 0;
+board2_online.Value = 1;
 board3_online = Simulink.Parameter; % Define as parameter
 board3_online.StorageClass = 'ExportedGlobal'; % Only Exported Global will be visible in HANtune
-board3_online.Value = 0;
+board3_online.Value = 1;
 board4_online = Simulink.Parameter; % Define as parameter
 board4_online.StorageClass = 'ExportedGlobal'; % Only Exported Global will be visible in HANtune
-board4_online.Value = 0;
+board4_online.Value =1;
 %% Signals
 % Defining signals for viewing in HANtune
 LedValue = Simulink.Signal; % Define as signal

@@ -63,6 +63,10 @@ Board_3_error_counter_s
 msg_count_DEBUG_s
 error_flag_s
 Desync_Sync_bc1_s
+b2_s
+b1_s
+b3_s
+b4_s
 Desync_Sync_bc0_s
 TM1_timeout_counter_s
 TM2_timeout_counter_s

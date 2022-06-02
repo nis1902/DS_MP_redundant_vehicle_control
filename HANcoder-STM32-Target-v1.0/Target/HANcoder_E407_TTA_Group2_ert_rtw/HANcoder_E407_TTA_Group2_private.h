@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'HANcoder_E407_TTA_Group2'.
  *
- * Model version                  : 1.188
+ * Model version                  : 1.208
  * Simulink Coder version         : 9.0 (R2018b) 24-May-2018
- * C/C++ source code generated on : Wed May 25 19:29:32 2022
+ * C/C++ source code generated on : Wed Jun  1 14:11:44 2022
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -200,6 +200,14 @@ extern void CheckmsgtransmissionCAN2(boolean_T rtu_Enable, uint16_T
   rtC_CheckmsgtransmissionCAN2 *localC, rtDW_CheckmsgtransmissionCAN2 *localDW,
   real_T *rtd_Board_ID, msg_buffer_type *rtd_Msg_Tx_CAN2, uint32_T
   *rtd_TxID_CAN2, real_T *rtd_Tx_msg_count_CAN2, uint8_T *rtd_basic_cycle_count);
+extern void Process_Messages_Disable(rtB_Process_Messages *localB,
+  rtDW_Process_Messages *localDW);
+extern void Process_Messages(boolean_T rtu_Enable, boolean_T rtu_new_CAN1_msg,
+  boolean_T rtu_new_CAN2_msg, const msg_buffer_type *rtu_Rx_msg_CAN1, const
+  msg_buffer_type *rtu_Rx_Msg_CAN2, real_T rtu_expected_basic_cycle, real_T
+  rtu_expected_board_id, rtB_Process_Messages *localB, rtDW_Process_Messages
+  *localDW, msg_buffer_type *rtd_Msg_Rx_f, boolean_T *rtd_Toggle_Pin_A0, real_T *
+  rtd_msg_count_DEBUG_i, boolean_T *rtd_new_msg_Rx_g);
 extern void ResetVariables(boolean_T rtu_Enable, boolean_T
   *rtd_BC1_Sync_processed, boolean_T *rtd_Desync_Positive, boolean_T
   *rtd_Toggle_Pin_A0);
