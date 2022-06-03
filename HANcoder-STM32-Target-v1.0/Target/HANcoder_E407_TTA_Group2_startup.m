@@ -27,6 +27,7 @@ Free_Role = 0;
 Master_Role = 1;
 Voter_Role = 2;
 Slave_Role = 3;
+BackUp_Role = 4;
 % Boards
 Controller1_Board = 1;
 Controller2_Board = 2;
@@ -36,7 +37,7 @@ Controller4_Board = 4;
 Input_Gen_Board = 5;
 
 % COMMunication Model
-COMM_Period = 80;
+COMM_Period = 40;
 % COMM_PHASE
 % CAN1
 % init
@@ -65,7 +66,7 @@ max_num_msgs_CAN2 = max_num_msgs_CAN1;
 DEBUG_wait = 20000; % insert this in a TM to make the system wait there for DEBUG
 basic_cycle_start = 0;
 COMM_duration = COMM_Period;
-COMP_duration = 4;
+COMP_duration = 8;
 
 %% Definition of Time marks
 % Time mark types
@@ -74,65 +75,95 @@ COMP = 1;
 % Time marks
 % bc 0
 % Sync message
+TM_bc0_1        = basic_cycle_start;                % COMM Sync
+TM_Data_bc0         = TM_bc0_1;
+TM_Type_bc0         = COMM;
+
 TM_COMM_Sync        = basic_cycle_start;                % COMM Sync
 TM_Data_bc0         = TM_COMM_Sync;
 TM_Type_bc0         = COMM;
-TM_Check_Sync       = TM_COMM_Sync   + COMM_duration;	% COMP Check Message
-TM_Data_bc0(end+1)  = TM_Check_Sync;
+
+TM_bc0_2       = TM_bc0_1   + COMM_duration;	% COMP Check Message
+TM_Data_bc0(end+1)  = TM_bc0_2;
 TM_Type_bc0(end+1)  = COMP;
-TM_Update_LT        = TM_Check_Sync  + COMP_duration;   % COMP LocalTime update (LA - Desync)
-TM_Data_bc0(end+1)  = TM_Update_LT;
+
+TM_bc0_3        = TM_bc0_2  + COMP_duration;   % COMP LocalTime update (LA - Desync)
+TM_Data_bc0(end+1)  = TM_bc0_3;
 TM_Type_bc0(end+1)  = COMP;
-TM_Update_LT_2      = TM_Update_LT   + 2;               % COMP LocalTime update (LT Update)
-TM_Data_bc0(end+1)  = TM_Update_LT_2;
+TM_bc0_3_2      = TM_bc0_3   + 2;               % COMP LocalTime update (LT Update)
+TM_Data_bc0(end+1)  = TM_bc0_3_2;
 TM_Type_bc0(end+1)  = COMP;
-TM_Vote_Dec         = TM_Update_LT   + COMP_duration;	% COMP Generate vote <Input gen.: Check TO>
-TM_Data_bc0(end+1)  = TM_Vote_Dec;
+
+TM_bc0_4         = TM_bc0_3   + COMP_duration;	% COMP Generate vote <Input gen.: Check TO>
+TM_Data_bc0(end+1)  = TM_bc0_4;
 TM_Type_bc0(end+1)  = COMP;
-TM_Vote_Dec_2       = TM_Vote_Dec    + 2;               % <Input gen.: Reset Board>
-TM_Data_bc0(end+1)  = TM_Vote_Dec_2;
+TM_bc0_4_2       = TM_bc0_4    + 2;               % <Input gen.: Reset Board>
+TM_Data_bc0(end+1)  = TM_bc0_4_2;
 TM_Type_bc0(end+1)  = COMP;
+
 % Vote 1
-TM_COMM_Vote1       = TM_Vote_Dec    + COMP_duration;   % COMM Vote 1
-TM_Data_bc0(end+1)  = TM_COMM_Vote1;
+TM_bc0_5       = TM_bc0_4    + COMP_duration;   % COMM Vote 1
+TM_Data_bc0(end+1)  = TM_bc0_5;
 TM_Type_bc0(end+1)  = COMM;
-TM_Check_Vote1      = TM_COMM_Vote1  + COMM_duration;	% COMP Check Message
-TM_Data_bc0(end+1)  = TM_Check_Vote1;
+
+TM_bc0_6      = TM_bc0_5  + COMM_duration;	% COMP Check Message
+TM_Data_bc0(end+1)  = TM_bc0_6;
 TM_Type_bc0(end+1)  = COMP;
-TM_Count_Vote1      = TM_Check_Vote1 + COMP_duration;	% COMP Count vote
-TM_Data_bc0(end+1)  = TM_Count_Vote1;
+
+TM_bc0_7      = TM_bc0_6 + COMP_duration;	% COMP Count vote
+TM_Data_bc0(end+1)  = TM_bc0_7;
 TM_Type_bc0(end+1)  = COMP;
 % Vote 2
-TM_COMM_Vote2       = TM_Count_Vote1 + COMP_duration;   % COMM Vote 2
-TM_Data_bc0(end+1)  = TM_COMM_Vote2;
+TM_bc0_8       = TM_bc0_7 + COMP_duration;   % COMM Vote 2
+TM_Data_bc0(end+1)  = TM_bc0_8;
 TM_Type_bc0(end+1)  = COMM;
-TM_Check_Vote2      = TM_COMM_Vote2  + COMM_duration;	% COMP Check Message <Vehicle Em.: Check Time Outs>
-TM_Data_bc0(end+1)  = TM_Check_Vote2;
+
+TM_bc0_9      = TM_bc0_8  + COMM_duration;	% COMP Check Message <Vehicle Em.: Check Time Outs>
+TM_Data_bc0(end+1)  = TM_bc0_9;
 TM_Type_bc0(end+1)  = COMP;
-TM_Check_Vote2_2    = TM_Check_Vote2 + 2;               % <Vehicle Em.: Reset Board> 
-TM_Data_bc0(end+1)  = TM_Check_Vote2_2;
+TM_bc0_9_2    = TM_bc0_9 + 2;               % <Vehicle Em.: Reset Board> 
+TM_Data_bc0(end+1)  = TM_bc0_9_2;
 TM_Type_bc0(end+1)  = COMP;
-TM_Count_Vote2      = TM_Check_Vote2 + COMP_duration;	% COMP Count vote
-TM_Data_bc0(end+1)  = TM_Count_Vote2;
+
+TM_bc0_10      = TM_bc0_9 + COMP_duration;	% COMP Count vote
+TM_Data_bc0(end+1)  = TM_bc0_10;
 TM_Type_bc0(end+1)  = COMP;
 % Vote 3
-TM_COMM_Vote3       = TM_Count_Vote2 + COMP_duration;   % COMM Vote 3
-TM_Data_bc0(end+1)  = TM_COMM_Vote3;
+TM_bc0_11       = TM_bc0_10 + COMP_duration;   % COMM Vote 3
+TM_Data_bc0(end+1)  = TM_bc0_11;
 TM_Type_bc0(end+1)  = COMM;
-TM_Check_Vote3      = TM_COMM_Vote3  + COMM_duration;	% COMP Check Message
-TM_Data_bc0(end+1)  = TM_Check_Vote3;
+
+TM_bc0_12      = TM_bc0_11  + COMM_duration;	% COMP Check Message
+TM_Data_bc0(end+1)  = TM_bc0_12;
 TM_Type_bc0(end+1)  = COMP;
-TM_Count_Vote3      = TM_Check_Vote3 + COMP_duration;	% COMP Count vote
-TM_Data_bc0(end+1)  = TM_Count_Vote3;
+
+TM_bc0_13      = TM_bc0_12 + COMP_duration;	% COMP Count vote
+TM_Data_bc0(end+1)  = TM_bc0_13;
 TM_Type_bc0(end+1)  = COMP;
+
+% Vote 4
+TM_bc0_14       = TM_bc0_13 + COMP_duration;   % COMM Vote 4
+TM_Data_bc0(end+1)  = TM_bc0_14;
+TM_Type_bc0(end+1)  = COMM;
+
+TM_bc0_15      = TM_bc0_14  + COMM_duration;	% COMP Check Message
+TM_Data_bc0(end+1)  = TM_bc0_15;
+TM_Type_bc0(end+1)  = COMP;
+
+TM_bc0_16      = TM_bc0_15 + COMP_duration;	% COMP Count vote
+TM_Data_bc0(end+1)  = TM_bc0_16;
+TM_Type_bc0(end+1)  = COMP;
+
 % Postelection
-TM_Check_TOuts      = TM_Count_Vote3 + COMP_duration;	% COMP Timeouts check
-TM_Data_bc0(end+1)  = TM_Check_TOuts;
+TM_bc0_17      = TM_bc0_16 + COMP_duration;	% COMP Timeouts check
+TM_Data_bc0(end+1)  = TM_bc0_17;
 TM_Type_bc0(end+1)  = COMP;
-TM_New_Master       = TM_Check_TOuts + COMP_duration;	% COMP MasterID Decision
-TM_Data_bc0(end+1)  = TM_New_Master;
+
+TM_bc0_18       = TM_bc0_17 + COMP_duration;	% COMP MasterID Decision
+TM_Data_bc0(end+1)  = TM_bc0_18;
 TM_Type_bc0(end+1)  = COMP;
-TM_Reset_Var        = TM_New_Master  + COMP_duration;	% COMP Reset Variables
+
+TM_Reset_Var        = TM_bc0_18  + COMP_duration;	% COMP Reset Variables
 TM_Data_bc0(end+1)  = TM_Reset_Var;
 TM_Type_bc0(end+1)  = COMP;
 TM_Reset_Board      = TM_Reset_Var   + COMP_duration;	% COMP Reset Board
@@ -144,7 +175,7 @@ TM_Data_bc1 = TM_Data_bc0(1:4);
 TM_Type_bc1 = TM_Type_bc0(1:4);
 
 % Set Values
-TM_COMM_Set_Values       = TM_Update_LT + COMP_duration;                 % COMM Set values
+TM_COMM_Set_Values       = TM_bc0_3 + COMP_duration;                 % COMM Set values
 TM_Data_bc1(end+1)       = TM_COMM_Set_Values;
 TM_Type_bc1(end+1)       = COMM;
 TM_Check_Set_Values      = TM_COMM_Set_Values + COMM_duration;           % COMP Check Set values 
@@ -192,7 +223,7 @@ TM_Type_bc1(end+1) = COMP;
 
 
 % Reset variables
-TM_Reset_Var_bc1         = TM_Check_TOuts + COMP_duration;     % COMP Check TimeOuts
+TM_Reset_Var_bc1         = TM_bc0_14 + COMP_duration;     % COMP Check TimeOuts
 TM_Data_bc1(end+1)       = TM_Reset_Var_bc1;
 TM_Type_bc1(end+1)       = COMP;
 TM_Reset_Var_bc1_2       = TM_Reset_Var_bc1 + 2;                         % COMP Reset Variables
@@ -210,6 +241,7 @@ Sync_ID = 1;
 Vote1_ID = 11;
 Vote2_ID = 12;
 Vote3_ID = 13;
+Vote4_ID = 14;
 SetValues_ID = 21;
 SensorValues_ID = 22;
 OutControl1_ID = 23;
@@ -355,6 +387,8 @@ bussignal(2) = Simulink.BusElement;
 bussignal(2).Name = 'Second_Board';
 bussignal(3) = Simulink.BusElement;
 bussignal(3).Name = 'Third_Board';
+bussignal(4) = Simulink.BusElement;
+bussignal(4).Name = 'Fourth_Board';
 vote_array = Simulink.Bus;
 vote_array.Elements = bussignal;
 
