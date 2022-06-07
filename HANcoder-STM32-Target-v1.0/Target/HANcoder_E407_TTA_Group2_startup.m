@@ -222,6 +222,33 @@ TM_Check_Output_Control1 = TM_COMM_Output_Control1 + COMP_duration; % COMP Check
 TM_Data_bc1(end+1) = TM_Check_Output_Control1;
 TM_Type_bc1(end+1) = COMP;
 
+% Output Controller 2
+TM_COMM_Output_Control2  = TM_Check_Output_Control1 + COMP_duration;     % COMM Output Controller 2
+TM_Data_bc1(end+1)       = TM_COMM_Output_Control2;
+TM_Type_bc1(end+1)       = COMM;
+TM_Check_Output_Control2 = TM_COMM_Output_Control2 + COMM_duration;      % COMP Check Output Controller 2
+TM_Data_bc1(end+1)       = TM_Check_Output_Control2;
+TM_Type_bc1(end+1)       = COMP;
+% TMR
+TM_TMR                   = TM_Check_Output_Control2 + COMP_duration;     % COMP TMR <update msg Out1>
+TM_Data_bc1(end+1)       = TM_TMR;
+TM_Type_bc1(end+1)       = COMP;
+TM_TMR_2                 = TM_TMR + 1;                                   % <update msg Out2>
+TM_Data_bc1(end+1)       = TM_TMR_2;
+TM_Type_bc1(end+1)       = COMP;
+TM_TMR_3                 = TM_TMR + 3;                                   % <TMR>
+TM_Data_bc1(end+1)       = TM_TMR_3;
+TM_Type_bc1(end+1)       = COMP;
+% Output Emulator
+TM_COMM_Output_Emulator  = TM_TMR + COMP_duration;                       % COMM Output Controller 2
+TM_Data_bc1(end+1)       = TM_COMM_Output_Emulator;
+TM_Type_bc1(end+1)       = COMM;
+TM_Check_Output_Emulator = TM_COMM_Output_Emulator + COMM_duration;      % COMP Check Output Controller 2
+TM_Data_bc1(end+1)       = TM_Check_Output_Emulator;
+TM_Type_bc1(end+1)       = COMP;
+TM_Check_Output_Emulator_2 = TM_Check_Output_Emulator + 2;               % <Vehicle Em.: Update msg>
+TM_Data_bc1(end+1)       = TM_Check_Output_Emulator_2;
+TM_Type_bc1(end+1)       = COMP;
 
 % Reset variables
 TM_Reset_Var_bc1         = TM_bc0_14 + COMP_duration;     % COMP Check TimeOuts
@@ -328,6 +355,37 @@ delta_f_set.Value = 0;
 delta_a_set = Simulink.Parameter; % Define as parameter
 delta_a_set.StorageClass = 'ExportedGlobal'; % Only Exported Global will be visible in HANtune
 delta_a_set.Value = 0;
+
+% PID gains
+% Torque
+torque_f_k_p = Simulink.Parameter; % Define as parameter
+torque_f_k_p.StorageClass = 'ExportedGlobal'; % Only Exported Global will be visible in HANtune
+torque_f_k_p.Value = 1; 
+torque_f_k_i = Simulink.Parameter; % Define as parameter
+torque_f_k_i.StorageClass = 'ExportedGlobal'; % Only Exported Global will be visible in HANtune
+torque_f_k_i.Value = 1; 
+torque_f_k_d = Simulink.Parameter; % Define as parameter
+torque_f_k_d.StorageClass = 'ExportedGlobal'; % Only Exported Global will be visible in HANtune
+torque_f_k_d.Value = 0;
+torque_a_k_p = Simulink.Parameter; % Define as parameter
+torque_a_k_p.StorageClass = 'ExportedGlobal'; % Only Exported Global will be visible in HANtune
+torque_a_k_p.Value = 1; 
+torque_a_k_i = Simulink.Parameter; % Define as parameter
+torque_a_k_i.StorageClass = 'ExportedGlobal'; % Only Exported Global will be visible in HANtune
+torque_a_k_i.Value = 1; 
+torque_a_k_d = Simulink.Parameter; % Define as parameter
+torque_a_k_d.StorageClass = 'ExportedGlobal'; % Only Exported Global will be visible in HANtune
+torque_a_k_d.Value = 0;
+% Speed
+speed_k_p = Simulink.Parameter; % Define as parameter
+speed_k_p.StorageClass = 'ExportedGlobal'; % Only Exported Global will be visible in HANtune
+speed_k_p.Value = 20; 
+speed_k_i = Simulink.Parameter; % Define as parameter
+speed_k_i.StorageClass = 'ExportedGlobal'; % Only Exported Global will be visible in HANtune
+speed_k_i.Value = 0.001;
+speed_k_d = Simulink.Parameter; % Define as parameter
+speed_k_d.StorageClass = 'ExportedGlobal'; % Only Exported Global will be visible in HANtune
+speed_k_d.Value = 0; 
 
 % HANTune scripts ON/OFF control
 script_run = Simulink.Parameter; % Define as parameter
