@@ -35,7 +35,7 @@ Controller3_Board = 3;
 Controller4_Board = 4;
 
 Input_Gen_Board = 5;
-
+Vehicle_Em_Board = 6;
 
 % COMMunication Model
 COMM_Period = 40;
