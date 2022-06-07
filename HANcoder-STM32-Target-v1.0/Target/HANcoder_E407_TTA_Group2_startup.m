@@ -1,4 +1,4 @@
-% This m-file will be run automatically when starting model 'HANcoder_E407'
+ % This m-file will be run automatically when starting model 'HANcoder_E407'
 % The name of the m-file must consist of the model name with the addition:
 % '_startup'!
 % This m-file will be run when loading the model because it is added to the
