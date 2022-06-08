@@ -38,7 +38,7 @@ Input_Gen_Board = 5;
 Vehicle_Em_Board = 6;
 
 % COMMunication Model
-COMM_Period = 40;
+COMM_Period = 50;
 % COMM_PHASE
 % CAN1
 % init
@@ -67,7 +67,7 @@ max_num_msgs_CAN2 = max_num_msgs_CAN1;
 DEBUG_wait = 20000; % insert this in a TM to make the system wait there for DEBUG
 basic_cycle_start = 0;
 COMM_duration = COMM_Period;
-COMP_duration = 16;
+COMP_duration = 20;
 
 %% Definition of Time marks
 % Time mark types

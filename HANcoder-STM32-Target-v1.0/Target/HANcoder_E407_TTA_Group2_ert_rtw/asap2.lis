@@ -108,6 +108,9 @@ TM2_timeout_counter_s
 TM3_timeout_counter_s
 TM4_timeout_counter_s
 Rx_init_LT
+Error2_s
+Error1_s
+Error3_s
 TMR_miss1_set
 TMR_miss2_set
 TMR_miss1_sensor
@@ -139,6 +142,7 @@ reset_vem_s
 BC1_sync_processed_ing_s
 BC0_sync_processed_ing_s
 reset_ing_s
+Error_RX_s
 BC1_sync_processed_s
 BC0_vote4_processed_s
 BC0_sync_processed_s
@@ -153,6 +157,7 @@ new_set_rx_s
 new_sensor_rx_s
 out2_rx_s
 out1_rx_s
+new_error_rx_s
 reset_s
 Tx_temporal_msg_CAN2
 TxCAN2_counter_s

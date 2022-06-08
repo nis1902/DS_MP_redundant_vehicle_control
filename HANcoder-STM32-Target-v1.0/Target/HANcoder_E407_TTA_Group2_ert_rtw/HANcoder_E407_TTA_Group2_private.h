@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'HANcoder_E407_TTA_Group2'.
  *
- * Model version                  : 1.253
+ * Model version                  : 1.259
  * Simulink Coder version         : 9.0 (R2018b) 24-May-2018
- * C/C++ source code generated on : Wed Jun  8 12:41:07 2022
+ * C/C++ source code generated on : Wed Jun  8 16:38:03 2022
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -139,22 +139,40 @@ extern void CheckmsgtransmissionCAN_Disable(rtB_CheckmsgtransmissionCAN1 *localB
   rtDW_CheckmsgtransmissionCAN1 *localDW);
 extern void CheckmsgtransmissionCAN1(boolean_T rtu_Enable, uint16_T
   rtu_LocalTime, real_T rtu_TimeMark, uint8_T rtu_ValueDomainMsg, uint8_T
+  rtu_ValueDomainMsg_i, uint8_T rtu_ValueDomainMsg_e, uint8_T
+  rtu_ValueDomainMsg_o, rtB_CheckmsgtransmissionCAN1 *localB, const
+  rtC_CheckmsgtransmissionCAN1 *localC, rtDW_CheckmsgtransmissionCAN1 *localDW,
+  real_T *rtd_Board_ID, msg_buffer_type *rtd_Msg_Tx_CAN1, uint32_T
+  *rtd_TxID_CAN1, real_T *rtd_Tx_msg_count_CAN1, uint8_T *rtd_basic_cycle_count);
+extern void CheckmsgtransmissionC_d_Disable(rtB_CheckmsgtransmissionCAN2 *localB,
+  rtDW_CheckmsgtransmissionCAN2 *localDW);
+extern void CheckmsgtransmissionCAN2(boolean_T rtu_Enable, uint16_T
+  rtu_LocalTime, real_T rtu_TimeMark, uint8_T rtu_ValueDomainMsg, uint8_T
+  rtu_ValueDomainMsg_n, uint8_T rtu_ValueDomainMsg_c, uint8_T
+  rtu_ValueDomainMsg_j, rtB_CheckmsgtransmissionCAN2 *localB, const
+  rtC_CheckmsgtransmissionCAN2 *localC, rtDW_CheckmsgtransmissionCAN2 *localDW,
+  real_T *rtd_Board_ID, msg_buffer_type *rtd_Msg_Tx_CAN2, uint32_T
+  *rtd_TxID_CAN2, real_T *rtd_Tx_msg_count_CAN2, uint8_T *rtd_basic_cycle_count);
+extern void CheckmsgtransmissionC_a_Disable(rtB_CheckmsgtransmissionCAN1_p
+  *localB, rtDW_CheckmsgtransmissionCAN1_j *localDW);
+extern void CheckmsgtransmissionCAN1_m(boolean_T rtu_Enable, uint16_T
+  rtu_LocalTime, real_T rtu_TimeMark, uint8_T rtu_ValueDomainMsg, uint8_T
   rtu_ValueDomainMsg_b, uint8_T rtu_ValueDomainMsg_a, uint8_T
   rtu_ValueDomainMsg_c, uint8_T rtu_ValueDomainMsg_p, uint8_T
   rtu_ValueDomainMsg_j, uint8_T rtu_ValueDomainMsg_g,
-  rtB_CheckmsgtransmissionCAN1 *localB, const rtC_CheckmsgtransmissionCAN1
-  *localC, rtDW_CheckmsgtransmissionCAN1 *localDW, real_T *rtd_Board_ID,
+  rtB_CheckmsgtransmissionCAN1_p *localB, const rtC_CheckmsgtransmissionCAN1_j
+  *localC, rtDW_CheckmsgtransmissionCAN1_j *localDW, real_T *rtd_Board_ID,
   msg_buffer_type *rtd_Msg_Tx_CAN1, uint32_T *rtd_TxID_CAN1, real_T
   *rtd_Tx_msg_count_CAN1, uint8_T *rtd_basic_cycle_count);
-extern void CheckmsgtransmissionC_n_Disable(rtB_CheckmsgtransmissionCAN2 *localB,
-  rtDW_CheckmsgtransmissionCAN2 *localDW);
-extern void CheckmsgtransmissionCAN2(boolean_T rtu_Enable, uint16_T
+extern void Checkmsgtransmission_al_Disable(rtB_CheckmsgtransmissionCAN2_h
+  *localB, rtDW_CheckmsgtransmissionCAN2_j *localDW);
+extern void CheckmsgtransmissionCAN2_j(boolean_T rtu_Enable, uint16_T
   rtu_LocalTime, real_T rtu_TimeMark, uint8_T rtu_ValueDomainMsg, uint8_T
   rtu_ValueDomainMsg_c, uint8_T rtu_ValueDomainMsg_b, uint8_T
   rtu_ValueDomainMsg_bb, uint8_T rtu_ValueDomainMsg_k, uint8_T
   rtu_ValueDomainMsg_a, uint8_T rtu_ValueDomainMsg_p,
-  rtB_CheckmsgtransmissionCAN2 *localB, const rtC_CheckmsgtransmissionCAN2
-  *localC, rtDW_CheckmsgtransmissionCAN2 *localDW, real_T *rtd_Board_ID,
+  rtB_CheckmsgtransmissionCAN2_h *localB, const rtC_CheckmsgtransmissionCAN2_p
+  *localC, rtDW_CheckmsgtransmissionCAN2_j *localDW, real_T *rtd_Board_ID,
   msg_buffer_type *rtd_Msg_Tx_CAN2, uint32_T *rtd_TxID_CAN2, real_T
   *rtd_Tx_msg_count_CAN2, uint8_T *rtd_basic_cycle_count);
 extern void Transmissionsubtasks1_Disable(rtB_Transmissionsubtasks1 *localB,
@@ -188,27 +206,6 @@ extern void CheckmsgtransmissionCAN2_p(boolean_T rtu_Enable, uint16_T
   *localC, rtDW_CheckmsgtransmissionCAN2_d *localDW, real_T *rtd_Board_ID,
   msg_buffer_type *rtd_Msg_Tx_CAN2, uint32_T *rtd_TxID_CAN2, real_T
   *rtd_Tx_msg_count_CAN2, uint8_T *rtd_basic_cycle_count);
-extern void Checkmsgtransmission_nn_Disable(rtB_CheckmsgtransmissionCAN1_g
-  *localB, rtDW_CheckmsgtransmissionCAN1_l *localDW);
-extern void CheckmsgtransmissionCAN1_m(boolean_T rtu_Enable, uint16_T
-  rtu_LocalTime, real_T rtu_TimeMark, uint8_T rtu_ValueDomainMsg, uint8_T
-  rtu_ValueDomainMsg_i, uint8_T rtu_ValueDomainMsg_p, uint8_T
-  rtu_ValueDomainMsg_o, rtB_CheckmsgtransmissionCAN1_g *localB, const
-  rtC_CheckmsgtransmissionCAN1_j *localC, rtDW_CheckmsgtransmissionCAN1_l
-  *localDW, real_T *rtd_Board_ID, msg_buffer_type *rtd_Msg_Tx_CAN1, uint32_T
-  *rtd_TxID_CAN1, real_T *rtd_Tx_msg_count_CAN1, uint8_T *rtd_basic_cycle_count);
-extern void CheckmsgtransmissionC_h_Disable(rtB_CheckmsgtransmissionCAN2_m
-  *localB, rtDW_CheckmsgtransmissionCAN2_n *localDW);
-extern void CheckmsgtransmissionCAN2_i(boolean_T rtu_Enable, uint16_T
-  rtu_LocalTime, real_T rtu_TimeMark, uint8_T rtu_ValueDomainMsg, uint8_T
-  rtu_ValueDomainMsg_d, uint8_T rtu_ValueDomainMsg_dl, uint8_T
-  rtu_ValueDomainMsg_n, rtB_CheckmsgtransmissionCAN2_m *localB, const
-  rtC_CheckmsgtransmissionCAN2_a *localC, rtDW_CheckmsgtransmissionCAN2_n
-  *localDW, real_T *rtd_Board_ID, msg_buffer_type *rtd_Msg_Tx_CAN2, uint32_T
-  *rtd_TxID_CAN2, real_T *rtd_Tx_msg_count_CAN2, uint8_T *rtd_basic_cycle_count);
-extern void ResetVariables(boolean_T rtu_Enable, boolean_T
-  *rtd_BC1_Sync_processed, boolean_T *rtd_Desync_Positive, boolean_T
-  *rtd_Toggle_Pin_A0);
 extern void Process_Messages_Disable(rtB_Process_Messages *localB,
   rtDW_Process_Messages *localDW);
 extern void Process_Messages(boolean_T rtu_Enable, boolean_T rtu_new_CAN1_msg,
@@ -217,6 +214,17 @@ extern void Process_Messages(boolean_T rtu_Enable, boolean_T rtu_new_CAN1_msg,
   rtB_Process_Messages *localB, rtDW_Process_Messages *localDW, msg_buffer_type *
   rtd_Msg_Rx_f, boolean_T *rtd_Toggle_Pin_A0, real_T *rtd_msg_count_DEBUG_i,
   boolean_T *rtd_new_msg_Rx_g);
+extern void ResetVariables(boolean_T rtu_Enable, boolean_T
+  *rtd_BC1_Sync_processed, boolean_T *rtd_Desync_Positive, boolean_T
+  *rtd_Toggle_Pin_A0);
+extern void Process_Messages_f_Disable(rtB_Process_Messages_h *localB,
+  rtDW_Process_Messages_n *localDW);
+extern void Process_Messages_g(boolean_T rtu_Enable, boolean_T rtu_new_CAN1_msg,
+  boolean_T rtu_new_CAN2_msg, const msg_buffer_type *rtu_Rx_msg_CAN1, const
+  msg_buffer_type *rtu_Rx_Msg_CAN2, real_T rtu_expected_board_id,
+  rtB_Process_Messages_h *localB, rtDW_Process_Messages_n *localDW,
+  msg_buffer_type *rtd_Msg_Rx_f, boolean_T *rtd_Toggle_Pin_A0, real_T
+  *rtd_msg_count_DEBUG_i, boolean_T *rtd_new_msg_Rx_g);
 extern void BitShift1_g(uint8_T rtu_u, rtB_BitShift1_jb *localB);
 extern void BitShift11(uint8_T rtu_u, rtB_BitShift11 *localB);
 extern void BitShift12(uint8_T rtu_u, rtB_BitShift12 *localB);
