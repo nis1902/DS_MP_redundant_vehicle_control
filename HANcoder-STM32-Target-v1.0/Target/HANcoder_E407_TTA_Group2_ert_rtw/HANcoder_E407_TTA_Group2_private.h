@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'HANcoder_E407_TTA_Group2'.
  *
- * Model version                  : 1.264
+ * Model version                  : 1.269
  * Simulink Coder version         : 9.0 (R2018b) 24-May-2018
- * C/C++ source code generated on : Wed Jun  8 18:25:48 2022
+ * C/C++ source code generated on : Wed Jun  8 20:43:15 2022
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -96,9 +96,14 @@ extern void Transmissionsubtasks_h(boolean_T rtu_Enable, real_T rtu_Time_Mark,
   *rtd_Msg_Tx_CAN2, uint8_T *rtd_Own_Vote, uint32_T *rtd_TxID_CAN1, uint32_T
   *rtd_TxID_CAN2, real_T *rtd_Tx_msg_count_CAN1, real_T *rtd_Tx_msg_count_CAN2,
   uint8_T *rtd_basic_cycle_count);
+extern void BitShift1_o(uint8_T rtu_u, rtB_BitShift1_i *localB);
+extern void BitShift10(uint8_T rtu_u, rtB_BitShift10 *localB);
+extern void BitShift2(uint8_T rtu_u, rtB_BitShift2 *localB);
+extern void BitShift5(uint8_T rtu_u, rtB_BitShift5 *localB);
+extern void BitShift6(uint8_T rtu_u, rtB_BitShift6 *localB);
 extern void BitShift(uint8_T rtu_u, rtB_BitShift *localB);
 extern void BitShift1_m(uint8_T rtu_u, rtB_BitShift1_j *localB);
-extern void BitShift2(uint8_T rtu_u, rtB_BitShift2 *localB);
+extern void BitShift2_n(uint8_T rtu_u, rtB_BitShift2_g *localB);
 extern void DemuxmessageCAN1andchec_Disable(rtB_DemuxmessageCAN1andcheckcoh
   *localB, rtDW_DemuxmessageCAN1andcheckco *localDW);
 extern void DemuxmessageCAN1andcheckcoheren(boolean_T rtu_Enable, const
@@ -214,10 +219,6 @@ extern void Process_Messages_g(boolean_T rtu_Enable, boolean_T rtu_new_CAN1_msg,
   rtB_Process_Messages_h *localB, rtDW_Process_Messages_n *localDW,
   msg_buffer_type *rtd_Msg_Rx_f, boolean_T *rtd_Toggle_Pin_A0, real_T
   *rtd_msg_count_DEBUG_i, boolean_T *rtd_new_msg_Rx_g);
-extern void BitShift1_g(uint8_T rtu_u, rtB_BitShift1_jb *localB);
-extern void BitShift11(uint8_T rtu_u, rtB_BitShift11 *localB);
-extern void BitShift12(uint8_T rtu_u, rtB_BitShift12 *localB);
-extern void BitShift2_a(uint8_T rtu_u, rtB_BitShift2_p *localB);
 extern void LocalTimeUpdate(boolean_T rtu_Enable, real_T rtu_Time_Mark,
   boolean_T *rtd_BC1_Sync_processed, boolean_T *rtd_Desync_Positive, real_T
   *rtd_Desync_Ticks, uint16_T *rtd_Local_Ticks, boolean_T *rtd_Toggle_Pin_A0,

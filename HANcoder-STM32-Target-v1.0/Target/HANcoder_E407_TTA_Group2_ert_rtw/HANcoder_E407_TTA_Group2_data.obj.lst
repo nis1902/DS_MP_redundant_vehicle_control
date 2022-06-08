@@ -613,11 +613,11 @@
  617 0584 00       		.byte	0
  618 0585 00       		.byte	0
  619 0586 00       		.byte	0
- 620 0587 00       		.byte	0
- 621 0588 00       		.byte	0
- 622 0589 00       		.byte	0
- 623 058a 00       		.byte	0
- 624 058b 00       		.byte	0
+ 620 0587 01       		.byte	1
+ 621 0588 01       		.byte	1
+ 622 0589 01       		.byte	1
+ 623 058a 01       		.byte	1
+ 624 058b 01       		.byte	1
  625 058c 00       		.byte	0
  626 058d 00       		.byte	0
  627 058e 00       		.byte	0
@@ -629,184 +629,189 @@
  633 0594 00       		.byte	0
  634 0595 00       		.byte	0
  635 0596 00       		.byte	0
- 636 0597 01       		.byte	1
+ 636 0597 00       		.byte	0
  637 0598 00       		.byte	0
  638 0599 00       		.byte	0
- 639 059a 01       		.byte	1
- 640 059b 00       		.space	1
- 641 059c 01000000 		.word	1
- 642 05a0 01000000 		.word	1
- 643 05a4 01000000 		.word	1
- 644 05a8 01000000 		.word	1
- 645 05ac 00       		.byte	0
- 646 05ad 00       		.byte	0
- 647 05ae 00       		.byte	0
- 648 05af 00       		.byte	0
- 649 05b0 16000000 		.word	22
- 650 05b4 16000000 		.word	22
- 651 05b8 16000000 		.word	22
- 652 05bc 16000000 		.word	22
- 653 05c0 00       		.byte	0
- 654 05c1 00       		.byte	0
- 655 05c2 00       		.byte	0
- 656 05c3 00       		.byte	0
- 657 05c4 19000000 		.word	25
- 658 05c8 19000000 		.word	25
- 659 05cc 19000000 		.word	25
- 660 05d0 19000000 		.word	25
- 661 05d4 00       		.byte	0
- 662 05d5 00       		.byte	0
- 663 05d6 00       		.byte	0
- 664 05d7 00       		.byte	0
+ 639 059a 00       		.byte	0
+ 640 059b 00       		.byte	0
+ 641 059c 01       		.byte	1
+ 642 059d 00       		.byte	0
+ 643 059e 00       		.byte	0
+ 644 059f 01       		.byte	1
+ 645 05a0 01000000 		.word	1
+ 646 05a4 01000000 		.word	1
+ 647 05a8 01000000 		.word	1
+ 648 05ac 01000000 		.word	1
+ 649 05b0 00       		.byte	0
+ 650 05b1 00       		.byte	0
+ 651 05b2 00       		.byte	0
+ 652 05b3 00       		.byte	0
+ 653 05b4 16000000 		.word	22
+ 654 05b8 16000000 		.word	22
+ 655 05bc 16000000 		.word	22
+ 656 05c0 16000000 		.word	22
+ 657 05c4 00       		.byte	0
+ 658 05c5 00       		.byte	0
+ 659 05c6 00       		.byte	0
+ 660 05c7 00       		.byte	0
+ 661 05c8 19000000 		.word	25
+ 662 05cc 19000000 		.word	25
+ 663 05d0 19000000 		.word	25
+ 664 05d4 19000000 		.word	25
  665 05d8 00       		.byte	0
  666 05d9 00       		.byte	0
- 667 05da 01       		.byte	1
- 668 05db 00       		.space	1
- 669 05dc 01000000 		.word	1
- 670 05e0 01000000 		.word	1
- 671 05e4 01000000 		.word	1
- 672 05e8 01000000 		.word	1
- 673 05ec 00       		.byte	0
- 674 05ed 00       		.byte	0
- 675 05ee 00       		.byte	0
- 676 05ef 00       		.byte	0
- 677 05f0 01000000 		.word	1
- 678 05f4 01000000 		.word	1
- 679 05f8 01000000 		.word	1
- 680 05fc 01000000 		.word	1
- 681 0600 00       		.byte	0
- 682 0601 00       		.byte	0
- 683 0602 00       		.byte	0
- 684 0603 00       		.byte	0
- 685 0604 15000000 		.word	21
- 686 0608 15000000 		.word	21
- 687 060c 15000000 		.word	21
- 688 0610 15000000 		.word	21
- 689 0614 00       		.byte	0
- 690 0615 00       		.byte	0
- 691 0616 00       		.byte	0
- 692 0617 00       		.byte	0
+ 667 05da 00       		.byte	0
+ 668 05db 00       		.byte	0
+ 669 05dc 00       		.byte	0
+ 670 05dd 00       		.byte	0
+ 671 05de 01       		.byte	1
+ 672 05df 00       		.space	1
+ 673 05e0 01000000 		.word	1
+ 674 05e4 01000000 		.word	1
+ 675 05e8 01000000 		.word	1
+ 676 05ec 01000000 		.word	1
+ 677 05f0 00       		.byte	0
+ 678 05f1 00       		.byte	0
+ 679 05f2 00       		.byte	0
+ 680 05f3 00       		.byte	0
+ 681 05f4 01000000 		.word	1
+ 682 05f8 01000000 		.word	1
+ 683 05fc 01000000 		.word	1
+ 684 0600 01000000 		.word	1
+ 685 0604 00       		.byte	0
+ 686 0605 00       		.byte	0
+ 687 0606 00       		.byte	0
+ 688 0607 00       		.byte	0
+ 689 0608 15000000 		.word	21
+ 690 060c 15000000 		.word	21
+ 691 0610 15000000 		.word	21
+ 692 0614 15000000 		.word	21
  693 0618 00       		.byte	0
  694 0619 00       		.byte	0
- 695 061a 01       		.byte	1
- 696 061b 00       		.space	1
- 697 061c 01000000 		.word	1
- 698 0620 01000000 		.word	1
- 699 0624 01000000 		.word	1
- 700 0628 01000000 		.word	1
- 701 062c 00       		.byte	0
- 702 062d 00       		.byte	0
- 703 062e 00       		.byte	0
- 704 062f 00       		.byte	0
- 705 0630 01000000 		.word	1
- 706 0634 01000000 		.word	1
- 707 0638 01000000 		.word	1
- 708 063c 01000000 		.word	1
- 709 0640 00       		.byte	0
- 710 0641 00       		.byte	0
- 711 0642 00       		.byte	0
- 712 0643 00       		.byte	0
- 713 0644 15000000 		.word	21
- 714 0648 15000000 		.word	21
- 715 064c 15000000 		.word	21
- 716 0650 15000000 		.word	21
- 717 0654 00       		.byte	0
- 718 0655 00       		.byte	0
- 719 0656 00       		.byte	0
- 720 0657 00       		.byte	0
- 721 0658 16000000 		.word	22
- 722 065c 16000000 		.word	22
- 723 0660 16000000 		.word	22
- 724 0664 16000000 		.word	22
- 725 0668 00       		.byte	0
- 726 0669 00       		.byte	0
- 727 066a 00       		.byte	0
- 728 066b 00       		.byte	0
- 729 066c 19000000 		.word	25
- 730 0670 19000000 		.word	25
- 731 0674 19000000 		.word	25
- 732 0678 19000000 		.word	25
- 733 067c 00       		.byte	0
- 734 067d 00       		.byte	0
- 735 067e 00       		.byte	0
- 736 067f 00       		.byte	0
- 737 0680 18000000 		.word	24
- 738 0684 18000000 		.word	24
- 739 0688 18000000 		.word	24
- 740 068c 18000000 		.word	24
- 741 0690 00       		.byte	0
- 742 0691 00       		.byte	0
- 743 0692 00       		.byte	0
- 744 0693 00       		.byte	0
- 745 0694 17000000 		.word	23
- 746 0698 17000000 		.word	23
- 747 069c 17000000 		.word	23
- 748 06a0 17000000 		.word	23
- 749 06a4 00       		.byte	0
- 750 06a5 00       		.byte	0
- 751 06a6 00       		.byte	0
- 752 06a7 00       		.byte	0
- 753 06a8 1F000000 		.word	31
- 754 06ac 1F000000 		.word	31
- 755 06b0 1F000000 		.word	31
- 756 06b4 1F000000 		.word	31
- 757 06b8 00       		.byte	0
- 758 06b9 00       		.byte	0
- 759 06ba 00       		.byte	0
- 760 06bb 00       		.byte	0
- 761 06bc 0E000000 		.word	14
- 762 06c0 0E000000 		.word	14
- 763 06c4 0E000000 		.word	14
- 764 06c8 0E000000 		.word	14
- 765 06cc 00       		.byte	0
- 766 06cd 00       		.byte	0
- 767 06ce 00       		.byte	0
- 768 06cf 00       		.byte	0
- 769 06d0 0D000000 		.word	13
- 770 06d4 0D000000 		.word	13
- 771 06d8 0D000000 		.word	13
- 772 06dc 0D000000 		.word	13
- 773 06e0 00       		.byte	0
- 774 06e1 00       		.byte	0
- 775 06e2 00       		.byte	0
- 776 06e3 00       		.byte	0
- 777 06e4 0C000000 		.word	12
- 778 06e8 0C000000 		.word	12
- 779 06ec 0C000000 		.word	12
- 780 06f0 0C000000 		.word	12
- 781 06f4 00       		.byte	0
- 782 06f5 00       		.byte	0
- 783 06f6 00       		.byte	0
- 784 06f7 00       		.byte	0
- 785 06f8 0B000000 		.word	11
- 786 06fc 0B000000 		.word	11
- 787 0700 0B000000 		.word	11
- 788 0704 0B000000 		.word	11
- 789 0708 00       		.byte	0
- 790 0709 00       		.byte	0
- 791 070a 00       		.byte	0
- 792 070b 00       		.byte	0
- 793 070c 01000000 		.word	1
- 794 0710 01000000 		.word	1
- 795 0714 01000000 		.word	1
- 796 0718 01000000 		.word	1
- 797 071c 00       		.byte	0
- 798 071d 00       		.byte	0
- 799 071e 00       		.byte	0
- 800 071f 00       		.byte	0
- 801              		.text
- 802              	.Letext0:
- 803              		.file 1 "c:\\program files (x86)\\gnu tools arm embedded\\5.4 2016q2\\arm-none-eabi\\include\\mach
- 804              		.file 2 "rtwtypes.h"
- 805              		.file 3 "c:\\program files (x86)\\gnu tools arm embedded\\5.4 2016q2\\arm-none-eabi\\include\\sys\
- 806              		.file 4 "HANcoder_E407_TTA_Group2.h"
- 807              		.file 5 "../blockset/rtw/STM32/inc/STM32_E407/core_cm4.h"
- 808              		.file 6 "HANcoder_E407_TTA_Group2_data.c"
+ 695 061a 00       		.byte	0
+ 696 061b 00       		.byte	0
+ 697 061c 00       		.byte	0
+ 698 061d 00       		.byte	0
+ 699 061e 01       		.byte	1
+ 700 061f 00       		.space	1
+ 701 0620 01000000 		.word	1
+ 702 0624 01000000 		.word	1
+ 703 0628 01000000 		.word	1
+ 704 062c 01000000 		.word	1
+ 705 0630 00       		.byte	0
+ 706 0631 00       		.byte	0
+ 707 0632 00       		.byte	0
+ 708 0633 00       		.byte	0
+ 709 0634 01000000 		.word	1
+ 710 0638 01000000 		.word	1
+ 711 063c 01000000 		.word	1
+ 712 0640 01000000 		.word	1
+ 713 0644 00       		.byte	0
+ 714 0645 00       		.byte	0
+ 715 0646 00       		.byte	0
+ 716 0647 00       		.byte	0
+ 717 0648 15000000 		.word	21
+ 718 064c 15000000 		.word	21
+ 719 0650 15000000 		.word	21
+ 720 0654 15000000 		.word	21
+ 721 0658 00       		.byte	0
+ 722 0659 00       		.byte	0
+ 723 065a 00       		.byte	0
+ 724 065b 00       		.byte	0
+ 725 065c 16000000 		.word	22
+ 726 0660 16000000 		.word	22
+ 727 0664 16000000 		.word	22
+ 728 0668 16000000 		.word	22
+ 729 066c 00       		.byte	0
+ 730 066d 00       		.byte	0
+ 731 066e 00       		.byte	0
+ 732 066f 00       		.byte	0
+ 733 0670 19000000 		.word	25
+ 734 0674 19000000 		.word	25
+ 735 0678 19000000 		.word	25
+ 736 067c 19000000 		.word	25
+ 737 0680 00       		.byte	0
+ 738 0681 00       		.byte	0
+ 739 0682 00       		.byte	0
+ 740 0683 00       		.byte	0
+ 741 0684 18000000 		.word	24
+ 742 0688 18000000 		.word	24
+ 743 068c 18000000 		.word	24
+ 744 0690 18000000 		.word	24
+ 745 0694 00       		.byte	0
+ 746 0695 00       		.byte	0
+ 747 0696 00       		.byte	0
+ 748 0697 00       		.byte	0
+ 749 0698 17000000 		.word	23
+ 750 069c 17000000 		.word	23
+ 751 06a0 17000000 		.word	23
+ 752 06a4 17000000 		.word	23
+ 753 06a8 00       		.byte	0
+ 754 06a9 00       		.byte	0
+ 755 06aa 00       		.byte	0
+ 756 06ab 00       		.byte	0
+ 757 06ac 1F000000 		.word	31
+ 758 06b0 1F000000 		.word	31
+ 759 06b4 1F000000 		.word	31
+ 760 06b8 1F000000 		.word	31
+ 761 06bc 00       		.byte	0
+ 762 06bd 00       		.byte	0
+ 763 06be 00       		.byte	0
+ 764 06bf 00       		.byte	0
+ 765 06c0 0E000000 		.word	14
+ 766 06c4 0E000000 		.word	14
+ 767 06c8 0E000000 		.word	14
+ 768 06cc 0E000000 		.word	14
+ 769 06d0 00       		.byte	0
+ 770 06d1 00       		.byte	0
+ 771 06d2 00       		.byte	0
+ 772 06d3 00       		.byte	0
+ 773 06d4 0D000000 		.word	13
+ 774 06d8 0D000000 		.word	13
+ 775 06dc 0D000000 		.word	13
+ 776 06e0 0D000000 		.word	13
+ 777 06e4 00       		.byte	0
+ 778 06e5 00       		.byte	0
+ 779 06e6 00       		.byte	0
+ 780 06e7 00       		.byte	0
+ 781 06e8 0C000000 		.word	12
+ 782 06ec 0C000000 		.word	12
+ 783 06f0 0C000000 		.word	12
+ 784 06f4 0C000000 		.word	12
+ 785 06f8 00       		.byte	0
+ 786 06f9 00       		.byte	0
+ 787 06fa 00       		.byte	0
+ 788 06fb 00       		.byte	0
+ 789 06fc 0B000000 		.word	11
+ 790 0700 0B000000 		.word	11
+ 791 0704 0B000000 		.word	11
+ 792 0708 0B000000 		.word	11
+ 793 070c 00       		.byte	0
+ 794 070d 00       		.byte	0
+ 795 070e 00       		.byte	0
+ 796 070f 00       		.byte	0
+ 797 0710 01000000 		.word	1
+ 798 0714 01000000 		.word	1
+ 799 0718 01000000 		.word	1
+ 800 071c 01000000 		.word	1
+ 801 0720 00       		.byte	0
+ 802 0721 00       		.byte	0
+ 803 0722 00       		.byte	0
+ 804 0723 00       		.byte	0
+ 805 0724 00000000 		.space	4
+ 806              		.text
+ 807              	.Letext0:
+ 808              		.file 1 "c:\\program files (x86)\\gnu tools arm embedded\\5.4 2016q2\\arm-none-eabi\\include\\mach
+ 809              		.file 2 "rtwtypes.h"
+ 810              		.file 3 "c:\\program files (x86)\\gnu tools arm embedded\\5.4 2016q2\\arm-none-eabi\\include\\sys\
+ 811              		.file 4 "HANcoder_E407_TTA_Group2.h"
+ 812              		.file 5 "../blockset/rtw/STM32/inc/STM32_E407/core_cm4.h"
+ 813              		.file 6 "HANcoder_E407_TTA_Group2_data.c"
 DEFINED SYMBOLS
                             *ABS*:00000000 HANcoder_E407_TTA_Group2_data.c
-C:\Users\cheff\AppData\Local\Temp\ccNUIImF.s:26     .rodata.rtConstP:00000000 rtConstP
-C:\Users\cheff\AppData\Local\Temp\ccNUIImF.s:255    .rodata.rtConstB:00000000 rtConstB
-C:\Users\cheff\AppData\Local\Temp\ccNUIImF.s:23     .rodata.rtConstP:00000000 $d
-C:\Users\cheff\AppData\Local\Temp\ccNUIImF.s:252    .rodata.rtConstB:00000000 $d
+C:\Users\cheff\AppData\Local\Temp\ccTeNfIp.s:26     .rodata.rtConstP:00000000 rtConstP
+C:\Users\cheff\AppData\Local\Temp\ccTeNfIp.s:255    .rodata.rtConstB:00000000 rtConstB
+C:\Users\cheff\AppData\Local\Temp\ccTeNfIp.s:23     .rodata.rtConstP:00000000 $d
+C:\Users\cheff\AppData\Local\Temp\ccTeNfIp.s:252    .rodata.rtConstB:00000000 $d
 
 NO UNDEFINED SYMBOLS
