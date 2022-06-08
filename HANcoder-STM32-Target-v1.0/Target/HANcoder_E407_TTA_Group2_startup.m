@@ -67,7 +67,7 @@ max_num_msgs_CAN2 = max_num_msgs_CAN1;
 DEBUG_wait = 20000; % insert this in a TM to make the system wait there for DEBUG
 basic_cycle_start = 0;
 COMM_duration = COMM_Period;
-COMP_duration = 8;
+COMP_duration = 16;
 
 %% Definition of Time marks
 % Time mark types
@@ -167,6 +167,7 @@ TM_Type_bc0(end+1)  = COMP;
 TM_Reset_Var        = TM_bc0_18  + COMP_duration;	% COMP Reset Variables
 TM_Data_bc0(end+1)  = TM_Reset_Var;
 TM_Type_bc0(end+1)  = COMP;
+
 TM_Reset_Board      = TM_Reset_Var   + COMP_duration;	% COMP Reset Board
 TM_Data_bc0(end+1)  = TM_Reset_Board;
 TM_Type_bc0(end+1)  = COMP;
@@ -250,8 +251,19 @@ TM_Check_Output_Emulator_2 = TM_Check_Output_Emulator + 2;               % <Vehi
 TM_Data_bc1(end+1)       = TM_Check_Output_Emulator_2;
 TM_Type_bc1(end+1)       = COMP;
 
+% Error value send
+TM_bc1_18       = TM_Check_Output_Emulator + COMP_duration;	% Voter send Error log
+TM_Data_bc1(end+1)  = TM_bc1_18;
+TM_Type_bc1(end+1)  = COMM;
+TM_bc1_19       = TM_bc1_18 + COMM_duration;	% Check error log
+TM_Data_bc1(end+1)  = TM_bc1_19;
+TM_Type_bc1(end+1)  = COMP;
+TM_bc1_19_2       = TM_bc1_19 + 2;	% Check error log
+TM_Data_bc1(end+1)  = TM_bc1_19_2;
+TM_Type_bc1(end+1)  = COMP;
+
 % Reset variables
-TM_Reset_Var_bc1         = TM_bc0_14 + COMP_duration;     % COMP Check TimeOuts
+TM_Reset_Var_bc1         = TM_bc1_19 + COMP_duration;     % Reset Variables Basic Cycle 1
 TM_Data_bc1(end+1)       = TM_Reset_Var_bc1;
 TM_Type_bc1(end+1)       = COMP;
 TM_Reset_Var_bc1_2       = TM_Reset_Var_bc1 + 2;                         % COMP Reset Variables
@@ -260,7 +272,7 @@ TM_Type_bc1(end+1)       = COMP;
 
 % matrix scheduling constants
 basic_cycle_duration_bc0 = TM_Reset_Board   + COMP_duration; % cycle duration in NTU
-basic_cycle_duration_bc1 = basic_cycle_duration_bc0;         % cycle duration in NTU
+basic_cycle_duration_bc1 = TM_Reset_Var_bc1 + COMP_duration;         % cycle duration in NTU
 matrix_cycle_duration = basic_cycle_duration_bc0 + basic_cycle_duration_bc1; % cycle duration in NTU
 matrix_rows = 2;
 
@@ -275,6 +287,8 @@ SensorValues_ID = 22;
 OutControl1_ID = 23;
 OutControl2_ID = 24;
 OutEmulator_ID = 25;
+
+ErrorLog_ID = 31;
 
 % Communication delay: time from message sent until message received
 comm_delay_measured1 = 0.0003; % [1Mb/s -> 0.3 ms]

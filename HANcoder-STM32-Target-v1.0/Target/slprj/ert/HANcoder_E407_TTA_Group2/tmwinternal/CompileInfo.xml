@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <MF0 version="1.1" packageUris="http://schema.mathworks.com/mf0/sl_modelref_info/R2018b">
-  <ModelRefInfoRepo.ModelRefInfoRoot type="ModelRefInfoRepo.ModelRefInfoRoot" uuid="5fa4b657-4dcf-44b8-84bf-6cd03ee89d02">
+  <ModelRefInfoRepo.ModelRefInfoRoot type="ModelRefInfoRepo.ModelRefInfoRoot" uuid="040f4506-a613-4cd4-80cf-d12aa0a19040">
     <autoSolverStatusFlags>323</autoSolverStatusFlags>
-    <childModelRefInfo type="ModelRefInfoRepo.ChildModelRefInfo" uuid="551f86a8-7f4f-4b9c-b955-2c58ec302df1">
+    <childModelRefInfo type="ModelRefInfoRepo.ChildModelRefInfo" uuid="a4d4d6dc-a084-49a8-9df3-e4e13c484a4c">
       <modelName>HANcoder_E407_TTA_Group2</modelName>
       <modelPath>HANcoder_E407_TTA_Group2</modelPath>
     </childModelRefInfo>
@@ -11,14 +11,19 @@
     <fundamentalSampleTimePeriod>0.01</fundamentalSampleTimePeriod>
     <globalVariables>BC0_sync_processed_ing_s</globalVariables>
     <globalVariables>BC0_sync_processed_s</globalVariables>
+    <globalVariables>BC0_sync_processed_vem__s</globalVariables>
     <globalVariables>BC0_vote1_processed_s</globalVariables>
     <globalVariables>BC0_vote2_processed_s</globalVariables>
     <globalVariables>BC0_vote3_processed_s</globalVariables>
+    <globalVariables>BC0_vote4_processed_s</globalVariables>
     <globalVariables>BC1_sync_processed_ing_s</globalVariables>
     <globalVariables>BC1_sync_processed_s</globalVariables>
+    <globalVariables>BC1_sync_processed_vem__s</globalVariables>
+    <globalVariables>BackUp_Role</globalVariables>
     <globalVariables>Board_1_error_counter_s</globalVariables>
     <globalVariables>Board_2_error_counter_s</globalVariables>
     <globalVariables>Board_3_error_counter_s</globalVariables>
+    <globalVariables>Board_4_error_counter_s</globalVariables>
     <globalVariables>Board_ID_s</globalVariables>
     <globalVariables>COMM_Period</globalVariables>
     <globalVariables>COMM_Phase1</globalVariables>
@@ -32,8 +37,10 @@
     <globalVariables>Controller4_Board</globalVariables>
     <globalVariables>Desync_Sync_bc0_ing_s</globalVariables>
     <globalVariables>Desync_Sync_bc0_s</globalVariables>
+    <globalVariables>Desync_Sync_bc0_vem_s</globalVariables>
     <globalVariables>Desync_Sync_bc1_ing_s</globalVariables>
     <globalVariables>Desync_Sync_bc1_s</globalVariables>
+    <globalVariables>Desync_Sync_bc1_vem_s</globalVariables>
     <globalVariables>HANtuneOverride</globalVariables>
     <globalVariables>Input_Gen_Board</globalVariables>
     <globalVariables>LA_COMM_Err</globalVariables>
@@ -45,12 +52,18 @@
     <globalVariables>LedValue</globalVariables>
     <globalVariables>Master_ID_ing_s</globalVariables>
     <globalVariables>Master_ID_s</globalVariables>
+    <globalVariables>Master_ID_vem_s</globalVariables>
     <globalVariables>Master_Role</globalVariables>
     <globalVariables>OutControl1_ID</globalVariables>
     <globalVariables>OutControl2_ID</globalVariables>
     <globalVariables>OutEmulator_ID</globalVariables>
+    <globalVariables>R_al</globalVariables>
+    <globalVariables>R_ar</globalVariables>
+    <globalVariables>R_fl</globalVariables>
+    <globalVariables>R_fr</globalVariables>
     <globalVariables>Role_ID_ing_s</globalVariables>
     <globalVariables>Role_ID_s</globalVariables>
+    <globalVariables>Role_ID_vem_s</globalVariables>
     <globalVariables>RxCAN1_counter_s</globalVariables>
     <globalVariables>RxCAN2_counter_s</globalVariables>
     <globalVariables>RxID_CAN1_s</globalVariables>
@@ -68,69 +81,93 @@
     <globalVariables>SI_FreeStack</globalVariables>
     <globalVariables>SensorValues_ID</globalVariables>
     <globalVariables>SetValues_ID</globalVariables>
+    <globalVariables>Slave_ID_s</globalVariables>
     <globalVariables>Slave_Role</globalVariables>
     <globalVariables>Sync_ID</globalVariables>
     <globalVariables>TM1_timeout_counter_s</globalVariables>
     <globalVariables>TM2_timeout_counter_s</globalVariables>
     <globalVariables>TM3_timeout_counter_s</globalVariables>
+    <globalVariables>TM4_timeout_counter_s</globalVariables>
+    <globalVariables>TMR_miss1_sensor</globalVariables>
+    <globalVariables>TMR_miss1_set</globalVariables>
+    <globalVariables>TMR_miss2_sensor</globalVariables>
+    <globalVariables>TMR_miss2_set</globalVariables>
+    <globalVariables>TMR_miss_out1</globalVariables>
+    <globalVariables>TMR_miss_out2</globalVariables>
+    <globalVariables>TMR_miss_sensor</globalVariables>
+    <globalVariables>TMR_miss_set</globalVariables>
     <globalVariables>TM_COMM_Output_Control1</globalVariables>
-    <globalVariables>TM_COMM_Output_Control1_2</globalVariables>
+    <globalVariables>TM_COMM_Output_Control2</globalVariables>
+    <globalVariables>TM_COMM_Output_Emulator</globalVariables>
     <globalVariables>TM_COMM_Sensor_Values</globalVariables>
     <globalVariables>TM_COMM_Set_Values</globalVariables>
     <globalVariables>TM_COMM_Sync</globalVariables>
-    <globalVariables>TM_COMM_Vote1</globalVariables>
-    <globalVariables>TM_COMM_Vote2</globalVariables>
-    <globalVariables>TM_COMM_Vote3</globalVariables>
     <globalVariables>TM_Check_Output_Control1</globalVariables>
+    <globalVariables>TM_Check_Output_Control2</globalVariables>
+    <globalVariables>TM_Check_Output_Emulator</globalVariables>
+    <globalVariables>TM_Check_Output_Emulator_2</globalVariables>
     <globalVariables>TM_Check_Sensor_Values</globalVariables>
     <globalVariables>TM_Check_Sensor_Values_2</globalVariables>
     <globalVariables>TM_Check_Set_Values</globalVariables>
     <globalVariables>TM_Check_Set_Values_2</globalVariables>
-    <globalVariables>TM_Check_Sync</globalVariables>
-    <globalVariables>TM_Check_TOuts</globalVariables>
-    <globalVariables>TM_Check_Vote1</globalVariables>
-    <globalVariables>TM_Check_Vote2</globalVariables>
-    <globalVariables>TM_Check_Vote3</globalVariables>
-    <globalVariables>TM_Count_Vote1</globalVariables>
-    <globalVariables>TM_Count_Vote2</globalVariables>
-    <globalVariables>TM_Count_Vote3</globalVariables>
     <globalVariables>TM_Data_bc0</globalVariables>
     <globalVariables>TM_Data_bc1</globalVariables>
-    <globalVariables>TM_New_Master</globalVariables>
     <globalVariables>TM_Reset_Board</globalVariables>
     <globalVariables>TM_Reset_Var</globalVariables>
     <globalVariables>TM_Reset_Var_bc1</globalVariables>
     <globalVariables>TM_Reset_Var_bc1_2</globalVariables>
     <globalVariables>TM_Steer</globalVariables>
+    <globalVariables>TM_TMR</globalVariables>
+    <globalVariables>TM_TMR_2</globalVariables>
+    <globalVariables>TM_TMR_3</globalVariables>
     <globalVariables>TM_Torque</globalVariables>
     <globalVariables>TM_Type_bc0</globalVariables>
     <globalVariables>TM_Type_bc1</globalVariables>
-    <globalVariables>TM_Update_LT</globalVariables>
-    <globalVariables>TM_Update_LT_2</globalVariables>
     <globalVariables>TM_Velocity</globalVariables>
-    <globalVariables>TM_Vote_Dec</globalVariables>
-    <globalVariables>TM_Vote_Dec_2</globalVariables>
+    <globalVariables>TM_bc0_1</globalVariables>
+    <globalVariables>TM_bc0_10</globalVariables>
+    <globalVariables>TM_bc0_11</globalVariables>
+    <globalVariables>TM_bc0_12</globalVariables>
+    <globalVariables>TM_bc0_13</globalVariables>
+    <globalVariables>TM_bc0_14</globalVariables>
+    <globalVariables>TM_bc0_15</globalVariables>
+    <globalVariables>TM_bc0_16</globalVariables>
+    <globalVariables>TM_bc0_17</globalVariables>
+    <globalVariables>TM_bc0_18</globalVariables>
+    <globalVariables>TM_bc0_2</globalVariables>
+    <globalVariables>TM_bc0_3</globalVariables>
+    <globalVariables>TM_bc0_3_2</globalVariables>
+    <globalVariables>TM_bc0_4</globalVariables>
+    <globalVariables>TM_bc0_4_2</globalVariables>
+    <globalVariables>TM_bc0_5</globalVariables>
+    <globalVariables>TM_bc0_6</globalVariables>
+    <globalVariables>TM_bc0_7</globalVariables>
+    <globalVariables>TM_bc0_8</globalVariables>
+    <globalVariables>TM_bc0_9</globalVariables>
+    <globalVariables>TM_bc0_9_2</globalVariables>
+    <globalVariables>Tl_a</globalVariables>
+    <globalVariables>Tl_f</globalVariables>
     <globalVariables>TxCAN1_counter_s</globalVariables>
     <globalVariables>TxCAN2_counter_s</globalVariables>
     <globalVariables>TxID_CAN1_s</globalVariables>
     <globalVariables>TxID_CAN2_s</globalVariables>
     <globalVariables>Tx_temporal_msg_CAN1</globalVariables>
     <globalVariables>Tx_temporal_msg_CAN2</globalVariables>
+    <globalVariables>Vehicle_Em_Board</globalVariables>
     <globalVariables>Vote1_ID</globalVariables>
+    <globalVariables>Vote1_s</globalVariables>
     <globalVariables>Vote2_ID</globalVariables>
+    <globalVariables>Vote2_s</globalVariables>
     <globalVariables>Vote3_ID</globalVariables>
+    <globalVariables>Vote3_s</globalVariables>
+    <globalVariables>Vote4_ID</globalVariables>
+    <globalVariables>Vote4_s</globalVariables>
     <globalVariables>Vote_s</globalVariables>
-    <globalVariables>b1_s</globalVariables>
-    <globalVariables>b2_s</globalVariables>
-    <globalVariables>b3_s</globalVariables>
-    <globalVariables>b4_s</globalVariables>
+    <globalVariables>Voter_ID_s</globalVariables>
+    <globalVariables>Voter_Role</globalVariables>
     <globalVariables>bacic_cycle_s</globalVariables>
     <globalVariables>basic_cycle_duration_bc0</globalVariables>
     <globalVariables>basic_cycle_duration_bc1</globalVariables>
-    <globalVariables>board1_online</globalVariables>
-    <globalVariables>board2_online</globalVariables>
-    <globalVariables>board3_online</globalVariables>
-    <globalVariables>board4_online</globalVariables>
     <globalVariables>comm_delay_estimation1</globalVariables>
     <globalVariables>comm_delay_estimation2</globalVariables>
     <globalVariables>delta_a_set</globalVariables>
@@ -138,49 +175,105 @@
     <globalVariables>delta_max</globalVariables>
     <globalVariables>delta_min</globalVariables>
     <globalVariables>delta_precision</globalVariables>
-    <globalVariables>error_flag_s</globalVariables>
+    <globalVariables>e_width</globalVariables>
+    <globalVariables>error_log1_s</globalVariables>
+    <globalVariables>error_log2_s</globalVariables>
+    <globalVariables>error_log3_s</globalVariables>
     <globalVariables>frequency_IRQ</globalVariables>
+    <globalVariables>hardware_granularity</globalVariables>
     <globalVariables>idle_time_init</globalVariables>
     <globalVariables>local_ticks_interrupt</globalVariables>
+    <globalVariables>m_v</globalVariables>
+    <globalVariables>matrix_cycle_duration</globalVariables>
     <globalVariables>matrix_rows</globalVariables>
     <globalVariables>max_desync</globalVariables>
     <globalVariables>max_num_msgs_CAN1</globalVariables>
     <globalVariables>max_num_msgs_CAN2</globalVariables>
+    <globalVariables>mc_counter_s</globalVariables>
     <globalVariables>min_desync</globalVariables>
     <globalVariables>msg_buffer_type</globalVariables>
     <globalVariables>msg_count_DEBUG_ing_s</globalVariables>
     <globalVariables>msg_count_DEBUG_s</globalVariables>
+    <globalVariables>msg_count_DEBUG_vem_s</globalVariables>
     <globalVariables>new_sensor_rx_s</globalVariables>
+    <globalVariables>new_sensor_rx_vem_s</globalVariables>
     <globalVariables>new_set_rx_s</globalVariables>
+    <globalVariables>out1_rx_s</globalVariables>
+    <globalVariables>out2_rx_s</globalVariables>
+    <globalVariables>outcont_miss_counter_vem</globalVariables>
     <globalVariables>reset_ing_s</globalVariables>
     <globalVariables>reset_s</globalVariables>
+    <globalVariables>reset_vem_s</globalVariables>
+    <globalVariables>rx_data_incr_time_s</globalVariables>
     <globalVariables>script_run</globalVariables>
     <globalVariables>script_run_s</globalVariables>
     <globalVariables>simulation_time</globalVariables>
+    <globalVariables>speed_k_d</globalVariables>
+    <globalVariables>speed_k_i</globalVariables>
+    <globalVariables>speed_k_p</globalVariables>
     <globalVariables>speed_max</globalVariables>
     <globalVariables>speed_min</globalVariables>
     <globalVariables>speed_precision</globalVariables>
     <globalVariables>sync_bc0_miss_counter_ing</globalVariables>
     <globalVariables>sync_bc0_miss_counter_s</globalVariables>
+    <globalVariables>sync_bc0_miss_counter_vem</globalVariables>
     <globalVariables>sync_bc1_miss_counter_ing</globalVariables>
     <globalVariables>sync_bc1_miss_counter_s</globalVariables>
-    <globalVariables>test1_s</globalVariables>
-    <globalVariables>test2_s</globalVariables>
-    <globalVariables>test3_s</globalVariables>
-    <globalVariables>testV_1</globalVariables>
-    <globalVariables>testV_2</globalVariables>
-    <globalVariables>testV_3</globalVariables>
-    <globalVariables>tmr1_s</globalVariables>
-    <globalVariables>tmr2_s</globalVariables>
-    <globalVariables>tmr3_s</globalVariables>
-    <globalVariables>tmr4_s</globalVariables>
+    <globalVariables>sync_bc1_miss_counter_vem</globalVariables>
+    <globalVariables>tau_al1_disagree_s</globalVariables>
+    <globalVariables>tau_al2_disagree_s</globalVariables>
+    <globalVariables>tau_al_disagree_s</globalVariables>
+    <globalVariables>tau_ar1_disagree_s</globalVariables>
+    <globalVariables>tau_ar2_disagree_s</globalVariables>
+    <globalVariables>tau_ar_disagree_s</globalVariables>
+    <globalVariables>tau_fl1_disagree_s</globalVariables>
+    <globalVariables>tau_fl2_disagree_s</globalVariables>
+    <globalVariables>tau_fl_disagree_s</globalVariables>
+    <globalVariables>tau_fr1_disagree_s</globalVariables>
+    <globalVariables>tau_fr2_disagree_s</globalVariables>
+    <globalVariables>tau_fr_disagree_s</globalVariables>
+    <globalVariables>tau_max</globalVariables>
+    <globalVariables>tau_min</globalVariables>
+    <globalVariables>tau_range</globalVariables>
+    <globalVariables>theta_al_stored_s</globalVariables>
+    <globalVariables>theta_ar_stored_s</globalVariables>
+    <globalVariables>theta_fl_stored_s</globalVariables>
+    <globalVariables>theta_fr_stored_s</globalVariables>
+    <globalVariables>theta_max</globalVariables>
+    <globalVariables>theta_min</globalVariables>
+    <globalVariables>theta_precision</globalVariables>
+    <globalVariables>torque_a_k_d</globalVariables>
+    <globalVariables>torque_a_k_i</globalVariables>
+    <globalVariables>torque_a_k_p</globalVariables>
+    <globalVariables>torque_al_out1_s</globalVariables>
+    <globalVariables>torque_al_out2_s</globalVariables>
+    <globalVariables>torque_al_set_out_s</globalVariables>
+    <globalVariables>torque_al_set_s</globalVariables>
+    <globalVariables>torque_ar_out1_s</globalVariables>
+    <globalVariables>torque_ar_out2_s</globalVariables>
+    <globalVariables>torque_ar_set_out_s</globalVariables>
+    <globalVariables>torque_ar_set_s</globalVariables>
+    <globalVariables>torque_f_k_d</globalVariables>
+    <globalVariables>torque_f_k_i</globalVariables>
+    <globalVariables>torque_f_k_p</globalVariables>
+    <globalVariables>torque_fl_out1_s</globalVariables>
+    <globalVariables>torque_fl_out2_s</globalVariables>
+    <globalVariables>torque_fl_set_out_s</globalVariables>
+    <globalVariables>torque_fl_set_s</globalVariables>
+    <globalVariables>torque_fr_out1_s</globalVariables>
+    <globalVariables>torque_fr_out2_s</globalVariables>
+    <globalVariables>torque_fr_set_out_s</globalVariables>
+    <globalVariables>torque_fr_set_s</globalVariables>
+    <globalVariables>torque_precision</globalVariables>
+    <globalVariables>v_ctreff_s</globalVariables>
+    <globalVariables>v_est_s</globalVariables>
+    <globalVariables>v_integral_s</globalVariables>
     <globalVariables>v_set</globalVariables>
     <globalVariables>v_set_s</globalVariables>
     <globalVariables>vote_array</globalVariables>
     <globalVariables>votes_Board_1_DEBUG</globalVariables>
     <globalVariables>votes_Board_2_DEBUG</globalVariables>
     <globalVariables>votes_Board_3_DEBUG</globalVariables>
-    <globalVariables>voting_out_s</globalVariables>
     <hasBwsAccessed>true</hasBwsAccessed>
     <hasBwsAccessedByAnyModel>true</hasBwsAccessedByAnyModel>
     <hasNonVirtualConstantTs>true</hasNonVirtualConstantTs>
@@ -211,70 +304,70 @@
     <sampleTimeInheritanceRule>2</sampleTimeInheritanceRule>
     <timingAndTaskingRegistry>&lt;?xml version=&quot;1.0&quot;?&gt;
 &lt;MF0 version=&quot;1.1&quot; packageUris=&quot;http://schema.mathworks.com/mf0/slexec_mm_sto/R2018b&quot;&gt;
-  &lt;sto.Registry type=&quot;sto.Registry&quot; uuid=&quot;edb43468-3fb0-40fd-94f5-8cd8eebd7387&quot;&gt;
-    &lt;clocks type=&quot;sto.Clock&quot; uuid=&quot;1c8ebe66-c1cb-4eb8-8ef7-1810208942a0&quot;&gt;
+  &lt;sto.Registry type=&quot;sto.Registry&quot; uuid=&quot;aee43c36-078d-4791-8b8c-3aa88a460231&quot;&gt;
+    &lt;clocks type=&quot;sto.Clock&quot; uuid=&quot;34b4c924-5a6c-47f1-81de-2fbedf1f3b29&quot;&gt;
       &lt;clockTickConstraint&gt;PeriodicWithFixedResolution&lt;/clockTickConstraint&gt;
       &lt;needsToProvideTimeDuringExecution&gt;true&lt;/needsToProvideTimeDuringExecution&gt;
       &lt;resolution&gt;0.01&lt;/resolution&gt;
       &lt;specifiedClockTickConstraint&gt;PeriodicWithFixedResolution&lt;/specifiedClockTickConstraint&gt;
-      &lt;clockDomain type=&quot;sto.ClockDomain&quot; uuid=&quot;f36613bb-849e-415d-8323-f5dafad2e1d5&quot;&gt;
+      &lt;clockDomain type=&quot;sto.ClockDomain&quot; uuid=&quot;9e8be131-efd1-46f3-b64f-06cb0d8279b2&quot;&gt;
         &lt;baseTaskID&gt;_task0&lt;/baseTaskID&gt;
         &lt;computedFundamentalStepSize&gt;0.01&lt;/computedFundamentalStepSize&gt;
-        &lt;rates type=&quot;sto.Rate&quot; uuid=&quot;bcc8650e-8a12-4b27-bcba-c4f0ef5d3ab8&quot;/&gt;
-        &lt;rates type=&quot;sto.Rate&quot; uuid=&quot;89cfec0a-c0c3-4983-ac19-85fab2b256d7&quot;/&gt;
-        &lt;rates type=&quot;sto.Rate&quot; uuid=&quot;2d0d541b-3762-45f3-9a23-514f5305ae76&quot;/&gt;
-        &lt;rates type=&quot;sto.Rate&quot; uuid=&quot;26a4974c-bc31-4a6e-8e4f-73a46d694ac5&quot;/&gt;
-        &lt;rootTaskHierarchyElements type=&quot;sto.Task&quot; uuid=&quot;a87c6847-b99d-44a9-a5ee-d428a56c3c01&quot;&gt;
+        &lt;rates type=&quot;sto.Rate&quot; uuid=&quot;dddcbdec-cf44-4dec-9cca-4b05357b5587&quot;/&gt;
+        &lt;rates type=&quot;sto.Rate&quot; uuid=&quot;7f0a1542-e9c8-4896-b99f-997cb8ca4502&quot;/&gt;
+        &lt;rates type=&quot;sto.Rate&quot; uuid=&quot;7eff4a30-81bf-4c26-9814-064e525071e1&quot;/&gt;
+        &lt;rates type=&quot;sto.Rate&quot; uuid=&quot;eacdb7d2-8337-4528-b503-057df08b0983&quot;/&gt;
+        &lt;rootTaskHierarchyElements type=&quot;sto.Task&quot; uuid=&quot;47ca8e72-b39e-4197-894d-b7cf2292a3ee&quot;&gt;
           &lt;isExecutable&gt;true&lt;/isExecutable&gt;
           &lt;orderIndex&gt;1&lt;/orderIndex&gt;
-          &lt;rates type=&quot;sto.Rate&quot; uuid=&quot;bcc8650e-8a12-4b27-bcba-c4f0ef5d3ab8&quot;&gt;
+          &lt;rates type=&quot;sto.Rate&quot; uuid=&quot;dddcbdec-cf44-4dec-9cca-4b05357b5587&quot;&gt;
             &lt;annotation&gt;FiM&lt;/annotation&gt;
             &lt;colorIndex&gt;8&lt;/colorIndex&gt;
             &lt;description&gt;Fixed in Minor Step&lt;/description&gt;
             &lt;eventSourceType&gt;UNSPECIFIED_EVENT_SOURCE&lt;/eventSourceType&gt;
             &lt;rateIDX&gt;-1&lt;/rateIDX&gt;
-            &lt;registry type=&quot;sto.Registry&quot; uuid=&quot;edb43468-3fb0-40fd-94f5-8cd8eebd7387&quot;/&gt;
+            &lt;registry type=&quot;sto.Registry&quot; uuid=&quot;aee43c36-078d-4791-8b8c-3aa88a460231&quot;/&gt;
             &lt;taskId&gt;_task0&lt;/taskId&gt;
             &lt;useForExecution&gt;NotForExecution&lt;/useForExecution&gt;
-            &lt;rateSpec type=&quot;sto.RateSpec&quot; uuid=&quot;700b388d-83e5-4e8e-83b4-28e0fbfd0c65&quot;&gt;
+            &lt;rateSpec type=&quot;sto.RateSpec&quot; uuid=&quot;ee44a635-60fb-41db-b761-7bb54c685aa2&quot;&gt;
               &lt;offset&gt;1&lt;/offset&gt;
               &lt;rateType&gt;ZOHContinuous&lt;/rateType&gt;
             &lt;/rateSpec&gt;
           &lt;/rates&gt;
-          &lt;rates type=&quot;sto.Rate&quot; uuid=&quot;89cfec0a-c0c3-4983-ac19-85fab2b256d7&quot;&gt;
+          &lt;rates type=&quot;sto.Rate&quot; uuid=&quot;7f0a1542-e9c8-4896-b99f-997cb8ca4502&quot;&gt;
             &lt;annotation&gt;D1&lt;/annotation&gt;
             &lt;colorIndex&gt;2&lt;/colorIndex&gt;
             &lt;description&gt;Discrete 1&lt;/description&gt;
             &lt;eventSourceType&gt;UNSPECIFIED_EVENT_SOURCE&lt;/eventSourceType&gt;
-            &lt;registry type=&quot;sto.Registry&quot; uuid=&quot;edb43468-3fb0-40fd-94f5-8cd8eebd7387&quot;/&gt;
+            &lt;registry type=&quot;sto.Registry&quot; uuid=&quot;aee43c36-078d-4791-8b8c-3aa88a460231&quot;/&gt;
             &lt;taskId&gt;_task0&lt;/taskId&gt;
-            &lt;rateSpec type=&quot;sto.RateSpec&quot; uuid=&quot;5843a9dd-e3d2-4253-96ca-1ab55552188f&quot;&gt;
+            &lt;rateSpec type=&quot;sto.RateSpec&quot; uuid=&quot;3b36e313-8b88-4c85-87cf-b20d0e6f4417&quot;&gt;
               &lt;period&gt;0.01&lt;/period&gt;
               &lt;rateType&gt;ClassicPeriodicDiscrete&lt;/rateType&gt;
             &lt;/rateSpec&gt;
           &lt;/rates&gt;
-          &lt;rates type=&quot;sto.Rate&quot; uuid=&quot;2d0d541b-3762-45f3-9a23-514f5305ae76&quot;&gt;
+          &lt;rates type=&quot;sto.Rate&quot; uuid=&quot;7eff4a30-81bf-4c26-9814-064e525071e1&quot;&gt;
             &lt;annotation&gt;D2&lt;/annotation&gt;
             &lt;colorIndex&gt;3&lt;/colorIndex&gt;
             &lt;description&gt;Discrete 2&lt;/description&gt;
             &lt;eventSourceType&gt;UNSPECIFIED_EVENT_SOURCE&lt;/eventSourceType&gt;
             &lt;rateIDX&gt;1&lt;/rateIDX&gt;
-            &lt;registry type=&quot;sto.Registry&quot; uuid=&quot;edb43468-3fb0-40fd-94f5-8cd8eebd7387&quot;/&gt;
+            &lt;registry type=&quot;sto.Registry&quot; uuid=&quot;aee43c36-078d-4791-8b8c-3aa88a460231&quot;/&gt;
             &lt;taskId&gt;_task0&lt;/taskId&gt;
-            &lt;rateSpec type=&quot;sto.RateSpec&quot; uuid=&quot;558f680a-35fa-407d-b416-22869e56d7d1&quot;&gt;
+            &lt;rateSpec type=&quot;sto.RateSpec&quot; uuid=&quot;ca7831fd-17c8-4e13-a388-b5413b54bbe0&quot;&gt;
               &lt;period&gt;0.10000000000000001&lt;/period&gt;
               &lt;rateType&gt;ClassicPeriodicDiscrete&lt;/rateType&gt;
             &lt;/rateSpec&gt;
           &lt;/rates&gt;
-          &lt;rates type=&quot;sto.Rate&quot; uuid=&quot;26a4974c-bc31-4a6e-8e4f-73a46d694ac5&quot;&gt;
+          &lt;rates type=&quot;sto.Rate&quot; uuid=&quot;eacdb7d2-8337-4528-b503-057df08b0983&quot;&gt;
             &lt;annotation&gt;D3&lt;/annotation&gt;
             &lt;colorIndex&gt;4&lt;/colorIndex&gt;
             &lt;description&gt;Discrete 3&lt;/description&gt;
             &lt;eventSourceType&gt;UNSPECIFIED_EVENT_SOURCE&lt;/eventSourceType&gt;
             &lt;rateIDX&gt;2&lt;/rateIDX&gt;
-            &lt;registry type=&quot;sto.Registry&quot; uuid=&quot;edb43468-3fb0-40fd-94f5-8cd8eebd7387&quot;/&gt;
+            &lt;registry type=&quot;sto.Registry&quot; uuid=&quot;aee43c36-078d-4791-8b8c-3aa88a460231&quot;/&gt;
             &lt;taskId&gt;_task0&lt;/taskId&gt;
-            &lt;rateSpec type=&quot;sto.RateSpec&quot; uuid=&quot;d06390e3-722e-4b5b-9309-23a7a86a1034&quot;&gt;
+            &lt;rateSpec type=&quot;sto.RateSpec&quot; uuid=&quot;bf0bf5c4-b166-41a1-bef6-d8e16f9d19be&quot;&gt;
               &lt;period&gt;0.20000000000000001&lt;/period&gt;
               &lt;rateType&gt;ClassicPeriodicDiscrete&lt;/rateType&gt;
             &lt;/rateSpec&gt;
@@ -285,25 +378,25 @@
         &lt;/rootTaskHierarchyElements&gt;
       &lt;/clockDomain&gt;
     &lt;/clocks&gt;
-    &lt;clocks type=&quot;sto.Clock&quot; uuid=&quot;36c21937-a894-460a-9a0f-d4a6f8705e4c&quot;&gt;
+    &lt;clocks type=&quot;sto.Clock&quot; uuid=&quot;c1579a95-02fe-4c6f-885c-14726c83a646&quot;&gt;
       &lt;cNum&gt;2&lt;/cNum&gt;
       &lt;identifier&gt;ParameterChangeEvent&lt;/identifier&gt;
       &lt;resolution&gt;-1&lt;/resolution&gt;
       &lt;specifiedTaskingMode&gt;ExplicitTasking&lt;/specifiedTaskingMode&gt;
       &lt;timeAdvanceMode&gt;None&lt;/timeAdvanceMode&gt;
-      &lt;clockDomain type=&quot;sto.ClockDomain&quot; uuid=&quot;22cfdec5-fff8-422d-808d-87f5fd1079fc&quot;&gt;
+      &lt;clockDomain type=&quot;sto.ClockDomain&quot; uuid=&quot;857d48fa-d6c3-412b-9eb6-de4f7c131b2d&quot;&gt;
         &lt;computedFundamentalStepSize&gt;-1&lt;/computedFundamentalStepSize&gt;
-        &lt;rates type=&quot;sto.Rate&quot; uuid=&quot;734b021e-6539-4048-b900-0e85dee789ff&quot;/&gt;
-        &lt;rootTaskHierarchyElements type=&quot;sto.Task&quot; uuid=&quot;167341fe-a428-4160-8b7c-93f400333867&quot;&gt;
+        &lt;rates type=&quot;sto.Rate&quot; uuid=&quot;c71f71b2-ccc7-4eb8-be8b-55585d568f3b&quot;/&gt;
+        &lt;rootTaskHierarchyElements type=&quot;sto.Task&quot; uuid=&quot;c5396700-fe86-4106-a227-a6a5dd549a8d&quot;&gt;
           &lt;isExplicit&gt;true&lt;/isExplicit&gt;
-          &lt;rates type=&quot;sto.Rate&quot; uuid=&quot;734b021e-6539-4048-b900-0e85dee789ff&quot;&gt;
+          &lt;rates type=&quot;sto.Rate&quot; uuid=&quot;c71f71b2-ccc7-4eb8-be8b-55585d568f3b&quot;&gt;
             &lt;eventSourceType&gt;PARAMETER_CHANGE_EVENT&lt;/eventSourceType&gt;
             &lt;rateIDX&gt;-1&lt;/rateIDX&gt;
-            &lt;registry type=&quot;sto.Registry&quot; uuid=&quot;edb43468-3fb0-40fd-94f5-8cd8eebd7387&quot;/&gt;
+            &lt;registry type=&quot;sto.Registry&quot; uuid=&quot;aee43c36-078d-4791-8b8c-3aa88a460231&quot;/&gt;
             &lt;stringID&gt;ParameterChangeEvent&lt;/stringID&gt;
             &lt;taskId&gt;ModelWideParameterChangeEvent&lt;/taskId&gt;
             &lt;useForExecution&gt;NotForExecution&lt;/useForExecution&gt;
-            &lt;rateSpec type=&quot;sto.RateSpec&quot; uuid=&quot;6b7f2328-0095-4f99-9540-5fa252ad536e&quot;&gt;
+            &lt;rateSpec type=&quot;sto.RateSpec&quot; uuid=&quot;046e5b17-275b-4ce4-b968-45d160d5f281&quot;&gt;
               &lt;period&gt;inf&lt;/period&gt;
               &lt;rateType&gt;ModelWideParameterChangeEvent&lt;/rateType&gt;
             &lt;/rateSpec&gt;
@@ -317,32 +410,32 @@
         &lt;/rootTaskHierarchyElements&gt;
       &lt;/clockDomain&gt;
     &lt;/clocks&gt;
-    &lt;clocks type=&quot;sto.Clock&quot; uuid=&quot;a83aec08-f57c-4448-8ff9-d25f655cd26a&quot;&gt;
+    &lt;clocks type=&quot;sto.Clock&quot; uuid=&quot;3967e868-8667-4e2d-9d94-d4ab86ec52b3&quot;&gt;
       &lt;cNum&gt;1&lt;/cNum&gt;
       &lt;identifier&gt;NonTunableParameterChangeEvent&lt;/identifier&gt;
       &lt;resolution&gt;-1&lt;/resolution&gt;
       &lt;specifiedTaskingMode&gt;ExplicitTasking&lt;/specifiedTaskingMode&gt;
       &lt;timeAdvanceMode&gt;None&lt;/timeAdvanceMode&gt;
-      &lt;clockDomain type=&quot;sto.ClockDomain&quot; uuid=&quot;d1150a91-ab33-47fb-b9b7-a1476d557839&quot;&gt;
+      &lt;clockDomain type=&quot;sto.ClockDomain&quot; uuid=&quot;b7310503-1401-4683-bbd8-f6a487ac8d9c&quot;&gt;
         &lt;computedFundamentalStepSize&gt;-1&lt;/computedFundamentalStepSize&gt;
       &lt;/clockDomain&gt;
     &lt;/clocks&gt;
     &lt;executionSpec&gt;Undetermined&lt;/executionSpec&gt;
-    &lt;taskDependencyGraph type=&quot;sto.SerializedTaskConnectionList&quot; uuid=&quot;3baf00a5-08ce-4cde-b4f1-a0e0a2b3d7d3&quot;&gt;
+    &lt;taskDependencyGraph type=&quot;sto.SerializedTaskConnectionList&quot; uuid=&quot;1b78f6c4-931f-4729-bb85-5d716f5a50f3&quot;&gt;
       &lt;taskIdentifier&gt;_task0&lt;/taskIdentifier&gt;
     &lt;/taskDependencyGraph&gt;
-    &lt;taskDependencyGraph type=&quot;sto.SerializedTaskConnectionList&quot; uuid=&quot;0a8caf0b-e280-4176-ac97-8da12a9c9a1d&quot;&gt;
+    &lt;taskDependencyGraph type=&quot;sto.SerializedTaskConnectionList&quot; uuid=&quot;cfda9bd9-501c-403e-bcca-d08945c7882c&quot;&gt;
       &lt;clockIdentifier&gt;ParameterChangeEvent&lt;/clockIdentifier&gt;
       &lt;taskIdentifier&gt;ModelWideParameterChangeEvent&lt;/taskIdentifier&gt;
     &lt;/taskDependencyGraph&gt;
-    &lt;tasks type=&quot;sto.Task&quot; uuid=&quot;a87c6847-b99d-44a9-a5ee-d428a56c3c01&quot;/&gt;
-    &lt;tasks type=&quot;sto.Task&quot; uuid=&quot;167341fe-a428-4160-8b7c-93f400333867&quot;/&gt;
+    &lt;tasks type=&quot;sto.Task&quot; uuid=&quot;47ca8e72-b39e-4197-894d-b7cf2292a3ee&quot;/&gt;
+    &lt;tasks type=&quot;sto.Task&quot; uuid=&quot;c5396700-fe86-4106-a227-a6a5dd549a8d&quot;/&gt;
   &lt;/sto.Registry&gt;
 &lt;/MF0&gt;</timingAndTaskingRegistry>
     <zeroInternalMemoryAtStartupUnchecked>true</zeroInternalMemoryAtStartupUnchecked>
-    <FMUBlockMap type="ModelRefInfoRepo.FMUBlockInfo" uuid="ef8260ad-6704-4fbe-b887-f0cbcb7d00b4"/>
-    <codeGenInfo type="ModelRefInfoRepo.CodeGenInformation" uuid="d142e824-ca71-40cc-982b-b70a68d3d74f"/>
-    <configSettingsForConsistencyChecks type="ModelRefInfoRepo.ConfigSettingsForConsistencyChecks" uuid="c458ef4e-8c91-482d-ae00-98810019c963">
+    <FMUBlockMap type="ModelRefInfoRepo.FMUBlockInfo" uuid="10d6aa7b-aaa3-489c-96ed-999637f03c5f"/>
+    <codeGenInfo type="ModelRefInfoRepo.CodeGenInformation" uuid="768ccb29-7e8c-4c8d-a1cd-74d047b04074"/>
+    <configSettingsForConsistencyChecks type="ModelRefInfoRepo.ConfigSettingsForConsistencyChecks" uuid="c726b5e6-7577-4c47-8345-15b5eb166d21">
       <fixedStepSize>0.01</fixedStepSize>
       <frameDiagnosticSetting>2</frameDiagnosticSetting>
       <hasHybridSampleTime>true</hasHybridSampleTime>
@@ -350,7 +443,7 @@
       <signalLoggingSaveFormat>2</signalLoggingSaveFormat>
       <solverName>FixedStepDiscrete</solverName>
       <solverType>SOLVER_TYPE_FIXEDSTEP</solverType>
-      <hardwareSettings type="ModelRefInfoRepo.HardwareSettings" uuid="3fafe93d-f1e7-47d6-9c8d-61a6497cdac8">
+      <hardwareSettings type="ModelRefInfoRepo.HardwareSettings" uuid="1038c340-7f52-47d9-be1a-47a8e8f8f7d3">
         <prodBitPerChar>8</prodBitPerChar>
         <prodBitPerDouble>64</prodBitPerDouble>
         <prodBitPerFloat>32</prodBitPerFloat>
@@ -368,114 +461,128 @@
         <prodWordSize>32</prodWordSize>
       </hardwareSettings>
     </configSettingsForConsistencyChecks>
-    <dataPortGroup type="ModelRefInfoRepo.DataPortGroup" uuid="c497f3db-2361-4185-a9e9-2a27757e0e72"/>
-    <interfaceParameterInfo type="ModelRefInfoRepo.InterfaceParameterInfo" uuid="99d03ec5-373b-4f29-b37e-d35f600f4e39">
-      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="fc182090-67d6-4bdc-a2b7-efe122f5b77d">
+    <dataPortGroup type="ModelRefInfoRepo.DataPortGroup" uuid="7dd6bb10-bb33-48e0-9f34-d483af5d8a82"/>
+    <interfaceParameterInfo type="ModelRefInfoRepo.InterfaceParameterInfo" uuid="6378c9d7-61d5-4942-aa67-530e73cade1f">
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="015a8855-f6a9-45cf-b22d-ee41d9d4beb5">
         <dimensions>1</dimensions>
         <dimensions>1</dimensions>
         <isUsed>true</isUsed>
         <numDimensions>2</numDimensions>
         <parameterName>COMM_Phase1</parameterName>
       </globalVariables>
-      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="67f1c848-6eb2-4c75-87da-486ad90cebfb">
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="90907c1c-4550-438f-b08d-ac3f4150cbb1">
         <dimensions>1</dimensions>
         <dimensions>1</dimensions>
         <isUsed>true</isUsed>
         <numDimensions>2</numDimensions>
         <parameterName>COMM_Phase2</parameterName>
       </globalVariables>
-      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="7eb63028-1a4d-425d-bd16-68e8fe79c747">
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="c80e66e4-0835-4d41-a122-6b25cd0ad5b6">
         <dimensions>1</dimensions>
         <dimensions>1</dimensions>
         <isUsed>true</isUsed>
         <numDimensions>2</numDimensions>
         <parameterName>COMM_Phase_init1</parameterName>
       </globalVariables>
-      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="09a3cbe7-7c3a-401d-bb1f-acb4e6055a41">
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="46201bc1-c602-4f7a-89f4-898f7a139a10">
         <dimensions>1</dimensions>
         <dimensions>1</dimensions>
         <isUsed>true</isUsed>
         <numDimensions>2</numDimensions>
         <parameterName>COMM_Phase_init2</parameterName>
       </globalVariables>
-      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="7a72ae53-838b-4c6b-9355-71bca158c004">
-        <dimensions>1</dimensions>
-        <dimensions>1</dimensions>
-        <isUsed>true</isUsed>
-        <numDimensions>2</numDimensions>
-        <parameterName>board1_online</parameterName>
-      </globalVariables>
-      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="68569e30-e2a5-4b06-8f43-8bed406ccd0d">
-        <dimensions>1</dimensions>
-        <dimensions>1</dimensions>
-        <isUsed>true</isUsed>
-        <numDimensions>2</numDimensions>
-        <parameterName>board2_online</parameterName>
-      </globalVariables>
-      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="f7fc6cc5-95ec-4a10-bf9f-d16bfd459e6d">
-        <dimensions>1</dimensions>
-        <dimensions>1</dimensions>
-        <isUsed>true</isUsed>
-        <numDimensions>2</numDimensions>
-        <parameterName>board3_online</parameterName>
-      </globalVariables>
-      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="9dcff5b0-a805-48cf-971e-d9a9038127b4">
-        <dimensions>1</dimensions>
-        <dimensions>1</dimensions>
-        <isUsed>true</isUsed>
-        <numDimensions>2</numDimensions>
-        <parameterName>board4_online</parameterName>
-      </globalVariables>
-      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="952d8bbe-d9f0-4bdc-97ad-2b596aed92a1">
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="b40aee67-557d-41f7-85f4-0c4165249227">
         <dimensions>1</dimensions>
         <dimensions>1</dimensions>
         <isUsed>true</isUsed>
         <numDimensions>2</numDimensions>
         <parameterName>delta_a_set</parameterName>
       </globalVariables>
-      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="de0a41ec-8353-4256-9e50-fd09775adce6">
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="a3b9f126-5154-45e4-b251-56aa0f7c8d18">
         <dimensions>1</dimensions>
         <dimensions>1</dimensions>
         <isUsed>true</isUsed>
         <numDimensions>2</numDimensions>
         <parameterName>delta_f_set</parameterName>
       </globalVariables>
-      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="4b126b17-2ad9-4f2d-a41f-4819eb27d24a">
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="6344137b-be6e-4d3f-8084-d4367b37edc8">
         <dimensions>1</dimensions>
         <dimensions>1</dimensions>
         <isUsed>true</isUsed>
         <numDimensions>2</numDimensions>
         <parameterName>script_run</parameterName>
       </globalVariables>
-      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="893c7bea-856f-4671-912e-086c3b3c7c7e">
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="27bc86c7-ec74-468b-b6f2-75da04da21f5">
         <dimensions>1</dimensions>
         <dimensions>1</dimensions>
         <isUsed>true</isUsed>
         <numDimensions>2</numDimensions>
-        <parameterName>testV_1</parameterName>
+        <parameterName>speed_k_d</parameterName>
       </globalVariables>
-      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="8767c4f9-0de4-4790-8955-5562da8ce10c">
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="b44d4b5a-056b-4d2c-a1e1-c59e7127413e">
         <dimensions>1</dimensions>
         <dimensions>1</dimensions>
         <isUsed>true</isUsed>
         <numDimensions>2</numDimensions>
-        <parameterName>testV_2</parameterName>
+        <parameterName>speed_k_i</parameterName>
       </globalVariables>
-      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="9f6f5a4b-3eff-4dfe-951e-ba4e159873ca">
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="cbdbc6e7-525d-4b51-9199-725d9adfc8e0">
         <dimensions>1</dimensions>
         <dimensions>1</dimensions>
         <isUsed>true</isUsed>
         <numDimensions>2</numDimensions>
-        <parameterName>testV_3</parameterName>
+        <parameterName>speed_k_p</parameterName>
       </globalVariables>
-      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="66401503-f9ba-41cf-9c8f-c56c980ad9d6">
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="cabd2abc-d94b-4731-bdd0-ef98c832179e">
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>torque_a_k_d</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="dd3c0fdc-5d26-4fe2-916d-ab8ab5460e6c">
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>torque_a_k_i</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="3a44209a-fd38-41ab-b84f-c938854a2998">
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>torque_a_k_p</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="91806de0-2749-4031-b1e0-7d31238b3b78">
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>torque_f_k_d</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="26073361-af6b-45ba-a768-0df1effa4aa6">
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>torque_f_k_i</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="673fcd07-84ef-4639-bb5a-524c871741d5">
+        <dimensions>1</dimensions>
+        <dimensions>1</dimensions>
+        <isUsed>true</isUsed>
+        <numDimensions>2</numDimensions>
+        <parameterName>torque_f_k_p</parameterName>
+      </globalVariables>
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="bcff5ffe-4622-4d30-ab85-c8e3ba1dd1cf">
         <dimensions>1</dimensions>
         <dimensions>1</dimensions>
         <isUsed>true</isUsed>
         <numDimensions>2</numDimensions>
         <parameterName>v_set</parameterName>
       </globalVariables>
-      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="786fdffd-81b5-452a-9518-608c7e03e55c">
+      <globalVariables type="ModelRefInfoRepo.BuiltinParameter" uuid="84f9cead-c1d3-43ed-a0c7-3434a46b16ab">
         <datatypeID>8</datatypeID>
         <dimensions>1</dimensions>
         <dimensions>1</dimensions>
@@ -484,25 +591,25 @@
         <parameterName>HANtuneOverride</parameterName>
       </globalVariables>
     </interfaceParameterInfo>
-    <methodInfo type="ModelRefInfoRepo.MethodExistenceInfo" uuid="ba6832b9-f79d-4083-ac73-89380d673107">
+    <methodInfo type="ModelRefInfoRepo.MethodExistenceInfo" uuid="2674b037-04a0-4569-aeb8-995df98d05d2">
       <hasEnableMethod>true</hasEnableMethod>
       <hasSystemInitializeMethod>true</hasSystemInitializeMethod>
       <hasSystemResetMethod>true</hasSystemResetMethod>
       <hasTerminateMethod>true</hasTerminateMethod>
       <hasUpdateMethod>true</hasUpdateMethod>
     </methodInfo>
-    <periodicEventPortUnsupportedBlockInfo type="ModelRefInfoRepo.PeriodicEventPortUnsupportedBlockInfo" uuid="9369dee6-4b79-4ac3-8b21-e3257fdc5a0d"/>
-    <portGroupsRequireSameRate type="ModelRefInfoRepo.PortGroupsRequireSameRate" uuid="3373a712-2cee-4799-a2d0-37ba8602e1dc">
-      <DSMPortGroups type="ModelRefInfoRepo.NameToPortGroupIdxVectMap" uuid="fde9c161-984b-4ed4-9836-6146b1b07d35"/>
-      <GlobalDSMPortGroups type="ModelRefInfoRepo.NameToPortGroupIdxVectMap" uuid="ceac711b-1a56-422c-9f3a-82b6734e2507"/>
-      <mergedPortGroups type="ModelRefInfoRepo.NameToPortGroupIdxVectMap" uuid="d1b1e51e-18df-40bf-8fa6-682296035507"/>
+    <periodicEventPortUnsupportedBlockInfo type="ModelRefInfoRepo.PeriodicEventPortUnsupportedBlockInfo" uuid="2ddbc0bc-3add-4ce3-abfc-8bbb3b164946"/>
+    <portGroupsRequireSameRate type="ModelRefInfoRepo.PortGroupsRequireSameRate" uuid="d3bb6dc7-cff5-42e2-8d18-6ced655d238d">
+      <DSMPortGroups type="ModelRefInfoRepo.NameToPortGroupIdxVectMap" uuid="080203c4-0f4e-438d-b441-3903f7d9f2ef"/>
+      <GlobalDSMPortGroups type="ModelRefInfoRepo.NameToPortGroupIdxVectMap" uuid="470b1e42-005b-40eb-98f7-091236ef2138"/>
+      <mergedPortGroups type="ModelRefInfoRepo.NameToPortGroupIdxVectMap" uuid="02c0fbe3-71f4-485a-b742-e405f8c65d7d"/>
     </portGroupsRequireSameRate>
-    <rateSpecOfGlobalDSMAccessedByDescExpFcnMdlMap type="ModelRefInfoRepo.GlobalDSMRateSpecMap" uuid="21334889-e146-47bb-b2e8-fda215db42d3"/>
-    <simulinkFunctions type="ModelRefInfoRepo.SimulinkFunctions" uuid="271c065c-29c4-4001-917b-e538bd1f4282">
+    <rateSpecOfGlobalDSMAccessedByDescExpFcnMdlMap type="ModelRefInfoRepo.GlobalDSMRateSpecMap" uuid="457fe7b0-d111-464f-ae06-c242776bed64"/>
+    <simulinkFunctions type="ModelRefInfoRepo.SimulinkFunctions" uuid="f67abbdd-92b0-454e-964e-8940e5f75a26">
       <compServicePortMap>AAFJTQAAAAAOAAAAMAAAAAYAAAAIAAAABgAAAAAAAAAFAAAACAAAAAAAAAAAAAAAAQAAAAAAAAAJAAAAAAAAAA==</compServicePortMap>
       <compSimulinkFunctionCatalog></compSimulinkFunctionCatalog>
-      <variantSimulinkFunctions type="ModelRefInfoRepo.VariantSimulinkFunctions" uuid="c809f41b-83b2-4e2f-a29e-fa1855fa736d"/>
+      <variantSimulinkFunctions type="ModelRefInfoRepo.VariantSimulinkFunctions" uuid="1021844b-6639-4fe3-a2b3-b64d766ce10c"/>
     </simulinkFunctions>
-    <stateWriterToOwnerMap type="ModelRefInfoRepo.StateWriterInfo" uuid="a0c88f37-fb60-4d91-aa69-359799b50d23"/>
+    <stateWriterToOwnerMap type="ModelRefInfoRepo.StateWriterInfo" uuid="f704b0bd-58bf-41e2-818a-6dedf9c5c23d"/>
   </ModelRefInfoRepo.ModelRefInfoRoot>
 </MF0>

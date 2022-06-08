@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'HANcoder_E407_TTA_Group2'.
  *
- * Model version                  : 1.208
+ * Model version                  : 1.253
  * Simulink Coder version         : 9.0 (R2018b) 24-May-2018
- * C/C++ source code generated on : Wed Jun  1 14:11:44 2022
+ * C/C++ source code generated on : Wed Jun  8 12:41:07 2022
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -43,6 +43,7 @@ typedef struct {
   real_T First_Board;
   real_T Second_Board;
   real_T Third_Board;
+  real_T Fourth_Board;
 } vote_array;
 
 #endif

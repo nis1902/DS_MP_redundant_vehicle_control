@@ -20442,3 +20442,337 @@ jssc.SerialPortException: Port name - COM15; Method name - closePort(); Exceptio
 	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
 	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
 	at java.awt.EventDispatchThread.run(Unknown Source)
+****** 11:54:19 - 08-06-2022 ******
+Property file application.properties not found. Using default properties.
+****** 11:54:24 - 08-06-2022 ******
+HANtune 3.0.68 commit: d0365397, JVM Version: 25.301-b09, JRE Version: 1.8.0_301, Microsoft Windows 10 Hom, OS: Windows 10 10.0, Java CPU Arch: amd64, Chipset: Intel64 Family 6 Model 71 Stepping 1, GenuineIntel, 8 CPU_Cores, 134 mb_RAM_Used, 304 mb_RAM_Total, 169 mb_RAM_Free, 2713 mb_RAM_Max
+2022/06/08 11:54:28  nr 0
+Connection type: XCP on USB/UART
+ProjectComments: no active asap2 file
+An exception occurred in thread: AWT-EventQueue-0
+class java.awt.EventDispatchThread
+ID: 15, Priority: 6
+ThreadGroup: java.lang.ThreadGroup[name=main,maxpri=10]
+java.nio.file.NoSuchFileException: C:\Users\cheff\Documents\DS_MP_redundant_vehicle_control\TTA_Controller_Program\HANcoder-STM32-Target-v1.0\Target
+	at sun.nio.fs.WindowsException.translateToIOException(Unknown Source)
+	at sun.nio.fs.WindowsException.asIOException(Unknown Source)
+	at sun.nio.fs.WindowsWatchService$Poller.implRegister(Unknown Source)
+	at sun.nio.fs.AbstractPoller.processRequests(Unknown Source)
+	at sun.nio.fs.WindowsWatchService$Poller.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+2022/06/08 11:54:28  nr 1
+Connection type: XCP on USB/UART
+ProjectComments: no active asap2 file
+An exception occurred in thread: AWT-EventQueue-0
+class java.awt.EventDispatchThread
+ID: 15, Priority: 6
+ThreadGroup: java.lang.ThreadGroup[name=main,maxpri=10]
+java.nio.file.NoSuchFileException: C:\Users\cheff\Documents\DS_MP_redundant_vehicle_control\HANcoder-STM32-Target-v1.0_Diego\Target
+	at sun.nio.fs.WindowsException.translateToIOException(Unknown Source)
+	at sun.nio.fs.WindowsException.asIOException(Unknown Source)
+	at sun.nio.fs.WindowsWatchService$Poller.implRegister(Unknown Source)
+	at sun.nio.fs.AbstractPoller.processRequests(Unknown Source)
+	at sun.nio.fs.WindowsWatchService$Poller.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+****** 11:58:16 - 08-06-2022 ******
+Property file application.properties not found. Using default properties.
+****** 11:58:20 - 08-06-2022 ******
+HANtune 3.0.68 commit: d0365397, JVM Version: 25.301-b09, JRE Version: 1.8.0_301, Microsoft Windows 10 Hom, OS: Windows 10 10.0, Java CPU Arch: amd64, Chipset: Intel64 Family 6 Model 71 Stepping 1, GenuineIntel, 8 CPU_Cores, 123 mb_RAM_Used, 306 mb_RAM_Total, 182 mb_RAM_Free, 2713 mb_RAM_Max
+2022/06/08 11:58:40  nr 0
+Connection type: XCP on USB/UART
+ProjectComments: no active asap2 file
+An exception occurred in thread: AWT-EventQueue-0
+class java.awt.EventDispatchThread
+ID: 15, Priority: 6
+ThreadGroup: java.lang.ThreadGroup[name=main,maxpri=10]
+java.nio.file.NoSuchFileException: C:\Users\cheff\Documents\DS_MP_redundant_vehicle_control\TTA_Controller_Program\HANcoder-STM32-Target-v1.0\Target
+	at sun.nio.fs.WindowsException.translateToIOException(Unknown Source)
+	at sun.nio.fs.WindowsException.asIOException(Unknown Source)
+	at sun.nio.fs.WindowsWatchService$Poller.implRegister(Unknown Source)
+	at sun.nio.fs.AbstractPoller.processRequests(Unknown Source)
+	at sun.nio.fs.WindowsWatchService$Poller.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+2022/06/08 11:58:40  nr 1
+Connection type: XCP on USB/UART
+ProjectComments: no active asap2 file
+An exception occurred in thread: AWT-EventQueue-0
+class java.awt.EventDispatchThread
+ID: 15, Priority: 6
+ThreadGroup: java.lang.ThreadGroup[name=main,maxpri=10]
+java.nio.file.NoSuchFileException: C:\Users\cheff\Documents\DS_MP_redundant_vehicle_control\HANcoder-STM32-Target-v1.0_Diego\Target
+	at sun.nio.fs.WindowsException.translateToIOException(Unknown Source)
+	at sun.nio.fs.WindowsException.asIOException(Unknown Source)
+	at sun.nio.fs.WindowsWatchService$Poller.implRegister(Unknown Source)
+	at sun.nio.fs.AbstractPoller.processRequests(Unknown Source)
+	at sun.nio.fs.WindowsWatchService$Poller.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+****** 11:59:32 - 08-06-2022 ******
+Property file application.properties not found. Using default properties.
+****** 11:59:35 - 08-06-2022 ******
+HANtune 3.0.68 commit: d0365397, JVM Version: 25.301-b09, JRE Version: 1.8.0_301, Microsoft Windows 10 Hom, OS: Windows 10 10.0, Java CPU Arch: amd64, Chipset: Intel64 Family 6 Model 71 Stepping 1, GenuineIntel, 8 CPU_Cores, 146 mb_RAM_Used, 309 mb_RAM_Total, 162 mb_RAM_Free, 2713 mb_RAM_Max
+2022/06/08 11:59:39  nr 0
+Connection type: XCP on USB/UART
+ProjectComments: no active asap2 file
+An exception occurred in thread: AWT-EventQueue-0
+class java.awt.EventDispatchThread
+ID: 15, Priority: 6
+ThreadGroup: java.lang.ThreadGroup[name=main,maxpri=10]
+java.nio.file.NoSuchFileException: C:\Users\cheff\Documents\DS_MP_redundant_vehicle_control\TTA_Controller_Program\HANcoder-STM32-Target-v1.0\Target
+	at sun.nio.fs.WindowsException.translateToIOException(Unknown Source)
+	at sun.nio.fs.WindowsException.asIOException(Unknown Source)
+	at sun.nio.fs.WindowsWatchService$Poller.implRegister(Unknown Source)
+	at sun.nio.fs.AbstractPoller.processRequests(Unknown Source)
+	at sun.nio.fs.WindowsWatchService$Poller.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+2022/06/08 11:59:39  nr 1
+Connection type: XCP on USB/UART
+ProjectComments: no active asap2 file
+An exception occurred in thread: AWT-EventQueue-0
+class java.awt.EventDispatchThread
+ID: 15, Priority: 6
+ThreadGroup: java.lang.ThreadGroup[name=main,maxpri=10]
+java.nio.file.NoSuchFileException: C:\Users\cheff\Documents\DS_MP_redundant_vehicle_control\HANcoder-STM32-Target-v1.0_Diego\Target
+	at sun.nio.fs.WindowsException.translateToIOException(Unknown Source)
+	at sun.nio.fs.WindowsException.asIOException(Unknown Source)
+	at sun.nio.fs.WindowsWatchService$Poller.implRegister(Unknown Source)
+	at sun.nio.fs.AbstractPoller.processRequests(Unknown Source)
+	at sun.nio.fs.WindowsWatchService$Poller.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+****** 12:08:29 - 08-06-2022 ******
+Could not connect to UART port COM13: Port name - COM13; Method name - openPort(); Exception type - Port not found.
+2022/06/08 12:08:29  nr 2
+Connection type: XCP on USB/UART
+ProjectComments: HANcoder_E407_TTA_Group2_softwareID_v1_080622_114839
+An exception occurred in thread: SwingWorker-pool-3-thread-2
+class java.lang.Thread
+ID: 55, Priority: 5
+ThreadGroup: java.lang.ThreadGroup[name=main,maxpri=10]
+jssc.SerialPortException: Port name - COM13; Method name - openPort(); Exception type - Port not found.
+	at jssc.SerialPort.openPort(SerialPort.java:168)
+	at XCP.XCPonUART.connect(XCPonUART.java:92)
+	at XCP.XCP.startSession(XCP.java:1262)
+	at HANtune.ConnectionDialogWorker.doInBackground(ConnectionDialogWorker.java:115)
+	at HANtune.ConnectionDialogWorker.doInBackground(ConnectionDialogWorker.java:47)
+	at javax.swing.SwingWorker$1.call(Unknown Source)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at javax.swing.SwingWorker.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+****** 12:08:29 - 08-06-2022 ******
+Could not disconnect stream: Port name - COM13; Method name - closePort(); Exception type - Port not opened.
+2022/06/08 12:08:29  nr 3
+Connection type: XCP on USB/UART
+ProjectComments: HANcoder_E407_TTA_Group2_softwareID_v1_080622_114839
+An exception occurred in thread: AWT-EventQueue-0
+class java.awt.EventDispatchThread
+ID: 15, Priority: 6
+ThreadGroup: java.lang.ThreadGroup[name=main,maxpri=10]
+jssc.SerialPortException: Port name - COM13; Method name - closePort(); Exception type - Port not opened.
+	at jssc.SerialPort.checkPortOpened(SerialPort.java:879)
+	at jssc.SerialPort.closePort(SerialPort.java:1089)
+	at XCP.XCPonUART.disconnect(XCPonUART.java:179)
+	at XCP.XCP.stopSession(XCP.java:1320)
+	at HANtune.HANtune.disconnect(HANtune.java:1117)
+	at HANtune.ConnectionDialog.finished(ConnectionDialog.java:311)
+	at HANtune.ConnectionDialogWorker.done(ConnectionDialogWorker.java:284)
+	at javax.swing.SwingWorker$5.run(Unknown Source)
+	at javax.swing.SwingWorker$DoSubmitAccumulativeRunnable.run(Unknown Source)
+	at sun.swing.AccumulativeRunnable.run(Unknown Source)
+	at javax.swing.SwingWorker$DoSubmitAccumulativeRunnable.actionPerformed(Unknown Source)
+	at javax.swing.Timer.fireActionPerformed(Unknown Source)
+	at javax.swing.Timer$DoPostEvent.run(Unknown Source)
+	at java.awt.event.InvocationEvent.dispatch(Unknown Source)
+	at java.awt.EventQueue.dispatchEventImpl(Unknown Source)
+	at java.awt.EventQueue.access$500(Unknown Source)
+	at java.awt.EventQueue$3.run(Unknown Source)
+	at java.awt.EventQueue$3.run(Unknown Source)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(Unknown Source)
+	at java.awt.EventQueue.dispatchEvent(Unknown Source)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(Unknown Source)
+	at java.awt.WaitDispatchSupport$2.run(Unknown Source)
+	at java.awt.WaitDispatchSupport$4.run(Unknown Source)
+	at java.awt.WaitDispatchSupport$4.run(Unknown Source)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.awt.WaitDispatchSupport.enter(Unknown Source)
+	at java.awt.Dialog.show(Unknown Source)
+	at java.awt.Component.show(Unknown Source)
+	at java.awt.Component.setVisible(Unknown Source)
+	at java.awt.Window.setVisible(Unknown Source)
+	at java.awt.Dialog.setVisible(Unknown Source)
+	at HANtune.HANtune.connect(HANtune.java:1087)
+	at HANtune.HANtune.connectProtocol(HANtune.java:959)
+	at nl.han.hantune.gui.menu.CommunicationMenu.xcpConnectMenuItemActionPerformed(CommunicationMenu.java:83)
+	at nl.han.hantune.gui.menu.CommunicationMenu.lambda$new$0(CommunicationMenu.java:52)
+	at javax.swing.AbstractButton.fireActionPerformed(Unknown Source)
+	at javax.swing.AbstractButton$Handler.actionPerformed(Unknown Source)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(Unknown Source)
+	at javax.swing.DefaultButtonModel.setPressed(Unknown Source)
+	at javax.swing.AbstractButton.doClick(Unknown Source)
+	at javax.swing.AbstractButton.doClick(Unknown Source)
+	at javax.swing.plaf.basic.BasicMenuItemUI$Actions.actionPerformed(Unknown Source)
+	at javax.swing.SwingUtilities.notifyAction(Unknown Source)
+	at javax.swing.JComponent.processKeyBinding(Unknown Source)
+	at javax.swing.JMenuBar.processBindingForKeyStrokeRecursive(Unknown Source)
+	at javax.swing.JMenuBar.processBindingForKeyStrokeRecursive(Unknown Source)
+	at javax.swing.JMenuBar.processBindingForKeyStrokeRecursive(Unknown Source)
+	at javax.swing.JMenuBar.processKeyBinding(Unknown Source)
+	at javax.swing.KeyboardManager.fireBinding(Unknown Source)
+	at javax.swing.KeyboardManager.fireKeyboardAction(Unknown Source)
+	at javax.swing.JComponent.processKeyBindingsForAllComponents(Unknown Source)
+	at javax.swing.JComponent.processKeyBindings(Unknown Source)
+	at javax.swing.JComponent.processKeyEvent(Unknown Source)
+	at java.awt.Component.processEvent(Unknown Source)
+	at java.awt.Container.processEvent(Unknown Source)
+	at java.awt.Component.dispatchEventImpl(Unknown Source)
+	at java.awt.Container.dispatchEventImpl(Unknown Source)
+	at java.awt.Component.dispatchEvent(Unknown Source)
+	at java.awt.KeyboardFocusManager.redispatchEvent(Unknown Source)
+	at java.awt.DefaultKeyboardFocusManager.dispatchKeyEvent(Unknown Source)
+	at java.awt.DefaultKeyboardFocusManager.preDispatchKeyEvent(Unknown Source)
+	at java.awt.DefaultKeyboardFocusManager.typeAheadAssertions(Unknown Source)
+	at java.awt.DefaultKeyboardFocusManager.dispatchEvent(Unknown Source)
+	at java.awt.Component.dispatchEventImpl(Unknown Source)
+	at java.awt.Container.dispatchEventImpl(Unknown Source)
+	at java.awt.Window.dispatchEventImpl(Unknown Source)
+	at java.awt.Component.dispatchEvent(Unknown Source)
+	at java.awt.EventQueue.dispatchEventImpl(Unknown Source)
+	at java.awt.EventQueue.access$500(Unknown Source)
+	at java.awt.EventQueue$3.run(Unknown Source)
+	at java.awt.EventQueue$3.run(Unknown Source)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(Unknown Source)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(Unknown Source)
+	at java.awt.EventQueue$4.run(Unknown Source)
+	at java.awt.EventQueue$4.run(Unknown Source)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(Unknown Source)
+	at java.awt.EventQueue.dispatchEvent(Unknown Source)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+	at java.awt.EventDispatchThread.run(Unknown Source)
+****** 12:08:44 - 08-06-2022 ******
+Could not connect to UART port COM12: Port name - COM12; Method name - openPort(); Exception type - Port not found.
+2022/06/08 12:08:44  nr 2
+Connection type: XCP on USB/UART
+ProjectComments: HANcoder_E407_TTA_Group2_softwareID_v1_080622_114839
+An exception occurred in thread: SwingWorker-pool-3-thread-2
+class java.lang.Thread
+ID: 54, Priority: 5
+ThreadGroup: java.lang.ThreadGroup[name=main,maxpri=10]
+jssc.SerialPortException: Port name - COM12; Method name - openPort(); Exception type - Port not found.
+	at jssc.SerialPort.openPort(SerialPort.java:168)
+	at XCP.XCPonUART.connect(XCPonUART.java:92)
+	at XCP.XCP.startSession(XCP.java:1262)
+	at HANtune.ConnectionDialogWorker.doInBackground(ConnectionDialogWorker.java:115)
+	at HANtune.ConnectionDialogWorker.doInBackground(ConnectionDialogWorker.java:47)
+	at javax.swing.SwingWorker$1.call(Unknown Source)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at javax.swing.SwingWorker.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+****** 12:08:44 - 08-06-2022 ******
+Could not disconnect stream: Port name - COM12; Method name - closePort(); Exception type - Port not opened.
+2022/06/08 12:08:44  nr 3
+Connection type: XCP on USB/UART
+ProjectComments: HANcoder_E407_TTA_Group2_softwareID_v1_080622_114839
+An exception occurred in thread: AWT-EventQueue-0
+class java.awt.EventDispatchThread
+ID: 15, Priority: 6
+ThreadGroup: java.lang.ThreadGroup[name=main,maxpri=10]
+jssc.SerialPortException: Port name - COM12; Method name - closePort(); Exception type - Port not opened.
+	at jssc.SerialPort.checkPortOpened(SerialPort.java:879)
+	at jssc.SerialPort.closePort(SerialPort.java:1089)
+	at XCP.XCPonUART.disconnect(XCPonUART.java:179)
+	at XCP.XCP.stopSession(XCP.java:1320)
+	at HANtune.HANtune.disconnect(HANtune.java:1117)
+	at HANtune.ConnectionDialog.finished(ConnectionDialog.java:311)
+	at HANtune.ConnectionDialogWorker.done(ConnectionDialogWorker.java:284)
+	at javax.swing.SwingWorker$5.run(Unknown Source)
+	at javax.swing.SwingWorker$DoSubmitAccumulativeRunnable.run(Unknown Source)
+	at sun.swing.AccumulativeRunnable.run(Unknown Source)
+	at javax.swing.SwingWorker$DoSubmitAccumulativeRunnable.actionPerformed(Unknown Source)
+	at javax.swing.Timer.fireActionPerformed(Unknown Source)
+	at javax.swing.Timer$DoPostEvent.run(Unknown Source)
+	at java.awt.event.InvocationEvent.dispatch(Unknown Source)
+	at java.awt.EventQueue.dispatchEventImpl(Unknown Source)
+	at java.awt.EventQueue.access$500(Unknown Source)
+	at java.awt.EventQueue$3.run(Unknown Source)
+	at java.awt.EventQueue$3.run(Unknown Source)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(Unknown Source)
+	at java.awt.EventQueue.dispatchEvent(Unknown Source)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(Unknown Source)
+	at java.awt.WaitDispatchSupport$2.run(Unknown Source)
+	at java.awt.WaitDispatchSupport$4.run(Unknown Source)
+	at java.awt.WaitDispatchSupport$4.run(Unknown Source)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.awt.WaitDispatchSupport.enter(Unknown Source)
+	at java.awt.Dialog.show(Unknown Source)
+	at java.awt.Component.show(Unknown Source)
+	at java.awt.Component.setVisible(Unknown Source)
+	at java.awt.Window.setVisible(Unknown Source)
+	at java.awt.Dialog.setVisible(Unknown Source)
+	at HANtune.HANtune.connect(HANtune.java:1087)
+	at HANtune.HANtune.connectProtocol(HANtune.java:959)
+	at nl.han.hantune.gui.menu.CommunicationMenu.xcpConnectMenuItemActionPerformed(CommunicationMenu.java:83)
+	at nl.han.hantune.gui.menu.CommunicationMenu.lambda$new$0(CommunicationMenu.java:52)
+	at javax.swing.AbstractButton.fireActionPerformed(Unknown Source)
+	at javax.swing.AbstractButton$Handler.actionPerformed(Unknown Source)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(Unknown Source)
+	at javax.swing.DefaultButtonModel.setPressed(Unknown Source)
+	at javax.swing.AbstractButton.doClick(Unknown Source)
+	at javax.swing.AbstractButton.doClick(Unknown Source)
+	at javax.swing.plaf.basic.BasicMenuItemUI$Actions.actionPerformed(Unknown Source)
+	at javax.swing.SwingUtilities.notifyAction(Unknown Source)
+	at javax.swing.JComponent.processKeyBinding(Unknown Source)
+	at javax.swing.JMenuBar.processBindingForKeyStrokeRecursive(Unknown Source)
+	at javax.swing.JMenuBar.processBindingForKeyStrokeRecursive(Unknown Source)
+	at javax.swing.JMenuBar.processBindingForKeyStrokeRecursive(Unknown Source)
+	at javax.swing.JMenuBar.processKeyBinding(Unknown Source)
+	at javax.swing.KeyboardManager.fireBinding(Unknown Source)
+	at javax.swing.KeyboardManager.fireKeyboardAction(Unknown Source)
+	at javax.swing.JComponent.processKeyBindingsForAllComponents(Unknown Source)
+	at javax.swing.JComponent.processKeyBindings(Unknown Source)
+	at javax.swing.JComponent.processKeyEvent(Unknown Source)
+	at java.awt.Component.processEvent(Unknown Source)
+	at java.awt.Container.processEvent(Unknown Source)
+	at java.awt.Component.dispatchEventImpl(Unknown Source)
+	at java.awt.Container.dispatchEventImpl(Unknown Source)
+	at java.awt.Component.dispatchEvent(Unknown Source)
+	at java.awt.KeyboardFocusManager.redispatchEvent(Unknown Source)
+	at java.awt.DefaultKeyboardFocusManager.dispatchKeyEvent(Unknown Source)
+	at java.awt.DefaultKeyboardFocusManager.preDispatchKeyEvent(Unknown Source)
+	at java.awt.DefaultKeyboardFocusManager.typeAheadAssertions(Unknown Source)
+	at java.awt.DefaultKeyboardFocusManager.dispatchEvent(Unknown Source)
+	at java.awt.Component.dispatchEventImpl(Unknown Source)
+	at java.awt.Container.dispatchEventImpl(Unknown Source)
+	at java.awt.Window.dispatchEventImpl(Unknown Source)
+	at java.awt.Component.dispatchEvent(Unknown Source)
+	at java.awt.EventQueue.dispatchEventImpl(Unknown Source)
+	at java.awt.EventQueue.access$500(Unknown Source)
+	at java.awt.EventQueue$3.run(Unknown Source)
+	at java.awt.EventQueue$3.run(Unknown Source)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(Unknown Source)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(Unknown Source)
+	at java.awt.EventQueue$4.run(Unknown Source)
+	at java.awt.EventQueue$4.run(Unknown Source)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(Unknown Source)
+	at java.awt.EventQueue.dispatchEvent(Unknown Source)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+	at java.awt.EventDispatchThread.run(Unknown Source)
