@@ -451,6 +451,26 @@ HANtuneOverride = Simulink.Parameter; % Define as parameter
 HANtuneOverride.StorageClass = 'ExportedGlobal'; % Only Exported Global will be visible in HANtune
 HANtuneOverride.Value = 0; % Initial value is set to zero, no override
 
+switch_agree_tau_fr_out = Simulink.Parameter; % Define as parameter
+switch_agree_tau_fr_out.StorageClass = 'ExportedGlobal'; % Only Exported Global will be visible in HANtune
+switch_agree_tau_fr_out.Value = 0; % Initial value is set to zero, no override
+
+switch_agree_tau_fr_out1 = Simulink.Parameter; % Define as parameter
+switch_agree_tau_fr_out1.StorageClass = 'ExportedGlobal'; % Only Exported Global will be visible in HANtune
+switch_agree_tau_fr_out1.Value = 0; % Initial value is set to zero, no override
+
+switch_agree_tau_fr_out2 = Simulink.Parameter; % Define as parameter
+switch_agree_tau_fr_out2.StorageClass = 'ExportedGlobal'; % Only Exported Global will be visible in HANtune
+switch_agree_tau_fr_out2.Value = 0; % Initial value is set to zero, no override
+
+torque_fr_set_manipulated = Simulink.Parameter; % Define as parameter
+torque_fr_set_manipulated.StorageClass = 'ExportedGlobal'; % Only Exported Global will be visible in HANtune
+torque_fr_set_manipulated.Value = 0; % Initial value is set to zero, no override
+
+switch_manipulate_torque = Simulink.Parameter; % Define as parameter
+switch_manipulate_torque.StorageClass = 'ExportedGlobal'; % Only Exported Global will be visible in HANtune
+switch_manipulate_torque.Value = 0; % Initial value is set to zero, no override
+
 
 %% Bus type definitions
 % Votes_count variable: data storage with the votes received for the Role poll
