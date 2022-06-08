@@ -34,6 +34,16 @@ v_set
 
 HANtuneOverride 
 
+switch_agree_tau_fr_out 
+
+switch_agree_tau_fr_out1 
+
+switch_agree_tau_fr_out2 
+
+switch_manipulate_torque 
+
+torque_fr_set_manipulated 
+
 simulation_time
 script_run_s
 Board_ID_s

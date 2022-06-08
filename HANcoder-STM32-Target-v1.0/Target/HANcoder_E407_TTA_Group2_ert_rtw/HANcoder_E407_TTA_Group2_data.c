@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'HANcoder_E407_TTA_Group2'.
  *
- * Model version                  : 1.259
+ * Model version                  : 1.264
  * Simulink Coder version         : 9.0 (R2018b) 24-May-2018
- * C/C++ source code generated on : Wed Jun  8 16:38:03 2022
+ * C/C++ source code generated on : Wed Jun  8 18:25:48 2022
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -162,6 +162,22 @@ const ConstBlockIO rtConstB = {
     16.0,                              /* '<S575>/Power1' */
     0.0625,                            /* '<S576>/Power' */
     16.0,                              /* '<S576>/Power1' */
+    0.0625,                            /* '<S543>/Power' */
+    16.0,                              /* '<S543>/Power1' */
+    0.0625,                            /* '<S544>/Power' */
+    16.0,                              /* '<S544>/Power1' */
+    0.0625,                            /* '<S545>/Power' */
+    16.0,                              /* '<S545>/Power1' */
+    0.0625,                            /* '<S546>/Power' */
+    16.0,                              /* '<S546>/Power1' */
+    0.0625,                            /* '<S512>/Power' */
+    16.0,                              /* '<S512>/Power1' */
+    0.0625,                            /* '<S513>/Power' */
+    16.0,                              /* '<S513>/Power1' */
+    0.0625,                            /* '<S514>/Power' */
+    16.0,                              /* '<S514>/Power1' */
+    0.0625,                            /* '<S515>/Power' */
+    16.0,                              /* '<S515>/Power1' */
     490.0,                             /* '<S175>/Sum12' */
     510.0,                             /* '<S175>/Sum15' */
     550.0,                             /* '<S175>/Sum17' */
@@ -538,38 +554,21 @@ const ConstBlockIO rtConstB = {
 
     /* End of '<S457>/Reception substasks' */
 
-    /* Start of '<S456>/Transmission subtasks' */
+    /* Start of '<S526>/Check msg transmission CAN2' */
     {
-      -4.0,                            /* '<S543>/Gain' */
-      0.0625,                          /* '<S543>/Power' */
-      16.0,                            /* '<S543>/Power1' */
-      -4.0,                            /* '<S544>/Gain' */
-      0.0625,                          /* '<S544>/Power' */
-      16.0,                            /* '<S544>/Power1' */
-      -4.0,                            /* '<S545>/Gain' */
-      0.0625,                          /* '<S545>/Power' */
-      16.0,                            /* '<S545>/Power1' */
-      -4.0,                            /* '<S546>/Gain' */
-      0.0625,                          /* '<S546>/Power' */
-      16.0,                            /* '<S546>/Power1' */
-
-      /* Start of '<S495>/Check msg transmission CAN2' */
-      {
-        24U                            /* '<S537>/Cast8' */
-      }
-      ,
-
-      /* End of '<S495>/Check msg transmission CAN2' */
-
-      /* Start of '<S495>/Check msg transmission CAN1' */
-      {
-        24U                            /* '<S531>/Cast' */
-      }
-      /* End of '<S495>/Check msg transmission CAN1' */
+      24U                              /* '<S537>/Cast8' */
     }
     ,
 
-    /* End of '<S456>/Transmission subtasks' */
+    /* End of '<S526>/Check msg transmission CAN2' */
+
+    /* Start of '<S526>/Check msg transmission CAN1' */
+    {
+      24U                              /* '<S531>/Cast' */
+    }
+    ,
+
+    /* End of '<S526>/Check msg transmission CAN1' */
 
     /* Start of '<S456>/Reception substasks' */
     {
@@ -584,38 +583,21 @@ const ConstBlockIO rtConstB = {
 
     /* End of '<S456>/Reception substasks' */
 
-    /* Start of '<S455>/Transmission subtasks1' */
+    /* Start of '<S495>/Check msg transmission CAN2' */
     {
-      -4.0,                            /* '<S512>/Gain' */
-      0.0625,                          /* '<S512>/Power' */
-      16.0,                            /* '<S512>/Power1' */
-      -4.0,                            /* '<S513>/Gain' */
-      0.0625,                          /* '<S513>/Power' */
-      16.0,                            /* '<S513>/Power1' */
-      -4.0,                            /* '<S514>/Gain' */
-      0.0625,                          /* '<S514>/Power' */
-      16.0,                            /* '<S514>/Power1' */
-      -4.0,                            /* '<S515>/Gain' */
-      0.0625,                          /* '<S515>/Power' */
-      16.0,                            /* '<S515>/Power1' */
-
-      /* Start of '<S495>/Check msg transmission CAN2' */
-      {
-        23U                            /* '<S506>/Cast8' */
-      }
-      ,
-
-      /* End of '<S495>/Check msg transmission CAN2' */
-
-      /* Start of '<S495>/Check msg transmission CAN1' */
-      {
-        23U                            /* '<S500>/Cast' */
-      }
-      /* End of '<S495>/Check msg transmission CAN1' */
+      23U                              /* '<S506>/Cast8' */
     }
     ,
 
-    /* End of '<S455>/Transmission subtasks1' */
+    /* End of '<S495>/Check msg transmission CAN2' */
+
+    /* Start of '<S495>/Check msg transmission CAN1' */
+    {
+      23U                              /* '<S500>/Cast' */
+    }
+    ,
+
+    /* End of '<S495>/Check msg transmission CAN1' */
 
     /* Start of '<S455>/Reception substasks' */
     {

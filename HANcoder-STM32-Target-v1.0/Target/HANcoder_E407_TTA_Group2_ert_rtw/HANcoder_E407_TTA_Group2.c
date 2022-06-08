@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'HANcoder_E407_TTA_Group2'.
  *
- * Model version                  : 1.259
+ * Model version                  : 1.264
  * Simulink Coder version         : 9.0 (R2018b) 24-May-2018
- * C/C++ source code generated on : Wed Jun  8 16:38:03 2022
+ * C/C++ source code generated on : Wed Jun  8 18:25:48 2022
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -370,6 +370,21 @@ real_T v_set = 0.0;                    /* Variable: v_set
 boolean_T HANtuneOverride = 0;         /* Variable: HANtuneOverride
                                         * Referenced by: '<S2>/Constant'
                                         */
+boolean_T switch_agree_tau_fr_out = 0; /* Variable: switch_agree_tau_fr_out
+                                        * Referenced by: '<S925>/Constant10'
+                                        */
+boolean_T switch_agree_tau_fr_out1 = 0;/* Variable: switch_agree_tau_fr_out1
+                                        * Referenced by: '<S925>/Constant11'
+                                        */
+boolean_T switch_agree_tau_fr_out2 = 0;/* Variable: switch_agree_tau_fr_out2
+                                        * Referenced by: '<S925>/Constant13'
+                                        */
+boolean_T switch_manipulate_torque = 0;/* Variable: switch_manipulate_torque
+                                        * Referenced by: '<S499>/Constant3'
+                                        */
+boolean_T torque_fr_set_manipulated = 0;/* Variable: torque_fr_set_manipulated
+                                         * Referenced by: '<S499>/Constant2'
+                                         */
 
 /* Block signals (default storage) */
 BlockIO rtB;
@@ -385,10 +400,10 @@ RT_MODEL rtM_;
 RT_MODEL *const rtM = &rtM_;
 static void rate_scheduler(void);
 static tCanDataTypes canTxData;
+static tCanDataTypes canRxData_0_31U;
 static tCanDataTypes canRxData_0_23U;
 static tCanDataTypes canRxData_0_24U;
 static tCanDataTypes canRxData_0_25U;
-static tCanDataTypes canRxData_0_31U;
 static tCanDataTypes canRxData_0_22U;
 static tCanDataTypes canRxData_0_21U;
 static tCanDataTypes canRxData_0_1U;
@@ -396,10 +411,10 @@ static tCanDataTypes canRxData_0_11U;
 static tCanDataTypes canRxData_0_12U;
 static tCanDataTypes canRxData_0_13U;
 static tCanDataTypes canRxData_0_14U;
+static tCanDataTypes canRxData_1_31U;
 static tCanDataTypes canRxData_1_23U;
 static tCanDataTypes canRxData_1_24U;
 static tCanDataTypes canRxData_1_25U;
-static tCanDataTypes canRxData_1_31U;
 static tCanDataTypes canRxData_1_22U;
 static tCanDataTypes canRxData_1_21U;
 static tCanDataTypes canRxData_1_1U;
@@ -885,31 +900,31 @@ void CAN1Recieve_Disable(rtB_CAN1Recieve *localB, rtDW_CAN1Recieve *localDW)
 
   /* Disable for Enabled SubSystem: '<S39>/OutControl1_ID_CAN' */
   if (localDW->OutControl1_ID_CAN_MODE) {
-    /* Disable for Outport: '<S41>/CAN_new' */
+    /* Disable for Outport: '<S42>/CAN_new' */
     localB->SFunction_o1_k = 0;
 
-    /* Disable for Outport: '<S41>/Out2' */
+    /* Disable for Outport: '<S42>/Out2' */
     localB->In1_g = ((uint8_T)0U);
 
-    /* Disable for Outport: '<S41>/Out3' */
+    /* Disable for Outport: '<S42>/Out3' */
     localB->In2_p = ((uint8_T)0U);
 
-    /* Disable for Outport: '<S41>/Out4' */
+    /* Disable for Outport: '<S42>/Out4' */
     localB->In3_l = ((uint8_T)0U);
 
-    /* Disable for Outport: '<S41>/Out5' */
-    localB->In4_nw = ((uint8_T)0U);
+    /* Disable for Outport: '<S42>/Out5' */
+    localB->In4_n = ((uint8_T)0U);
 
-    /* Disable for Outport: '<S41>/Out6' */
+    /* Disable for Outport: '<S42>/Out6' */
     localB->In5_o = ((uint8_T)0U);
 
-    /* Disable for Outport: '<S41>/Out7' */
-    localB->In6_lv = ((uint8_T)0U);
+    /* Disable for Outport: '<S42>/Out7' */
+    localB->In6_l = ((uint8_T)0U);
 
-    /* Disable for Outport: '<S41>/Out8' */
+    /* Disable for Outport: '<S42>/Out8' */
     localB->In7_f = ((uint8_T)0U);
 
-    /* Disable for Outport: '<S41>/Out9' */
+    /* Disable for Outport: '<S42>/Out9' */
     localB->In8_kx = ((uint8_T)0U);
     localDW->OutControl1_ID_CAN_MODE = false;
   }
@@ -918,31 +933,31 @@ void CAN1Recieve_Disable(rtB_CAN1Recieve *localB, rtDW_CAN1Recieve *localDW)
 
   /* Disable for Enabled SubSystem: '<S39>/OutControl2_ID_CAN' */
   if (localDW->OutControl2_ID_CAN_MODE) {
-    /* Disable for Outport: '<S42>/CAN_new' */
+    /* Disable for Outport: '<S43>/CAN_new' */
     localB->SFunction_o1_b = 0;
 
-    /* Disable for Outport: '<S42>/Out2' */
+    /* Disable for Outport: '<S43>/Out2' */
     localB->In1_c = ((uint8_T)0U);
 
-    /* Disable for Outport: '<S42>/Out3' */
+    /* Disable for Outport: '<S43>/Out3' */
     localB->In2_i = ((uint8_T)0U);
 
-    /* Disable for Outport: '<S42>/Out4' */
+    /* Disable for Outport: '<S43>/Out4' */
     localB->In3_m = ((uint8_T)0U);
 
-    /* Disable for Outport: '<S42>/Out5' */
+    /* Disable for Outport: '<S43>/Out5' */
     localB->In4_iv = ((uint8_T)0U);
 
-    /* Disable for Outport: '<S42>/Out6' */
+    /* Disable for Outport: '<S43>/Out6' */
     localB->In5_h = ((uint8_T)0U);
 
-    /* Disable for Outport: '<S42>/Out7' */
+    /* Disable for Outport: '<S43>/Out7' */
     localB->In6_d = ((uint8_T)0U);
 
-    /* Disable for Outport: '<S42>/Out8' */
+    /* Disable for Outport: '<S43>/Out8' */
     localB->In7_bt = ((uint8_T)0U);
 
-    /* Disable for Outport: '<S42>/Out9' */
+    /* Disable for Outport: '<S43>/Out9' */
     localB->In8_ku = ((uint8_T)0U);
     localDW->OutControl2_ID_CAN_MODE = false;
   }
@@ -951,69 +966,69 @@ void CAN1Recieve_Disable(rtB_CAN1Recieve *localB, rtDW_CAN1Recieve *localDW)
 
   /* Disable for Enabled SubSystem: '<S39>/OutEmulator_ID_CAN' */
   if (localDW->OutEmulator_ID_CAN_MODE) {
-    /* Disable for Outport: '<S43>/CAN_new' */
+    /* Disable for Outport: '<S44>/CAN_new' */
     localB->SFunction_o1_o = 0;
 
-    /* Disable for Outport: '<S43>/Out2' */
+    /* Disable for Outport: '<S44>/Out2' */
     localB->In1_b = ((uint8_T)0U);
 
-    /* Disable for Outport: '<S43>/Out3' */
-    localB->In2_oj = ((uint8_T)0U);
+    /* Disable for Outport: '<S44>/Out3' */
+    localB->In2_o = ((uint8_T)0U);
 
-    /* Disable for Outport: '<S43>/Out4' */
+    /* Disable for Outport: '<S44>/Out4' */
     localB->In3_oq = ((uint8_T)0U);
 
-    /* Disable for Outport: '<S43>/Out5' */
+    /* Disable for Outport: '<S44>/Out5' */
     localB->In4_i = ((uint8_T)0U);
 
-    /* Disable for Outport: '<S43>/Out6' */
+    /* Disable for Outport: '<S44>/Out6' */
     localB->In5_md = ((uint8_T)0U);
 
-    /* Disable for Outport: '<S43>/Out7' */
+    /* Disable for Outport: '<S44>/Out7' */
     localB->In6_hx = ((uint8_T)0U);
 
-    /* Disable for Outport: '<S43>/Out8' */
-    localB->In7_k2 = ((uint8_T)0U);
+    /* Disable for Outport: '<S44>/Out8' */
+    localB->In7_k = ((uint8_T)0U);
 
-    /* Disable for Outport: '<S43>/Out9' */
+    /* Disable for Outport: '<S44>/Out9' */
     localB->In8_l = ((uint8_T)0U);
     localDW->OutEmulator_ID_CAN_MODE = false;
   }
 
   /* End of Disable for SubSystem: '<S39>/OutEmulator_ID_CAN' */
 
-  /* Disable for Enabled SubSystem: '<S39>/OutEmulator_ID_CAN1' */
-  if (localDW->OutEmulator_ID_CAN1_MODE) {
-    /* Disable for Outport: '<S44>/CAN_new' */
+  /* Disable for Enabled SubSystem: '<S39>/ErrorLog_ID_CAN1' */
+  if (localDW->ErrorLog_ID_CAN1_MODE) {
+    /* Disable for Outport: '<S41>/CAN_new' */
     localB->SFunction_o1_g = 0;
 
-    /* Disable for Outport: '<S44>/Out2' */
+    /* Disable for Outport: '<S41>/Out2' */
     localB->In1_l = ((uint8_T)0U);
 
-    /* Disable for Outport: '<S44>/Out3' */
-    localB->In2_o = ((uint8_T)0U);
+    /* Disable for Outport: '<S41>/Out3' */
+    localB->In2_o2 = ((uint8_T)0U);
 
-    /* Disable for Outport: '<S44>/Out4' */
+    /* Disable for Outport: '<S41>/Out4' */
     localB->In3_jt = ((uint8_T)0U);
 
-    /* Disable for Outport: '<S44>/Out5' */
-    localB->In4_n = ((uint8_T)0U);
+    /* Disable for Outport: '<S41>/Out5' */
+    localB->In4_n4 = ((uint8_T)0U);
 
-    /* Disable for Outport: '<S44>/Out6' */
+    /* Disable for Outport: '<S41>/Out6' */
     localB->In5_j = ((uint8_T)0U);
 
-    /* Disable for Outport: '<S44>/Out7' */
-    localB->In6_l = ((uint8_T)0U);
+    /* Disable for Outport: '<S41>/Out7' */
+    localB->In6_ll = ((uint8_T)0U);
 
-    /* Disable for Outport: '<S44>/Out8' */
-    localB->In7_k = ((uint8_T)0U);
+    /* Disable for Outport: '<S41>/Out8' */
+    localB->In7_kl = ((uint8_T)0U);
 
-    /* Disable for Outport: '<S44>/Out9' */
+    /* Disable for Outport: '<S41>/Out9' */
     localB->In8_kv = ((uint8_T)0U);
-    localDW->OutEmulator_ID_CAN1_MODE = false;
+    localDW->ErrorLog_ID_CAN1_MODE = false;
   }
 
-  /* End of Disable for SubSystem: '<S39>/OutEmulator_ID_CAN1' */
+  /* End of Disable for SubSystem: '<S39>/ErrorLog_ID_CAN1' */
 }
 
 /* Start for function-call system: '<S10>/CAN1 Recieve' */
@@ -1098,8 +1113,8 @@ void CAN1Recieve_Start(void)
 
   /* Start for Enabled SubSystem: '<S39>/OutControl1_ID_CAN' */
 
-  /* Start for M-S-Function: '<S52>/S-Function' incorporates:
-   *  Constant: '<S41>/Constant6'
+  /* Start for M-S-Function: '<S54>/S-Function' incorporates:
+   *  Constant: '<S42>/Constant6'
    */
 
   /* register a CAN storage buffer for the message with this ID */
@@ -1109,8 +1124,8 @@ void CAN1Recieve_Start(void)
 
   /* Start for Enabled SubSystem: '<S39>/OutControl2_ID_CAN' */
 
-  /* Start for M-S-Function: '<S54>/S-Function' incorporates:
-   *  Constant: '<S42>/Constant7'
+  /* Start for M-S-Function: '<S56>/S-Function' incorporates:
+   *  Constant: '<S43>/Constant7'
    */
 
   /* register a CAN storage buffer for the message with this ID */
@@ -1120,8 +1135,8 @@ void CAN1Recieve_Start(void)
 
   /* Start for Enabled SubSystem: '<S39>/OutEmulator_ID_CAN' */
 
-  /* Start for M-S-Function: '<S56>/S-Function' incorporates:
-   *  Constant: '<S43>/Constant8'
+  /* Start for M-S-Function: '<S58>/S-Function' incorporates:
+   *  Constant: '<S44>/Constant8'
    */
 
   /* register a CAN storage buffer for the message with this ID */
@@ -1129,16 +1144,16 @@ void CAN1Recieve_Start(void)
 
   /* End of Start for SubSystem: '<S39>/OutEmulator_ID_CAN' */
 
-  /* Start for Enabled SubSystem: '<S39>/OutEmulator_ID_CAN1' */
+  /* Start for Enabled SubSystem: '<S39>/ErrorLog_ID_CAN1' */
 
-  /* Start for M-S-Function: '<S58>/S-Function' incorporates:
-   *  Constant: '<S44>/Constant8'
+  /* Start for M-S-Function: '<S52>/S-Function' incorporates:
+   *  Constant: '<S41>/Constant8'
    */
 
   /* register a CAN storage buffer for the message with this ID */
   CanIoCreateMessageReceivedStorage(0, 31U);
 
-  /* End of Start for SubSystem: '<S39>/OutEmulator_ID_CAN1' */
+  /* End of Start for SubSystem: '<S39>/ErrorLog_ID_CAN1' */
 }
 
 /* Output and update for function-call system: '<S10>/CAN1 Recieve' */
@@ -1205,19 +1220,11 @@ void CAN1Recieve(rtB_CAN1Recieve *localB, rtDW_CAN1Recieve *localDW, uint16_T
   uint8_T rtb_SFunction_o7_h2;
   uint8_T rtb_SFunction_o8_lv;
   uint8_T rtb_SFunction_o9_p;
-  uint8_T rtb_SFunction_o2_h5;
-  uint8_T rtb_SFunction_o3_l;
-  uint8_T rtb_SFunction_o4_j;
-  uint8_T rtb_SFunction_o5_a;
-  uint8_T rtb_SFunction_o6_p;
-  uint8_T rtb_SFunction_o7_ej;
-  uint8_T rtb_SFunction_o8_i;
-  uint8_T rtb_SFunction_o9_dl;
   uint8_T rtb_SFunction_o2_fu;
   uint8_T rtb_SFunction_o3_mj;
-  uint8_T rtb_SFunction_o4_jy;
+  uint8_T rtb_SFunction_o4_j;
   uint8_T rtb_SFunction_o5_c5;
-  uint8_T rtb_SFunction_o6_pw;
+  uint8_T rtb_SFunction_o6_p;
   uint8_T rtb_SFunction_o7_j;
   uint8_T rtb_SFunction_o8_c;
   uint8_T rtb_SFunction_o9_f0;
@@ -1237,6 +1244,14 @@ void CAN1Recieve(rtB_CAN1Recieve *localB, rtDW_CAN1Recieve *localDW, uint16_T
   uint8_T rtb_SFunction_o7_o;
   uint8_T rtb_SFunction_o8_nw;
   uint8_T rtb_SFunction_o9_d5;
+  uint8_T rtb_SFunction_o2_h5;
+  uint8_T rtb_SFunction_o3_l;
+  uint8_T rtb_SFunction_o4_jx;
+  uint8_T rtb_SFunction_o5_a;
+  uint8_T rtb_SFunction_o6_pu;
+  uint8_T rtb_SFunction_o7_ej;
+  uint8_T rtb_SFunction_o8_i;
+  uint8_T rtb_SFunction_o9_dl;
   boolean_T rtb_Equal_mj;
   boolean_T rtb_Equal1_bu;
   boolean_T rtb_Equal2_oo;
@@ -1961,15 +1976,15 @@ void CAN1Recieve(rtB_CAN1Recieve *localB, rtDW_CAN1Recieve *localDW, uint16_T
   rtb_Equal6_o = (RxID_CAN1_s == 23.0);
 
   /* Outputs for Enabled SubSystem: '<S39>/OutControl1_ID_CAN' incorporates:
-   *  EnablePort: '<S41>/Enable'
+   *  EnablePort: '<S42>/Enable'
    */
   if (rtb_Equal6_o) {
     if (!localDW->OutControl1_ID_CAN_MODE) {
       localDW->OutControl1_ID_CAN_MODE = true;
     }
 
-    /* M-S-Function: '<S52>/S-Function' incorporates:
-     *  Constant: '<S41>/Constant6'
+    /* M-S-Function: '<S54>/S-Function' incorporates:
+     *  Constant: '<S42>/Constant6'
      */
 
     /* read the message data and store the new parameter */
@@ -1989,63 +2004,63 @@ void CAN1Recieve(rtB_CAN1Recieve *localB, rtDW_CAN1Recieve *localDW, uint16_T
       rtb_SFunction_o9_d5 = canRxData_0_23U.uint8_T_info[7];
     }
 
-    /* Outputs for Enabled SubSystem: '<S52>/Enabled Subsystem' incorporates:
-     *  EnablePort: '<S53>/Enable'
+    /* Outputs for Enabled SubSystem: '<S54>/Enabled Subsystem' incorporates:
+     *  EnablePort: '<S55>/Enable'
      */
     if (localB->SFunction_o1_k > 0) {
-      /* Inport: '<S53>/In1' */
+      /* Inport: '<S55>/In1' */
       localB->In1_g = rtb_SFunction_o2_m;
 
-      /* Inport: '<S53>/In2' */
+      /* Inport: '<S55>/In2' */
       localB->In2_p = rtb_SFunction_o3_h1;
 
-      /* Inport: '<S53>/In3' */
+      /* Inport: '<S55>/In3' */
       localB->In3_l = rtb_SFunction_o4_i;
 
-      /* Inport: '<S53>/In4' */
-      localB->In4_nw = rtb_SFunction_o5_c4;
+      /* Inport: '<S55>/In4' */
+      localB->In4_n = rtb_SFunction_o5_c4;
 
-      /* Inport: '<S53>/In5' */
+      /* Inport: '<S55>/In5' */
       localB->In5_o = rtb_SFunction_o6_jx;
 
-      /* Inport: '<S53>/In6' */
-      localB->In6_lv = rtb_SFunction_o7_o;
+      /* Inport: '<S55>/In6' */
+      localB->In6_l = rtb_SFunction_o7_o;
 
-      /* Inport: '<S53>/In7' */
+      /* Inport: '<S55>/In7' */
       localB->In7_f = rtb_SFunction_o8_nw;
 
-      /* Inport: '<S53>/In8' */
+      /* Inport: '<S55>/In8' */
       localB->In8_kx = rtb_SFunction_o9_d5;
     }
 
-    /* End of Outputs for SubSystem: '<S52>/Enabled Subsystem' */
+    /* End of Outputs for SubSystem: '<S54>/Enabled Subsystem' */
   } else {
     if (localDW->OutControl1_ID_CAN_MODE) {
-      /* Disable for Outport: '<S41>/CAN_new' */
+      /* Disable for Outport: '<S42>/CAN_new' */
       localB->SFunction_o1_k = 0;
 
-      /* Disable for Outport: '<S41>/Out2' */
+      /* Disable for Outport: '<S42>/Out2' */
       localB->In1_g = ((uint8_T)0U);
 
-      /* Disable for Outport: '<S41>/Out3' */
+      /* Disable for Outport: '<S42>/Out3' */
       localB->In2_p = ((uint8_T)0U);
 
-      /* Disable for Outport: '<S41>/Out4' */
+      /* Disable for Outport: '<S42>/Out4' */
       localB->In3_l = ((uint8_T)0U);
 
-      /* Disable for Outport: '<S41>/Out5' */
-      localB->In4_nw = ((uint8_T)0U);
+      /* Disable for Outport: '<S42>/Out5' */
+      localB->In4_n = ((uint8_T)0U);
 
-      /* Disable for Outport: '<S41>/Out6' */
+      /* Disable for Outport: '<S42>/Out6' */
       localB->In5_o = ((uint8_T)0U);
 
-      /* Disable for Outport: '<S41>/Out7' */
-      localB->In6_lv = ((uint8_T)0U);
+      /* Disable for Outport: '<S42>/Out7' */
+      localB->In6_l = ((uint8_T)0U);
 
-      /* Disable for Outport: '<S41>/Out8' */
+      /* Disable for Outport: '<S42>/Out8' */
       localB->In7_f = ((uint8_T)0U);
 
-      /* Disable for Outport: '<S41>/Out9' */
+      /* Disable for Outport: '<S42>/Out9' */
       localB->In8_kx = ((uint8_T)0U);
       localDW->OutControl1_ID_CAN_MODE = false;
     }
@@ -2059,15 +2074,15 @@ void CAN1Recieve(rtB_CAN1Recieve *localB, rtDW_CAN1Recieve *localDW, uint16_T
   rtb_Equal7_g = (RxID_CAN1_s == 24.0);
 
   /* Outputs for Enabled SubSystem: '<S39>/OutControl2_ID_CAN' incorporates:
-   *  EnablePort: '<S42>/Enable'
+   *  EnablePort: '<S43>/Enable'
    */
   if (rtb_Equal7_g) {
     if (!localDW->OutControl2_ID_CAN_MODE) {
       localDW->OutControl2_ID_CAN_MODE = true;
     }
 
-    /* M-S-Function: '<S54>/S-Function' incorporates:
-     *  Constant: '<S42>/Constant7'
+    /* M-S-Function: '<S56>/S-Function' incorporates:
+     *  Constant: '<S43>/Constant7'
      */
 
     /* read the message data and store the new parameter */
@@ -2087,63 +2102,63 @@ void CAN1Recieve(rtB_CAN1Recieve *localB, rtDW_CAN1Recieve *localDW, uint16_T
       rtb_SFunction_o9_f2 = canRxData_0_24U.uint8_T_info[7];
     }
 
-    /* Outputs for Enabled SubSystem: '<S54>/Enabled Subsystem' incorporates:
-     *  EnablePort: '<S55>/Enable'
+    /* Outputs for Enabled SubSystem: '<S56>/Enabled Subsystem' incorporates:
+     *  EnablePort: '<S57>/Enable'
      */
     if (localB->SFunction_o1_b > 0) {
-      /* Inport: '<S55>/In1' */
+      /* Inport: '<S57>/In1' */
       localB->In1_c = rtb_SFunction_o2_a;
 
-      /* Inport: '<S55>/In2' */
+      /* Inport: '<S57>/In2' */
       localB->In2_i = rtb_SFunction_o3_j;
 
-      /* Inport: '<S55>/In3' */
+      /* Inport: '<S57>/In3' */
       localB->In3_m = rtb_SFunction_o4_o;
 
-      /* Inport: '<S55>/In4' */
+      /* Inport: '<S57>/In4' */
       localB->In4_iv = rtb_SFunction_o5_o;
 
-      /* Inport: '<S55>/In5' */
+      /* Inport: '<S57>/In5' */
       localB->In5_h = rtb_SFunction_o6_n;
 
-      /* Inport: '<S55>/In6' */
+      /* Inport: '<S57>/In6' */
       localB->In6_d = rtb_SFunction_o7_d;
 
-      /* Inport: '<S55>/In7' */
+      /* Inport: '<S57>/In7' */
       localB->In7_bt = rtb_SFunction_o8_e;
 
-      /* Inport: '<S55>/In8' */
+      /* Inport: '<S57>/In8' */
       localB->In8_ku = rtb_SFunction_o9_f2;
     }
 
-    /* End of Outputs for SubSystem: '<S54>/Enabled Subsystem' */
+    /* End of Outputs for SubSystem: '<S56>/Enabled Subsystem' */
   } else {
     if (localDW->OutControl2_ID_CAN_MODE) {
-      /* Disable for Outport: '<S42>/CAN_new' */
+      /* Disable for Outport: '<S43>/CAN_new' */
       localB->SFunction_o1_b = 0;
 
-      /* Disable for Outport: '<S42>/Out2' */
+      /* Disable for Outport: '<S43>/Out2' */
       localB->In1_c = ((uint8_T)0U);
 
-      /* Disable for Outport: '<S42>/Out3' */
+      /* Disable for Outport: '<S43>/Out3' */
       localB->In2_i = ((uint8_T)0U);
 
-      /* Disable for Outport: '<S42>/Out4' */
+      /* Disable for Outport: '<S43>/Out4' */
       localB->In3_m = ((uint8_T)0U);
 
-      /* Disable for Outport: '<S42>/Out5' */
+      /* Disable for Outport: '<S43>/Out5' */
       localB->In4_iv = ((uint8_T)0U);
 
-      /* Disable for Outport: '<S42>/Out6' */
+      /* Disable for Outport: '<S43>/Out6' */
       localB->In5_h = ((uint8_T)0U);
 
-      /* Disable for Outport: '<S42>/Out7' */
+      /* Disable for Outport: '<S43>/Out7' */
       localB->In6_d = ((uint8_T)0U);
 
-      /* Disable for Outport: '<S42>/Out8' */
+      /* Disable for Outport: '<S43>/Out8' */
       localB->In7_bt = ((uint8_T)0U);
 
-      /* Disable for Outport: '<S42>/Out9' */
+      /* Disable for Outport: '<S43>/Out9' */
       localB->In8_ku = ((uint8_T)0U);
       localDW->OutControl2_ID_CAN_MODE = false;
     }
@@ -2157,15 +2172,15 @@ void CAN1Recieve(rtB_CAN1Recieve *localB, rtDW_CAN1Recieve *localDW, uint16_T
   rtb_Equal8_c = (RxID_CAN1_s == 25.0);
 
   /* Outputs for Enabled SubSystem: '<S39>/OutEmulator_ID_CAN' incorporates:
-   *  EnablePort: '<S43>/Enable'
+   *  EnablePort: '<S44>/Enable'
    */
   if (rtb_Equal8_c) {
     if (!localDW->OutEmulator_ID_CAN_MODE) {
       localDW->OutEmulator_ID_CAN_MODE = true;
     }
 
-    /* M-S-Function: '<S56>/S-Function' incorporates:
-     *  Constant: '<S43>/Constant8'
+    /* M-S-Function: '<S58>/S-Function' incorporates:
+     *  Constant: '<S44>/Constant8'
      */
 
     /* read the message data and store the new parameter */
@@ -2177,71 +2192,71 @@ void CAN1Recieve(rtB_CAN1Recieve *localB, rtDW_CAN1Recieve *localDW, uint16_T
       /* read the data */
       rtb_SFunction_o2_fu = canRxData_0_25U.uint8_T_info[0];
       rtb_SFunction_o3_mj = canRxData_0_25U.uint8_T_info[1];
-      rtb_SFunction_o4_jy = canRxData_0_25U.uint8_T_info[2];
+      rtb_SFunction_o4_j = canRxData_0_25U.uint8_T_info[2];
       rtb_SFunction_o5_c5 = canRxData_0_25U.uint8_T_info[3];
-      rtb_SFunction_o6_pw = canRxData_0_25U.uint8_T_info[4];
+      rtb_SFunction_o6_p = canRxData_0_25U.uint8_T_info[4];
       rtb_SFunction_o7_j = canRxData_0_25U.uint8_T_info[5];
       rtb_SFunction_o8_c = canRxData_0_25U.uint8_T_info[6];
       rtb_SFunction_o9_f0 = canRxData_0_25U.uint8_T_info[7];
     }
 
-    /* Outputs for Enabled SubSystem: '<S56>/Enabled Subsystem' incorporates:
-     *  EnablePort: '<S57>/Enable'
+    /* Outputs for Enabled SubSystem: '<S58>/Enabled Subsystem' incorporates:
+     *  EnablePort: '<S59>/Enable'
      */
     if (localB->SFunction_o1_o > 0) {
-      /* Inport: '<S57>/In1' */
+      /* Inport: '<S59>/In1' */
       localB->In1_b = rtb_SFunction_o2_fu;
 
-      /* Inport: '<S57>/In2' */
-      localB->In2_oj = rtb_SFunction_o3_mj;
+      /* Inport: '<S59>/In2' */
+      localB->In2_o = rtb_SFunction_o3_mj;
 
-      /* Inport: '<S57>/In3' */
-      localB->In3_oq = rtb_SFunction_o4_jy;
+      /* Inport: '<S59>/In3' */
+      localB->In3_oq = rtb_SFunction_o4_j;
 
-      /* Inport: '<S57>/In4' */
+      /* Inport: '<S59>/In4' */
       localB->In4_i = rtb_SFunction_o5_c5;
 
-      /* Inport: '<S57>/In5' */
-      localB->In5_md = rtb_SFunction_o6_pw;
+      /* Inport: '<S59>/In5' */
+      localB->In5_md = rtb_SFunction_o6_p;
 
-      /* Inport: '<S57>/In6' */
+      /* Inport: '<S59>/In6' */
       localB->In6_hx = rtb_SFunction_o7_j;
 
-      /* Inport: '<S57>/In7' */
-      localB->In7_k2 = rtb_SFunction_o8_c;
+      /* Inport: '<S59>/In7' */
+      localB->In7_k = rtb_SFunction_o8_c;
 
-      /* Inport: '<S57>/In8' */
+      /* Inport: '<S59>/In8' */
       localB->In8_l = rtb_SFunction_o9_f0;
     }
 
-    /* End of Outputs for SubSystem: '<S56>/Enabled Subsystem' */
+    /* End of Outputs for SubSystem: '<S58>/Enabled Subsystem' */
   } else {
     if (localDW->OutEmulator_ID_CAN_MODE) {
-      /* Disable for Outport: '<S43>/CAN_new' */
+      /* Disable for Outport: '<S44>/CAN_new' */
       localB->SFunction_o1_o = 0;
 
-      /* Disable for Outport: '<S43>/Out2' */
+      /* Disable for Outport: '<S44>/Out2' */
       localB->In1_b = ((uint8_T)0U);
 
-      /* Disable for Outport: '<S43>/Out3' */
-      localB->In2_oj = ((uint8_T)0U);
+      /* Disable for Outport: '<S44>/Out3' */
+      localB->In2_o = ((uint8_T)0U);
 
-      /* Disable for Outport: '<S43>/Out4' */
+      /* Disable for Outport: '<S44>/Out4' */
       localB->In3_oq = ((uint8_T)0U);
 
-      /* Disable for Outport: '<S43>/Out5' */
+      /* Disable for Outport: '<S44>/Out5' */
       localB->In4_i = ((uint8_T)0U);
 
-      /* Disable for Outport: '<S43>/Out6' */
+      /* Disable for Outport: '<S44>/Out6' */
       localB->In5_md = ((uint8_T)0U);
 
-      /* Disable for Outport: '<S43>/Out7' */
+      /* Disable for Outport: '<S44>/Out7' */
       localB->In6_hx = ((uint8_T)0U);
 
-      /* Disable for Outport: '<S43>/Out8' */
-      localB->In7_k2 = ((uint8_T)0U);
+      /* Disable for Outport: '<S44>/Out8' */
+      localB->In7_k = ((uint8_T)0U);
 
-      /* Disable for Outport: '<S43>/Out9' */
+      /* Disable for Outport: '<S44>/Out9' */
       localB->In8_l = ((uint8_T)0U);
       localDW->OutEmulator_ID_CAN_MODE = false;
     }
@@ -2249,27 +2264,27 @@ void CAN1Recieve(rtB_CAN1Recieve *localB, rtDW_CAN1Recieve *localDW, uint16_T
 
   /* End of Outputs for SubSystem: '<S39>/OutEmulator_ID_CAN' */
 
-  /* Outputs for Enabled SubSystem: '<S39>/OutEmulator_ID_CAN1' incorporates:
-   *  EnablePort: '<S44>/Enable'
+  /* Outputs for Enabled SubSystem: '<S39>/ErrorLog_ID_CAN1' incorporates:
+   *  EnablePort: '<S41>/Enable'
    */
   /* RelationalOperator: '<S39>/Equal10' incorporates:
    *  Constant: '<S39>/Constant10'
-   *  Inport: '<S59>/In1'
-   *  Inport: '<S59>/In2'
-   *  Inport: '<S59>/In3'
-   *  Inport: '<S59>/In4'
-   *  Inport: '<S59>/In5'
-   *  Inport: '<S59>/In6'
-   *  Inport: '<S59>/In7'
-   *  Inport: '<S59>/In8'
+   *  Inport: '<S53>/In1'
+   *  Inport: '<S53>/In2'
+   *  Inport: '<S53>/In3'
+   *  Inport: '<S53>/In4'
+   *  Inport: '<S53>/In5'
+   *  Inport: '<S53>/In6'
+   *  Inport: '<S53>/In7'
+   *  Inport: '<S53>/In8'
    */
   if (RxID_CAN1_s == 31.0) {
-    if (!localDW->OutEmulator_ID_CAN1_MODE) {
-      localDW->OutEmulator_ID_CAN1_MODE = true;
+    if (!localDW->ErrorLog_ID_CAN1_MODE) {
+      localDW->ErrorLog_ID_CAN1_MODE = true;
     }
 
-    /* M-S-Function: '<S58>/S-Function' incorporates:
-     *  Constant: '<S44>/Constant8'
+    /* M-S-Function: '<S52>/S-Function' incorporates:
+     *  Constant: '<S41>/Constant8'
      */
 
     /* read the message data and store the new parameter */
@@ -2281,63 +2296,63 @@ void CAN1Recieve(rtB_CAN1Recieve *localB, rtDW_CAN1Recieve *localDW, uint16_T
       /* read the data */
       rtb_SFunction_o2_h5 = canRxData_0_31U.uint8_T_info[0];
       rtb_SFunction_o3_l = canRxData_0_31U.uint8_T_info[1];
-      rtb_SFunction_o4_j = canRxData_0_31U.uint8_T_info[2];
+      rtb_SFunction_o4_jx = canRxData_0_31U.uint8_T_info[2];
       rtb_SFunction_o5_a = canRxData_0_31U.uint8_T_info[3];
-      rtb_SFunction_o6_p = canRxData_0_31U.uint8_T_info[4];
+      rtb_SFunction_o6_pu = canRxData_0_31U.uint8_T_info[4];
       rtb_SFunction_o7_ej = canRxData_0_31U.uint8_T_info[5];
       rtb_SFunction_o8_i = canRxData_0_31U.uint8_T_info[6];
       rtb_SFunction_o9_dl = canRxData_0_31U.uint8_T_info[7];
     }
 
-    /* Outputs for Enabled SubSystem: '<S58>/Enabled Subsystem' incorporates:
-     *  EnablePort: '<S59>/Enable'
+    /* Outputs for Enabled SubSystem: '<S52>/Enabled Subsystem' incorporates:
+     *  EnablePort: '<S53>/Enable'
      */
     if (localB->SFunction_o1_g > 0) {
       localB->In1_l = rtb_SFunction_o2_h5;
-      localB->In2_o = rtb_SFunction_o3_l;
-      localB->In3_jt = rtb_SFunction_o4_j;
-      localB->In4_n = rtb_SFunction_o5_a;
-      localB->In5_j = rtb_SFunction_o6_p;
-      localB->In6_l = rtb_SFunction_o7_ej;
-      localB->In7_k = rtb_SFunction_o8_i;
+      localB->In2_o2 = rtb_SFunction_o3_l;
+      localB->In3_jt = rtb_SFunction_o4_jx;
+      localB->In4_n4 = rtb_SFunction_o5_a;
+      localB->In5_j = rtb_SFunction_o6_pu;
+      localB->In6_ll = rtb_SFunction_o7_ej;
+      localB->In7_kl = rtb_SFunction_o8_i;
       localB->In8_kv = rtb_SFunction_o9_dl;
     }
 
-    /* End of Outputs for SubSystem: '<S58>/Enabled Subsystem' */
+    /* End of Outputs for SubSystem: '<S52>/Enabled Subsystem' */
   } else {
-    if (localDW->OutEmulator_ID_CAN1_MODE) {
-      /* Disable for Outport: '<S44>/CAN_new' */
+    if (localDW->ErrorLog_ID_CAN1_MODE) {
+      /* Disable for Outport: '<S41>/CAN_new' */
       localB->SFunction_o1_g = 0;
 
-      /* Disable for Outport: '<S44>/Out2' */
+      /* Disable for Outport: '<S41>/Out2' */
       localB->In1_l = ((uint8_T)0U);
 
-      /* Disable for Outport: '<S44>/Out3' */
-      localB->In2_o = ((uint8_T)0U);
+      /* Disable for Outport: '<S41>/Out3' */
+      localB->In2_o2 = ((uint8_T)0U);
 
-      /* Disable for Outport: '<S44>/Out4' */
+      /* Disable for Outport: '<S41>/Out4' */
       localB->In3_jt = ((uint8_T)0U);
 
-      /* Disable for Outport: '<S44>/Out5' */
-      localB->In4_n = ((uint8_T)0U);
+      /* Disable for Outport: '<S41>/Out5' */
+      localB->In4_n4 = ((uint8_T)0U);
 
-      /* Disable for Outport: '<S44>/Out6' */
+      /* Disable for Outport: '<S41>/Out6' */
       localB->In5_j = ((uint8_T)0U);
 
-      /* Disable for Outport: '<S44>/Out7' */
-      localB->In6_l = ((uint8_T)0U);
+      /* Disable for Outport: '<S41>/Out7' */
+      localB->In6_ll = ((uint8_T)0U);
 
-      /* Disable for Outport: '<S44>/Out8' */
-      localB->In7_k = ((uint8_T)0U);
+      /* Disable for Outport: '<S41>/Out8' */
+      localB->In7_kl = ((uint8_T)0U);
 
-      /* Disable for Outport: '<S44>/Out9' */
+      /* Disable for Outport: '<S41>/Out9' */
       localB->In8_kv = ((uint8_T)0U);
-      localDW->OutEmulator_ID_CAN1_MODE = false;
+      localDW->ErrorLog_ID_CAN1_MODE = false;
     }
   }
 
   /* End of RelationalOperator: '<S39>/Equal10' */
-  /* End of Outputs for SubSystem: '<S39>/OutEmulator_ID_CAN1' */
+  /* End of Outputs for SubSystem: '<S39>/ErrorLog_ID_CAN1' */
 
   /* Switch: '<S39>/Switch' incorporates:
    *  Switch: '<S39>/Switch1'
@@ -2506,9 +2521,9 @@ void CAN1Recieve(rtB_CAN1Recieve *localB, rtDW_CAN1Recieve *localDW, uint16_T
       } else if (rtb_Equal7_g) {
         rtb_signal3_le = localB->In2_i;
       } else if (rtb_Equal8_c) {
-        rtb_signal3_le = localB->In2_oj;
-      } else {
         rtb_signal3_le = localB->In2_o;
+      } else {
+        rtb_signal3_le = localB->In2_o2;
       }
 
       if (rtb_Equal3_nd) {
@@ -2538,13 +2553,13 @@ void CAN1Recieve(rtB_CAN1Recieve *localB, rtDW_CAN1Recieve *localDW, uint16_T
       } else if (rtb_Equal5_f) {
         rtb_signal5 = localB->In4_b;
       } else if (rtb_Equal6_o) {
-        rtb_signal5 = localB->In4_nw;
+        rtb_signal5 = localB->In4_n;
       } else if (rtb_Equal7_g) {
         rtb_signal5 = localB->In4_iv;
       } else if (rtb_Equal8_c) {
         rtb_signal5 = localB->In4_i;
       } else {
-        rtb_signal5 = localB->In4_n;
+        rtb_signal5 = localB->In4_n4;
       }
 
       if (rtb_Equal3_nd) {
@@ -2574,13 +2589,13 @@ void CAN1Recieve(rtB_CAN1Recieve *localB, rtDW_CAN1Recieve *localDW, uint16_T
       } else if (rtb_Equal5_f) {
         rtb_signal7 = localB->In6_n;
       } else if (rtb_Equal6_o) {
-        rtb_signal7 = localB->In6_lv;
+        rtb_signal7 = localB->In6_l;
       } else if (rtb_Equal7_g) {
         rtb_signal7 = localB->In6_d;
       } else if (rtb_Equal8_c) {
         rtb_signal7 = localB->In6_hx;
       } else {
-        rtb_signal7 = localB->In6_l;
+        rtb_signal7 = localB->In6_ll;
       }
 
       if (rtb_Equal3_nd) {
@@ -2596,9 +2611,9 @@ void CAN1Recieve(rtB_CAN1Recieve *localB, rtDW_CAN1Recieve *localDW, uint16_T
       } else if (rtb_Equal7_g) {
         rtb_signal8 = localB->In7_bt;
       } else if (rtb_Equal8_c) {
-        rtb_signal8 = localB->In7_k2;
-      } else {
         rtb_signal8 = localB->In7_k;
+      } else {
+        rtb_signal8 = localB->In7_kl;
       }
 
       if (rtb_Equal3_nd) {
@@ -2970,31 +2985,31 @@ void CAN2Recieve_Disable(rtB_CAN2Recieve *localB, rtDW_CAN2Recieve *localDW)
 
   /* Disable for Enabled SubSystem: '<S79>/OutControl1_ID_CAN' */
   if (localDW->OutControl1_ID_CAN_MODE) {
-    /* Disable for Outport: '<S81>/CAN_new' */
+    /* Disable for Outport: '<S82>/CAN_new' */
     localB->SFunction_o1_f = 0;
 
-    /* Disable for Outport: '<S81>/Out2' */
+    /* Disable for Outport: '<S82>/Out2' */
     localB->In1_b4 = ((uint8_T)0U);
 
-    /* Disable for Outport: '<S81>/Out3' */
+    /* Disable for Outport: '<S82>/Out3' */
     localB->In2_it = ((uint8_T)0U);
 
-    /* Disable for Outport: '<S81>/Out4' */
-    localB->In3_cf = ((uint8_T)0U);
+    /* Disable for Outport: '<S82>/Out4' */
+    localB->In3_c = ((uint8_T)0U);
 
-    /* Disable for Outport: '<S81>/Out5' */
+    /* Disable for Outport: '<S82>/Out5' */
     localB->In4_p = ((uint8_T)0U);
 
-    /* Disable for Outport: '<S81>/Out6' */
+    /* Disable for Outport: '<S82>/Out6' */
     localB->In5_j = ((uint8_T)0U);
 
-    /* Disable for Outport: '<S81>/Out7' */
+    /* Disable for Outport: '<S82>/Out7' */
     localB->In6_c = ((uint8_T)0U);
 
-    /* Disable for Outport: '<S81>/Out8' */
+    /* Disable for Outport: '<S82>/Out8' */
     localB->In7_f = ((uint8_T)0U);
 
-    /* Disable for Outport: '<S81>/Out9' */
+    /* Disable for Outport: '<S82>/Out9' */
     localB->In8_kt = ((uint8_T)0U);
     localDW->OutControl1_ID_CAN_MODE = false;
   }
@@ -3003,31 +3018,31 @@ void CAN2Recieve_Disable(rtB_CAN2Recieve *localB, rtDW_CAN2Recieve *localDW)
 
   /* Disable for Enabled SubSystem: '<S79>/OutControl2_ID_CAN' */
   if (localDW->OutControl2_ID_CAN_MODE) {
-    /* Disable for Outport: '<S82>/CAN_new' */
+    /* Disable for Outport: '<S83>/CAN_new' */
     localB->SFunction_o1_ew = 0;
 
-    /* Disable for Outport: '<S82>/Out2' */
+    /* Disable for Outport: '<S83>/Out2' */
     localB->In1_j = ((uint8_T)0U);
 
-    /* Disable for Outport: '<S82>/Out3' */
+    /* Disable for Outport: '<S83>/Out3' */
     localB->In2_a = ((uint8_T)0U);
 
-    /* Disable for Outport: '<S82>/Out4' */
+    /* Disable for Outport: '<S83>/Out4' */
     localB->In3_n2 = ((uint8_T)0U);
 
-    /* Disable for Outport: '<S82>/Out5' */
+    /* Disable for Outport: '<S83>/Out5' */
     localB->In4_k = ((uint8_T)0U);
 
-    /* Disable for Outport: '<S82>/Out6' */
+    /* Disable for Outport: '<S83>/Out6' */
     localB->In5_p = ((uint8_T)0U);
 
-    /* Disable for Outport: '<S82>/Out7' */
+    /* Disable for Outport: '<S83>/Out7' */
     localB->In6_ht = ((uint8_T)0U);
 
-    /* Disable for Outport: '<S82>/Out8' */
+    /* Disable for Outport: '<S83>/Out8' */
     localB->In7_dx = ((uint8_T)0U);
 
-    /* Disable for Outport: '<S82>/Out9' */
+    /* Disable for Outport: '<S83>/Out9' */
     localB->In8_l = ((uint8_T)0U);
     localDW->OutControl2_ID_CAN_MODE = false;
   }
@@ -3036,69 +3051,69 @@ void CAN2Recieve_Disable(rtB_CAN2Recieve *localB, rtDW_CAN2Recieve *localDW)
 
   /* Disable for Enabled SubSystem: '<S79>/OutEmulator_ID_CAN' */
   if (localDW->OutEmulator_ID_CAN_MODE) {
-    /* Disable for Outport: '<S83>/CAN_new' */
+    /* Disable for Outport: '<S84>/CAN_new' */
     localB->SFunction_o1_c5 = 0;
 
-    /* Disable for Outport: '<S83>/Out2' */
+    /* Disable for Outport: '<S84>/Out2' */
     localB->In1_f = ((uint8_T)0U);
 
-    /* Disable for Outport: '<S83>/Out3' */
+    /* Disable for Outport: '<S84>/Out3' */
     localB->In2_h = ((uint8_T)0U);
 
-    /* Disable for Outport: '<S83>/Out4' */
+    /* Disable for Outport: '<S84>/Out4' */
     localB->In3_o = ((uint8_T)0U);
 
-    /* Disable for Outport: '<S83>/Out5' */
+    /* Disable for Outport: '<S84>/Out5' */
     localB->In4_d = ((uint8_T)0U);
 
-    /* Disable for Outport: '<S83>/Out6' */
+    /* Disable for Outport: '<S84>/Out6' */
     localB->In5_b = ((uint8_T)0U);
 
-    /* Disable for Outport: '<S83>/Out7' */
+    /* Disable for Outport: '<S84>/Out7' */
     localB->In6_h = ((uint8_T)0U);
 
-    /* Disable for Outport: '<S83>/Out8' */
+    /* Disable for Outport: '<S84>/Out8' */
     localB->In7_bb = ((uint8_T)0U);
 
-    /* Disable for Outport: '<S83>/Out9' */
+    /* Disable for Outport: '<S84>/Out9' */
     localB->In8_p1 = ((uint8_T)0U);
     localDW->OutEmulator_ID_CAN_MODE = false;
   }
 
   /* End of Disable for SubSystem: '<S79>/OutEmulator_ID_CAN' */
 
-  /* Disable for Enabled SubSystem: '<S79>/OutEmulator_ID_CAN1' */
-  if (localDW->OutEmulator_ID_CAN1_MODE) {
-    /* Disable for Outport: '<S84>/CAN_new' */
+  /* Disable for Enabled SubSystem: '<S79>/ErrorLog_ID_CAN1' */
+  if (localDW->ErrorLog_ID_CAN1_MODE) {
+    /* Disable for Outport: '<S81>/CAN_new' */
     localB->SFunction_o1_h = 0;
 
-    /* Disable for Outport: '<S84>/Out2' */
+    /* Disable for Outport: '<S81>/Out2' */
     localB->In1_b2 = ((uint8_T)0U);
 
-    /* Disable for Outport: '<S84>/Out3' */
+    /* Disable for Outport: '<S81>/Out3' */
     localB->In2_f = ((uint8_T)0U);
 
-    /* Disable for Outport: '<S84>/Out4' */
-    localB->In3_c = ((uint8_T)0U);
+    /* Disable for Outport: '<S81>/Out4' */
+    localB->In3_cf = ((uint8_T)0U);
 
-    /* Disable for Outport: '<S84>/Out5' */
+    /* Disable for Outport: '<S81>/Out5' */
     localB->In4_i = ((uint8_T)0U);
 
-    /* Disable for Outport: '<S84>/Out6' */
+    /* Disable for Outport: '<S81>/Out6' */
     localB->In5_e = ((uint8_T)0U);
 
-    /* Disable for Outport: '<S84>/Out7' */
+    /* Disable for Outport: '<S81>/Out7' */
     localB->In6_d = ((uint8_T)0U);
 
-    /* Disable for Outport: '<S84>/Out8' */
+    /* Disable for Outport: '<S81>/Out8' */
     localB->In7_a = ((uint8_T)0U);
 
-    /* Disable for Outport: '<S84>/Out9' */
+    /* Disable for Outport: '<S81>/Out9' */
     localB->In8_a = ((uint8_T)0U);
-    localDW->OutEmulator_ID_CAN1_MODE = false;
+    localDW->ErrorLog_ID_CAN1_MODE = false;
   }
 
-  /* End of Disable for SubSystem: '<S79>/OutEmulator_ID_CAN1' */
+  /* End of Disable for SubSystem: '<S79>/ErrorLog_ID_CAN1' */
 }
 
 /* Start for function-call system: '<S10>/CAN2 Recieve' */
@@ -3183,8 +3198,8 @@ void CAN2Recieve_Start(void)
 
   /* Start for Enabled SubSystem: '<S79>/OutControl1_ID_CAN' */
 
-  /* Start for M-S-Function: '<S92>/S-Function' incorporates:
-   *  Constant: '<S81>/Constant6'
+  /* Start for M-S-Function: '<S94>/S-Function' incorporates:
+   *  Constant: '<S82>/Constant6'
    */
 
   /* register a CAN storage buffer for the message with this ID */
@@ -3194,8 +3209,8 @@ void CAN2Recieve_Start(void)
 
   /* Start for Enabled SubSystem: '<S79>/OutControl2_ID_CAN' */
 
-  /* Start for M-S-Function: '<S94>/S-Function' incorporates:
-   *  Constant: '<S82>/Constant7'
+  /* Start for M-S-Function: '<S96>/S-Function' incorporates:
+   *  Constant: '<S83>/Constant7'
    */
 
   /* register a CAN storage buffer for the message with this ID */
@@ -3205,8 +3220,8 @@ void CAN2Recieve_Start(void)
 
   /* Start for Enabled SubSystem: '<S79>/OutEmulator_ID_CAN' */
 
-  /* Start for M-S-Function: '<S96>/S-Function' incorporates:
-   *  Constant: '<S83>/Constant8'
+  /* Start for M-S-Function: '<S98>/S-Function' incorporates:
+   *  Constant: '<S84>/Constant8'
    */
 
   /* register a CAN storage buffer for the message with this ID */
@@ -3214,16 +3229,16 @@ void CAN2Recieve_Start(void)
 
   /* End of Start for SubSystem: '<S79>/OutEmulator_ID_CAN' */
 
-  /* Start for Enabled SubSystem: '<S79>/OutEmulator_ID_CAN1' */
+  /* Start for Enabled SubSystem: '<S79>/ErrorLog_ID_CAN1' */
 
-  /* Start for M-S-Function: '<S98>/S-Function' incorporates:
-   *  Constant: '<S84>/Constant8'
+  /* Start for M-S-Function: '<S92>/S-Function' incorporates:
+   *  Constant: '<S81>/Constant8'
    */
 
   /* register a CAN storage buffer for the message with this ID */
   CanIoCreateMessageReceivedStorage(1, 31U);
 
-  /* End of Start for SubSystem: '<S79>/OutEmulator_ID_CAN1' */
+  /* End of Start for SubSystem: '<S79>/ErrorLog_ID_CAN1' */
 }
 
 /* Output and update for function-call system: '<S10>/CAN2 Recieve' */
@@ -3290,14 +3305,6 @@ void CAN2Recieve(rtB_CAN2Recieve *localB, rtDW_CAN2Recieve *localDW, uint16_T
   uint8_T rtb_SFunction_o7_b;
   uint8_T rtb_SFunction_o8_h;
   uint8_T rtb_SFunction_o9_e;
-  uint8_T rtb_SFunction_o2_ii;
-  uint8_T rtb_SFunction_o3_cy;
-  uint8_T rtb_SFunction_o4_jyf;
-  uint8_T rtb_SFunction_o5_i;
-  uint8_T rtb_SFunction_o6_f;
-  uint8_T rtb_SFunction_o7_i;
-  uint8_T rtb_SFunction_o8_p0;
-  uint8_T rtb_SFunction_o9_pr;
   uint8_T rtb_SFunction_o2_mb;
   uint8_T rtb_SFunction_o3_gq;
   uint8_T rtb_SFunction_o4_c;
@@ -3319,9 +3326,17 @@ void CAN2Recieve(rtB_CAN2Recieve *localB, rtDW_CAN2Recieve *localDW, uint16_T
   uint8_T rtb_SFunction_o4_cg;
   uint8_T rtb_SFunction_o5_b;
   uint8_T rtb_SFunction_o6_o;
-  uint8_T rtb_SFunction_o7_iz;
+  uint8_T rtb_SFunction_o7_i;
   uint8_T rtb_SFunction_o8_nb;
   uint8_T rtb_SFunction_o9_ib;
+  uint8_T rtb_SFunction_o2_ii;
+  uint8_T rtb_SFunction_o3_cy;
+  uint8_T rtb_SFunction_o4_jy;
+  uint8_T rtb_SFunction_o5_i;
+  uint8_T rtb_SFunction_o6_f;
+  uint8_T rtb_SFunction_o7_ip;
+  uint8_T rtb_SFunction_o8_p0;
+  uint8_T rtb_SFunction_o9_pr;
   boolean_T rtb_Equal_l4;
   boolean_T rtb_Equal1_lj;
   boolean_T rtb_Equal2_b4;
@@ -4046,15 +4061,15 @@ void CAN2Recieve(rtB_CAN2Recieve *localB, rtDW_CAN2Recieve *localDW, uint16_T
   rtb_Equal6_i1 = (RxID_CAN2_s == 23.0);
 
   /* Outputs for Enabled SubSystem: '<S79>/OutControl1_ID_CAN' incorporates:
-   *  EnablePort: '<S81>/Enable'
+   *  EnablePort: '<S82>/Enable'
    */
   if (rtb_Equal6_i1) {
     if (!localDW->OutControl1_ID_CAN_MODE) {
       localDW->OutControl1_ID_CAN_MODE = true;
     }
 
-    /* M-S-Function: '<S92>/S-Function' incorporates:
-     *  Constant: '<S81>/Constant6'
+    /* M-S-Function: '<S94>/S-Function' incorporates:
+     *  Constant: '<S82>/Constant6'
      */
 
     /* read the message data and store the new parameter */
@@ -4069,68 +4084,68 @@ void CAN2Recieve(rtB_CAN2Recieve *localB, rtDW_CAN2Recieve *localDW, uint16_T
       rtb_SFunction_o4_cg = canRxData_1_23U.uint8_T_info[2];
       rtb_SFunction_o5_b = canRxData_1_23U.uint8_T_info[3];
       rtb_SFunction_o6_o = canRxData_1_23U.uint8_T_info[4];
-      rtb_SFunction_o7_iz = canRxData_1_23U.uint8_T_info[5];
+      rtb_SFunction_o7_i = canRxData_1_23U.uint8_T_info[5];
       rtb_SFunction_o8_nb = canRxData_1_23U.uint8_T_info[6];
       rtb_SFunction_o9_ib = canRxData_1_23U.uint8_T_info[7];
     }
 
-    /* Outputs for Enabled SubSystem: '<S92>/Enabled Subsystem' incorporates:
-     *  EnablePort: '<S93>/Enable'
+    /* Outputs for Enabled SubSystem: '<S94>/Enabled Subsystem' incorporates:
+     *  EnablePort: '<S95>/Enable'
      */
     if (localB->SFunction_o1_f > 0) {
-      /* Inport: '<S93>/In1' */
+      /* Inport: '<S95>/In1' */
       localB->In1_b4 = rtb_SFunction_o2_ej;
 
-      /* Inport: '<S93>/In2' */
+      /* Inport: '<S95>/In2' */
       localB->In2_it = rtb_SFunction_o3_p;
 
-      /* Inport: '<S93>/In3' */
-      localB->In3_cf = rtb_SFunction_o4_cg;
+      /* Inport: '<S95>/In3' */
+      localB->In3_c = rtb_SFunction_o4_cg;
 
-      /* Inport: '<S93>/In4' */
+      /* Inport: '<S95>/In4' */
       localB->In4_p = rtb_SFunction_o5_b;
 
-      /* Inport: '<S93>/In5' */
+      /* Inport: '<S95>/In5' */
       localB->In5_j = rtb_SFunction_o6_o;
 
-      /* Inport: '<S93>/In6' */
-      localB->In6_c = rtb_SFunction_o7_iz;
+      /* Inport: '<S95>/In6' */
+      localB->In6_c = rtb_SFunction_o7_i;
 
-      /* Inport: '<S93>/In7' */
+      /* Inport: '<S95>/In7' */
       localB->In7_f = rtb_SFunction_o8_nb;
 
-      /* Inport: '<S93>/In8' */
+      /* Inport: '<S95>/In8' */
       localB->In8_kt = rtb_SFunction_o9_ib;
     }
 
-    /* End of Outputs for SubSystem: '<S92>/Enabled Subsystem' */
+    /* End of Outputs for SubSystem: '<S94>/Enabled Subsystem' */
   } else {
     if (localDW->OutControl1_ID_CAN_MODE) {
-      /* Disable for Outport: '<S81>/CAN_new' */
+      /* Disable for Outport: '<S82>/CAN_new' */
       localB->SFunction_o1_f = 0;
 
-      /* Disable for Outport: '<S81>/Out2' */
+      /* Disable for Outport: '<S82>/Out2' */
       localB->In1_b4 = ((uint8_T)0U);
 
-      /* Disable for Outport: '<S81>/Out3' */
+      /* Disable for Outport: '<S82>/Out3' */
       localB->In2_it = ((uint8_T)0U);
 
-      /* Disable for Outport: '<S81>/Out4' */
-      localB->In3_cf = ((uint8_T)0U);
+      /* Disable for Outport: '<S82>/Out4' */
+      localB->In3_c = ((uint8_T)0U);
 
-      /* Disable for Outport: '<S81>/Out5' */
+      /* Disable for Outport: '<S82>/Out5' */
       localB->In4_p = ((uint8_T)0U);
 
-      /* Disable for Outport: '<S81>/Out6' */
+      /* Disable for Outport: '<S82>/Out6' */
       localB->In5_j = ((uint8_T)0U);
 
-      /* Disable for Outport: '<S81>/Out7' */
+      /* Disable for Outport: '<S82>/Out7' */
       localB->In6_c = ((uint8_T)0U);
 
-      /* Disable for Outport: '<S81>/Out8' */
+      /* Disable for Outport: '<S82>/Out8' */
       localB->In7_f = ((uint8_T)0U);
 
-      /* Disable for Outport: '<S81>/Out9' */
+      /* Disable for Outport: '<S82>/Out9' */
       localB->In8_kt = ((uint8_T)0U);
       localDW->OutControl1_ID_CAN_MODE = false;
     }
@@ -4144,15 +4159,15 @@ void CAN2Recieve(rtB_CAN2Recieve *localB, rtDW_CAN2Recieve *localDW, uint16_T
   rtb_Equal7_j = (RxID_CAN2_s == 24.0);
 
   /* Outputs for Enabled SubSystem: '<S79>/OutControl2_ID_CAN' incorporates:
-   *  EnablePort: '<S82>/Enable'
+   *  EnablePort: '<S83>/Enable'
    */
   if (rtb_Equal7_j) {
     if (!localDW->OutControl2_ID_CAN_MODE) {
       localDW->OutControl2_ID_CAN_MODE = true;
     }
 
-    /* M-S-Function: '<S94>/S-Function' incorporates:
-     *  Constant: '<S82>/Constant7'
+    /* M-S-Function: '<S96>/S-Function' incorporates:
+     *  Constant: '<S83>/Constant7'
      */
 
     /* read the message data and store the new parameter */
@@ -4172,63 +4187,63 @@ void CAN2Recieve(rtB_CAN2Recieve *localB, rtDW_CAN2Recieve *localDW, uint16_T
       rtb_SFunction_o9_i1 = canRxData_1_24U.uint8_T_info[7];
     }
 
-    /* Outputs for Enabled SubSystem: '<S94>/Enabled Subsystem' incorporates:
-     *  EnablePort: '<S95>/Enable'
+    /* Outputs for Enabled SubSystem: '<S96>/Enabled Subsystem' incorporates:
+     *  EnablePort: '<S97>/Enable'
      */
     if (localB->SFunction_o1_ew > 0) {
-      /* Inport: '<S95>/In1' */
+      /* Inport: '<S97>/In1' */
       localB->In1_j = rtb_SFunction_o2_d;
 
-      /* Inport: '<S95>/In2' */
+      /* Inport: '<S97>/In2' */
       localB->In2_a = rtb_SFunction_o3_gd;
 
-      /* Inport: '<S95>/In3' */
+      /* Inport: '<S97>/In3' */
       localB->In3_n2 = rtb_SFunction_o4_eq;
 
-      /* Inport: '<S95>/In4' */
+      /* Inport: '<S97>/In4' */
       localB->In4_k = rtb_SFunction_o5_n;
 
-      /* Inport: '<S95>/In5' */
+      /* Inport: '<S97>/In5' */
       localB->In5_p = rtb_SFunction_o6_b;
 
-      /* Inport: '<S95>/In6' */
+      /* Inport: '<S97>/In6' */
       localB->In6_ht = rtb_SFunction_o7_hw;
 
-      /* Inport: '<S95>/In7' */
+      /* Inport: '<S97>/In7' */
       localB->In7_dx = rtb_SFunction_o8_hn;
 
-      /* Inport: '<S95>/In8' */
+      /* Inport: '<S97>/In8' */
       localB->In8_l = rtb_SFunction_o9_i1;
     }
 
-    /* End of Outputs for SubSystem: '<S94>/Enabled Subsystem' */
+    /* End of Outputs for SubSystem: '<S96>/Enabled Subsystem' */
   } else {
     if (localDW->OutControl2_ID_CAN_MODE) {
-      /* Disable for Outport: '<S82>/CAN_new' */
+      /* Disable for Outport: '<S83>/CAN_new' */
       localB->SFunction_o1_ew = 0;
 
-      /* Disable for Outport: '<S82>/Out2' */
+      /* Disable for Outport: '<S83>/Out2' */
       localB->In1_j = ((uint8_T)0U);
 
-      /* Disable for Outport: '<S82>/Out3' */
+      /* Disable for Outport: '<S83>/Out3' */
       localB->In2_a = ((uint8_T)0U);
 
-      /* Disable for Outport: '<S82>/Out4' */
+      /* Disable for Outport: '<S83>/Out4' */
       localB->In3_n2 = ((uint8_T)0U);
 
-      /* Disable for Outport: '<S82>/Out5' */
+      /* Disable for Outport: '<S83>/Out5' */
       localB->In4_k = ((uint8_T)0U);
 
-      /* Disable for Outport: '<S82>/Out6' */
+      /* Disable for Outport: '<S83>/Out6' */
       localB->In5_p = ((uint8_T)0U);
 
-      /* Disable for Outport: '<S82>/Out7' */
+      /* Disable for Outport: '<S83>/Out7' */
       localB->In6_ht = ((uint8_T)0U);
 
-      /* Disable for Outport: '<S82>/Out8' */
+      /* Disable for Outport: '<S83>/Out8' */
       localB->In7_dx = ((uint8_T)0U);
 
-      /* Disable for Outport: '<S82>/Out9' */
+      /* Disable for Outport: '<S83>/Out9' */
       localB->In8_l = ((uint8_T)0U);
       localDW->OutControl2_ID_CAN_MODE = false;
     }
@@ -4242,15 +4257,15 @@ void CAN2Recieve(rtB_CAN2Recieve *localB, rtDW_CAN2Recieve *localDW, uint16_T
   rtb_Equal8_k = (RxID_CAN2_s == 25.0);
 
   /* Outputs for Enabled SubSystem: '<S79>/OutEmulator_ID_CAN' incorporates:
-   *  EnablePort: '<S83>/Enable'
+   *  EnablePort: '<S84>/Enable'
    */
   if (rtb_Equal8_k) {
     if (!localDW->OutEmulator_ID_CAN_MODE) {
       localDW->OutEmulator_ID_CAN_MODE = true;
     }
 
-    /* M-S-Function: '<S96>/S-Function' incorporates:
-     *  Constant: '<S83>/Constant8'
+    /* M-S-Function: '<S98>/S-Function' incorporates:
+     *  Constant: '<S84>/Constant8'
      */
 
     /* read the message data and store the new parameter */
@@ -4270,63 +4285,63 @@ void CAN2Recieve(rtB_CAN2Recieve *localB, rtDW_CAN2Recieve *localDW, uint16_T
       rtb_SFunction_o9_fl = canRxData_1_25U.uint8_T_info[7];
     }
 
-    /* Outputs for Enabled SubSystem: '<S96>/Enabled Subsystem' incorporates:
-     *  EnablePort: '<S97>/Enable'
+    /* Outputs for Enabled SubSystem: '<S98>/Enabled Subsystem' incorporates:
+     *  EnablePort: '<S99>/Enable'
      */
     if (localB->SFunction_o1_c5 > 0) {
-      /* Inport: '<S97>/In1' */
+      /* Inport: '<S99>/In1' */
       localB->In1_f = rtb_SFunction_o2_mb;
 
-      /* Inport: '<S97>/In2' */
+      /* Inport: '<S99>/In2' */
       localB->In2_h = rtb_SFunction_o3_gq;
 
-      /* Inport: '<S97>/In3' */
+      /* Inport: '<S99>/In3' */
       localB->In3_o = rtb_SFunction_o4_c;
 
-      /* Inport: '<S97>/In4' */
+      /* Inport: '<S99>/In4' */
       localB->In4_d = rtb_SFunction_o5_cj;
 
-      /* Inport: '<S97>/In5' */
+      /* Inport: '<S99>/In5' */
       localB->In5_b = rtb_SFunction_o6_jc;
 
-      /* Inport: '<S97>/In6' */
+      /* Inport: '<S99>/In6' */
       localB->In6_h = rtb_SFunction_o7_nl;
 
-      /* Inport: '<S97>/In7' */
+      /* Inport: '<S99>/In7' */
       localB->In7_bb = rtb_SFunction_o8_mw;
 
-      /* Inport: '<S97>/In8' */
+      /* Inport: '<S99>/In8' */
       localB->In8_p1 = rtb_SFunction_o9_fl;
     }
 
-    /* End of Outputs for SubSystem: '<S96>/Enabled Subsystem' */
+    /* End of Outputs for SubSystem: '<S98>/Enabled Subsystem' */
   } else {
     if (localDW->OutEmulator_ID_CAN_MODE) {
-      /* Disable for Outport: '<S83>/CAN_new' */
+      /* Disable for Outport: '<S84>/CAN_new' */
       localB->SFunction_o1_c5 = 0;
 
-      /* Disable for Outport: '<S83>/Out2' */
+      /* Disable for Outport: '<S84>/Out2' */
       localB->In1_f = ((uint8_T)0U);
 
-      /* Disable for Outport: '<S83>/Out3' */
+      /* Disable for Outport: '<S84>/Out3' */
       localB->In2_h = ((uint8_T)0U);
 
-      /* Disable for Outport: '<S83>/Out4' */
+      /* Disable for Outport: '<S84>/Out4' */
       localB->In3_o = ((uint8_T)0U);
 
-      /* Disable for Outport: '<S83>/Out5' */
+      /* Disable for Outport: '<S84>/Out5' */
       localB->In4_d = ((uint8_T)0U);
 
-      /* Disable for Outport: '<S83>/Out6' */
+      /* Disable for Outport: '<S84>/Out6' */
       localB->In5_b = ((uint8_T)0U);
 
-      /* Disable for Outport: '<S83>/Out7' */
+      /* Disable for Outport: '<S84>/Out7' */
       localB->In6_h = ((uint8_T)0U);
 
-      /* Disable for Outport: '<S83>/Out8' */
+      /* Disable for Outport: '<S84>/Out8' */
       localB->In7_bb = ((uint8_T)0U);
 
-      /* Disable for Outport: '<S83>/Out9' */
+      /* Disable for Outport: '<S84>/Out9' */
       localB->In8_p1 = ((uint8_T)0U);
       localDW->OutEmulator_ID_CAN_MODE = false;
     }
@@ -4334,27 +4349,27 @@ void CAN2Recieve(rtB_CAN2Recieve *localB, rtDW_CAN2Recieve *localDW, uint16_T
 
   /* End of Outputs for SubSystem: '<S79>/OutEmulator_ID_CAN' */
 
-  /* Outputs for Enabled SubSystem: '<S79>/OutEmulator_ID_CAN1' incorporates:
-   *  EnablePort: '<S84>/Enable'
+  /* Outputs for Enabled SubSystem: '<S79>/ErrorLog_ID_CAN1' incorporates:
+   *  EnablePort: '<S81>/Enable'
    */
   /* RelationalOperator: '<S79>/Equal10' incorporates:
    *  Constant: '<S79>/Constant10'
-   *  Inport: '<S99>/In1'
-   *  Inport: '<S99>/In2'
-   *  Inport: '<S99>/In3'
-   *  Inport: '<S99>/In4'
-   *  Inport: '<S99>/In5'
-   *  Inport: '<S99>/In6'
-   *  Inport: '<S99>/In7'
-   *  Inport: '<S99>/In8'
+   *  Inport: '<S93>/In1'
+   *  Inport: '<S93>/In2'
+   *  Inport: '<S93>/In3'
+   *  Inport: '<S93>/In4'
+   *  Inport: '<S93>/In5'
+   *  Inport: '<S93>/In6'
+   *  Inport: '<S93>/In7'
+   *  Inport: '<S93>/In8'
    */
   if (RxID_CAN2_s == 31.0) {
-    if (!localDW->OutEmulator_ID_CAN1_MODE) {
-      localDW->OutEmulator_ID_CAN1_MODE = true;
+    if (!localDW->ErrorLog_ID_CAN1_MODE) {
+      localDW->ErrorLog_ID_CAN1_MODE = true;
     }
 
-    /* M-S-Function: '<S98>/S-Function' incorporates:
-     *  Constant: '<S84>/Constant8'
+    /* M-S-Function: '<S92>/S-Function' incorporates:
+     *  Constant: '<S81>/Constant8'
      */
 
     /* read the message data and store the new parameter */
@@ -4366,63 +4381,63 @@ void CAN2Recieve(rtB_CAN2Recieve *localB, rtDW_CAN2Recieve *localDW, uint16_T
       /* read the data */
       rtb_SFunction_o2_ii = canRxData_1_31U.uint8_T_info[0];
       rtb_SFunction_o3_cy = canRxData_1_31U.uint8_T_info[1];
-      rtb_SFunction_o4_jyf = canRxData_1_31U.uint8_T_info[2];
+      rtb_SFunction_o4_jy = canRxData_1_31U.uint8_T_info[2];
       rtb_SFunction_o5_i = canRxData_1_31U.uint8_T_info[3];
       rtb_SFunction_o6_f = canRxData_1_31U.uint8_T_info[4];
-      rtb_SFunction_o7_i = canRxData_1_31U.uint8_T_info[5];
+      rtb_SFunction_o7_ip = canRxData_1_31U.uint8_T_info[5];
       rtb_SFunction_o8_p0 = canRxData_1_31U.uint8_T_info[6];
       rtb_SFunction_o9_pr = canRxData_1_31U.uint8_T_info[7];
     }
 
-    /* Outputs for Enabled SubSystem: '<S98>/Enabled Subsystem' incorporates:
-     *  EnablePort: '<S99>/Enable'
+    /* Outputs for Enabled SubSystem: '<S92>/Enabled Subsystem' incorporates:
+     *  EnablePort: '<S93>/Enable'
      */
     if (localB->SFunction_o1_h > 0) {
       localB->In1_b2 = rtb_SFunction_o2_ii;
       localB->In2_f = rtb_SFunction_o3_cy;
-      localB->In3_c = rtb_SFunction_o4_jyf;
+      localB->In3_cf = rtb_SFunction_o4_jy;
       localB->In4_i = rtb_SFunction_o5_i;
       localB->In5_e = rtb_SFunction_o6_f;
-      localB->In6_d = rtb_SFunction_o7_i;
+      localB->In6_d = rtb_SFunction_o7_ip;
       localB->In7_a = rtb_SFunction_o8_p0;
       localB->In8_a = rtb_SFunction_o9_pr;
     }
 
-    /* End of Outputs for SubSystem: '<S98>/Enabled Subsystem' */
+    /* End of Outputs for SubSystem: '<S92>/Enabled Subsystem' */
   } else {
-    if (localDW->OutEmulator_ID_CAN1_MODE) {
-      /* Disable for Outport: '<S84>/CAN_new' */
+    if (localDW->ErrorLog_ID_CAN1_MODE) {
+      /* Disable for Outport: '<S81>/CAN_new' */
       localB->SFunction_o1_h = 0;
 
-      /* Disable for Outport: '<S84>/Out2' */
+      /* Disable for Outport: '<S81>/Out2' */
       localB->In1_b2 = ((uint8_T)0U);
 
-      /* Disable for Outport: '<S84>/Out3' */
+      /* Disable for Outport: '<S81>/Out3' */
       localB->In2_f = ((uint8_T)0U);
 
-      /* Disable for Outport: '<S84>/Out4' */
-      localB->In3_c = ((uint8_T)0U);
+      /* Disable for Outport: '<S81>/Out4' */
+      localB->In3_cf = ((uint8_T)0U);
 
-      /* Disable for Outport: '<S84>/Out5' */
+      /* Disable for Outport: '<S81>/Out5' */
       localB->In4_i = ((uint8_T)0U);
 
-      /* Disable for Outport: '<S84>/Out6' */
+      /* Disable for Outport: '<S81>/Out6' */
       localB->In5_e = ((uint8_T)0U);
 
-      /* Disable for Outport: '<S84>/Out7' */
+      /* Disable for Outport: '<S81>/Out7' */
       localB->In6_d = ((uint8_T)0U);
 
-      /* Disable for Outport: '<S84>/Out8' */
+      /* Disable for Outport: '<S81>/Out8' */
       localB->In7_a = ((uint8_T)0U);
 
-      /* Disable for Outport: '<S84>/Out9' */
+      /* Disable for Outport: '<S81>/Out9' */
       localB->In8_a = ((uint8_T)0U);
-      localDW->OutEmulator_ID_CAN1_MODE = false;
+      localDW->ErrorLog_ID_CAN1_MODE = false;
     }
   }
 
   /* End of RelationalOperator: '<S79>/Equal10' */
-  /* End of Outputs for SubSystem: '<S79>/OutEmulator_ID_CAN1' */
+  /* End of Outputs for SubSystem: '<S79>/ErrorLog_ID_CAN1' */
 
   /* Switch: '<S79>/Switch' incorporates:
    *  Switch: '<S79>/Switch1'
@@ -4605,13 +4620,13 @@ void CAN2Recieve(rtB_CAN2Recieve *localB, rtDW_CAN2Recieve *localDW, uint16_T
       } else if (rtb_Equal5_b) {
         rtb_signal4_fc = localB->In3_p;
       } else if (rtb_Equal6_i1) {
-        rtb_signal4_fc = localB->In3_cf;
+        rtb_signal4_fc = localB->In3_c;
       } else if (rtb_Equal7_j) {
         rtb_signal4_fc = localB->In3_n2;
       } else if (rtb_Equal8_k) {
         rtb_signal4_fc = localB->In3_o;
       } else {
-        rtb_signal4_fc = localB->In3_c;
+        rtb_signal4_fc = localB->In3_cf;
       }
 
       if (rtb_Equal3_fb) {
@@ -6996,386 +7011,6 @@ void CheckmsgtransmissionCAN2_j(boolean_T rtu_Enable, uint16_T rtu_LocalTime,
 
 /*
  * Disable for enable system:
- *    '<S455>/Transmission subtasks1'
- *    '<S456>/Transmission subtasks'
- */
-void Transmissionsubtasks1_Disable(rtB_Transmissionsubtasks1 *localB,
-  rtDW_Transmissionsubtasks1 *localDW)
-{
-  /* Disable for Enabled SubSystem: '<S495>/Check msg transmission CAN1' */
-  if (localDW->CheckmsgtransmissionCAN1_ma.CheckmsgtransmissionCAN1_MODE) {
-    CheckmsgtransmissionC_a_Disable(&localB->CheckmsgtransmissionCAN1_ma,
-      &localDW->CheckmsgtransmissionCAN1_ma);
-  }
-
-  /* End of Disable for SubSystem: '<S495>/Check msg transmission CAN1' */
-
-  /* Disable for Enabled SubSystem: '<S495>/Check msg transmission CAN2' */
-  if (localDW->CheckmsgtransmissionCAN2_j4.CheckmsgtransmissionCAN2_MODE) {
-    Checkmsgtransmission_al_Disable(&localB->CheckmsgtransmissionCAN2_j4,
-      &localDW->CheckmsgtransmissionCAN2_j4);
-  }
-
-  /* End of Disable for SubSystem: '<S495>/Check msg transmission CAN2' */
-
-  /* Disable for Outport: '<S495>/Send CAN1' */
-  localB->CheckmsgtransmissionCAN1_ma.Equal7 = false;
-
-  /* Disable for Outport: '<S495>/Send CAN2' */
-  localB->CheckmsgtransmissionCAN2_j4.Equal7 = false;
-  localDW->Transmissionsubtasks1_MODE = false;
-}
-
-/*
- * Output and update for enable system:
- *    '<S455>/Transmission subtasks1'
- *    '<S456>/Transmission subtasks'
- */
-void Transmissionsubtasks1(boolean_T rtu_Enable, real_T rtu_Time_Mark,
-  rtB_Transmissionsubtasks1 *localB, const rtC_Transmissionsubtasks1 *localC,
-  rtDW_Transmissionsubtasks1 *localDW, real_T *rtd_Board_ID, boolean_T
-  *rtd_Error_SensorValues_NotRX, boolean_T *rtd_Error_SetValues_NotRX, uint16_T *
-  rtd_Local_Ticks, msg_buffer_type *rtd_Msg_Tx_CAN1, msg_buffer_type
-  *rtd_Msg_Tx_CAN2, uint32_T *rtd_TxID_CAN1, uint32_T *rtd_TxID_CAN2, real_T
-  *rtd_Tx_msg_count_CAN1, real_T *rtd_Tx_msg_count_CAN2, uint8_T
-  *rtd_basic_cycle_count, real_T *rtd_torque_al_set, real_T *rtd_torque_ar_set,
-  real_T *rtd_torque_fl_set, real_T *rtd_torque_fr_set)
-{
-  boolean_T rtb_Equal2_oc;
-  real_T rtb_Multiply_ec;
-  real_T rtb_Fix1_l;
-  boolean_T rtb_AND_os;
-  boolean_T rtb_AND1_bc4;
-  uint8_T rtb_Cast_lq;
-  uint8_T rtb_Cast_f2;
-  uint8_T rtb_Cast_cp;
-  uint8_T rtb_Cast_or;
-  real_T u;
-
-  /* Outputs for Enabled SubSystem: '<S455>/Transmission subtasks1' incorporates:
-   *  EnablePort: '<S495>/Enable'
-   */
-  if (rtu_Enable) {
-    if (!localDW->Transmissionsubtasks1_MODE) {
-      localDW->Transmissionsubtasks1_MODE = true;
-    }
-
-    /* RelationalOperator: '<S495>/Equal2' */
-    rtb_Equal2_oc = (*rtd_Local_Ticks > rtu_Time_Mark);
-
-    /* Logic: '<S495>/AND' incorporates:
-     *  Constant: '<S495>/Constant6'
-     *  RelationalOperator: '<S495>/GreaterThan2'
-     */
-    rtb_AND_os = (rtb_Equal2_oc && (*rtd_Tx_msg_count_CAN1 <= 7.0));
-
-    /* Logic: '<S495>/AND1' incorporates:
-     *  Constant: '<S495>/Constant7'
-     *  RelationalOperator: '<S495>/GreaterThan3'
-     */
-    rtb_AND1_bc4 = (rtb_Equal2_oc && (*rtd_Tx_msg_count_CAN2 <= 7.0));
-
-    /* Outputs for Enabled SubSystem: '<S495>/Msg_Value_Data_Encoded' incorporates:
-     *  EnablePort: '<S499>/Enable'
-     */
-    /* RelationalOperator: '<S495>/Equal16' incorporates:
-     *  Constant: '<S499>/Constant'
-     */
-    if (*rtd_Local_Ticks == rtu_Time_Mark) {
-      /* DataTypeConversion: '<S499>/Cast' */
-      localB->Cast = *rtd_Error_SetValues_NotRX;
-
-      /* DataTypeConversion: '<S499>/Cast1' */
-      localB->Cast1 = *rtd_Error_SensorValues_NotRX;
-      localB->Constant = ((uint8_T)0U);
-
-      /* Switch: '<S512>/Switch2' incorporates:
-       *  Constant: '<S499>/Constant'
-       *  Constant: '<S499>/Constant8'
-       *  Constant: '<S499>/Constant9'
-       *  RelationalOperator: '<S512>/LessThanOrEqual1'
-       *  RelationalOperator: '<S512>/LessThanOrEqual2'
-       *  Switch: '<S512>/Switch1'
-       */
-      if (5.0 < *rtd_torque_fl_set) {
-        /* Switch: '<S512>/Switch' */
-        rtb_Multiply_ec = 5.0;
-      } else if (*rtd_torque_fl_set >= (-5.0)) {
-        /* Switch: '<S512>/Switch1' */
-        rtb_Multiply_ec = *rtd_torque_fl_set;
-      } else {
-        rtb_Multiply_ec = (-5.0);
-      }
-
-      /* End of Switch: '<S512>/Switch2' */
-
-      /* RelationalOperator: '<S512>/GreaterThan' incorporates:
-       *  Constant: '<S512>/Constant'
-       */
-      rtb_Equal2_oc = (rtb_Multiply_ec < 0.0);
-
-      /* Abs: '<S512>/Abs' */
-      rtb_Multiply_ec = fabs(rtb_Multiply_ec);
-
-      /* Rounding: '<S512>/Fix' */
-      rtb_Fix1_l = floor(rtb_Multiply_ec);
-
-      /* Sum: '<S512>/Minus' */
-      rtb_Multiply_ec -= rtb_Fix1_l;
-
-      /* DataTypeConversion: '<S512>/Cast' */
-      rtb_Cast_lq = rtb_Equal2_oc;
-
-      /* Outputs for Atomic SubSystem: '<S512>/Bit Shift' */
-      BitShift1(rtb_Cast_lq, &localB->BitShift_c);
-
-      /* End of Outputs for SubSystem: '<S512>/Bit Shift' */
-
-      /* Product: '<S512>/Multiply' */
-      rtb_Fix1_l *= localC->Power1;
-
-      /* Product: '<S512>/Divide' */
-      u = rtb_Multiply_ec / localC->Power;
-
-      /* Rounding: '<S512>/Fix1' */
-      if (u < 0.0) {
-        u = ceil(u);
-      } else {
-        u = floor(u);
-      }
-
-      /* End of Rounding: '<S512>/Fix1' */
-
-      /* Sum: '<S512>/Plus' incorporates:
-       *  DataTypeConversion: '<S512>/Cast1'
-       *  DataTypeConversion: '<S512>/Cast2'
-       */
-      localB->Plus = (uint8_T)((uint32_T)(uint8_T)((uint32_T)
-        localB->BitShift_c.y + (uint8_T)rtb_Fix1_l) + (uint8_T)u);
-
-      /* Switch: '<S513>/Switch2' incorporates:
-       *  Constant: '<S499>/Constant5'
-       *  Constant: '<S499>/Constant6'
-       *  RelationalOperator: '<S513>/LessThanOrEqual1'
-       *  RelationalOperator: '<S513>/LessThanOrEqual2'
-       *  Switch: '<S513>/Switch1'
-       */
-      if (5.0 < *rtd_torque_fr_set) {
-        /* Switch: '<S513>/Switch' */
-        rtb_Fix1_l = 5.0;
-      } else if (*rtd_torque_fr_set >= (-5.0)) {
-        /* Switch: '<S513>/Switch1' */
-        rtb_Fix1_l = *rtd_torque_fr_set;
-      } else {
-        rtb_Fix1_l = (-5.0);
-      }
-
-      /* End of Switch: '<S513>/Switch2' */
-
-      /* RelationalOperator: '<S513>/GreaterThan' incorporates:
-       *  Constant: '<S513>/Constant'
-       */
-      rtb_Equal2_oc = (rtb_Fix1_l < 0.0);
-
-      /* Abs: '<S513>/Abs' */
-      rtb_Fix1_l = fabs(rtb_Fix1_l);
-
-      /* Rounding: '<S513>/Fix' */
-      rtb_Multiply_ec = floor(rtb_Fix1_l);
-
-      /* Sum: '<S513>/Minus' */
-      rtb_Fix1_l -= rtb_Multiply_ec;
-
-      /* DataTypeConversion: '<S513>/Cast' */
-      rtb_Cast_f2 = rtb_Equal2_oc;
-
-      /* Outputs for Atomic SubSystem: '<S513>/Bit Shift' */
-      BitShift1(rtb_Cast_f2, &localB->BitShift_m);
-
-      /* End of Outputs for SubSystem: '<S513>/Bit Shift' */
-
-      /* Product: '<S513>/Multiply' */
-      rtb_Multiply_ec *= localC->Power1_g;
-
-      /* Product: '<S513>/Divide' */
-      u = rtb_Fix1_l / localC->Power_p;
-
-      /* Rounding: '<S513>/Fix1' */
-      if (u < 0.0) {
-        u = ceil(u);
-      } else {
-        u = floor(u);
-      }
-
-      /* End of Rounding: '<S513>/Fix1' */
-
-      /* Sum: '<S513>/Plus' incorporates:
-       *  DataTypeConversion: '<S513>/Cast1'
-       *  DataTypeConversion: '<S513>/Cast2'
-       */
-      localB->Plus_m = (uint8_T)((uint32_T)(uint8_T)((uint32_T)
-        localB->BitShift_m.y + (uint8_T)rtb_Multiply_ec) + (uint8_T)u);
-
-      /* Switch: '<S514>/Switch2' incorporates:
-       *  Constant: '<S499>/Constant11'
-       *  Constant: '<S499>/Constant12'
-       *  RelationalOperator: '<S514>/LessThanOrEqual1'
-       *  RelationalOperator: '<S514>/LessThanOrEqual2'
-       *  Switch: '<S514>/Switch1'
-       */
-      if (5.0 < *rtd_torque_ar_set) {
-        /* Switch: '<S514>/Switch' */
-        rtb_Fix1_l = 5.0;
-      } else if (*rtd_torque_ar_set >= (-5.0)) {
-        /* Switch: '<S514>/Switch1' */
-        rtb_Fix1_l = *rtd_torque_ar_set;
-      } else {
-        rtb_Fix1_l = (-5.0);
-      }
-
-      /* End of Switch: '<S514>/Switch2' */
-
-      /* RelationalOperator: '<S514>/GreaterThan' incorporates:
-       *  Constant: '<S514>/Constant'
-       */
-      rtb_Equal2_oc = (rtb_Fix1_l < 0.0);
-
-      /* Abs: '<S514>/Abs' */
-      rtb_Fix1_l = fabs(rtb_Fix1_l);
-
-      /* Rounding: '<S514>/Fix' */
-      rtb_Multiply_ec = floor(rtb_Fix1_l);
-
-      /* Sum: '<S514>/Minus' */
-      rtb_Fix1_l -= rtb_Multiply_ec;
-
-      /* DataTypeConversion: '<S514>/Cast' */
-      rtb_Cast_cp = rtb_Equal2_oc;
-
-      /* Outputs for Atomic SubSystem: '<S514>/Bit Shift' */
-      BitShift1(rtb_Cast_cp, &localB->BitShift_c0);
-
-      /* End of Outputs for SubSystem: '<S514>/Bit Shift' */
-
-      /* Product: '<S514>/Multiply' */
-      rtb_Multiply_ec *= localC->Power1_b;
-
-      /* Product: '<S514>/Divide' */
-      u = rtb_Fix1_l / localC->Power_l;
-
-      /* Rounding: '<S514>/Fix1' */
-      if (u < 0.0) {
-        u = ceil(u);
-      } else {
-        u = floor(u);
-      }
-
-      /* End of Rounding: '<S514>/Fix1' */
-
-      /* Sum: '<S514>/Plus' incorporates:
-       *  DataTypeConversion: '<S514>/Cast1'
-       *  DataTypeConversion: '<S514>/Cast2'
-       */
-      localB->Plus_p = (uint8_T)((uint32_T)(uint8_T)((uint32_T)
-        localB->BitShift_c0.y + (uint8_T)rtb_Multiply_ec) + (uint8_T)u);
-
-      /* Switch: '<S515>/Switch2' incorporates:
-       *  Constant: '<S499>/Constant14'
-       *  Constant: '<S499>/Constant15'
-       *  RelationalOperator: '<S515>/LessThanOrEqual1'
-       *  RelationalOperator: '<S515>/LessThanOrEqual2'
-       *  Switch: '<S515>/Switch1'
-       */
-      if (5.0 < *rtd_torque_al_set) {
-        /* Switch: '<S515>/Switch' */
-        rtb_Fix1_l = 5.0;
-      } else if (*rtd_torque_al_set >= (-5.0)) {
-        /* Switch: '<S515>/Switch1' */
-        rtb_Fix1_l = *rtd_torque_al_set;
-      } else {
-        rtb_Fix1_l = (-5.0);
-      }
-
-      /* End of Switch: '<S515>/Switch2' */
-
-      /* RelationalOperator: '<S515>/GreaterThan' incorporates:
-       *  Constant: '<S515>/Constant'
-       */
-      rtb_Equal2_oc = (rtb_Fix1_l < 0.0);
-
-      /* Abs: '<S515>/Abs' */
-      rtb_Fix1_l = fabs(rtb_Fix1_l);
-
-      /* Rounding: '<S515>/Fix' */
-      rtb_Multiply_ec = floor(rtb_Fix1_l);
-
-      /* Sum: '<S515>/Minus' */
-      rtb_Fix1_l -= rtb_Multiply_ec;
-
-      /* DataTypeConversion: '<S515>/Cast' */
-      rtb_Cast_or = rtb_Equal2_oc;
-
-      /* Outputs for Atomic SubSystem: '<S515>/Bit Shift' */
-      BitShift1(rtb_Cast_or, &localB->BitShift_g);
-
-      /* End of Outputs for SubSystem: '<S515>/Bit Shift' */
-
-      /* Product: '<S515>/Multiply' */
-      rtb_Multiply_ec *= localC->Power1_o;
-
-      /* Product: '<S515>/Divide' */
-      u = rtb_Fix1_l / localC->Power_n;
-
-      /* Rounding: '<S515>/Fix1' */
-      if (u < 0.0) {
-        u = ceil(u);
-      } else {
-        u = floor(u);
-      }
-
-      /* End of Rounding: '<S515>/Fix1' */
-
-      /* Sum: '<S515>/Plus' incorporates:
-       *  DataTypeConversion: '<S515>/Cast1'
-       *  DataTypeConversion: '<S515>/Cast2'
-       */
-      localB->Plus_g = (uint8_T)((uint32_T)(uint8_T)((uint32_T)
-        localB->BitShift_g.y + (uint8_T)rtb_Multiply_ec) + (uint8_T)u);
-    }
-
-    /* End of RelationalOperator: '<S495>/Equal16' */
-    /* End of Outputs for SubSystem: '<S495>/Msg_Value_Data_Encoded' */
-
-    /* Outputs for Enabled SubSystem: '<S495>/Check msg transmission CAN1' */
-    CheckmsgtransmissionCAN1_m(rtb_AND_os, *rtd_Local_Ticks, rtu_Time_Mark,
-      localB->Plus_m, localB->Plus, localB->Plus_p, localB->Plus_g, localB->Cast,
-      localB->Cast1, localB->Constant, &localB->CheckmsgtransmissionCAN1_ma,
-      &localC->CheckmsgtransmissionCAN1_ma,
-      &localDW->CheckmsgtransmissionCAN1_ma, rtd_Board_ID, rtd_Msg_Tx_CAN1,
-      rtd_TxID_CAN1, rtd_Tx_msg_count_CAN1, rtd_basic_cycle_count);
-
-    /* End of Outputs for SubSystem: '<S495>/Check msg transmission CAN1' */
-
-    /* Outputs for Enabled SubSystem: '<S495>/Check msg transmission CAN2' */
-    CheckmsgtransmissionCAN2_j(rtb_AND1_bc4, *rtd_Local_Ticks, rtu_Time_Mark,
-      localB->Plus_m, localB->Plus, localB->Plus_p, localB->Plus_g, localB->Cast,
-      localB->Cast1, localB->Constant, &localB->CheckmsgtransmissionCAN2_j4,
-      &localC->CheckmsgtransmissionCAN2_j4,
-      &localDW->CheckmsgtransmissionCAN2_j4, rtd_Board_ID, rtd_Msg_Tx_CAN2,
-      rtd_TxID_CAN2, rtd_Tx_msg_count_CAN2, rtd_basic_cycle_count);
-
-    /* End of Outputs for SubSystem: '<S495>/Check msg transmission CAN2' */
-  } else {
-    if (localDW->Transmissionsubtasks1_MODE) {
-      Transmissionsubtasks1_Disable(localB, localDW);
-    }
-  }
-
-  /* End of Outputs for SubSystem: '<S455>/Transmission subtasks1' */
-}
-
-/*
- * Disable for enable system:
  *    '<S586>/Check msg transmission CAN1'
  *    '<S1281>/Check msg transmission CAN1'
  */
@@ -8913,23 +8548,45 @@ void TTASystem_Disable(rtB_TTASystem *localB, rtDW_TTASystem *localDW)
           /* End of Disable for SubSystem: '<S455>/Reception substasks' */
 
           /* Disable for Enabled SubSystem: '<S455>/Transmission subtasks1' */
-          if (localDW->Transmissionsubtasks1_n.Transmissionsubtasks1_MODE) {
-            Transmissionsubtasks1_Disable(&localB->Transmissionsubtasks1_n,
-              &localDW->Transmissionsubtasks1_n);
+          if (localDW->Transmissionsubtasks1_MODE) {
+            /* Disable for Enabled SubSystem: '<S495>/Check msg transmission CAN1' */
+            if (localDW->CheckmsgtransmissionCAN1_ma.CheckmsgtransmissionCAN1_MODE)
+            {
+              CheckmsgtransmissionC_a_Disable
+                (&localB->CheckmsgtransmissionCAN1_ma,
+                 &localDW->CheckmsgtransmissionCAN1_ma);
+            }
+
+            /* End of Disable for SubSystem: '<S495>/Check msg transmission CAN1' */
+
+            /* Disable for Enabled SubSystem: '<S495>/Check msg transmission CAN2' */
+            if (localDW->CheckmsgtransmissionCAN2_j4.CheckmsgtransmissionCAN2_MODE)
+            {
+              Checkmsgtransmission_al_Disable
+                (&localB->CheckmsgtransmissionCAN2_j4,
+                 &localDW->CheckmsgtransmissionCAN2_j4);
+            }
+
+            /* End of Disable for SubSystem: '<S495>/Check msg transmission CAN2' */
+
+            /* Disable for Outport: '<S495>/Send CAN1' */
+            localB->CheckmsgtransmissionCAN1_ma.Equal7 = false;
+
+            /* Disable for Outport: '<S495>/Send CAN2' */
+            localB->CheckmsgtransmissionCAN2_j4.Equal7 = false;
+            localDW->Transmissionsubtasks1_MODE = false;
           }
 
           /* End of Disable for SubSystem: '<S455>/Transmission subtasks1' */
 
           /* Disable for Outport: '<S455>/Send CAN1' */
-          localB->Transmissionsubtasks1_n.CheckmsgtransmissionCAN1_ma.Equal7 =
-            false;
+          localB->CheckmsgtransmissionCAN1_ma.Equal7 = false;
 
           /* Disable for Outport: '<S455>/Receive CAN1' */
           localB->Receptionsubstasks_m.AND = false;
 
           /* Disable for Outport: '<S455>/Send CAN2' */
-          localB->Transmissionsubtasks1_n.CheckmsgtransmissionCAN2_j4.Equal7 =
-            false;
+          localB->CheckmsgtransmissionCAN2_j4.Equal7 = false;
 
           /* Disable for Outport: '<S455>/Receive CAN2' */
           localB->Receptionsubstasks_m.AND1 = false;
@@ -8949,23 +8606,45 @@ void TTASystem_Disable(rtB_TTASystem *localB, rtDW_TTASystem *localDW)
           /* End of Disable for SubSystem: '<S456>/Reception substasks' */
 
           /* Disable for Enabled SubSystem: '<S456>/Transmission subtasks' */
-          if (localDW->Transmissionsubtasks_j.Transmissionsubtasks1_MODE) {
-            Transmissionsubtasks1_Disable(&localB->Transmissionsubtasks_j,
-              &localDW->Transmissionsubtasks_j);
+          if (localDW->Transmissionsubtasks_MODE_i3) {
+            /* Disable for Enabled SubSystem: '<S526>/Check msg transmission CAN1' */
+            if (localDW->CheckmsgtransmissionCAN1_o.CheckmsgtransmissionCAN1_MODE)
+            {
+              CheckmsgtransmissionC_a_Disable
+                (&localB->CheckmsgtransmissionCAN1_o,
+                 &localDW->CheckmsgtransmissionCAN1_o);
+            }
+
+            /* End of Disable for SubSystem: '<S526>/Check msg transmission CAN1' */
+
+            /* Disable for Enabled SubSystem: '<S526>/Check msg transmission CAN2' */
+            if (localDW->CheckmsgtransmissionCAN2_b.CheckmsgtransmissionCAN2_MODE)
+            {
+              Checkmsgtransmission_al_Disable
+                (&localB->CheckmsgtransmissionCAN2_b,
+                 &localDW->CheckmsgtransmissionCAN2_b);
+            }
+
+            /* End of Disable for SubSystem: '<S526>/Check msg transmission CAN2' */
+
+            /* Disable for Outport: '<S526>/Send CAN1' */
+            localB->CheckmsgtransmissionCAN1_o.Equal7 = false;
+
+            /* Disable for Outport: '<S526>/Send CAN2' */
+            localB->CheckmsgtransmissionCAN2_b.Equal7 = false;
+            localDW->Transmissionsubtasks_MODE_i3 = false;
           }
 
           /* End of Disable for SubSystem: '<S456>/Transmission subtasks' */
 
           /* Disable for Outport: '<S456>/Send CAN1' */
-          localB->Transmissionsubtasks_j.CheckmsgtransmissionCAN1_ma.Equal7 =
-            false;
+          localB->CheckmsgtransmissionCAN1_o.Equal7 = false;
 
           /* Disable for Outport: '<S456>/Receive CAN1' */
           localB->Receptionsubstasks_k.AND = false;
 
           /* Disable for Outport: '<S456>/Send CAN2' */
-          localB->Transmissionsubtasks_j.CheckmsgtransmissionCAN2_j4.Equal7 =
-            false;
+          localB->CheckmsgtransmissionCAN2_b.Equal7 = false;
 
           /* Disable for Outport: '<S456>/Receive CAN2' */
           localB->Receptionsubstasks_k.AND1 = false;
@@ -9905,11 +9584,11 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
   boolean_T rtb_Equal_kj;
   real_T rtb_Switch1_or;
   uint16_T rtb_DataStoreRead8_c;
-  boolean_T rtb_AND_kh;
+  boolean_T rtb_AND_ir;
   boolean_T rtb_AND10_m;
   boolean_T rtb_AND6_p;
   boolean_T rtb_AND12_f;
-  boolean_T rtb_AND1_ga;
+  boolean_T rtb_AND1_dt;
   boolean_T rtb_AND2_os;
   boolean_T rtb_AND8_p;
   boolean_T rtb_AND7_d;
@@ -9929,38 +9608,38 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
   msg_buffer_type rtb_DataStoreRead_pt;
   msg_buffer_type rtb_DataStoreRead3_nn;
   real_T rtb_DataStoreRead15_lu;
-  boolean_T rtb_AND1_jo;
+  boolean_T rtb_AND1_dv;
   boolean_T rtb_DataStoreRead1_il;
   boolean_T rtb_DataStoreRead2_oh;
   msg_buffer_type rtb_DataStoreRead_m3;
   msg_buffer_type rtb_DataStoreRead3_ez;
-  boolean_T rtb_AND_lt;
-  boolean_T rtb_AND1_mz;
+  boolean_T rtb_AND_br;
+  boolean_T rtb_AND1_eh;
   boolean_T rtb_DataStoreRead1_j2;
   boolean_T rtb_DataStoreRead2_fq;
   msg_buffer_type rtb_DataStoreRead_ak;
   msg_buffer_type rtb_DataStoreRead3_d4;
-  boolean_T rtb_AND_e1;
-  boolean_T rtb_AND1_cy;
+  boolean_T rtb_AND_b0;
+  boolean_T rtb_AND1_bf;
   boolean_T rtb_DataStoreRead1_ax;
   boolean_T rtb_DataStoreRead2_cx;
   msg_buffer_type rtb_DataStoreRead_l5i;
   msg_buffer_type rtb_DataStoreRead3_dw;
-  boolean_T rtb_AND_kn;
-  boolean_T rtb_AND1_g;
+  boolean_T rtb_AND_iey;
+  boolean_T rtb_AND1_oq;
   boolean_T rtb_DataStoreRead1_l5;
   boolean_T rtb_DataStoreRead2_p2;
   msg_buffer_type rtb_DataStoreRead_c5;
   msg_buffer_type rtb_DataStoreRead3_j;
-  boolean_T rtb_AND_gh;
-  boolean_T rtb_AND1_on;
-  boolean_T rtb_Equal2_c5;
+  boolean_T rtb_AND_il0;
+  boolean_T rtb_AND1_dg;
+  boolean_T rtb_Equal2_de;
   boolean_T rtb_NOT_b0;
-  boolean_T rtb_Equal2_gc;
+  boolean_T rtb_Equal2_h4;
   boolean_T rtb_NOT_k;
-  boolean_T rtb_Equal2_li;
+  boolean_T rtb_Equal2_is;
   boolean_T rtb_NOT_ev;
-  boolean_T rtb_Equal2_jg;
+  boolean_T rtb_Equal2_nm;
   boolean_T rtb_NOT_n;
   boolean_T rtb_DataStoreRead1_db;
   boolean_T rtb_DataStoreRead2_at;
@@ -9968,99 +9647,97 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
   msg_buffer_type rtb_DataStoreRead3_a;
   real_T rtb_DataStoreRead8_dl;
   boolean_T rtb_AND_kz;
-  boolean_T rtb_AND1_dt;
+  boolean_T rtb_AND1_j3;
   boolean_T rtb_Equal1_hs;
   boolean_T rtb_DataStoreRead1_j3;
   boolean_T rtb_DataStoreRead2_oa;
   msg_buffer_type rtb_DataStoreRead_hx;
   msg_buffer_type rtb_DataStoreRead3_pe;
   real_T rtb_DataStoreRead5_fq;
-  boolean_T rtb_AND1_bh;
+  boolean_T rtb_AND1_k3;
   boolean_T rtb_DataStoreRead1_ov;
   boolean_T rtb_DataStoreRead2_bem;
   msg_buffer_type rtb_DataStoreRead_g;
   msg_buffer_type rtb_DataStoreRead3_on;
   real_T rtb_DataStoreRead5_es;
-  boolean_T rtb_AND1_a3;
+  boolean_T rtb_AND1_g;
   boolean_T rtb_DataStoreRead1_fw;
   boolean_T rtb_DataStoreRead2_oz;
   msg_buffer_type rtb_DataStoreRead_oo;
   msg_buffer_type rtb_DataStoreRead3_or;
   real_T rtb_DataStoreRead32;
   boolean_T rtb_AND_cn;
-  boolean_T rtb_AND1_jl;
+  boolean_T rtb_AND1_kk;
   boolean_T rtb_DataStoreRead1_k3;
   boolean_T rtb_DataStoreRead2_bb;
   msg_buffer_type rtb_DataStoreRead_ikk;
   msg_buffer_type rtb_DataStoreRead3_e;
   boolean_T rtb_AND_ki;
-  boolean_T rtb_AND1_eu;
+  boolean_T rtb_AND1_iw;
   boolean_T rtb_DataStoreRead1_n1;
   boolean_T rtb_DataStoreRead2_iy;
   msg_buffer_type rtb_DataStoreRead_nq;
   msg_buffer_type rtb_DataStoreRead3_d5;
   boolean_T rtb_AND_bi;
-  boolean_T rtb_AND1_lt;
+  boolean_T rtb_AND1_flu;
   boolean_T rtb_DataStoreRead1_cm;
   boolean_T rtb_DataStoreRead2_dl;
   msg_buffer_type rtb_DataStoreRead_pd;
   msg_buffer_type rtb_DataStoreRead3_pv;
   real_T rtb_DataStoreRead15_f;
-  boolean_T rtb_AND1_gd;
+  boolean_T rtb_AND1_fm;
   boolean_T rtb_AND_m5;
   boolean_T rtb_AND_aj;
-  boolean_T rtb_Equal2_jn;
   boolean_T rtb_AND_p1;
-  boolean_T rtb_Equal2_pj;
-  boolean_T rtb_AND_akl;
-  boolean_T rtb_AND_nb;
-  boolean_T rtb_AND_dlr;
-  boolean_T rtb_AND_li;
+  boolean_T rtb_AND_lt;
+  boolean_T rtb_AND_oa;
+  boolean_T rtb_AND_kt;
+  boolean_T rtb_AND_bb;
   boolean_T rtb_Equal1_dc;
   boolean_T rtb_NOT_ao;
-  boolean_T rtb_AND_kp;
-  boolean_T rtb_Equal2_mh3;
+  boolean_T rtb_AND_nk;
+  boolean_T rtb_Equal2_os;
   boolean_T rtb_DataStoreRead1_m4;
   boolean_T rtb_DataStoreRead2_dy;
   msg_buffer_type rtb_DataStoreRead_kf;
   msg_buffer_type rtb_DataStoreRead3_fl;
-  boolean_T rtb_AND1_g1;
-  boolean_T rtb_AND_ix;
+  boolean_T rtb_AND1_lmv;
+  boolean_T rtb_AND_i1;
   boolean_T rtb_Equal2_d;
-  boolean_T rtb_AND1_bg;
+  boolean_T rtb_AND1_ml;
   boolean_T rtb_DataStoreRead1_ig;
   boolean_T rtb_DataStoreRead2_be;
   msg_buffer_type rtb_DataStoreRead_gs;
   msg_buffer_type rtb_DataStoreRead3_mf3;
-  boolean_T rtb_AND1_al;
+  boolean_T rtb_AND1_o;
   boolean_T rtb_AND2_d0;
   boolean_T rtb_NOT_aaw;
-  boolean_T rtb_AND_mf;
+  boolean_T rtb_AND_cj;
   boolean_T rtb_Equal1_pi;
   boolean_T rtb_DataStoreRead1_my;
   boolean_T rtb_DataStoreRead2_bz;
   msg_buffer_type rtb_DataStoreRead_e;
   msg_buffer_type rtb_DataStoreRead3_k;
-  boolean_T rtb_AND1_nj;
+  boolean_T rtb_AND1_ll;
   boolean_T rtb_AND2_f;
   boolean_T rtb_Equal1_b;
   boolean_T rtb_DataStoreRead1_px;
   boolean_T rtb_DataStoreRead2_g;
   msg_buffer_type rtb_DataStoreRead_ok;
   msg_buffer_type rtb_DataStoreRead3_l;
-  boolean_T rtb_AND_g3;
-  boolean_T rtb_AND1_b;
-  boolean_T rtb_AND1_j;
+  boolean_T rtb_AND_ee;
+  boolean_T rtb_AND1_md;
+  boolean_T rtb_AND1_ot;
   boolean_T rtb_DataStoreRead1_ce;
   boolean_T rtb_DataStoreRead2_j;
   msg_buffer_type rtb_DataStoreRead_mg;
   msg_buffer_type rtb_DataStoreRead3;
   boolean_T rtb_AND1_m;
-  boolean_T rtb_AND1_kk;
+  boolean_T rtb_AND1_feo;
   boolean_T rtb_NOT_aq;
   boolean_T rtb_NOT_e;
   boolean_T rtb_NOT_gc;
-  uint8_T rtb_Cast_ac;
+  uint8_T rtb_Cast_in;
   uint8_T rtb_Cast1_hj;
   uint8_T rtb_Cast2;
   uint8_T rtb_Cast3;
@@ -10068,40 +9745,54 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
   uint8_T rtb_Cast5;
   uint8_T rtb_Cast6;
   uint16_T rtb_DataStoreRead_dm;
-  boolean_T rtb_AND_l;
-  boolean_T rtb_AND1_oa3;
-  uint16_T rtb_DataStoreRead_d;
-  boolean_T rtb_AND_cl;
-  boolean_T rtb_AND1_fb;
-  uint16_T rtb_DataStoreRead_lb;
-  boolean_T rtb_AND_ml;
-  boolean_T rtb_AND1_by;
-  uint16_T rtb_DataStoreRead_i;
-  boolean_T rtb_AND_a5;
-  boolean_T rtb_AND1_oz;
+  boolean_T rtb_AND_cf;
+  boolean_T rtb_AND1_lz;
   uint16_T rtb_DataStoreRead_a;
+  boolean_T rtb_AND_lm;
+  boolean_T rtb_AND1_fl;
+  uint16_T rtb_DataStoreRead_k;
   boolean_T rtb_AND_h;
+  boolean_T rtb_AND1_cg;
+  uint16_T rtb_DataStoreRead_nyu;
+  boolean_T rtb_AND_fqr;
+  boolean_T rtb_AND1_ev;
+  uint16_T rtb_DataStoreRead_dr;
+  boolean_T rtb_AND_isx;
+  boolean_T rtb_AND1_ib;
+  uint16_T rtb_DataStoreRead_hq;
+  boolean_T rtb_AND_bn;
   boolean_T rtb_AND1_e;
-  uint16_T rtb_DataStoreRead_iu4;
+  uint16_T rtb_DataStoreRead_kr;
+  boolean_T rtb_AND_gl;
+  boolean_T rtb_AND1_l;
+  uint16_T rtb_DataStoreRead_m1;
   boolean_T rtb_AND_i;
-  boolean_T rtb_AND1_c;
-  uint16_T rtb_DataStoreRead_j;
-  boolean_T rtb_AND_f;
-  boolean_T rtb_AND1_kp;
-  uint8_T rtb_Cast_pb;
-  uint8_T rtb_Cast_nx;
-  uint8_T rtb_Cast_if;
-  uint8_T rtb_Cast_k3;
-  uint8_T rtb_Cast_ai;
+  boolean_T rtb_AND1_bz;
+  uint16_T rtb_DataStoreRead_jv;
+  boolean_T rtb_AND_jq;
+  boolean_T rtb_AND1_dp;
+  uint8_T rtb_Cast_go;
+  uint8_T rtb_Cast_lz;
+  uint8_T rtb_Cast_jux;
+  uint8_T rtb_Cast_g;
+  uint8_T rtb_Cast_db;
+  uint8_T rtb_Cast_lu;
+  uint8_T rtb_Cast_oo;
+  uint8_T rtb_Cast_n1;
+  uint8_T rtb_Cast_f3;
   uint8_T rtb_Cast_o;
-  uint8_T rtb_Cast_a;
-  uint8_T rtb_Cast_c;
-  uint8_T rtb_Cast_nn;
-  uint8_T rtb_Cast_jf;
+  uint8_T rtb_Cast_ko;
   uint8_T rtb_Cast_h;
-  uint8_T rtb_Cast_hl;
-  uint8_T rtb_Cast_ev;
-  uint8_T rtb_Cast_lt;
+  uint8_T rtb_Cast_cl;
+  uint8_T rtb_Cast_o5;
+  uint8_T rtb_Cast_fv;
+  uint8_T rtb_Cast_ho;
+  uint8_T rtb_Cast_hz;
+  uint8_T rtb_Cast_c;
+  uint8_T rtb_Cast_f0;
+  uint8_T rtb_Cast_l;
+  uint8_T rtb_Cast_m;
+  uint8_T rtb_Cast_b;
   msg_buffer_type Msg_Rx_g;
   msg_buffer_type Msg_Rx_o;
   msg_buffer_type Msg_Rx_n;
@@ -10715,7 +10406,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
            *  Logic: '<S288>/NOT'
            *  RelationalOperator: '<S288>/Equal'
            */
-          rtb_AND_kh = ((1.0 != *rtd_Board_ID) && (!localDW->BC0_Vote1_processed));
+          rtb_AND_ir = ((1.0 != *rtd_Board_ID) && (!localDW->BC0_Vote1_processed));
 
           /* Switch: '<S288>/Switch2' incorporates:
            *  Constant: '<S288>/Constant6'
@@ -10723,7 +10414,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
            *  DataStoreWrite: '<S288>/Data Store Write1'
            *  Sum: '<S288>/Plus'
            */
-          if (rtb_AND_kh) {
+          if (rtb_AND_ir) {
             localDW->Board1_error_counter += 1.0;
           }
 
@@ -10785,7 +10476,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
            *  Logic: '<S288>/NOT1'
            *  RelationalOperator: '<S288>/Equal1'
            */
-          rtb_AND1_ga = ((2.0 != *rtd_Board_ID) &&
+          rtb_AND1_dt = ((2.0 != *rtd_Board_ID) &&
                          (!localDW->BC0_Vote2_processed));
 
           /* Switch: '<S288>/Switch1' incorporates:
@@ -10794,7 +10485,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
            *  DataStoreWrite: '<S288>/Data Store Write2'
            *  Sum: '<S288>/Plus1'
            */
-          if (rtb_AND1_ga) {
+          if (rtb_AND1_dt) {
             localDW->Board2_error_counter += 1.0;
           }
 
@@ -10893,7 +10584,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
           /* Logic: '<S288>/OR' incorporates:
            *  DataStoreWrite: '<S288>/Data Store Write8'
            */
-          localDW->Toggle_Pin_A1 = (rtb_AND_kh || rtb_AND1_ga || rtb_AND2_os ||
+          localDW->Toggle_Pin_A1 = (rtb_AND_ir || rtb_AND1_dt || rtb_AND2_os ||
             rtb_AND10_m || rtb_AND6_p || rtb_AND7_d || rtb_AND8_p || rtb_AND12_f);
 
           /* Switch: '<S289>/Switch' incorporates:
@@ -10902,7 +10593,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
            *  DataStoreRead: '<S289>/Data Store Read1'
            *  Sum: '<S289>/Plus'
            */
-          if (rtb_AND_kh) {
+          if (rtb_AND_ir) {
             TM1_timeout_counter_s = localDW->BC0_TM1_timeout_counter + 1.0;
           } else {
             TM1_timeout_counter_s = localDW->BC0_TM1_timeout_counter;
@@ -10919,7 +10610,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
            *  DataStoreRead: '<S290>/Data Store Read1'
            *  Sum: '<S290>/Plus'
            */
-          if (rtb_AND1_ga) {
+          if (rtb_AND1_dt) {
             TM2_timeout_counter_s = localDW->BC0_TM2_timeout_counter + 1.0;
           } else {
             TM2_timeout_counter_s = localDW->BC0_TM2_timeout_counter;
@@ -11516,7 +11207,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
           rtb_DataStoreRead15_lu = *rtd_Master_ID;
 
           /* RelationalOperator: '<S187>/Equal' */
-          rtb_AND_kh = (*rtd_Local_Ticks == 50.0);
+          rtb_AND_ir = (*rtd_Local_Ticks == 50.0);
 
           /* RelationalOperator: '<S187>/Equal5' incorporates:
            *  Constant: '<S187>/Constant26'
@@ -11527,7 +11218,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
           /* Outputs for Enabled SubSystem: '<S187>/Process_Messages' incorporates:
            *  EnablePort: '<S301>/Enable'
            */
-          if (rtb_AND_kh && rtb_AND10_m) {
+          if (rtb_AND_ir && rtb_AND10_m) {
             if (!localDW->Process_Messages_MODE_e) {
               localDW->Process_Messages_MODE_e = true;
             }
@@ -11682,10 +11373,10 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
            *  Logic: '<S187>/AND'
            *  Logic: '<S187>/NOT'
            */
-          rtb_AND1_jo = (rtb_AND_kh && (!rtb_AND10_m));
+          rtb_AND1_dv = (rtb_AND_ir && (!rtb_AND10_m));
 
           /* Outputs for Enabled SubSystem: '<S187>/Reset Tx msg counter' */
-          ResetTxmsgcounter(rtb_AND1_jo, rtd_Tx_msg_count_CAN1,
+          ResetTxmsgcounter(rtb_AND1_dv, rtd_Tx_msg_count_CAN1,
                             rtd_Tx_msg_count_CAN2);
 
           /* End of Outputs for SubSystem: '<S187>/Reset Tx msg counter' */
@@ -12008,7 +11699,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
           rtb_DataStoreRead3_ez = *rtd_Msg_Rx_CAN2;
 
           /* RelationalOperator: '<S191>/Equal' */
-          rtb_AND_kh = (*rtd_Local_Ticks == 160.0);
+          rtb_AND_ir = (*rtd_Local_Ticks == 160.0);
 
           /* RelationalOperator: '<S191>/Equal6' incorporates:
            *  Constant: '<S191>/Constant2'
@@ -12016,10 +11707,10 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
           rtb_AND10_m = (*rtd_Board_ID != 1.0);
 
           /* Logic: '<S191>/AND' */
-          rtb_AND_lt = (rtb_AND_kh && rtb_AND10_m);
+          rtb_AND_br = (rtb_AND_ir && rtb_AND10_m);
 
           /* Outputs for Enabled SubSystem: '<S191>/Process_Messages1' */
-          Process_Messages1(rtb_AND_lt, rtb_DataStoreRead1_il,
+          Process_Messages1(rtb_AND_br, rtb_DataStoreRead1_il,
                             rtb_DataStoreRead2_oh, &rtb_DataStoreRead_m3,
                             &rtb_DataStoreRead3_ez, 1.0,
                             &localB->Process_Messages1_c,
@@ -12033,10 +11724,10 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
            *  Constant: '<S191>/Constant1'
            *  Logic: '<S191>/NOT'
            */
-          rtb_AND1_mz = (rtb_AND_kh && (!rtb_AND10_m));
+          rtb_AND1_eh = (rtb_AND_ir && (!rtb_AND10_m));
 
           /* Outputs for Enabled SubSystem: '<S191>/Reset Tx msg counter' */
-          ResetTxmsgcounter(rtb_AND1_mz, rtd_Tx_msg_count_CAN1,
+          ResetTxmsgcounter(rtb_AND1_eh, rtd_Tx_msg_count_CAN1,
                             rtd_Tx_msg_count_CAN2);
 
           /* End of Outputs for SubSystem: '<S191>/Reset Tx msg counter' */
@@ -12129,7 +11820,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
           rtb_DataStoreRead3_d4 = *rtd_Msg_Rx_CAN2;
 
           /* RelationalOperator: '<S193>/Equal' */
-          rtb_AND_kh = (*rtd_Local_Ticks == 250.0);
+          rtb_AND_ir = (*rtd_Local_Ticks == 250.0);
 
           /* RelationalOperator: '<S193>/Equal6' incorporates:
            *  Constant: '<S193>/Constant2'
@@ -12137,10 +11828,10 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
           rtb_AND10_m = (*rtd_Board_ID != 2.0);
 
           /* Logic: '<S193>/AND' */
-          rtb_AND_e1 = (rtb_AND_kh && rtb_AND10_m);
+          rtb_AND_b0 = (rtb_AND_ir && rtb_AND10_m);
 
           /* Outputs for Enabled SubSystem: '<S193>/Process_Messages' */
-          Process_Messages1(rtb_AND_e1, rtb_DataStoreRead1_j2,
+          Process_Messages1(rtb_AND_b0, rtb_DataStoreRead1_j2,
                             rtb_DataStoreRead2_fq, &rtb_DataStoreRead_ak,
                             &rtb_DataStoreRead3_d4, 2.0,
                             &localB->Process_Messages_g4,
@@ -12154,10 +11845,10 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
            *  Constant: '<S193>/Constant1'
            *  Logic: '<S193>/NOT'
            */
-          rtb_AND1_cy = (rtb_AND_kh && (!rtb_AND10_m));
+          rtb_AND1_bf = (rtb_AND_ir && (!rtb_AND10_m));
 
           /* Outputs for Enabled SubSystem: '<S193>/Reset Tx msg counter' */
-          ResetTxmsgcounter(rtb_AND1_cy, rtd_Tx_msg_count_CAN1,
+          ResetTxmsgcounter(rtb_AND1_bf, rtd_Tx_msg_count_CAN1,
                             rtd_Tx_msg_count_CAN2);
 
           /* End of Outputs for SubSystem: '<S193>/Reset Tx msg counter' */
@@ -12250,7 +11941,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
           rtb_DataStoreRead3_dw = *rtd_Msg_Rx_CAN2;
 
           /* RelationalOperator: '<S195>/Equal' */
-          rtb_AND_kh = (*rtd_Local_Ticks == 340.0);
+          rtb_AND_ir = (*rtd_Local_Ticks == 340.0);
 
           /* RelationalOperator: '<S195>/Equal6' incorporates:
            *  Constant: '<S195>/Constant2'
@@ -12258,10 +11949,10 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
           rtb_AND10_m = (*rtd_Board_ID != 3.0);
 
           /* Logic: '<S195>/AND' */
-          rtb_AND_kn = (rtb_AND_kh && rtb_AND10_m);
+          rtb_AND_iey = (rtb_AND_ir && rtb_AND10_m);
 
           /* Outputs for Enabled SubSystem: '<S195>/Process_Messages' */
-          Process_Messages1(rtb_AND_kn, rtb_DataStoreRead1_ax,
+          Process_Messages1(rtb_AND_iey, rtb_DataStoreRead1_ax,
                             rtb_DataStoreRead2_cx, &rtb_DataStoreRead_l5i,
                             &rtb_DataStoreRead3_dw, 3.0,
                             &localB->Process_Messages_gc,
@@ -12275,10 +11966,10 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
            *  Constant: '<S195>/Constant1'
            *  Logic: '<S195>/NOT'
            */
-          rtb_AND1_g = (rtb_AND_kh && (!rtb_AND10_m));
+          rtb_AND1_oq = (rtb_AND_ir && (!rtb_AND10_m));
 
           /* Outputs for Enabled SubSystem: '<S195>/Reset Tx msg counter' */
-          ResetTxmsgcounter(rtb_AND1_g, rtd_Tx_msg_count_CAN1,
+          ResetTxmsgcounter(rtb_AND1_oq, rtd_Tx_msg_count_CAN1,
                             rtd_Tx_msg_count_CAN2);
 
           /* End of Outputs for SubSystem: '<S195>/Reset Tx msg counter' */
@@ -12370,7 +12061,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
           rtb_DataStoreRead3_j = *rtd_Msg_Rx_CAN2;
 
           /* RelationalOperator: '<S197>/Equal' */
-          rtb_AND_kh = (*rtd_Local_Ticks == 430.0);
+          rtb_AND_ir = (*rtd_Local_Ticks == 430.0);
 
           /* RelationalOperator: '<S197>/Equal6' incorporates:
            *  Constant: '<S197>/Constant2'
@@ -12378,10 +12069,10 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
           rtb_AND10_m = (*rtd_Board_ID != 4.0);
 
           /* Logic: '<S197>/AND' */
-          rtb_AND_gh = (rtb_AND_kh && rtb_AND10_m);
+          rtb_AND_il0 = (rtb_AND_ir && rtb_AND10_m);
 
           /* Outputs for Enabled SubSystem: '<S197>/Process_Messages' */
-          Process_Messages1(rtb_AND_gh, rtb_DataStoreRead1_l5,
+          Process_Messages1(rtb_AND_il0, rtb_DataStoreRead1_l5,
                             rtb_DataStoreRead2_p2, &rtb_DataStoreRead_c5,
                             &rtb_DataStoreRead3_j, 4.0,
                             &localB->Process_Messages_c,
@@ -12395,10 +12086,10 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
            *  Constant: '<S197>/Constant1'
            *  Logic: '<S197>/NOT'
            */
-          rtb_AND1_on = (rtb_AND_kh && (!rtb_AND10_m));
+          rtb_AND1_dg = (rtb_AND_ir && (!rtb_AND10_m));
 
           /* Outputs for Enabled SubSystem: '<S197>/Reset Tx msg counter' */
-          ResetTxmsgcounter(rtb_AND1_on, rtd_Tx_msg_count_CAN1,
+          ResetTxmsgcounter(rtb_AND1_dg, rtd_Tx_msg_count_CAN1,
                             rtd_Tx_msg_count_CAN2);
 
           /* End of Outputs for SubSystem: '<S197>/Reset Tx msg counter' */
@@ -12538,10 +12229,10 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
           /* RelationalOperator: '<S179>/Equal2' incorporates:
            *  Constant: '<S179>/Constant3'
            */
-          rtb_Equal2_c5 = (*rtd_Board_ID == 1.0);
+          rtb_Equal2_de = (*rtd_Board_ID == 1.0);
 
           /* Logic: '<S179>/NOT' */
-          rtb_NOT_b0 = !rtb_Equal2_c5;
+          rtb_NOT_b0 = !rtb_Equal2_de;
 
           /* Outputs for Enabled SubSystem: '<S179>/Reception substasks' */
           Receptionsubstasks(rtb_NOT_b0, 110.0, &localB->Receptionsubstasks_b,
@@ -12555,7 +12246,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
           /* End of Outputs for SubSystem: '<S179>/Reception substasks' */
 
           /* Outputs for Enabled SubSystem: '<S179>/Transmission subtasks' */
-          Transmissionsubtasks_h(rtb_Equal2_c5, 110.0,
+          Transmissionsubtasks_h(rtb_Equal2_de, 110.0,
             &localB->Transmissionsubtasks_hr, &localC->Transmissionsubtasks_hr,
             &localDW->Transmissionsubtasks_hr, rtd_Board_ID, rtd_Local_Ticks,
             rtd_Msg_Tx_CAN1, rtd_Msg_Tx_CAN2, &localDW->Own_Vote, rtd_TxID_CAN1,
@@ -12610,10 +12301,10 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
           /* RelationalOperator: '<S180>/Equal2' incorporates:
            *  Constant: '<S180>/Constant3'
            */
-          rtb_Equal2_gc = (*rtd_Board_ID == 2.0);
+          rtb_Equal2_h4 = (*rtd_Board_ID == 2.0);
 
           /* Logic: '<S180>/NOT' */
-          rtb_NOT_k = !rtb_Equal2_gc;
+          rtb_NOT_k = !rtb_Equal2_h4;
 
           /* Outputs for Enabled SubSystem: '<S180>/Reception substasks' */
           Receptionsubstasks(rtb_NOT_k, 200.0, &localB->Receptionsubstasks_h,
@@ -12627,7 +12318,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
           /* End of Outputs for SubSystem: '<S180>/Reception substasks' */
 
           /* Outputs for Enabled SubSystem: '<S180>/Transmission subtasks' */
-          Transmissionsubtasks_h(rtb_Equal2_gc, 200.0,
+          Transmissionsubtasks_h(rtb_Equal2_h4, 200.0,
             &localB->Transmissionsubtasks_a, &localC->Transmissionsubtasks_a,
             &localDW->Transmissionsubtasks_a, rtd_Board_ID, rtd_Local_Ticks,
             rtd_Msg_Tx_CAN1, rtd_Msg_Tx_CAN2, &localDW->Own_Vote, rtd_TxID_CAN1,
@@ -12682,10 +12373,10 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
           /* RelationalOperator: '<S181>/Equal2' incorporates:
            *  Constant: '<S181>/Constant3'
            */
-          rtb_Equal2_li = (*rtd_Board_ID == 3.0);
+          rtb_Equal2_is = (*rtd_Board_ID == 3.0);
 
           /* Logic: '<S181>/NOT' */
-          rtb_NOT_ev = !rtb_Equal2_li;
+          rtb_NOT_ev = !rtb_Equal2_is;
 
           /* Outputs for Enabled SubSystem: '<S181>/Reception substasks' */
           Receptionsubstasks(rtb_NOT_ev, 290.0, &localB->Receptionsubstasks_hd,
@@ -12699,7 +12390,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
           /* End of Outputs for SubSystem: '<S181>/Reception substasks' */
 
           /* Outputs for Enabled SubSystem: '<S181>/Transmission subtasks' */
-          Transmissionsubtasks_h(rtb_Equal2_li, 290.0,
+          Transmissionsubtasks_h(rtb_Equal2_is, 290.0,
             &localB->Transmissionsubtasks_d, &localC->Transmissionsubtasks_d,
             &localDW->Transmissionsubtasks_d, rtd_Board_ID, rtd_Local_Ticks,
             rtd_Msg_Tx_CAN1, rtd_Msg_Tx_CAN2, &localDW->Own_Vote, rtd_TxID_CAN1,
@@ -12754,10 +12445,10 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
           /* RelationalOperator: '<S182>/Equal2' incorporates:
            *  Constant: '<S182>/Constant3'
            */
-          rtb_Equal2_jg = (*rtd_Board_ID == 4.0);
+          rtb_Equal2_nm = (*rtd_Board_ID == 4.0);
 
           /* Logic: '<S182>/NOT' */
-          rtb_NOT_n = !rtb_Equal2_jg;
+          rtb_NOT_n = !rtb_Equal2_nm;
 
           /* Outputs for Enabled SubSystem: '<S182>/Reception substasks' */
           Receptionsubstasks(rtb_NOT_n, 380.0, &localB->Receptionsubstasks_n,
@@ -12771,7 +12462,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
           /* End of Outputs for SubSystem: '<S182>/Reception substasks' */
 
           /* Outputs for Enabled SubSystem: '<S182>/Transmission subtasks' */
-          Transmissionsubtasks_h(rtb_Equal2_jg, 380.0,
+          Transmissionsubtasks_h(rtb_Equal2_nm, 380.0,
             &localB->Transmissionsubtasks_i, &localC->Transmissionsubtasks_i,
             &localDW->Transmissionsubtasks_i, rtd_Board_ID, rtd_Local_Ticks,
             rtd_Msg_Tx_CAN1, rtd_Msg_Tx_CAN2, &localDW->Own_Vote, rtd_TxID_CAN1,
@@ -13584,7 +13275,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
           rtb_DataStoreRead8_dl = *rtd_Voter_ID;
 
           /* RelationalOperator: '<S464>/Equal' */
-          rtb_AND_kh = (*rtd_Local_Ticks == 570.0);
+          rtb_AND_ir = (*rtd_Local_Ticks == 570.0);
 
           /* Logic: '<S464>/AND4' incorporates:
            *  RelationalOperator: '<S464>/Equal2'
@@ -13594,7 +13285,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
             rtd_Voter_ID));
 
           /* Logic: '<S464>/AND' */
-          rtb_AND_kz = (rtb_AND_kh && rtb_AND10_m);
+          rtb_AND_kz = (rtb_AND_ir && rtb_AND10_m);
 
           /* Outputs for Enabled SubSystem: '<S464>/Process_Messages' */
           Process_Messages(rtb_AND_kz, rtb_DataStoreRead1_db,
@@ -13610,10 +13301,10 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
           /* Logic: '<S464>/AND1' incorporates:
            *  Logic: '<S464>/NOT'
            */
-          rtb_AND1_dt = (rtb_AND_kh && (!rtb_AND10_m));
+          rtb_AND1_j3 = (rtb_AND_ir && (!rtb_AND10_m));
 
           /* Outputs for Enabled SubSystem: '<S464>/Reset Tx msg counter' */
-          ResetTxmsgcounter(rtb_AND1_dt, rtd_Tx_msg_count_CAN1,
+          ResetTxmsgcounter(rtb_AND1_j3, rtd_Tx_msg_count_CAN1,
                             rtd_Tx_msg_count_CAN2);
 
           /* End of Outputs for SubSystem: '<S464>/Reset Tx msg counter' */
@@ -13755,7 +13446,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
           rtb_DataStoreRead5_fq = *rtd_Master_ID;
 
           /* RelationalOperator: '<S467>/Equal' */
-          rtb_AND_kh = (*rtd_Local_Ticks == 340.0);
+          rtb_AND_ir = (*rtd_Local_Ticks == 340.0);
 
           /* RelationalOperator: '<S467>/Equal16' incorporates:
            *  Constant: '<S467>/Constant78'
@@ -13766,7 +13457,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
           /* Outputs for Enabled SubSystem: '<S467>/Process_Messages' incorporates:
            *  EnablePort: '<S710>/Enable'
            */
-          if (rtb_AND_kh && rtb_AND10_m) {
+          if (rtb_AND_ir && rtb_AND10_m) {
             if (!localDW->Process_Messages_MODE_l) {
               localDW->Process_Messages_MODE_l = true;
             }
@@ -13872,10 +13563,10 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
            *  Logic: '<S467>/AND'
            *  Logic: '<S467>/NOT'
            */
-          rtb_AND1_bh = (rtb_AND_kh && (!rtb_AND10_m));
+          rtb_AND1_k3 = (rtb_AND_ir && (!rtb_AND10_m));
 
           /* Outputs for Enabled SubSystem: '<S467>/Reset Tx msg counter' */
-          ResetTxmsgcounter(rtb_AND1_bh, rtd_Tx_msg_count_CAN1,
+          ResetTxmsgcounter(rtb_AND1_k3, rtd_Tx_msg_count_CAN1,
                             rtd_Tx_msg_count_CAN2);
 
           /* End of Outputs for SubSystem: '<S467>/Reset Tx msg counter' */
@@ -13937,7 +13628,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
           rtb_DataStoreRead5_es = *rtd_Slave_ID;
 
           /* RelationalOperator: '<S468>/Equal' */
-          rtb_AND_kh = (*rtd_Local_Ticks == 410.0);
+          rtb_AND_ir = (*rtd_Local_Ticks == 410.0);
 
           /* RelationalOperator: '<S468>/Equal16' incorporates:
            *  Constant: '<S468>/Constant78'
@@ -13948,7 +13639,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
           /* Outputs for Enabled SubSystem: '<S468>/Process_Messages' incorporates:
            *  EnablePort: '<S739>/Enable'
            */
-          if (rtb_AND_kh && rtb_AND10_m) {
+          if (rtb_AND_ir && rtb_AND10_m) {
             if (!localDW->Process_Messages_MODE_f) {
               localDW->Process_Messages_MODE_f = true;
             }
@@ -14054,10 +13745,10 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
            *  Logic: '<S468>/AND'
            *  Logic: '<S468>/NOT'
            */
-          rtb_AND1_a3 = (rtb_AND_kh && (!rtb_AND10_m));
+          rtb_AND1_g = (rtb_AND_ir && (!rtb_AND10_m));
 
           /* Outputs for Enabled SubSystem: '<S468>/Reset Tx msg counter' */
-          ResetTxmsgcounter(rtb_AND1_a3, rtd_Tx_msg_count_CAN1,
+          ResetTxmsgcounter(rtb_AND1_g, rtd_Tx_msg_count_CAN1,
                             rtd_Tx_msg_count_CAN2);
 
           /* End of Outputs for SubSystem: '<S468>/Reset Tx msg counter' */
@@ -14118,7 +13809,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
           rtb_DataStoreRead32 = *rtd_Voter_ID;
 
           /* RelationalOperator: '<S469>/Equal' */
-          rtb_AND_kh = (*rtd_Local_Ticks == 500.0);
+          rtb_AND_ir = (*rtd_Local_Ticks == 500.0);
 
           /* RelationalOperator: '<S469>/Equal15' incorporates:
            *  Constant: '<S469>/Constant93'
@@ -14126,7 +13817,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
           rtb_AND10_m = (*rtd_Board_ID == 6.0);
 
           /* Logic: '<S469>/AND' */
-          rtb_AND_cn = (rtb_AND_kh && rtb_AND10_m);
+          rtb_AND_cn = (rtb_AND_ir && rtb_AND10_m);
 
           /* Outputs for Enabled SubSystem: '<S469>/Process_Messages' */
           Process_Messages_g(rtb_AND_cn, rtb_DataStoreRead1_fw,
@@ -14142,10 +13833,10 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
           /* Logic: '<S469>/AND1' incorporates:
            *  Logic: '<S469>/NOT'
            */
-          rtb_AND1_jl = (rtb_AND_kh && (!rtb_AND10_m));
+          rtb_AND1_kk = (rtb_AND_ir && (!rtb_AND10_m));
 
           /* Outputs for Enabled SubSystem: '<S469>/Reset Tx msg counter' */
-          ResetTxmsgcounter(rtb_AND1_jl, rtd_Tx_msg_count_CAN1,
+          ResetTxmsgcounter(rtb_AND1_kk, rtd_Tx_msg_count_CAN1,
                             rtd_Tx_msg_count_CAN2);
 
           /* End of Outputs for SubSystem: '<S469>/Reset Tx msg counter' */
@@ -14185,7 +13876,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
           rtb_DataStoreRead3_e = *rtd_Msg_Rx_CAN2;
 
           /* RelationalOperator: '<S470>/Equal' */
-          rtb_AND_kh = (*rtd_Local_Ticks == 210.0);
+          rtb_AND_ir = (*rtd_Local_Ticks == 210.0);
 
           /* Logic: '<S470>/AND3' incorporates:
            *  Constant: '<S470>/Constant68'
@@ -14196,7 +13887,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
             *rtd_Board_ID));
 
           /* Logic: '<S470>/AND' */
-          rtb_AND_ki = (rtb_AND_kh && rtb_AND10_m);
+          rtb_AND_ki = (rtb_AND_ir && rtb_AND10_m);
 
           /* Outputs for Enabled SubSystem: '<S470>/Process_Messages' */
           Process_Messages1(rtb_AND_ki, rtb_DataStoreRead1_k3,
@@ -14213,10 +13904,10 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
            *  Constant: '<S470>/Constant2'
            *  Logic: '<S470>/NOT'
            */
-          rtb_AND1_eu = (rtb_AND_kh && (!rtb_AND10_m));
+          rtb_AND1_iw = (rtb_AND_ir && (!rtb_AND10_m));
 
           /* Outputs for Enabled SubSystem: '<S470>/Reset Tx msg counter' */
-          ResetTxmsgcounter(rtb_AND1_eu, rtd_Tx_msg_count_CAN1,
+          ResetTxmsgcounter(rtb_AND1_iw, rtd_Tx_msg_count_CAN1,
                             rtd_Tx_msg_count_CAN2);
 
           /* End of Outputs for SubSystem: '<S470>/Reset Tx msg counter' */
@@ -14281,13 +13972,13 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
                 localB->BitShift1_f.y;
 
               /* Product: '<S828>/Divide' */
-              rtb_Subtract_idx_1 = rtb_Switch1_or / localC->Power1_fq;
+              rtb_Subtract_idx_2 = rtb_Switch1_or / localC->Power1_fq;
 
               /* Rounding: '<S828>/Fix1' */
-              if (rtb_Subtract_idx_1 < 0.0) {
-                rtb_Subtract_idx_0 = ceil(rtb_Subtract_idx_1);
+              if (rtb_Subtract_idx_2 < 0.0) {
+                rtb_Subtract_idx_0 = ceil(rtb_Subtract_idx_2);
               } else {
-                rtb_Subtract_idx_0 = floor(rtb_Subtract_idx_1);
+                rtb_Subtract_idx_0 = floor(rtb_Subtract_idx_2);
               }
 
               /* End of Rounding: '<S828>/Fix1' */
@@ -14329,13 +14020,13 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
                 localB->BitShift1_n.y;
 
               /* Product: '<S829>/Divide' */
-              rtb_Subtract_idx_1 = rtb_Subtract_idx_0 / localC->Power1_lc;
+              rtb_Subtract_idx_2 = rtb_Subtract_idx_0 / localC->Power1_lc;
 
               /* Rounding: '<S829>/Fix1' */
-              if (rtb_Subtract_idx_1 < 0.0) {
-                rtb_Switch1_or = ceil(rtb_Subtract_idx_1);
+              if (rtb_Subtract_idx_2 < 0.0) {
+                rtb_Switch1_or = ceil(rtb_Subtract_idx_2);
               } else {
-                rtb_Switch1_or = floor(rtb_Subtract_idx_1);
+                rtb_Switch1_or = floor(rtb_Subtract_idx_2);
               }
 
               /* End of Rounding: '<S829>/Fix1' */
@@ -14377,13 +14068,13 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
                 localB->BitShift1_d.y;
 
               /* Product: '<S830>/Divide' */
-              rtb_Subtract_idx_1 = rtb_Subtract_idx_0 / localC->Power1_bg;
+              rtb_Subtract_idx_2 = rtb_Subtract_idx_0 / localC->Power1_bg;
 
               /* Rounding: '<S830>/Fix1' */
-              if (rtb_Subtract_idx_1 < 0.0) {
-                rtb_Switch1_or = ceil(rtb_Subtract_idx_1);
+              if (rtb_Subtract_idx_2 < 0.0) {
+                rtb_Switch1_or = ceil(rtb_Subtract_idx_2);
               } else {
-                rtb_Switch1_or = floor(rtb_Subtract_idx_1);
+                rtb_Switch1_or = floor(rtb_Subtract_idx_2);
               }
 
               /* End of Rounding: '<S830>/Fix1' */
@@ -14425,13 +14116,13 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
                 localB->BitShift1_b.y;
 
               /* Product: '<S831>/Divide' */
-              rtb_Subtract_idx_1 = rtb_Subtract_idx_0 / localC->Power1_m;
+              rtb_Subtract_idx_2 = rtb_Subtract_idx_0 / localC->Power1_m;
 
               /* Rounding: '<S831>/Fix1' */
-              if (rtb_Subtract_idx_1 < 0.0) {
-                rtb_Switch1_or = ceil(rtb_Subtract_idx_1);
+              if (rtb_Subtract_idx_2 < 0.0) {
+                rtb_Switch1_or = ceil(rtb_Subtract_idx_2);
               } else {
-                rtb_Switch1_or = floor(rtb_Subtract_idx_1);
+                rtb_Switch1_or = floor(rtb_Subtract_idx_2);
               }
 
               /* End of Rounding: '<S831>/Fix1' */
@@ -14529,7 +14220,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
           rtb_DataStoreRead3_d5 = *rtd_Msg_Rx_CAN2;
 
           /* RelationalOperator: '<S471>/Equal' */
-          rtb_AND_kh = (*rtd_Local_Ticks == 140.0);
+          rtb_AND_ir = (*rtd_Local_Ticks == 140.0);
 
           /* Logic: '<S471>/AND4' incorporates:
            *  Constant: '<S471>/Constant2'
@@ -14540,7 +14231,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
             5.0));
 
           /* Logic: '<S471>/AND' */
-          rtb_AND_bi = (rtb_AND_kh && rtb_AND10_m);
+          rtb_AND_bi = (rtb_AND_ir && rtb_AND10_m);
 
           /* Outputs for Enabled SubSystem: '<S471>/Process_Messages' */
           Process_Messages(rtb_AND_bi, rtb_DataStoreRead1_n1,
@@ -14557,10 +14248,10 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
            *  Constant: '<S471>/Constant51'
            *  Logic: '<S471>/NOT'
            */
-          rtb_AND1_lt = (rtb_AND_kh && (!rtb_AND10_m));
+          rtb_AND1_flu = (rtb_AND_ir && (!rtb_AND10_m));
 
           /* Outputs for Enabled SubSystem: '<S471>/Reset Tx msg counter' */
-          ResetTxmsgcounter(rtb_AND1_lt, rtd_Tx_msg_count_CAN1,
+          ResetTxmsgcounter(rtb_AND1_flu, rtd_Tx_msg_count_CAN1,
                             rtd_Tx_msg_count_CAN2);
 
           /* End of Outputs for SubSystem: '<S471>/Reset Tx msg counter' */
@@ -14594,13 +14285,13 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
                 localB->BitShift1_j.y;
 
               /* Product: '<S880>/Divide' */
-              rtb_Subtract_idx_1 = rtb_Switch1_or / localC->Power1_a;
+              rtb_Subtract_idx_2 = rtb_Switch1_or / localC->Power1_a;
 
               /* Rounding: '<S880>/Fix1' */
-              if (rtb_Subtract_idx_1 < 0.0) {
-                rtb_Subtract_idx_0 = ceil(rtb_Subtract_idx_1);
+              if (rtb_Subtract_idx_2 < 0.0) {
+                rtb_Subtract_idx_0 = ceil(rtb_Subtract_idx_2);
               } else {
-                rtb_Subtract_idx_0 = floor(rtb_Subtract_idx_1);
+                rtb_Subtract_idx_0 = floor(rtb_Subtract_idx_2);
               }
 
               /* End of Rounding: '<S880>/Fix1' */
@@ -14643,13 +14334,13 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
                 localB->BitShift1_k.y;
 
               /* Product: '<S879>/Divide' */
-              rtb_Subtract_idx_1 = rtb_Subtract_idx_0 / localC->Power1_h4;
+              rtb_Subtract_idx_2 = rtb_Subtract_idx_0 / localC->Power1_h4;
 
               /* Rounding: '<S879>/Fix1' */
-              if (rtb_Subtract_idx_1 < 0.0) {
-                rtb_Switch1_or = ceil(rtb_Subtract_idx_1);
+              if (rtb_Subtract_idx_2 < 0.0) {
+                rtb_Switch1_or = ceil(rtb_Subtract_idx_2);
               } else {
-                rtb_Switch1_or = floor(rtb_Subtract_idx_1);
+                rtb_Switch1_or = floor(rtb_Subtract_idx_2);
               }
 
               /* End of Rounding: '<S879>/Fix1' */
@@ -14692,13 +14383,13 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
                 localB->BitShift1_kf.y;
 
               /* Product: '<S881>/Divide' */
-              rtb_Subtract_idx_1 = rtb_Subtract_idx_0 / localC->Power1_b;
+              rtb_Subtract_idx_2 = rtb_Subtract_idx_0 / localC->Power1_b;
 
               /* Rounding: '<S881>/Fix1' */
-              if (rtb_Subtract_idx_1 < 0.0) {
-                rtb_Switch1_or = ceil(rtb_Subtract_idx_1);
+              if (rtb_Subtract_idx_2 < 0.0) {
+                rtb_Switch1_or = ceil(rtb_Subtract_idx_2);
               } else {
-                rtb_Switch1_or = floor(rtb_Subtract_idx_1);
+                rtb_Switch1_or = floor(rtb_Subtract_idx_2);
               }
 
               /* End of Rounding: '<S881>/Fix1' */
@@ -14783,7 +14474,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
           rtb_DataStoreRead15_f = *rtd_Master_ID;
 
           /* RelationalOperator: '<S472>/Equal' */
-          rtb_AND_kh = (*rtd_Local_Ticks == 50.0);
+          rtb_AND_ir = (*rtd_Local_Ticks == 50.0);
 
           /* Logic: '<S472>/OR1' incorporates:
            *  Constant: '<S472>/Constant1'
@@ -14800,7 +14491,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
           /* Outputs for Enabled SubSystem: '<S472>/Process_Messages' incorporates:
            *  EnablePort: '<S894>/Enable'
            */
-          if (rtb_AND_kh && rtb_AND10_m) {
+          if (rtb_AND_ir && rtb_AND10_m) {
             if (!localDW->Process_Messages_MODE_j) {
               localDW->Process_Messages_MODE_j = true;
             }
@@ -14955,10 +14646,10 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
            *  Logic: '<S472>/AND'
            *  Logic: '<S472>/NOT'
            */
-          rtb_AND1_gd = (rtb_AND_kh && (!rtb_AND10_m));
+          rtb_AND1_fm = (rtb_AND_ir && (!rtb_AND10_m));
 
           /* Outputs for Enabled SubSystem: '<S472>/Reset Tx msg counter' */
-          ResetTxmsgcounter(rtb_AND1_gd, rtd_Tx_msg_count_CAN1,
+          ResetTxmsgcounter(rtb_AND1_fm, rtd_Tx_msg_count_CAN1,
                             rtd_Tx_msg_count_CAN2);
 
           /* End of Outputs for SubSystem: '<S472>/Reset Tx msg counter' */
@@ -15007,12 +14698,12 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
            *  Constant: '<S473>/Constant1'
            *  DataStoreRead: '<S473>/Data Store Read'
            */
-          rtb_AND_kh = (localDW->Role_ID == 2.0);
+          rtb_AND_ir = (localDW->Role_ID == 2.0);
 
           /* Outputs for Enabled SubSystem: '<S473>/TMR_load_msgs_1' incorporates:
            *  EnablePort: '<S923>/Enable'
            */
-          if ((*rtd_Local_Ticks == 430.0) && rtb_AND_kh) {
+          if ((*rtd_Local_Ticks == 430.0) && rtb_AND_ir) {
             /* Outputs for Atomic SubSystem: '<S926>/Bit Shift' */
             BitShift(localDW->output_control1_msg.Buffer_2, &localB->BitShift_gb);
 
@@ -15031,13 +14722,13 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
               localB->BitShift1_kr.y;
 
             /* Product: '<S926>/Divide' */
-            rtb_Subtract_idx_1 = rtb_Switch1_or / localC->Power1_lp;
+            rtb_Subtract_idx_2 = rtb_Switch1_or / localC->Power1_lp;
 
             /* Rounding: '<S926>/Fix1' */
-            if (rtb_Subtract_idx_1 < 0.0) {
-              rtb_Subtract_idx_0 = ceil(rtb_Subtract_idx_1);
+            if (rtb_Subtract_idx_2 < 0.0) {
+              rtb_Subtract_idx_0 = ceil(rtb_Subtract_idx_2);
             } else {
-              rtb_Subtract_idx_0 = floor(rtb_Subtract_idx_1);
+              rtb_Subtract_idx_0 = floor(rtb_Subtract_idx_2);
             }
 
             /* End of Rounding: '<S926>/Fix1' */
@@ -15082,13 +14773,13 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
               localB->BitShift1_dt.y;
 
             /* Product: '<S927>/Divide' */
-            rtb_Subtract_idx_1 = rtb_Subtract_idx_0 / localC->Power1_c;
+            rtb_Subtract_idx_2 = rtb_Subtract_idx_0 / localC->Power1_c;
 
             /* Rounding: '<S927>/Fix1' */
-            if (rtb_Subtract_idx_1 < 0.0) {
-              rtb_Switch1_or = ceil(rtb_Subtract_idx_1);
+            if (rtb_Subtract_idx_2 < 0.0) {
+              rtb_Switch1_or = ceil(rtb_Subtract_idx_2);
             } else {
-              rtb_Switch1_or = floor(rtb_Subtract_idx_1);
+              rtb_Switch1_or = floor(rtb_Subtract_idx_2);
             }
 
             /* End of Rounding: '<S927>/Fix1' */
@@ -15133,13 +14824,13 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
               localB->BitShift1_mi.y;
 
             /* Product: '<S928>/Divide' */
-            rtb_Subtract_idx_1 = rtb_Subtract_idx_0 / localC->Power1_jy;
+            rtb_Subtract_idx_2 = rtb_Subtract_idx_0 / localC->Power1_jy;
 
             /* Rounding: '<S928>/Fix1' */
-            if (rtb_Subtract_idx_1 < 0.0) {
-              rtb_Switch1_or = ceil(rtb_Subtract_idx_1);
+            if (rtb_Subtract_idx_2 < 0.0) {
+              rtb_Switch1_or = ceil(rtb_Subtract_idx_2);
             } else {
-              rtb_Switch1_or = floor(rtb_Subtract_idx_1);
+              rtb_Switch1_or = floor(rtb_Subtract_idx_2);
             }
 
             /* End of Rounding: '<S928>/Fix1' */
@@ -15184,13 +14875,13 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
               localB->BitShift1_ju.y;
 
             /* Product: '<S929>/Divide' */
-            rtb_Subtract_idx_1 = rtb_Subtract_idx_0 / localC->Power1_e;
+            rtb_Subtract_idx_2 = rtb_Subtract_idx_0 / localC->Power1_e;
 
             /* Rounding: '<S929>/Fix1' */
-            if (rtb_Subtract_idx_1 < 0.0) {
-              rtb_Switch1_or = ceil(rtb_Subtract_idx_1);
+            if (rtb_Subtract_idx_2 < 0.0) {
+              rtb_Switch1_or = ceil(rtb_Subtract_idx_2);
             } else {
-              rtb_Switch1_or = floor(rtb_Subtract_idx_1);
+              rtb_Switch1_or = floor(rtb_Subtract_idx_2);
             }
 
             /* End of Rounding: '<S929>/Fix1' */
@@ -15238,7 +14929,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
           /* Outputs for Enabled SubSystem: '<S473>/TMR_load_msgs_2' incorporates:
            *  EnablePort: '<S924>/Enable'
            */
-          if ((*rtd_Local_Ticks == 431.0) && rtb_AND_kh) {
+          if ((*rtd_Local_Ticks == 431.0) && rtb_AND_ir) {
             /* Outputs for Atomic SubSystem: '<S946>/Bit Shift' */
             BitShift(localDW->output_control2_msg.Buffer_2, &localB->BitShift_on);
 
@@ -15257,13 +14948,13 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
               localB->BitShift1_h.y;
 
             /* Product: '<S946>/Divide' */
-            rtb_Subtract_idx_1 = rtb_Switch1_or / localC->Power1_n;
+            rtb_Subtract_idx_2 = rtb_Switch1_or / localC->Power1_n;
 
             /* Rounding: '<S946>/Fix1' */
-            if (rtb_Subtract_idx_1 < 0.0) {
-              rtb_Subtract_idx_0 = ceil(rtb_Subtract_idx_1);
+            if (rtb_Subtract_idx_2 < 0.0) {
+              rtb_Subtract_idx_0 = ceil(rtb_Subtract_idx_2);
             } else {
-              rtb_Subtract_idx_0 = floor(rtb_Subtract_idx_1);
+              rtb_Subtract_idx_0 = floor(rtb_Subtract_idx_2);
             }
 
             /* End of Rounding: '<S946>/Fix1' */
@@ -15308,13 +14999,13 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
               localB->BitShift1_i.y;
 
             /* Product: '<S947>/Divide' */
-            rtb_Subtract_idx_1 = rtb_Subtract_idx_0 / localC->Power1_p;
+            rtb_Subtract_idx_2 = rtb_Subtract_idx_0 / localC->Power1_p;
 
             /* Rounding: '<S947>/Fix1' */
-            if (rtb_Subtract_idx_1 < 0.0) {
-              rtb_Switch1_or = ceil(rtb_Subtract_idx_1);
+            if (rtb_Subtract_idx_2 < 0.0) {
+              rtb_Switch1_or = ceil(rtb_Subtract_idx_2);
             } else {
-              rtb_Switch1_or = floor(rtb_Subtract_idx_1);
+              rtb_Switch1_or = floor(rtb_Subtract_idx_2);
             }
 
             /* End of Rounding: '<S947>/Fix1' */
@@ -15359,13 +15050,13 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
               localB->BitShift1_c.y;
 
             /* Product: '<S948>/Divide' */
-            rtb_Subtract_idx_1 = rtb_Subtract_idx_0 / localC->Power1_d;
+            rtb_Subtract_idx_2 = rtb_Subtract_idx_0 / localC->Power1_d;
 
             /* Rounding: '<S948>/Fix1' */
-            if (rtb_Subtract_idx_1 < 0.0) {
-              rtb_Switch1_or = ceil(rtb_Subtract_idx_1);
+            if (rtb_Subtract_idx_2 < 0.0) {
+              rtb_Switch1_or = ceil(rtb_Subtract_idx_2);
             } else {
-              rtb_Switch1_or = floor(rtb_Subtract_idx_1);
+              rtb_Switch1_or = floor(rtb_Subtract_idx_2);
             }
 
             /* End of Rounding: '<S948>/Fix1' */
@@ -15410,13 +15101,13 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
               localB->BitShift1_dw.y;
 
             /* Product: '<S949>/Divide' */
-            rtb_Subtract_idx_1 = rtb_Subtract_idx_0 / localC->Power1_o;
+            rtb_Subtract_idx_2 = rtb_Subtract_idx_0 / localC->Power1_o;
 
             /* Rounding: '<S949>/Fix1' */
-            if (rtb_Subtract_idx_1 < 0.0) {
-              rtb_Switch1_or = ceil(rtb_Subtract_idx_1);
+            if (rtb_Subtract_idx_2 < 0.0) {
+              rtb_Switch1_or = ceil(rtb_Subtract_idx_2);
             } else {
-              rtb_Switch1_or = floor(rtb_Subtract_idx_1);
+              rtb_Switch1_or = floor(rtb_Subtract_idx_2);
             }
 
             /* End of Rounding: '<S949>/Fix1' */
@@ -15464,7 +15155,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
           /* Outputs for Enabled SubSystem: '<S473>/TMR_main' incorporates:
            *  EnablePort: '<S925>/Enable'
            */
-          if ((*rtd_Local_Ticks == 433.0) && rtb_AND_kh) {
+          if ((*rtd_Local_Ticks == 433.0) && rtb_AND_ir) {
             if (!localDW->TMR_main_MODE) {
               localDW->TMR_main_MODE = true;
             }
@@ -15476,13 +15167,13 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
              *  Logic: '<S925>/NOT'
              *  Logic: '<S925>/NOT1'
              */
-            rtb_AND_kh = (localDW->output_control1_rx && (localDW->set_miss_out1
+            rtb_AND_ir = (localDW->output_control1_rx && (localDW->set_miss_out1
               == 0) && (localDW->sensor_miss_out1 == 0));
 
             /* Outputs for Enabled SubSystem: '<S925>/Agreement Out1' incorporates:
              *  EnablePort: '<S966>/Enable'
              */
-            if (rtb_AND_kh) {
+            if (rtb_AND_ir) {
               if (!localDW->AgreementOut1_MODE) {
                 localDW->AgreementOut1_MODE = true;
               }
@@ -15641,7 +15332,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
             /* Outputs for Enabled SubSystem: '<S925>/Agreement Out3' incorporates:
              *  EnablePort: '<S968>/Enable'
              */
-            if (rtb_AND_kh && rtb_AND10_m) {
+            if (rtb_AND_ir && rtb_AND10_m) {
               if (!localDW->AgreementOut3_MODE) {
                 localDW->AgreementOut3_MODE = true;
               }
@@ -15849,10 +15540,10 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
             TMR_miss1_set = localDW->set_miss_out1;
 
             /* DataTypeConversion: '<S925>/Cast' */
-            rtb_Cast_ac = TMR_miss1_set;
+            rtb_Cast_in = TMR_miss1_set;
 
             /* Outputs for Atomic SubSystem: '<S925>/Bit Shift' */
-            BitShift3(rtb_Cast_ac, &localB->BitShift_fd);
+            BitShift3(rtb_Cast_in, &localB->BitShift_fd);
 
             /* End of Outputs for SubSystem: '<S925>/Bit Shift' */
 
@@ -15937,10 +15628,22 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
                localB->BitShift4_o.y) + localB->BitShift5.y) +
               localB->BitShift6.y);
 
-            /* DataTypeConversion: '<S925>/Cast7' incorporates:
-             *  Logic: '<S925>/NOT17'
+            /* Switch: '<S925>/Switch13' incorporates:
+             *  Constant: '<S925>/Constant11'
              */
-            tau_fr1_disagree_s = (uint8_T)!localB->AND_d;
+            if (switch_agree_tau_fr_out1) {
+              /* DataTypeConversion: '<S925>/Cast7' incorporates:
+               *  Constant: '<S925>/Constant9'
+               */
+              tau_fr1_disagree_s = (uint8_T)0.0;
+            } else {
+              /* DataTypeConversion: '<S925>/Cast7' incorporates:
+               *  Logic: '<S925>/NOT18'
+               */
+              tau_fr1_disagree_s = (uint8_T)!localB->AND_d;
+            }
+
+            /* End of Switch: '<S925>/Switch13' */
 
             /* DataTypeConversion: '<S925>/Cast9' incorporates:
              *  Logic: '<S925>/NOT16'
@@ -15972,10 +15675,23 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
 
             /* End of Outputs for SubSystem: '<S925>/Bit Shift9' */
 
+            /* Switch: '<S925>/Switch14' incorporates:
+             *  Constant: '<S925>/Constant13'
+             *  Constant: '<S925>/Constant15'
+             *  Logic: '<S925>/NOT17'
+             */
+            if (switch_agree_tau_fr_out2) {
+              rtb_Subtract_idx_0 = 0.0;
+            } else {
+              rtb_Subtract_idx_0 = !localB->AND_m;
+            }
+
+            /* End of Switch: '<S925>/Switch14' */
+
             /* DataTypeConversion: '<S925>/Cast12' incorporates:
              *  Logic: '<S925>/NOT13'
              */
-            tau_fr2_disagree_s = (uint8_T)!localB->AND_m;
+            tau_fr2_disagree_s = (uint8_T)(rtb_Subtract_idx_0 == 0.0);
 
             /* Outputs for Atomic SubSystem: '<S925>/Bit Shift10' */
             BitShift4(tau_fr2_disagree_s, &localB->BitShift10);
@@ -16020,10 +15736,22 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
               + localB->BitShift10.y) + localB->BitShift11_a.y) +
               localB->BitShift12_a.y) + localB->BitShift13.y);
 
-            /* DataTypeConversion: '<S925>/Cast16' incorporates:
-             *  Logic: '<S925>/NOT9'
+            /* Switch: '<S925>/Switch12' incorporates:
+             *  Constant: '<S925>/Constant10'
              */
-            tau_fr_disagree_s = (uint8_T)!localB->AND;
+            if (switch_agree_tau_fr_out) {
+              /* DataTypeConversion: '<S925>/Cast16' incorporates:
+               *  Constant: '<S925>/Constant14'
+               */
+              tau_fr_disagree_s = (uint8_T)0.0;
+            } else {
+              /* DataTypeConversion: '<S925>/Cast16' incorporates:
+               *  Logic: '<S925>/NOT9'
+               */
+              tau_fr_disagree_s = (uint8_T)!localB->AND;
+            }
+
+            /* End of Switch: '<S925>/Switch12' */
 
             /* DataTypeConversion: '<S925>/Cast17' incorporates:
              *  Logic: '<S925>/NOT8'
@@ -16286,13 +16014,13 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
            *  Constant: '<S454>/Constant98'
            *  DataStoreRead: '<S454>/Data Store Read31'
            */
-          rtb_AND_kh = (localDW->Role_ID == 2.0);
+          rtb_AND_ir = (localDW->Role_ID == 2.0);
 
           /* Logic: '<S454>/AND' incorporates:
            *  Logic: '<S454>/NOT1'
            *  RelationalOperator: '<S454>/Equal3'
            */
-          rtb_AND_aj = ((*rtd_Board_ID != *rtd_BackUp_ID) && (!rtb_AND_kh));
+          rtb_AND_aj = ((*rtd_Board_ID != *rtd_BackUp_ID) && (!rtb_AND_ir));
 
           /* Outputs for Enabled SubSystem: '<S454>/Reception substasks' */
           Receptionsubstasks(rtb_AND_aj, 520.0, &localB->Receptionsubstasks_c,
@@ -16308,7 +16036,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
           /* Outputs for Enabled SubSystem: '<S454>/Transmission subtasks' incorporates:
            *  EnablePort: '<S476>/Enable'
            */
-          if (rtb_AND_kh) {
+          if (rtb_AND_ir) {
             if (!localDW->Transmissionsubtasks_MODE_o) {
               localDW->Transmissionsubtasks_MODE_o = true;
             }
@@ -16317,19 +16045,19 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
             rtb_DataStoreRead_dm = *rtd_Local_Ticks;
 
             /* RelationalOperator: '<S476>/Equal2' */
-            rtb_AND_kh = (rtb_DataStoreRead_dm > 520.0);
+            rtb_AND_ir = (rtb_DataStoreRead_dm > 520.0);
 
             /* Logic: '<S476>/AND' incorporates:
              *  Constant: '<S476>/Constant6'
              *  RelationalOperator: '<S476>/GreaterThan2'
              */
-            rtb_AND_l = (rtb_AND_kh && (*rtd_Tx_msg_count_CAN1 <= 7.0));
+            rtb_AND_cf = (rtb_AND_ir && (*rtd_Tx_msg_count_CAN1 <= 7.0));
 
             /* Logic: '<S476>/AND1' incorporates:
              *  Constant: '<S476>/Constant7'
              *  RelationalOperator: '<S476>/GreaterThan3'
              */
-            rtb_AND1_oa3 = (rtb_AND_kh && (*rtd_Tx_msg_count_CAN2 <= 7.0));
+            rtb_AND1_lz = (rtb_AND_ir && (*rtd_Tx_msg_count_CAN2 <= 7.0));
 
             /* Outputs for Enabled SubSystem: '<S476>/Msg_Value_Data_Encoded' incorporates:
              *  EnablePort: '<S480>/Enable'
@@ -16352,7 +16080,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
             /* End of Outputs for SubSystem: '<S476>/Msg_Value_Data_Encoded' */
 
             /* Outputs for Enabled SubSystem: '<S476>/Check msg transmission CAN1' */
-            CheckmsgtransmissionCAN1(rtb_AND_l, rtb_DataStoreRead_dm, 520.0,
+            CheckmsgtransmissionCAN1(rtb_AND_cf, rtb_DataStoreRead_dm, 520.0,
               localB->DataStoreRead4_a, localB->DataStoreRead5_j,
               localB->DataStoreRead6_a, localB->Constant_h,
               &localB->CheckmsgtransmissionCAN1_e,
@@ -16364,7 +16092,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
             /* End of Outputs for SubSystem: '<S476>/Check msg transmission CAN1' */
 
             /* Outputs for Enabled SubSystem: '<S476>/Check msg transmission CAN2' */
-            CheckmsgtransmissionCAN2(rtb_AND1_oa3, rtb_DataStoreRead_dm, 520.0,
+            CheckmsgtransmissionCAN2(rtb_AND1_lz, rtb_DataStoreRead_dm, 520.0,
               localB->DataStoreRead4_a, localB->DataStoreRead5_j,
               localB->DataStoreRead6_a, localB->Constant_h,
               &localB->CheckmsgtransmissionCAN2_n,
@@ -16478,13 +16206,13 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
            *  Constant: '<S455>/Constant'
            *  DataStoreRead: '<S455>/Data Store Read1'
            */
-          rtb_Equal2_jn = (localDW->Role_ID == 1.0);
+          rtb_AND_ir = (localDW->Role_ID == 1.0);
 
           /* Logic: '<S455>/AND' incorporates:
            *  Logic: '<S455>/NOT'
            *  RelationalOperator: '<S455>/Equal1'
            */
-          rtb_AND_p1 = ((*rtd_Board_ID != *rtd_BackUp_ID) && (!rtb_Equal2_jn));
+          rtb_AND_p1 = ((*rtd_Board_ID != *rtd_BackUp_ID) && (!rtb_AND_ir));
 
           /* Outputs for Enabled SubSystem: '<S455>/Reception substasks' */
           Receptionsubstasks(rtb_AND_p1, 320.0, &localB->Receptionsubstasks_m,
@@ -16497,19 +16225,376 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
 
           /* End of Outputs for SubSystem: '<S455>/Reception substasks' */
 
-          /* Outputs for Enabled SubSystem: '<S455>/Transmission subtasks1' */
-          Transmissionsubtasks1(rtb_Equal2_jn, 320.0,
-                                &localB->Transmissionsubtasks1_n,
-                                &localC->Transmissionsubtasks1_n,
-                                &localDW->Transmissionsubtasks1_n, rtd_Board_ID,
-                                &localDW->Error_SensorValues_NotRX,
-                                &localDW->Error_SetValues_NotRX, rtd_Local_Ticks,
-                                rtd_Msg_Tx_CAN1, rtd_Msg_Tx_CAN2, rtd_TxID_CAN1,
-                                rtd_TxID_CAN2, rtd_Tx_msg_count_CAN1,
-                                rtd_Tx_msg_count_CAN2,
-                                &localDW->basic_cycle_count,
-                                &localDW->torque_al_set, &localDW->torque_ar_set,
-                                &localDW->torque_fl_set, &localDW->torque_fr_set);
+          /* Outputs for Enabled SubSystem: '<S455>/Transmission subtasks1' incorporates:
+           *  EnablePort: '<S495>/Enable'
+           */
+          if (rtb_AND_ir) {
+            if (!localDW->Transmissionsubtasks1_MODE) {
+              localDW->Transmissionsubtasks1_MODE = true;
+            }
+
+            /* DataStoreRead: '<S495>/Data Store Read' */
+            rtb_DataStoreRead_a = *rtd_Local_Ticks;
+
+            /* RelationalOperator: '<S495>/Equal2' */
+            rtb_AND_ir = (rtb_DataStoreRead_a > 320.0);
+
+            /* Logic: '<S495>/AND' incorporates:
+             *  Constant: '<S495>/Constant6'
+             *  RelationalOperator: '<S495>/GreaterThan2'
+             */
+            rtb_AND_lm = (rtb_AND_ir && (*rtd_Tx_msg_count_CAN1 <= 7.0));
+
+            /* Logic: '<S495>/AND1' incorporates:
+             *  Constant: '<S495>/Constant7'
+             *  RelationalOperator: '<S495>/GreaterThan3'
+             */
+            rtb_AND1_fl = (rtb_AND_ir && (*rtd_Tx_msg_count_CAN2 <= 7.0));
+
+            /* Outputs for Enabled SubSystem: '<S495>/Msg_Value_Data_Encoded' incorporates:
+             *  EnablePort: '<S499>/Enable'
+             */
+            if (rtb_DataStoreRead_a == 320.0) {
+              /* DataTypeConversion: '<S499>/Cast' incorporates:
+               *  DataStoreRead: '<S499>/Data Store Read5'
+               */
+              localB->Cast_f = localDW->Error_SetValues_NotRX;
+
+              /* DataTypeConversion: '<S499>/Cast1' incorporates:
+               *  DataStoreRead: '<S499>/Data Store Read4'
+               */
+              localB->Cast1_a = localDW->Error_SensorValues_NotRX;
+              localB->Constant_cj = ((uint8_T)0U);
+
+              /* Switch: '<S499>/Switch' incorporates:
+               *  Constant: '<S499>/Constant'
+               *  Constant: '<S499>/Constant2'
+               *  Constant: '<S499>/Constant3'
+               *  DataStoreRead: '<S499>/Data Store Read'
+               */
+              if (switch_manipulate_torque) {
+                rtb_Subtract_idx_0 = torque_fr_set_manipulated;
+              } else {
+                rtb_Subtract_idx_0 = localDW->torque_fr_set;
+              }
+
+              /* End of Switch: '<S499>/Switch' */
+
+              /* Switch: '<S512>/Switch2' incorporates:
+               *  Constant: '<S499>/Constant8'
+               *  Constant: '<S499>/Constant9'
+               *  DataStoreRead: '<S499>/Data Store Read1'
+               *  RelationalOperator: '<S512>/LessThanOrEqual1'
+               *  RelationalOperator: '<S512>/LessThanOrEqual2'
+               *  Switch: '<S512>/Switch1'
+               */
+              if (5.0 < localDW->torque_fl_set) {
+                /* Switch: '<S512>/Switch' */
+                rtb_Switch1_or = 5.0;
+              } else if (localDW->torque_fl_set >= (-5.0)) {
+                /* Switch: '<S512>/Switch1' */
+                rtb_Switch1_or = localDW->torque_fl_set;
+              } else {
+                rtb_Switch1_or = (-5.0);
+              }
+
+              /* End of Switch: '<S512>/Switch2' */
+
+              /* RelationalOperator: '<S512>/GreaterThan' incorporates:
+               *  Constant: '<S512>/Constant'
+               */
+              rtb_AND_ir = (rtb_Switch1_or < 0.0);
+
+              /* Abs: '<S512>/Abs' */
+              rtb_Switch1_or = fabs(rtb_Switch1_or);
+
+              /* Rounding: '<S512>/Fix' */
+              rtb_Subtract_idx_1 = floor(rtb_Switch1_or);
+
+              /* Sum: '<S512>/Minus' */
+              rtb_Switch1_or -= rtb_Subtract_idx_1;
+
+              /* DataTypeConversion: '<S512>/Cast' */
+              rtb_Cast_go = rtb_AND_ir;
+
+              /* Outputs for Atomic SubSystem: '<S512>/Bit Shift' */
+              BitShift1(rtb_Cast_go, &localB->BitShift_c);
+
+              /* End of Outputs for SubSystem: '<S512>/Bit Shift' */
+
+              /* Product: '<S512>/Multiply' */
+              rtb_Subtract_idx_1 *= localC->Power1_mn;
+
+              /* Product: '<S512>/Divide' */
+              rtb_Subtract_idx_2 = rtb_Switch1_or / localC->Power_l2;
+
+              /* Rounding: '<S512>/Fix1' */
+              if (rtb_Subtract_idx_2 < 0.0) {
+                rtb_Subtract_idx_2 = ceil(rtb_Subtract_idx_2);
+              } else {
+                rtb_Subtract_idx_2 = floor(rtb_Subtract_idx_2);
+              }
+
+              /* End of Rounding: '<S512>/Fix1' */
+
+              /* Sum: '<S512>/Plus' incorporates:
+               *  DataTypeConversion: '<S512>/Cast1'
+               *  DataTypeConversion: '<S512>/Cast2'
+               */
+              localB->Plus_km = (uint8_T)((uint32_T)(uint8_T)((uint32_T)
+                localB->BitShift_c.y + (uint8_T)rtb_Subtract_idx_1) + (uint8_T)
+                rtb_Subtract_idx_2);
+
+              /* Switch: '<S513>/Switch2' incorporates:
+               *  Constant: '<S499>/Constant5'
+               *  Constant: '<S499>/Constant6'
+               *  RelationalOperator: '<S513>/LessThanOrEqual1'
+               *  RelationalOperator: '<S513>/LessThanOrEqual2'
+               *  Switch: '<S513>/Switch1'
+               */
+              if (5.0 < rtb_Subtract_idx_0) {
+                /* Switch: '<S513>/Switch' */
+                rtb_Subtract_idx_1 = 5.0;
+              } else if (rtb_Subtract_idx_0 >= (-5.0)) {
+                /* Switch: '<S513>/Switch1' */
+                rtb_Subtract_idx_1 = rtb_Subtract_idx_0;
+              } else {
+                rtb_Subtract_idx_1 = (-5.0);
+              }
+
+              /* End of Switch: '<S513>/Switch2' */
+
+              /* RelationalOperator: '<S513>/GreaterThan' incorporates:
+               *  Constant: '<S513>/Constant'
+               */
+              rtb_AND_ir = (rtb_Subtract_idx_1 < 0.0);
+
+              /* Abs: '<S513>/Abs' */
+              rtb_Subtract_idx_1 = fabs(rtb_Subtract_idx_1);
+
+              /* Rounding: '<S513>/Fix' */
+              rtb_Switch1_or = floor(rtb_Subtract_idx_1);
+
+              /* Sum: '<S513>/Minus' */
+              rtb_Subtract_idx_0 = rtb_Subtract_idx_1 - rtb_Switch1_or;
+
+              /* DataTypeConversion: '<S513>/Cast' */
+              rtb_Cast_lz = rtb_AND_ir;
+
+              /* Outputs for Atomic SubSystem: '<S513>/Bit Shift' */
+              BitShift1(rtb_Cast_lz, &localB->BitShift_m);
+
+              /* End of Outputs for SubSystem: '<S513>/Bit Shift' */
+
+              /* Product: '<S513>/Multiply' */
+              rtb_Switch1_or *= localC->Power1_gb;
+
+              /* Product: '<S513>/Divide' */
+              rtb_Subtract_idx_2 = rtb_Subtract_idx_0 / localC->Power_px;
+
+              /* Rounding: '<S513>/Fix1' */
+              if (rtb_Subtract_idx_2 < 0.0) {
+                rtb_Subtract_idx_2 = ceil(rtb_Subtract_idx_2);
+              } else {
+                rtb_Subtract_idx_2 = floor(rtb_Subtract_idx_2);
+              }
+
+              /* End of Rounding: '<S513>/Fix1' */
+
+              /* Sum: '<S513>/Plus' incorporates:
+               *  DataTypeConversion: '<S513>/Cast1'
+               *  DataTypeConversion: '<S513>/Cast2'
+               */
+              localB->Plus_mi = (uint8_T)((uint32_T)(uint8_T)((uint32_T)
+                localB->BitShift_m.y + (uint8_T)rtb_Switch1_or) + (uint8_T)
+                rtb_Subtract_idx_2);
+
+              /* Switch: '<S514>/Switch2' incorporates:
+               *  Constant: '<S499>/Constant11'
+               *  Constant: '<S499>/Constant12'
+               *  DataStoreRead: '<S499>/Data Store Read2'
+               *  RelationalOperator: '<S514>/LessThanOrEqual1'
+               *  RelationalOperator: '<S514>/LessThanOrEqual2'
+               *  Switch: '<S514>/Switch1'
+               */
+              if (5.0 < localDW->torque_ar_set) {
+                /* Switch: '<S514>/Switch' */
+                rtb_Subtract_idx_1 = 5.0;
+              } else if (localDW->torque_ar_set >= (-5.0)) {
+                /* Switch: '<S514>/Switch1' */
+                rtb_Subtract_idx_1 = localDW->torque_ar_set;
+              } else {
+                rtb_Subtract_idx_1 = (-5.0);
+              }
+
+              /* End of Switch: '<S514>/Switch2' */
+
+              /* RelationalOperator: '<S514>/GreaterThan' incorporates:
+               *  Constant: '<S514>/Constant'
+               */
+              rtb_AND_ir = (rtb_Subtract_idx_1 < 0.0);
+
+              /* Abs: '<S514>/Abs' */
+              rtb_Subtract_idx_1 = fabs(rtb_Subtract_idx_1);
+
+              /* Rounding: '<S514>/Fix' */
+              rtb_Switch1_or = floor(rtb_Subtract_idx_1);
+
+              /* Sum: '<S514>/Minus' */
+              rtb_Subtract_idx_0 = rtb_Subtract_idx_1 - rtb_Switch1_or;
+
+              /* DataTypeConversion: '<S514>/Cast' */
+              rtb_Cast_jux = rtb_AND_ir;
+
+              /* Outputs for Atomic SubSystem: '<S514>/Bit Shift' */
+              BitShift1(rtb_Cast_jux, &localB->BitShift_c0);
+
+              /* End of Outputs for SubSystem: '<S514>/Bit Shift' */
+
+              /* Product: '<S514>/Multiply' */
+              rtb_Switch1_or *= localC->Power1_bn;
+
+              /* Product: '<S514>/Divide' */
+              rtb_Subtract_idx_2 = rtb_Subtract_idx_0 / localC->Power_lk;
+
+              /* Rounding: '<S514>/Fix1' */
+              if (rtb_Subtract_idx_2 < 0.0) {
+                rtb_Subtract_idx_2 = ceil(rtb_Subtract_idx_2);
+              } else {
+                rtb_Subtract_idx_2 = floor(rtb_Subtract_idx_2);
+              }
+
+              /* End of Rounding: '<S514>/Fix1' */
+
+              /* Sum: '<S514>/Plus' incorporates:
+               *  DataTypeConversion: '<S514>/Cast1'
+               *  DataTypeConversion: '<S514>/Cast2'
+               */
+              localB->Plus_p2 = (uint8_T)((uint32_T)(uint8_T)((uint32_T)
+                localB->BitShift_c0.y + (uint8_T)rtb_Switch1_or) + (uint8_T)
+                rtb_Subtract_idx_2);
+
+              /* Switch: '<S515>/Switch2' incorporates:
+               *  Constant: '<S499>/Constant14'
+               *  Constant: '<S499>/Constant15'
+               *  DataStoreRead: '<S499>/Data Store Read3'
+               *  RelationalOperator: '<S515>/LessThanOrEqual1'
+               *  RelationalOperator: '<S515>/LessThanOrEqual2'
+               *  Switch: '<S515>/Switch1'
+               */
+              if (5.0 < localDW->torque_al_set) {
+                /* Switch: '<S515>/Switch' */
+                rtb_Subtract_idx_1 = 5.0;
+              } else if (localDW->torque_al_set >= (-5.0)) {
+                /* Switch: '<S515>/Switch1' */
+                rtb_Subtract_idx_1 = localDW->torque_al_set;
+              } else {
+                rtb_Subtract_idx_1 = (-5.0);
+              }
+
+              /* End of Switch: '<S515>/Switch2' */
+
+              /* RelationalOperator: '<S515>/GreaterThan' incorporates:
+               *  Constant: '<S515>/Constant'
+               */
+              rtb_AND_ir = (rtb_Subtract_idx_1 < 0.0);
+
+              /* Abs: '<S515>/Abs' */
+              rtb_Subtract_idx_1 = fabs(rtb_Subtract_idx_1);
+
+              /* Rounding: '<S515>/Fix' */
+              rtb_Switch1_or = floor(rtb_Subtract_idx_1);
+
+              /* Sum: '<S515>/Minus' */
+              rtb_Subtract_idx_0 = rtb_Subtract_idx_1 - rtb_Switch1_or;
+
+              /* DataTypeConversion: '<S515>/Cast' */
+              rtb_Cast_g = rtb_AND_ir;
+
+              /* Outputs for Atomic SubSystem: '<S515>/Bit Shift' */
+              BitShift1(rtb_Cast_g, &localB->BitShift_g);
+
+              /* End of Outputs for SubSystem: '<S515>/Bit Shift' */
+
+              /* Product: '<S515>/Multiply' */
+              rtb_Switch1_or *= localC->Power1_op;
+
+              /* Product: '<S515>/Divide' */
+              rtb_Subtract_idx_2 = rtb_Subtract_idx_0 / localC->Power_nx;
+
+              /* Rounding: '<S515>/Fix1' */
+              if (rtb_Subtract_idx_2 < 0.0) {
+                rtb_Subtract_idx_2 = ceil(rtb_Subtract_idx_2);
+              } else {
+                rtb_Subtract_idx_2 = floor(rtb_Subtract_idx_2);
+              }
+
+              /* End of Rounding: '<S515>/Fix1' */
+
+              /* Sum: '<S515>/Plus' incorporates:
+               *  DataTypeConversion: '<S515>/Cast1'
+               *  DataTypeConversion: '<S515>/Cast2'
+               */
+              localB->Plus_gd = (uint8_T)((uint32_T)(uint8_T)((uint32_T)
+                localB->BitShift_g.y + (uint8_T)rtb_Switch1_or) + (uint8_T)
+                rtb_Subtract_idx_2);
+            }
+
+            /* End of Outputs for SubSystem: '<S495>/Msg_Value_Data_Encoded' */
+
+            /* Outputs for Enabled SubSystem: '<S495>/Check msg transmission CAN1' */
+            CheckmsgtransmissionCAN1_m(rtb_AND_lm, rtb_DataStoreRead_a, 320.0,
+              localB->Plus_mi, localB->Plus_km, localB->Plus_p2, localB->Plus_gd,
+              localB->Cast_f, localB->Cast1_a, localB->Constant_cj,
+              &localB->CheckmsgtransmissionCAN1_ma,
+              &localC->CheckmsgtransmissionCAN1_ma,
+              &localDW->CheckmsgtransmissionCAN1_ma, rtd_Board_ID,
+              rtd_Msg_Tx_CAN1, rtd_TxID_CAN1, rtd_Tx_msg_count_CAN1,
+              &localDW->basic_cycle_count);
+
+            /* End of Outputs for SubSystem: '<S495>/Check msg transmission CAN1' */
+
+            /* Outputs for Enabled SubSystem: '<S495>/Check msg transmission CAN2' */
+            CheckmsgtransmissionCAN2_j(rtb_AND1_fl, rtb_DataStoreRead_a, 320.0,
+              localB->Plus_mi, localB->Plus_km, localB->Plus_p2, localB->Plus_gd,
+              localB->Cast_f, localB->Cast1_a, localB->Constant_cj,
+              &localB->CheckmsgtransmissionCAN2_j4,
+              &localC->CheckmsgtransmissionCAN2_j4,
+              &localDW->CheckmsgtransmissionCAN2_j4, rtd_Board_ID,
+              rtd_Msg_Tx_CAN2, rtd_TxID_CAN2, rtd_Tx_msg_count_CAN2,
+              &localDW->basic_cycle_count);
+
+            /* End of Outputs for SubSystem: '<S495>/Check msg transmission CAN2' */
+          } else {
+            if (localDW->Transmissionsubtasks1_MODE) {
+              /* Disable for Enabled SubSystem: '<S495>/Check msg transmission CAN1' */
+              if (localDW->CheckmsgtransmissionCAN1_ma.CheckmsgtransmissionCAN1_MODE)
+              {
+                CheckmsgtransmissionC_a_Disable
+                  (&localB->CheckmsgtransmissionCAN1_ma,
+                   &localDW->CheckmsgtransmissionCAN1_ma);
+              }
+
+              /* End of Disable for SubSystem: '<S495>/Check msg transmission CAN1' */
+
+              /* Disable for Enabled SubSystem: '<S495>/Check msg transmission CAN2' */
+              if (localDW->CheckmsgtransmissionCAN2_j4.CheckmsgtransmissionCAN2_MODE)
+              {
+                Checkmsgtransmission_al_Disable
+                  (&localB->CheckmsgtransmissionCAN2_j4,
+                   &localDW->CheckmsgtransmissionCAN2_j4);
+              }
+
+              /* End of Disable for SubSystem: '<S495>/Check msg transmission CAN2' */
+
+              /* Disable for Outport: '<S495>/Send CAN1' */
+              localB->CheckmsgtransmissionCAN1_ma.Equal7 = false;
+
+              /* Disable for Outport: '<S495>/Send CAN2' */
+              localB->CheckmsgtransmissionCAN2_j4.Equal7 = false;
+              localDW->Transmissionsubtasks1_MODE = false;
+            }
+          }
 
           /* End of Outputs for SubSystem: '<S455>/Transmission subtasks1' */
         } else {
@@ -16523,23 +16608,45 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
             /* End of Disable for SubSystem: '<S455>/Reception substasks' */
 
             /* Disable for Enabled SubSystem: '<S455>/Transmission subtasks1' */
-            if (localDW->Transmissionsubtasks1_n.Transmissionsubtasks1_MODE) {
-              Transmissionsubtasks1_Disable(&localB->Transmissionsubtasks1_n,
-                &localDW->Transmissionsubtasks1_n);
+            if (localDW->Transmissionsubtasks1_MODE) {
+              /* Disable for Enabled SubSystem: '<S495>/Check msg transmission CAN1' */
+              if (localDW->CheckmsgtransmissionCAN1_ma.CheckmsgtransmissionCAN1_MODE)
+              {
+                CheckmsgtransmissionC_a_Disable
+                  (&localB->CheckmsgtransmissionCAN1_ma,
+                   &localDW->CheckmsgtransmissionCAN1_ma);
+              }
+
+              /* End of Disable for SubSystem: '<S495>/Check msg transmission CAN1' */
+
+              /* Disable for Enabled SubSystem: '<S495>/Check msg transmission CAN2' */
+              if (localDW->CheckmsgtransmissionCAN2_j4.CheckmsgtransmissionCAN2_MODE)
+              {
+                Checkmsgtransmission_al_Disable
+                  (&localB->CheckmsgtransmissionCAN2_j4,
+                   &localDW->CheckmsgtransmissionCAN2_j4);
+              }
+
+              /* End of Disable for SubSystem: '<S495>/Check msg transmission CAN2' */
+
+              /* Disable for Outport: '<S495>/Send CAN1' */
+              localB->CheckmsgtransmissionCAN1_ma.Equal7 = false;
+
+              /* Disable for Outport: '<S495>/Send CAN2' */
+              localB->CheckmsgtransmissionCAN2_j4.Equal7 = false;
+              localDW->Transmissionsubtasks1_MODE = false;
             }
 
             /* End of Disable for SubSystem: '<S455>/Transmission subtasks1' */
 
             /* Disable for Outport: '<S455>/Send CAN1' */
-            localB->Transmissionsubtasks1_n.CheckmsgtransmissionCAN1_ma.Equal7 =
-              false;
+            localB->CheckmsgtransmissionCAN1_ma.Equal7 = false;
 
             /* Disable for Outport: '<S455>/Receive CAN1' */
             localB->Receptionsubstasks_m.AND = false;
 
             /* Disable for Outport: '<S455>/Send CAN2' */
-            localB->Transmissionsubtasks1_n.CheckmsgtransmissionCAN2_j4.Equal7 =
-              false;
+            localB->CheckmsgtransmissionCAN2_j4.Equal7 = false;
 
             /* Disable for Outport: '<S455>/Receive CAN2' */
             localB->Receptionsubstasks_m.AND1 = false;
@@ -16562,16 +16669,16 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
            *  Constant: '<S456>/Constant'
            *  DataStoreRead: '<S456>/Data Store Read1'
            */
-          rtb_Equal2_pj = (localDW->Role_ID == 3.0);
+          rtb_AND_ir = (localDW->Role_ID == 3.0);
 
           /* Logic: '<S456>/AND' incorporates:
            *  Logic: '<S456>/NOT'
            *  RelationalOperator: '<S456>/Equal1'
            */
-          rtb_AND_akl = ((*rtd_Board_ID != *rtd_BackUp_ID) && (!rtb_Equal2_pj));
+          rtb_AND_lt = ((*rtd_Board_ID != *rtd_BackUp_ID) && (!rtb_AND_ir));
 
           /* Outputs for Enabled SubSystem: '<S456>/Reception substasks' */
-          Receptionsubstasks(rtb_AND_akl, 360.0, &localB->Receptionsubstasks_k,
+          Receptionsubstasks(rtb_AND_lt, 360.0, &localB->Receptionsubstasks_k,
                              &localC->Receptionsubstasks_k,
                              &localDW->Receptionsubstasks_k, rtd_Local_Ticks,
                              &localDW->Msg_Rx_f, rtd_New_Msg_Ready_CAN1,
@@ -16581,19 +16688,364 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
 
           /* End of Outputs for SubSystem: '<S456>/Reception substasks' */
 
-          /* Outputs for Enabled SubSystem: '<S456>/Transmission subtasks' */
-          Transmissionsubtasks1(rtb_Equal2_pj, 360.0,
-                                &localB->Transmissionsubtasks_j,
-                                &localC->Transmissionsubtasks_j,
-                                &localDW->Transmissionsubtasks_j, rtd_Board_ID,
-                                &localDW->Error_SensorValues_NotRX,
-                                &localDW->Error_SetValues_NotRX, rtd_Local_Ticks,
-                                rtd_Msg_Tx_CAN1, rtd_Msg_Tx_CAN2, rtd_TxID_CAN1,
-                                rtd_TxID_CAN2, rtd_Tx_msg_count_CAN1,
-                                rtd_Tx_msg_count_CAN2,
-                                &localDW->basic_cycle_count,
-                                &localDW->torque_al_set, &localDW->torque_ar_set,
-                                &localDW->torque_fl_set, &localDW->torque_fr_set);
+          /* Outputs for Enabled SubSystem: '<S456>/Transmission subtasks' incorporates:
+           *  EnablePort: '<S526>/Enable'
+           */
+          if (rtb_AND_ir) {
+            if (!localDW->Transmissionsubtasks_MODE_i3) {
+              localDW->Transmissionsubtasks_MODE_i3 = true;
+            }
+
+            /* DataStoreRead: '<S526>/Data Store Read' */
+            rtb_DataStoreRead_k = *rtd_Local_Ticks;
+
+            /* RelationalOperator: '<S526>/Equal2' */
+            rtb_AND_ir = (rtb_DataStoreRead_k > 360.0);
+
+            /* Logic: '<S526>/AND' incorporates:
+             *  Constant: '<S526>/Constant6'
+             *  RelationalOperator: '<S526>/GreaterThan2'
+             */
+            rtb_AND_h = (rtb_AND_ir && (*rtd_Tx_msg_count_CAN1 <= 7.0));
+
+            /* Logic: '<S526>/AND1' incorporates:
+             *  Constant: '<S526>/Constant7'
+             *  RelationalOperator: '<S526>/GreaterThan3'
+             */
+            rtb_AND1_cg = (rtb_AND_ir && (*rtd_Tx_msg_count_CAN2 <= 7.0));
+
+            /* Outputs for Enabled SubSystem: '<S526>/Msg_Value_Data_Encoded' incorporates:
+             *  EnablePort: '<S530>/Enable'
+             */
+            if (rtb_DataStoreRead_k == 360.0) {
+              /* DataTypeConversion: '<S530>/Cast' incorporates:
+               *  DataStoreRead: '<S530>/Data Store Read5'
+               */
+              localB->Cast = localDW->Error_SetValues_NotRX;
+
+              /* DataTypeConversion: '<S530>/Cast1' incorporates:
+               *  DataStoreRead: '<S530>/Data Store Read4'
+               */
+              localB->Cast1 = localDW->Error_SensorValues_NotRX;
+              localB->Constant_m = ((uint8_T)0U);
+
+              /* Switch: '<S543>/Switch2' incorporates:
+               *  Constant: '<S530>/Constant'
+               *  Constant: '<S530>/Constant8'
+               *  Constant: '<S530>/Constant9'
+               *  DataStoreRead: '<S530>/Data Store Read1'
+               *  RelationalOperator: '<S543>/LessThanOrEqual1'
+               *  RelationalOperator: '<S543>/LessThanOrEqual2'
+               *  Switch: '<S543>/Switch1'
+               */
+              if (5.0 < localDW->torque_fl_set) {
+                /* Switch: '<S543>/Switch' */
+                rtb_Switch1_or = 5.0;
+              } else if (localDW->torque_fl_set >= (-5.0)) {
+                /* Switch: '<S543>/Switch1' */
+                rtb_Switch1_or = localDW->torque_fl_set;
+              } else {
+                rtb_Switch1_or = (-5.0);
+              }
+
+              /* End of Switch: '<S543>/Switch2' */
+
+              /* RelationalOperator: '<S543>/GreaterThan' incorporates:
+               *  Constant: '<S543>/Constant'
+               */
+              rtb_AND_ir = (rtb_Switch1_or < 0.0);
+
+              /* Abs: '<S543>/Abs' */
+              rtb_Switch1_or = fabs(rtb_Switch1_or);
+
+              /* Rounding: '<S543>/Fix' */
+              rtb_Subtract_idx_0 = floor(rtb_Switch1_or);
+
+              /* Sum: '<S543>/Minus' */
+              rtb_Switch1_or -= rtb_Subtract_idx_0;
+
+              /* DataTypeConversion: '<S543>/Cast' */
+              rtb_Cast_db = rtb_AND_ir;
+
+              /* Outputs for Atomic SubSystem: '<S543>/Bit Shift' */
+              BitShift1(rtb_Cast_db, &localB->BitShift_n);
+
+              /* End of Outputs for SubSystem: '<S543>/Bit Shift' */
+
+              /* Product: '<S543>/Multiply' */
+              rtb_Subtract_idx_0 *= localC->Power1_im;
+
+              /* Product: '<S543>/Divide' */
+              rtb_Subtract_idx_2 = rtb_Switch1_or / localC->Power_kb;
+
+              /* Rounding: '<S543>/Fix1' */
+              if (rtb_Subtract_idx_2 < 0.0) {
+                rtb_Subtract_idx_2 = ceil(rtb_Subtract_idx_2);
+              } else {
+                rtb_Subtract_idx_2 = floor(rtb_Subtract_idx_2);
+              }
+
+              /* End of Rounding: '<S543>/Fix1' */
+
+              /* Sum: '<S543>/Plus' incorporates:
+               *  DataTypeConversion: '<S543>/Cast1'
+               *  DataTypeConversion: '<S543>/Cast2'
+               */
+              localB->Plus_cm = (uint8_T)((uint32_T)(uint8_T)((uint32_T)
+                localB->BitShift_n.y + (uint8_T)rtb_Subtract_idx_0) + (uint8_T)
+                rtb_Subtract_idx_2);
+
+              /* Switch: '<S544>/Switch2' incorporates:
+               *  Constant: '<S530>/Constant5'
+               *  Constant: '<S530>/Constant6'
+               *  DataStoreRead: '<S530>/Data Store Read'
+               *  RelationalOperator: '<S544>/LessThanOrEqual1'
+               *  RelationalOperator: '<S544>/LessThanOrEqual2'
+               *  Switch: '<S544>/Switch1'
+               */
+              if (5.0 < localDW->torque_fr_set) {
+                /* Switch: '<S544>/Switch' */
+                rtb_Subtract_idx_0 = 5.0;
+              } else if (localDW->torque_fr_set >= (-5.0)) {
+                /* Switch: '<S544>/Switch1' */
+                rtb_Subtract_idx_0 = localDW->torque_fr_set;
+              } else {
+                rtb_Subtract_idx_0 = (-5.0);
+              }
+
+              /* End of Switch: '<S544>/Switch2' */
+
+              /* RelationalOperator: '<S544>/GreaterThan' incorporates:
+               *  Constant: '<S544>/Constant'
+               */
+              rtb_AND_ir = (rtb_Subtract_idx_0 < 0.0);
+
+              /* Abs: '<S544>/Abs' */
+              rtb_Subtract_idx_0 = fabs(rtb_Subtract_idx_0);
+
+              /* Rounding: '<S544>/Fix' */
+              rtb_Switch1_or = floor(rtb_Subtract_idx_0);
+
+              /* Sum: '<S544>/Minus' */
+              rtb_Subtract_idx_0 -= rtb_Switch1_or;
+
+              /* DataTypeConversion: '<S544>/Cast' */
+              rtb_Cast_lu = rtb_AND_ir;
+
+              /* Outputs for Atomic SubSystem: '<S544>/Bit Shift' */
+              BitShift1(rtb_Cast_lu, &localB->BitShift_d);
+
+              /* End of Outputs for SubSystem: '<S544>/Bit Shift' */
+
+              /* Product: '<S544>/Multiply' */
+              rtb_Switch1_or *= localC->Power1_iu;
+
+              /* Product: '<S544>/Divide' */
+              rtb_Subtract_idx_2 = rtb_Subtract_idx_0 / localC->Power_ok;
+
+              /* Rounding: '<S544>/Fix1' */
+              if (rtb_Subtract_idx_2 < 0.0) {
+                rtb_Subtract_idx_2 = ceil(rtb_Subtract_idx_2);
+              } else {
+                rtb_Subtract_idx_2 = floor(rtb_Subtract_idx_2);
+              }
+
+              /* End of Rounding: '<S544>/Fix1' */
+
+              /* Sum: '<S544>/Plus' incorporates:
+               *  DataTypeConversion: '<S544>/Cast1'
+               *  DataTypeConversion: '<S544>/Cast2'
+               */
+              localB->Plus_jk = (uint8_T)((uint32_T)(uint8_T)((uint32_T)
+                localB->BitShift_d.y + (uint8_T)rtb_Switch1_or) + (uint8_T)
+                rtb_Subtract_idx_2);
+
+              /* Switch: '<S545>/Switch2' incorporates:
+               *  Constant: '<S530>/Constant11'
+               *  Constant: '<S530>/Constant12'
+               *  DataStoreRead: '<S530>/Data Store Read2'
+               *  RelationalOperator: '<S545>/LessThanOrEqual1'
+               *  RelationalOperator: '<S545>/LessThanOrEqual2'
+               *  Switch: '<S545>/Switch1'
+               */
+              if (5.0 < localDW->torque_ar_set) {
+                /* Switch: '<S545>/Switch' */
+                rtb_Subtract_idx_0 = 5.0;
+              } else if (localDW->torque_ar_set >= (-5.0)) {
+                /* Switch: '<S545>/Switch1' */
+                rtb_Subtract_idx_0 = localDW->torque_ar_set;
+              } else {
+                rtb_Subtract_idx_0 = (-5.0);
+              }
+
+              /* End of Switch: '<S545>/Switch2' */
+
+              /* RelationalOperator: '<S545>/GreaterThan' incorporates:
+               *  Constant: '<S545>/Constant'
+               */
+              rtb_AND_ir = (rtb_Subtract_idx_0 < 0.0);
+
+              /* Abs: '<S545>/Abs' */
+              rtb_Subtract_idx_0 = fabs(rtb_Subtract_idx_0);
+
+              /* Rounding: '<S545>/Fix' */
+              rtb_Switch1_or = floor(rtb_Subtract_idx_0);
+
+              /* Sum: '<S545>/Minus' */
+              rtb_Subtract_idx_0 -= rtb_Switch1_or;
+
+              /* DataTypeConversion: '<S545>/Cast' */
+              rtb_Cast_oo = rtb_AND_ir;
+
+              /* Outputs for Atomic SubSystem: '<S545>/Bit Shift' */
+              BitShift1(rtb_Cast_oo, &localB->BitShift_nl);
+
+              /* End of Outputs for SubSystem: '<S545>/Bit Shift' */
+
+              /* Product: '<S545>/Multiply' */
+              rtb_Switch1_or *= localC->Power1_iq;
+
+              /* Product: '<S545>/Divide' */
+              rtb_Subtract_idx_2 = rtb_Subtract_idx_0 / localC->Power_co;
+
+              /* Rounding: '<S545>/Fix1' */
+              if (rtb_Subtract_idx_2 < 0.0) {
+                rtb_Subtract_idx_2 = ceil(rtb_Subtract_idx_2);
+              } else {
+                rtb_Subtract_idx_2 = floor(rtb_Subtract_idx_2);
+              }
+
+              /* End of Rounding: '<S545>/Fix1' */
+
+              /* Sum: '<S545>/Plus' incorporates:
+               *  DataTypeConversion: '<S545>/Cast1'
+               *  DataTypeConversion: '<S545>/Cast2'
+               */
+              localB->Plus_jt = (uint8_T)((uint32_T)(uint8_T)((uint32_T)
+                localB->BitShift_nl.y + (uint8_T)rtb_Switch1_or) + (uint8_T)
+                rtb_Subtract_idx_2);
+
+              /* Switch: '<S546>/Switch2' incorporates:
+               *  Constant: '<S530>/Constant14'
+               *  Constant: '<S530>/Constant15'
+               *  DataStoreRead: '<S530>/Data Store Read3'
+               *  RelationalOperator: '<S546>/LessThanOrEqual1'
+               *  RelationalOperator: '<S546>/LessThanOrEqual2'
+               *  Switch: '<S546>/Switch1'
+               */
+              if (5.0 < localDW->torque_al_set) {
+                /* Switch: '<S546>/Switch' */
+                rtb_Subtract_idx_0 = 5.0;
+              } else if (localDW->torque_al_set >= (-5.0)) {
+                /* Switch: '<S546>/Switch1' */
+                rtb_Subtract_idx_0 = localDW->torque_al_set;
+              } else {
+                rtb_Subtract_idx_0 = (-5.0);
+              }
+
+              /* End of Switch: '<S546>/Switch2' */
+
+              /* RelationalOperator: '<S546>/GreaterThan' incorporates:
+               *  Constant: '<S546>/Constant'
+               */
+              rtb_AND_ir = (rtb_Subtract_idx_0 < 0.0);
+
+              /* Abs: '<S546>/Abs' */
+              rtb_Subtract_idx_0 = fabs(rtb_Subtract_idx_0);
+
+              /* Rounding: '<S546>/Fix' */
+              rtb_Switch1_or = floor(rtb_Subtract_idx_0);
+
+              /* Sum: '<S546>/Minus' */
+              rtb_Subtract_idx_0 -= rtb_Switch1_or;
+
+              /* DataTypeConversion: '<S546>/Cast' */
+              rtb_Cast_n1 = rtb_AND_ir;
+
+              /* Outputs for Atomic SubSystem: '<S546>/Bit Shift' */
+              BitShift1(rtb_Cast_n1, &localB->BitShift_f);
+
+              /* End of Outputs for SubSystem: '<S546>/Bit Shift' */
+
+              /* Product: '<S546>/Multiply' */
+              rtb_Switch1_or *= localC->Power1_j0;
+
+              /* Product: '<S546>/Divide' */
+              rtb_Subtract_idx_2 = rtb_Subtract_idx_0 / localC->Power_ck;
+
+              /* Rounding: '<S546>/Fix1' */
+              if (rtb_Subtract_idx_2 < 0.0) {
+                rtb_Subtract_idx_2 = ceil(rtb_Subtract_idx_2);
+              } else {
+                rtb_Subtract_idx_2 = floor(rtb_Subtract_idx_2);
+              }
+
+              /* End of Rounding: '<S546>/Fix1' */
+
+              /* Sum: '<S546>/Plus' incorporates:
+               *  DataTypeConversion: '<S546>/Cast1'
+               *  DataTypeConversion: '<S546>/Cast2'
+               */
+              localB->Plus_f = (uint8_T)((uint32_T)(uint8_T)((uint32_T)
+                localB->BitShift_f.y + (uint8_T)rtb_Switch1_or) + (uint8_T)
+                rtb_Subtract_idx_2);
+            }
+
+            /* End of Outputs for SubSystem: '<S526>/Msg_Value_Data_Encoded' */
+
+            /* Outputs for Enabled SubSystem: '<S526>/Check msg transmission CAN1' */
+            CheckmsgtransmissionCAN1_m(rtb_AND_h, rtb_DataStoreRead_k, 360.0,
+              localB->Plus_jk, localB->Plus_cm, localB->Plus_jt, localB->Plus_f,
+              localB->Cast, localB->Cast1, localB->Constant_m,
+              &localB->CheckmsgtransmissionCAN1_o,
+              &localC->CheckmsgtransmissionCAN1_o,
+              &localDW->CheckmsgtransmissionCAN1_o, rtd_Board_ID,
+              rtd_Msg_Tx_CAN1, rtd_TxID_CAN1, rtd_Tx_msg_count_CAN1,
+              &localDW->basic_cycle_count);
+
+            /* End of Outputs for SubSystem: '<S526>/Check msg transmission CAN1' */
+
+            /* Outputs for Enabled SubSystem: '<S526>/Check msg transmission CAN2' */
+            CheckmsgtransmissionCAN2_j(rtb_AND1_cg, rtb_DataStoreRead_k, 360.0,
+              localB->Plus_jk, localB->Plus_cm, localB->Plus_jt, localB->Plus_f,
+              localB->Cast, localB->Cast1, localB->Constant_m,
+              &localB->CheckmsgtransmissionCAN2_b,
+              &localC->CheckmsgtransmissionCAN2_b,
+              &localDW->CheckmsgtransmissionCAN2_b, rtd_Board_ID,
+              rtd_Msg_Tx_CAN2, rtd_TxID_CAN2, rtd_Tx_msg_count_CAN2,
+              &localDW->basic_cycle_count);
+
+            /* End of Outputs for SubSystem: '<S526>/Check msg transmission CAN2' */
+          } else {
+            if (localDW->Transmissionsubtasks_MODE_i3) {
+              /* Disable for Enabled SubSystem: '<S526>/Check msg transmission CAN1' */
+              if (localDW->CheckmsgtransmissionCAN1_o.CheckmsgtransmissionCAN1_MODE)
+              {
+                CheckmsgtransmissionC_a_Disable
+                  (&localB->CheckmsgtransmissionCAN1_o,
+                   &localDW->CheckmsgtransmissionCAN1_o);
+              }
+
+              /* End of Disable for SubSystem: '<S526>/Check msg transmission CAN1' */
+
+              /* Disable for Enabled SubSystem: '<S526>/Check msg transmission CAN2' */
+              if (localDW->CheckmsgtransmissionCAN2_b.CheckmsgtransmissionCAN2_MODE)
+              {
+                Checkmsgtransmission_al_Disable
+                  (&localB->CheckmsgtransmissionCAN2_b,
+                   &localDW->CheckmsgtransmissionCAN2_b);
+              }
+
+              /* End of Disable for SubSystem: '<S526>/Check msg transmission CAN2' */
+
+              /* Disable for Outport: '<S526>/Send CAN1' */
+              localB->CheckmsgtransmissionCAN1_o.Equal7 = false;
+
+              /* Disable for Outport: '<S526>/Send CAN2' */
+              localB->CheckmsgtransmissionCAN2_b.Equal7 = false;
+              localDW->Transmissionsubtasks_MODE_i3 = false;
+            }
+          }
 
           /* End of Outputs for SubSystem: '<S456>/Transmission subtasks' */
         } else {
@@ -16607,23 +17059,45 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
             /* End of Disable for SubSystem: '<S456>/Reception substasks' */
 
             /* Disable for Enabled SubSystem: '<S456>/Transmission subtasks' */
-            if (localDW->Transmissionsubtasks_j.Transmissionsubtasks1_MODE) {
-              Transmissionsubtasks1_Disable(&localB->Transmissionsubtasks_j,
-                &localDW->Transmissionsubtasks_j);
+            if (localDW->Transmissionsubtasks_MODE_i3) {
+              /* Disable for Enabled SubSystem: '<S526>/Check msg transmission CAN1' */
+              if (localDW->CheckmsgtransmissionCAN1_o.CheckmsgtransmissionCAN1_MODE)
+              {
+                CheckmsgtransmissionC_a_Disable
+                  (&localB->CheckmsgtransmissionCAN1_o,
+                   &localDW->CheckmsgtransmissionCAN1_o);
+              }
+
+              /* End of Disable for SubSystem: '<S526>/Check msg transmission CAN1' */
+
+              /* Disable for Enabled SubSystem: '<S526>/Check msg transmission CAN2' */
+              if (localDW->CheckmsgtransmissionCAN2_b.CheckmsgtransmissionCAN2_MODE)
+              {
+                Checkmsgtransmission_al_Disable
+                  (&localB->CheckmsgtransmissionCAN2_b,
+                   &localDW->CheckmsgtransmissionCAN2_b);
+              }
+
+              /* End of Disable for SubSystem: '<S526>/Check msg transmission CAN2' */
+
+              /* Disable for Outport: '<S526>/Send CAN1' */
+              localB->CheckmsgtransmissionCAN1_o.Equal7 = false;
+
+              /* Disable for Outport: '<S526>/Send CAN2' */
+              localB->CheckmsgtransmissionCAN2_b.Equal7 = false;
+              localDW->Transmissionsubtasks_MODE_i3 = false;
             }
 
             /* End of Disable for SubSystem: '<S456>/Transmission subtasks' */
 
             /* Disable for Outport: '<S456>/Send CAN1' */
-            localB->Transmissionsubtasks_j.CheckmsgtransmissionCAN1_ma.Equal7 =
-              false;
+            localB->CheckmsgtransmissionCAN1_o.Equal7 = false;
 
             /* Disable for Outport: '<S456>/Receive CAN1' */
             localB->Receptionsubstasks_k.AND = false;
 
             /* Disable for Outport: '<S456>/Send CAN2' */
-            localB->Transmissionsubtasks_j.CheckmsgtransmissionCAN2_j4.Equal7 =
-              false;
+            localB->CheckmsgtransmissionCAN2_b.Equal7 = false;
 
             /* Disable for Outport: '<S456>/Receive CAN2' */
             localB->Receptionsubstasks_k.AND1 = false;
@@ -16646,16 +17120,16 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
            *  Constant: '<S457>/Constant98'
            *  DataStoreRead: '<S457>/Data Store Read31'
            */
-          rtb_AND_kh = (localDW->Role_ID == 2.0);
+          rtb_AND_ir = (localDW->Role_ID == 2.0);
 
           /* Logic: '<S457>/AND' incorporates:
            *  Logic: '<S457>/NOT'
            *  RelationalOperator: '<S457>/Equal1'
            */
-          rtb_AND_nb = ((*rtd_Board_ID != *rtd_BackUp_ID) && (!rtb_AND_kh));
+          rtb_AND_oa = ((*rtd_Board_ID != *rtd_BackUp_ID) && (!rtb_AND_ir));
 
           /* Outputs for Enabled SubSystem: '<S457>/Reception substasks' */
-          Receptionsubstasks(rtb_AND_nb, 450.0, &localB->Receptionsubstasks_o,
+          Receptionsubstasks(rtb_AND_oa, 450.0, &localB->Receptionsubstasks_o,
                              &localC->Receptionsubstasks_o,
                              &localDW->Receptionsubstasks_o, rtd_Local_Ticks,
                              &localDW->Msg_Rx_f, rtd_New_Msg_Ready_CAN1,
@@ -16668,33 +17142,33 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
           /* Outputs for Enabled SubSystem: '<S457>/Transmission subtasks' incorporates:
            *  EnablePort: '<S556>/Enable'
            */
-          if (rtb_AND_kh) {
+          if (rtb_AND_ir) {
             if (!localDW->Transmissionsubtasks_MODE_f) {
               localDW->Transmissionsubtasks_MODE_f = true;
             }
 
             /* DataStoreRead: '<S556>/Data Store Read' */
-            rtb_DataStoreRead_d = *rtd_Local_Ticks;
+            rtb_DataStoreRead_nyu = *rtd_Local_Ticks;
 
             /* RelationalOperator: '<S556>/Equal2' */
-            rtb_AND_kh = (rtb_DataStoreRead_d > 450.0);
+            rtb_AND_ir = (rtb_DataStoreRead_nyu > 450.0);
 
             /* Logic: '<S556>/AND' incorporates:
              *  Constant: '<S556>/Constant6'
              *  RelationalOperator: '<S556>/GreaterThan2'
              */
-            rtb_AND_cl = (rtb_AND_kh && (*rtd_Tx_msg_count_CAN1 <= 7.0));
+            rtb_AND_fqr = (rtb_AND_ir && (*rtd_Tx_msg_count_CAN1 <= 7.0));
 
             /* Logic: '<S556>/AND1' incorporates:
              *  Constant: '<S556>/Constant7'
              *  RelationalOperator: '<S556>/GreaterThan3'
              */
-            rtb_AND1_fb = (rtb_AND_kh && (*rtd_Tx_msg_count_CAN2 <= 7.0));
+            rtb_AND1_ev = (rtb_AND_ir && (*rtd_Tx_msg_count_CAN2 <= 7.0));
 
             /* Outputs for Enabled SubSystem: '<S556>/Msg_Value_Data_Encoded' incorporates:
              *  EnablePort: '<S560>/Enable'
              */
-            if (rtb_DataStoreRead_d == 450.0) {
+            if (rtb_DataStoreRead_nyu == 450.0) {
               /* DataStoreRead: '<S560>/Data Store Read4' */
               localB->DataStoreRead4 = localDW->error_log_1;
 
@@ -16727,7 +17201,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
               /* RelationalOperator: '<S573>/GreaterThan' incorporates:
                *  Constant: '<S573>/Constant'
                */
-              rtb_AND_kh = (rtb_Switch1_or < 0.0);
+              rtb_AND_ir = (rtb_Switch1_or < 0.0);
 
               /* Abs: '<S573>/Abs' */
               rtb_Switch1_or = fabs(rtb_Switch1_or);
@@ -16739,10 +17213,10 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
               rtb_Switch1_or -= rtb_Subtract_idx_0;
 
               /* DataTypeConversion: '<S573>/Cast' */
-              rtb_Cast_pb = rtb_AND_kh;
+              rtb_Cast_f3 = rtb_AND_ir;
 
               /* Outputs for Atomic SubSystem: '<S573>/Bit Shift' */
-              BitShift1(rtb_Cast_pb, &localB->BitShift_j);
+              BitShift1(rtb_Cast_f3, &localB->BitShift_j);
 
               /* End of Outputs for SubSystem: '<S573>/Bit Shift' */
 
@@ -16750,13 +17224,13 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
               rtb_Subtract_idx_0 *= localC->Power1_cn;
 
               /* Product: '<S573>/Divide' */
-              rtb_Subtract_idx_1 = rtb_Switch1_or / localC->Power_id;
+              rtb_Subtract_idx_2 = rtb_Switch1_or / localC->Power_id;
 
               /* Rounding: '<S573>/Fix1' */
-              if (rtb_Subtract_idx_1 < 0.0) {
-                rtb_Subtract_idx_1 = ceil(rtb_Subtract_idx_1);
+              if (rtb_Subtract_idx_2 < 0.0) {
+                rtb_Subtract_idx_2 = ceil(rtb_Subtract_idx_2);
               } else {
-                rtb_Subtract_idx_1 = floor(rtb_Subtract_idx_1);
+                rtb_Subtract_idx_2 = floor(rtb_Subtract_idx_2);
               }
 
               /* End of Rounding: '<S573>/Fix1' */
@@ -16767,7 +17241,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
                */
               localB->Plus_m = (uint8_T)((uint32_T)(uint8_T)((uint32_T)
                 localB->BitShift_j.y + (uint8_T)rtb_Subtract_idx_0) + (uint8_T)
-                rtb_Subtract_idx_1);
+                rtb_Subtract_idx_2);
 
               /* Switch: '<S574>/Switch2' incorporates:
                *  Constant: '<S560>/Constant6'
@@ -16792,7 +17266,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
               /* RelationalOperator: '<S574>/GreaterThan' incorporates:
                *  Constant: '<S574>/Constant'
                */
-              rtb_AND_kh = (rtb_Subtract_idx_0 < 0.0);
+              rtb_AND_ir = (rtb_Subtract_idx_0 < 0.0);
 
               /* Abs: '<S574>/Abs' */
               rtb_Subtract_idx_0 = fabs(rtb_Subtract_idx_0);
@@ -16804,10 +17278,10 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
               rtb_Subtract_idx_0 -= rtb_Switch1_or;
 
               /* DataTypeConversion: '<S574>/Cast' */
-              rtb_Cast_nx = rtb_AND_kh;
+              rtb_Cast_o = rtb_AND_ir;
 
               /* Outputs for Atomic SubSystem: '<S574>/Bit Shift' */
-              BitShift1(rtb_Cast_nx, &localB->BitShift_g);
+              BitShift1(rtb_Cast_o, &localB->BitShift_gm);
 
               /* End of Outputs for SubSystem: '<S574>/Bit Shift' */
 
@@ -16815,13 +17289,13 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
               rtb_Switch1_or *= localC->Power1_ih;
 
               /* Product: '<S574>/Divide' */
-              rtb_Subtract_idx_1 = rtb_Subtract_idx_0 / localC->Power_fg;
+              rtb_Subtract_idx_2 = rtb_Subtract_idx_0 / localC->Power_fg;
 
               /* Rounding: '<S574>/Fix1' */
-              if (rtb_Subtract_idx_1 < 0.0) {
-                rtb_Subtract_idx_1 = ceil(rtb_Subtract_idx_1);
+              if (rtb_Subtract_idx_2 < 0.0) {
+                rtb_Subtract_idx_2 = ceil(rtb_Subtract_idx_2);
               } else {
-                rtb_Subtract_idx_1 = floor(rtb_Subtract_idx_1);
+                rtb_Subtract_idx_2 = floor(rtb_Subtract_idx_2);
               }
 
               /* End of Rounding: '<S574>/Fix1' */
@@ -16831,8 +17305,8 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
                *  DataTypeConversion: '<S574>/Cast2'
                */
               localB->Plus_jl = (uint8_T)((uint32_T)(uint8_T)((uint32_T)
-                localB->BitShift_g.y + (uint8_T)rtb_Switch1_or) + (uint8_T)
-                rtb_Subtract_idx_1);
+                localB->BitShift_gm.y + (uint8_T)rtb_Switch1_or) + (uint8_T)
+                rtb_Subtract_idx_2);
 
               /* Switch: '<S575>/Switch2' incorporates:
                *  Constant: '<S560>/Constant11'
@@ -16857,7 +17331,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
               /* RelationalOperator: '<S575>/GreaterThan' incorporates:
                *  Constant: '<S575>/Constant'
                */
-              rtb_AND_kh = (rtb_Subtract_idx_0 < 0.0);
+              rtb_AND_ir = (rtb_Subtract_idx_0 < 0.0);
 
               /* Abs: '<S575>/Abs' */
               rtb_Subtract_idx_0 = fabs(rtb_Subtract_idx_0);
@@ -16869,10 +17343,10 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
               rtb_Subtract_idx_0 -= rtb_Switch1_or;
 
               /* DataTypeConversion: '<S575>/Cast' */
-              rtb_Cast_if = rtb_AND_kh;
+              rtb_Cast_ko = rtb_AND_ir;
 
               /* Outputs for Atomic SubSystem: '<S575>/Bit Shift' */
-              BitShift1(rtb_Cast_if, &localB->BitShift_n);
+              BitShift1(rtb_Cast_ko, &localB->BitShift_n4);
 
               /* End of Outputs for SubSystem: '<S575>/Bit Shift' */
 
@@ -16880,13 +17354,13 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
               rtb_Switch1_or *= localC->Power1_az;
 
               /* Product: '<S575>/Divide' */
-              rtb_Subtract_idx_1 = rtb_Subtract_idx_0 / localC->Power_gc;
+              rtb_Subtract_idx_2 = rtb_Subtract_idx_0 / localC->Power_gc;
 
               /* Rounding: '<S575>/Fix1' */
-              if (rtb_Subtract_idx_1 < 0.0) {
-                rtb_Subtract_idx_1 = ceil(rtb_Subtract_idx_1);
+              if (rtb_Subtract_idx_2 < 0.0) {
+                rtb_Subtract_idx_2 = ceil(rtb_Subtract_idx_2);
               } else {
-                rtb_Subtract_idx_1 = floor(rtb_Subtract_idx_1);
+                rtb_Subtract_idx_2 = floor(rtb_Subtract_idx_2);
               }
 
               /* End of Rounding: '<S575>/Fix1' */
@@ -16896,8 +17370,8 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
                *  DataTypeConversion: '<S575>/Cast2'
                */
               localB->Plus_ne = (uint8_T)((uint32_T)(uint8_T)((uint32_T)
-                localB->BitShift_n.y + (uint8_T)rtb_Switch1_or) + (uint8_T)
-                rtb_Subtract_idx_1);
+                localB->BitShift_n4.y + (uint8_T)rtb_Switch1_or) + (uint8_T)
+                rtb_Subtract_idx_2);
 
               /* Switch: '<S576>/Switch2' incorporates:
                *  Constant: '<S560>/Constant14'
@@ -16922,7 +17396,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
               /* RelationalOperator: '<S576>/GreaterThan' incorporates:
                *  Constant: '<S576>/Constant'
                */
-              rtb_AND_kh = (rtb_Subtract_idx_0 < 0.0);
+              rtb_AND_ir = (rtb_Subtract_idx_0 < 0.0);
 
               /* Abs: '<S576>/Abs' */
               rtb_Subtract_idx_0 = fabs(rtb_Subtract_idx_0);
@@ -16934,10 +17408,10 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
               rtb_Subtract_idx_0 -= rtb_Switch1_or;
 
               /* DataTypeConversion: '<S576>/Cast' */
-              rtb_Cast_k3 = rtb_AND_kh;
+              rtb_Cast_h = rtb_AND_ir;
 
               /* Outputs for Atomic SubSystem: '<S576>/Bit Shift' */
-              BitShift1(rtb_Cast_k3, &localB->BitShift_f);
+              BitShift1(rtb_Cast_h, &localB->BitShift_fy);
 
               /* End of Outputs for SubSystem: '<S576>/Bit Shift' */
 
@@ -16945,13 +17419,13 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
               rtb_Switch1_or *= localC->Power1_kt;
 
               /* Product: '<S576>/Divide' */
-              rtb_Subtract_idx_1 = rtb_Subtract_idx_0 / localC->Power_gt;
+              rtb_Subtract_idx_2 = rtb_Subtract_idx_0 / localC->Power_gt;
 
               /* Rounding: '<S576>/Fix1' */
-              if (rtb_Subtract_idx_1 < 0.0) {
-                rtb_Subtract_idx_1 = ceil(rtb_Subtract_idx_1);
+              if (rtb_Subtract_idx_2 < 0.0) {
+                rtb_Subtract_idx_2 = ceil(rtb_Subtract_idx_2);
               } else {
-                rtb_Subtract_idx_1 = floor(rtb_Subtract_idx_1);
+                rtb_Subtract_idx_2 = floor(rtb_Subtract_idx_2);
               }
 
               /* End of Rounding: '<S576>/Fix1' */
@@ -16961,14 +17435,14 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
                *  DataTypeConversion: '<S576>/Cast2'
                */
               localB->Plus_in = (uint8_T)((uint32_T)(uint8_T)((uint32_T)
-                localB->BitShift_f.y + (uint8_T)rtb_Switch1_or) + (uint8_T)
-                rtb_Subtract_idx_1);
+                localB->BitShift_fy.y + (uint8_T)rtb_Switch1_or) + (uint8_T)
+                rtb_Subtract_idx_2);
             }
 
             /* End of Outputs for SubSystem: '<S556>/Msg_Value_Data_Encoded' */
 
             /* Outputs for Enabled SubSystem: '<S556>/Check msg transmission CAN1' */
-            CheckmsgtransmissionCAN1_m(rtb_AND_cl, rtb_DataStoreRead_d, 450.0,
+            CheckmsgtransmissionCAN1_m(rtb_AND_fqr, rtb_DataStoreRead_nyu, 450.0,
               localB->Plus_jl, localB->Plus_m, localB->Plus_ne, localB->Plus_in,
               localB->DataStoreRead4, localB->DataStoreRead5,
               localB->DataStoreRead6, &localB->CheckmsgtransmissionCAN1_mr,
@@ -16980,7 +17454,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
             /* End of Outputs for SubSystem: '<S556>/Check msg transmission CAN1' */
 
             /* Outputs for Enabled SubSystem: '<S556>/Check msg transmission CAN2' */
-            CheckmsgtransmissionCAN2_j(rtb_AND1_fb, rtb_DataStoreRead_d, 450.0,
+            CheckmsgtransmissionCAN2_j(rtb_AND1_ev, rtb_DataStoreRead_nyu, 450.0,
               localB->Plus_jl, localB->Plus_m, localB->Plus_ne, localB->Plus_in,
               localB->DataStoreRead4, localB->DataStoreRead5,
               localB->DataStoreRead6, &localB->CheckmsgtransmissionCAN2_i,
@@ -17093,16 +17567,16 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
           /* RelationalOperator: '<S458>/Equal12' incorporates:
            *  Constant: '<S458>/Constant66'
            */
-          rtb_AND_kh = (*rtd_Board_ID == 6.0);
+          rtb_AND_ir = (*rtd_Board_ID == 6.0);
 
           /* Logic: '<S458>/AND' incorporates:
            *  Logic: '<S458>/NOT'
            *  RelationalOperator: '<S458>/Equal1'
            */
-          rtb_AND_dlr = ((*rtd_BackUp_ID != *rtd_Board_ID) && (!rtb_AND_kh));
+          rtb_AND_kt = ((*rtd_BackUp_ID != *rtd_Board_ID) && (!rtb_AND_ir));
 
           /* Outputs for Enabled SubSystem: '<S458>/Reception substasks' */
-          Receptionsubstasks(rtb_AND_dlr, 160.0, &localB->Receptionsubstasks_ck,
+          Receptionsubstasks(rtb_AND_kt, 160.0, &localB->Receptionsubstasks_ck,
                              &localC->Receptionsubstasks_ck,
                              &localDW->Receptionsubstasks_ck, rtd_Local_Ticks,
                              &localDW->Msg_Rx_f, rtd_New_Msg_Ready_CAN1,
@@ -17115,33 +17589,33 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
           /* Outputs for Enabled SubSystem: '<S458>/Transmission subtasks' incorporates:
            *  EnablePort: '<S586>/Enable'
            */
-          if (rtb_AND_kh) {
+          if (rtb_AND_ir) {
             if (!localDW->Transmissionsubtasks_MODE_g) {
               localDW->Transmissionsubtasks_MODE_g = true;
             }
 
             /* DataStoreRead: '<S586>/Data Store Read' */
-            rtb_DataStoreRead_lb = *rtd_Local_Ticks;
+            rtb_DataStoreRead_dr = *rtd_Local_Ticks;
 
             /* RelationalOperator: '<S586>/Equal2' */
-            rtb_AND_kh = (rtb_DataStoreRead_lb > 160.0);
+            rtb_AND_ir = (rtb_DataStoreRead_dr > 160.0);
 
             /* Logic: '<S586>/AND' incorporates:
              *  Constant: '<S586>/Constant6'
              *  RelationalOperator: '<S586>/GreaterThan2'
              */
-            rtb_AND_ml = (rtb_AND_kh && (*rtd_Tx_msg_count_CAN1 <= 7.0));
+            rtb_AND_isx = (rtb_AND_ir && (*rtd_Tx_msg_count_CAN1 <= 7.0));
 
             /* Logic: '<S586>/AND1' incorporates:
              *  Constant: '<S586>/Constant7'
              *  RelationalOperator: '<S586>/GreaterThan3'
              */
-            rtb_AND1_by = (rtb_AND_kh && (*rtd_Tx_msg_count_CAN2 <= 7.0));
+            rtb_AND1_ib = (rtb_AND_ir && (*rtd_Tx_msg_count_CAN2 <= 7.0));
 
             /* Outputs for Enabled SubSystem: '<S586>/Msg_Value_Data_Encoded' incorporates:
              *  EnablePort: '<S590>/Enable'
              */
-            if (rtb_DataStoreRead_lb == 160.0) {
+            if (rtb_DataStoreRead_dr == 160.0) {
               localB->Constant_k = ((uint8_T)0U);
 
               /* Outputs for Atomic SubSystem: '<S603>/Bit Shift' */
@@ -17186,7 +17660,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
             /* End of Outputs for SubSystem: '<S586>/Msg_Value_Data_Encoded' */
 
             /* Outputs for Enabled SubSystem: '<S586>/Check msg transmission CAN1' */
-            CheckmsgtransmissionCAN1_p(rtb_AND_ml, rtb_DataStoreRead_lb, 160.0,
+            CheckmsgtransmissionCAN1_p(rtb_AND_isx, rtb_DataStoreRead_dr, 160.0,
               localB->Plus_nb, localB->Plus_d, localB->Plus_g, localB->Plus_l,
               localB->Constant_k, &localB->CheckmsgtransmissionCAN1_pq,
               &localC->CheckmsgtransmissionCAN1_pq,
@@ -17197,7 +17671,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
             /* End of Outputs for SubSystem: '<S586>/Check msg transmission CAN1' */
 
             /* Outputs for Enabled SubSystem: '<S586>/Check msg transmission CAN2' */
-            CheckmsgtransmissionCAN2_p(rtb_AND1_by, rtb_DataStoreRead_lb, 160.0,
+            CheckmsgtransmissionCAN2_p(rtb_AND1_ib, rtb_DataStoreRead_dr, 160.0,
               localB->Plus_nb, localB->Plus_d, localB->Plus_g, localB->Plus_l,
               localB->Constant_k, &localB->CheckmsgtransmissionCAN2_p5,
               &localC->CheckmsgtransmissionCAN2_p5,
@@ -17309,16 +17783,16 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
           /* RelationalOperator: '<S459>/Equal2' incorporates:
            *  Constant: '<S459>/Constant2'
            */
-          rtb_AND_kh = (*rtd_Board_ID == 5.0);
+          rtb_AND_ir = (*rtd_Board_ID == 5.0);
 
           /* Logic: '<S459>/AND' incorporates:
            *  Logic: '<S459>/NOT1'
            *  RelationalOperator: '<S459>/Equal1'
            */
-          rtb_AND_li = ((*rtd_BackUp_ID != *rtd_Board_ID) && (!rtb_AND_kh));
+          rtb_AND_bb = ((*rtd_BackUp_ID != *rtd_Board_ID) && (!rtb_AND_ir));
 
           /* Outputs for Enabled SubSystem: '<S459>/Reception substasks' */
-          Receptionsubstasks(rtb_AND_li, 90.0, &localB->Receptionsubstasks_j,
+          Receptionsubstasks(rtb_AND_bb, 90.0, &localB->Receptionsubstasks_j,
                              &localC->Receptionsubstasks_j,
                              &localDW->Receptionsubstasks_j, rtd_Local_Ticks,
                              &localDW->Msg_Rx_f, rtd_New_Msg_Ready_CAN1,
@@ -17331,33 +17805,33 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
           /* Outputs for Enabled SubSystem: '<S459>/Transmission subtasks' incorporates:
            *  EnablePort: '<S616>/Enable'
            */
-          if (rtb_AND_kh) {
+          if (rtb_AND_ir) {
             if (!localDW->Transmissionsubtasks_MODE_c) {
               localDW->Transmissionsubtasks_MODE_c = true;
             }
 
             /* DataStoreRead: '<S616>/Data Store Read' */
-            rtb_DataStoreRead_i = *rtd_Local_Ticks;
+            rtb_DataStoreRead_hq = *rtd_Local_Ticks;
 
             /* RelationalOperator: '<S616>/Equal2' */
-            rtb_AND_kh = (rtb_DataStoreRead_i > 90.0);
+            rtb_AND_ir = (rtb_DataStoreRead_hq > 90.0);
 
             /* Logic: '<S616>/AND' incorporates:
              *  Constant: '<S616>/Constant6'
              *  RelationalOperator: '<S616>/GreaterThan2'
              */
-            rtb_AND_a5 = (rtb_AND_kh && (*rtd_Tx_msg_count_CAN1 <= 7.0));
+            rtb_AND_bn = (rtb_AND_ir && (*rtd_Tx_msg_count_CAN1 <= 7.0));
 
             /* Logic: '<S616>/AND1' incorporates:
              *  Constant: '<S616>/Constant7'
              *  RelationalOperator: '<S616>/GreaterThan3'
              */
-            rtb_AND1_oz = (rtb_AND_kh && (*rtd_Tx_msg_count_CAN2 <= 7.0));
+            rtb_AND1_e = (rtb_AND_ir && (*rtd_Tx_msg_count_CAN2 <= 7.0));
 
             /* Outputs for Enabled SubSystem: '<S616>/Msg_Value_Data_Encoded' incorporates:
              *  EnablePort: '<S620>/Enable'
              */
-            if (rtb_DataStoreRead_i == 90.0) {
+            if (rtb_DataStoreRead_hq == 90.0) {
               localB->Constant_l = ((uint8_T)0U);
 
               /* Switch: '<S633>/Switch2' incorporates:
@@ -17384,7 +17858,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
               /* RelationalOperator: '<S633>/GreaterThan' incorporates:
                *  Constant: '<S633>/Constant'
                */
-              rtb_AND_kh = (rtb_Switch1_or < 0.0);
+              rtb_AND_ir = (rtb_Switch1_or < 0.0);
 
               /* Abs: '<S633>/Abs' */
               rtb_Switch1_or = fabs(rtb_Switch1_or);
@@ -17396,10 +17870,10 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
               rtb_Switch1_or -= rtb_Subtract_idx_0;
 
               /* DataTypeConversion: '<S633>/Cast' */
-              rtb_Cast_ai = rtb_AND_kh;
+              rtb_Cast_cl = rtb_AND_ir;
 
               /* Outputs for Atomic SubSystem: '<S633>/Bit Shift' */
-              BitShift1(rtb_Cast_ai, &localB->BitShift_p);
+              BitShift1(rtb_Cast_cl, &localB->BitShift_p);
 
               /* End of Outputs for SubSystem: '<S633>/Bit Shift' */
 
@@ -17407,13 +17881,13 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
               rtb_Subtract_idx_0 *= localC->Power1_gz;
 
               /* Product: '<S633>/Divide' */
-              rtb_Subtract_idx_1 = rtb_Switch1_or / localC->Power_ff;
+              rtb_Subtract_idx_2 = rtb_Switch1_or / localC->Power_ff;
 
               /* Rounding: '<S633>/Fix1' */
-              if (rtb_Subtract_idx_1 < 0.0) {
-                rtb_Subtract_idx_1 = ceil(rtb_Subtract_idx_1);
+              if (rtb_Subtract_idx_2 < 0.0) {
+                rtb_Subtract_idx_2 = ceil(rtb_Subtract_idx_2);
               } else {
-                rtb_Subtract_idx_1 = floor(rtb_Subtract_idx_1);
+                rtb_Subtract_idx_2 = floor(rtb_Subtract_idx_2);
               }
 
               /* End of Rounding: '<S633>/Fix1' */
@@ -17424,7 +17898,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
                */
               localB->Plus_jh = (uint8_T)((uint32_T)(uint8_T)((uint32_T)
                 localB->BitShift_p.y + (uint8_T)rtb_Subtract_idx_0) + (uint8_T)
-                rtb_Subtract_idx_1);
+                rtb_Subtract_idx_2);
 
               /* Switch: '<S634>/Switch2' incorporates:
                *  Constant: '<S620>/Constant12'
@@ -17449,7 +17923,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
               /* RelationalOperator: '<S634>/GreaterThan' incorporates:
                *  Constant: '<S634>/Constant'
                */
-              rtb_AND_kh = (rtb_Subtract_idx_0 < 0.0);
+              rtb_AND_ir = (rtb_Subtract_idx_0 < 0.0);
 
               /* Abs: '<S634>/Abs' */
               rtb_Subtract_idx_0 = fabs(rtb_Subtract_idx_0);
@@ -17461,10 +17935,10 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
               rtb_Subtract_idx_0 -= rtb_Switch1_or;
 
               /* DataTypeConversion: '<S634>/Cast' */
-              rtb_Cast_o = rtb_AND_kh;
+              rtb_Cast_o5 = rtb_AND_ir;
 
               /* Outputs for Atomic SubSystem: '<S634>/Bit Shift' */
-              BitShift1(rtb_Cast_o, &localB->BitShift_k);
+              BitShift1(rtb_Cast_o5, &localB->BitShift_k);
 
               /* End of Outputs for SubSystem: '<S634>/Bit Shift' */
 
@@ -17472,13 +17946,13 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
               rtb_Switch1_or *= localC->Power1_ag;
 
               /* Product: '<S634>/Divide' */
-              rtb_Subtract_idx_1 = rtb_Subtract_idx_0 / localC->Power_fb;
+              rtb_Subtract_idx_2 = rtb_Subtract_idx_0 / localC->Power_fb;
 
               /* Rounding: '<S634>/Fix1' */
-              if (rtb_Subtract_idx_1 < 0.0) {
-                rtb_Subtract_idx_1 = ceil(rtb_Subtract_idx_1);
+              if (rtb_Subtract_idx_2 < 0.0) {
+                rtb_Subtract_idx_2 = ceil(rtb_Subtract_idx_2);
               } else {
-                rtb_Subtract_idx_1 = floor(rtb_Subtract_idx_1);
+                rtb_Subtract_idx_2 = floor(rtb_Subtract_idx_2);
               }
 
               /* End of Rounding: '<S634>/Fix1' */
@@ -17489,7 +17963,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
                */
               localB->Plus_bx = (uint8_T)((uint32_T)(uint8_T)((uint32_T)
                 localB->BitShift_k.y + (uint8_T)rtb_Switch1_or) + (uint8_T)
-                rtb_Subtract_idx_1);
+                rtb_Subtract_idx_2);
 
               /* Switch: '<S635>/Switch2' incorporates:
                *  Constant: '<S620>/Constant10'
@@ -17514,7 +17988,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
               /* RelationalOperator: '<S635>/GreaterThan' incorporates:
                *  Constant: '<S635>/Constant'
                */
-              rtb_AND_kh = (rtb_Subtract_idx_0 < 0.0);
+              rtb_AND_ir = (rtb_Subtract_idx_0 < 0.0);
 
               /* Abs: '<S635>/Abs' */
               rtb_Subtract_idx_0 = fabs(rtb_Subtract_idx_0);
@@ -17526,10 +18000,10 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
               rtb_Subtract_idx_0 -= rtb_Switch1_or;
 
               /* DataTypeConversion: '<S635>/Cast' */
-              rtb_Cast_a = rtb_AND_kh;
+              rtb_Cast_fv = rtb_AND_ir;
 
               /* Outputs for Atomic SubSystem: '<S635>/Bit Shift' */
-              BitShift1(rtb_Cast_a, &localB->BitShift_d);
+              BitShift1(rtb_Cast_fv, &localB->BitShift_dk);
 
               /* End of Outputs for SubSystem: '<S635>/Bit Shift' */
 
@@ -17537,13 +18011,13 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
               rtb_Switch1_or *= localC->Power1_ly;
 
               /* Product: '<S635>/Divide' */
-              rtb_Subtract_idx_1 = rtb_Subtract_idx_0 / localC->Power_l0;
+              rtb_Subtract_idx_2 = rtb_Subtract_idx_0 / localC->Power_l0;
 
               /* Rounding: '<S635>/Fix1' */
-              if (rtb_Subtract_idx_1 < 0.0) {
-                rtb_Subtract_idx_1 = ceil(rtb_Subtract_idx_1);
+              if (rtb_Subtract_idx_2 < 0.0) {
+                rtb_Subtract_idx_2 = ceil(rtb_Subtract_idx_2);
               } else {
-                rtb_Subtract_idx_1 = floor(rtb_Subtract_idx_1);
+                rtb_Subtract_idx_2 = floor(rtb_Subtract_idx_2);
               }
 
               /* End of Rounding: '<S635>/Fix1' */
@@ -17553,14 +18027,14 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
                *  DataTypeConversion: '<S635>/Cast2'
                */
               localB->Plus_jp = (uint8_T)((uint32_T)(uint8_T)((uint32_T)
-                localB->BitShift_d.y + (uint8_T)rtb_Switch1_or) + (uint8_T)
-                rtb_Subtract_idx_1);
+                localB->BitShift_dk.y + (uint8_T)rtb_Switch1_or) + (uint8_T)
+                rtb_Subtract_idx_2);
             }
 
             /* End of Outputs for SubSystem: '<S616>/Msg_Value_Data_Encoded' */
 
             /* Outputs for Enabled SubSystem: '<S616>/Check msg transmission CAN1' */
-            CheckmsgtransmissionCAN1(rtb_AND_a5, rtb_DataStoreRead_i, 90.0,
+            CheckmsgtransmissionCAN1(rtb_AND_bn, rtb_DataStoreRead_hq, 90.0,
               localB->Plus_jp, localB->Plus_jh, localB->Plus_bx,
               localB->Constant_l, &localB->CheckmsgtransmissionCAN1_mx,
               &localC->CheckmsgtransmissionCAN1_mx,
@@ -17571,7 +18045,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
             /* End of Outputs for SubSystem: '<S616>/Check msg transmission CAN1' */
 
             /* Outputs for Enabled SubSystem: '<S616>/Check msg transmission CAN2' */
-            CheckmsgtransmissionCAN2(rtb_AND1_oz, rtb_DataStoreRead_i, 90.0,
+            CheckmsgtransmissionCAN2(rtb_AND1_e, rtb_DataStoreRead_hq, 90.0,
               localB->Plus_jp, localB->Plus_jh, localB->Plus_bx,
               localB->Constant_l, &localB->CheckmsgtransmissionCAN2_in,
               &localC->CheckmsgtransmissionCAN2_in,
@@ -17777,6 +18251,8 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
          *  Constant: '<S472>/Constant'
          *  Constant: '<S474>/Constant1'
          *  Constant: '<S480>/Constant'
+         *  Constant: '<S499>/Constant'
+         *  Constant: '<S530>/Constant'
          *  Constant: '<S590>/Constant'
          *  Constant: '<S620>/Constant'
          *  DataStoreRead: '<S176>/Data Store Read11'
@@ -17899,6 +18375,8 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
          *  RelationalOperator: '<S473>/Equal3'
          *  RelationalOperator: '<S474>/Equal3'
          *  RelationalOperator: '<S476>/Equal16'
+         *  RelationalOperator: '<S495>/Equal16'
+         *  RelationalOperator: '<S526>/Equal16'
          *  RelationalOperator: '<S556>/Equal16'
          *  RelationalOperator: '<S586>/Equal16'
          *  RelationalOperator: '<S616>/Equal16'
@@ -17906,10 +18384,9 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
         localB->OR1_p = (localB->Transmissionsubtasks1_h.Equal7_a ||
                          localB->CheckmsgtransmissionCAN1_mx.Equal7 ||
                          localB->CheckmsgtransmissionCAN1_pq.Equal7 ||
-                         localB->Transmissionsubtasks1_n.CheckmsgtransmissionCAN1_ma.Equal7
-                         ||
-                         localB->Transmissionsubtasks_j.CheckmsgtransmissionCAN1_ma.Equal7
-                         || localB->CheckmsgtransmissionCAN1_mr.Equal7 ||
+                         localB->CheckmsgtransmissionCAN1_ma.Equal7 ||
+                         localB->CheckmsgtransmissionCAN1_o.Equal7 ||
+                         localB->CheckmsgtransmissionCAN1_mr.Equal7 ||
                          localB->CheckmsgtransmissionCAN1_e.Equal7);
 
         /* Logic: '<S176>/OR2' */
@@ -17934,10 +18411,9 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
         localB->OR4_en = (localB->Transmissionsubtasks1_h.Equal7 ||
                           localB->CheckmsgtransmissionCAN2_in.Equal7 ||
                           localB->CheckmsgtransmissionCAN2_p5.Equal7 ||
-                          localB->Transmissionsubtasks1_n.CheckmsgtransmissionCAN2_j4.Equal7
-                          ||
-                          localB->Transmissionsubtasks_j.CheckmsgtransmissionCAN2_j4.Equal7
-                          || localB->CheckmsgtransmissionCAN2_i.Equal7 ||
+                          localB->CheckmsgtransmissionCAN2_j4.Equal7 ||
+                          localB->CheckmsgtransmissionCAN2_b.Equal7 ||
+                          localB->CheckmsgtransmissionCAN2_i.Equal7 ||
                           localB->CheckmsgtransmissionCAN2_n.Equal7);
       } else {
         if (localDW->controllerbasiccycle1_MODE) {
@@ -18228,23 +18704,45 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
             /* End of Disable for SubSystem: '<S455>/Reception substasks' */
 
             /* Disable for Enabled SubSystem: '<S455>/Transmission subtasks1' */
-            if (localDW->Transmissionsubtasks1_n.Transmissionsubtasks1_MODE) {
-              Transmissionsubtasks1_Disable(&localB->Transmissionsubtasks1_n,
-                &localDW->Transmissionsubtasks1_n);
+            if (localDW->Transmissionsubtasks1_MODE) {
+              /* Disable for Enabled SubSystem: '<S495>/Check msg transmission CAN1' */
+              if (localDW->CheckmsgtransmissionCAN1_ma.CheckmsgtransmissionCAN1_MODE)
+              {
+                CheckmsgtransmissionC_a_Disable
+                  (&localB->CheckmsgtransmissionCAN1_ma,
+                   &localDW->CheckmsgtransmissionCAN1_ma);
+              }
+
+              /* End of Disable for SubSystem: '<S495>/Check msg transmission CAN1' */
+
+              /* Disable for Enabled SubSystem: '<S495>/Check msg transmission CAN2' */
+              if (localDW->CheckmsgtransmissionCAN2_j4.CheckmsgtransmissionCAN2_MODE)
+              {
+                Checkmsgtransmission_al_Disable
+                  (&localB->CheckmsgtransmissionCAN2_j4,
+                   &localDW->CheckmsgtransmissionCAN2_j4);
+              }
+
+              /* End of Disable for SubSystem: '<S495>/Check msg transmission CAN2' */
+
+              /* Disable for Outport: '<S495>/Send CAN1' */
+              localB->CheckmsgtransmissionCAN1_ma.Equal7 = false;
+
+              /* Disable for Outport: '<S495>/Send CAN2' */
+              localB->CheckmsgtransmissionCAN2_j4.Equal7 = false;
+              localDW->Transmissionsubtasks1_MODE = false;
             }
 
             /* End of Disable for SubSystem: '<S455>/Transmission subtasks1' */
 
             /* Disable for Outport: '<S455>/Send CAN1' */
-            localB->Transmissionsubtasks1_n.CheckmsgtransmissionCAN1_ma.Equal7 =
-              false;
+            localB->CheckmsgtransmissionCAN1_ma.Equal7 = false;
 
             /* Disable for Outport: '<S455>/Receive CAN1' */
             localB->Receptionsubstasks_m.AND = false;
 
             /* Disable for Outport: '<S455>/Send CAN2' */
-            localB->Transmissionsubtasks1_n.CheckmsgtransmissionCAN2_j4.Equal7 =
-              false;
+            localB->CheckmsgtransmissionCAN2_j4.Equal7 = false;
 
             /* Disable for Outport: '<S455>/Receive CAN2' */
             localB->Receptionsubstasks_m.AND1 = false;
@@ -18264,23 +18762,45 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
             /* End of Disable for SubSystem: '<S456>/Reception substasks' */
 
             /* Disable for Enabled SubSystem: '<S456>/Transmission subtasks' */
-            if (localDW->Transmissionsubtasks_j.Transmissionsubtasks1_MODE) {
-              Transmissionsubtasks1_Disable(&localB->Transmissionsubtasks_j,
-                &localDW->Transmissionsubtasks_j);
+            if (localDW->Transmissionsubtasks_MODE_i3) {
+              /* Disable for Enabled SubSystem: '<S526>/Check msg transmission CAN1' */
+              if (localDW->CheckmsgtransmissionCAN1_o.CheckmsgtransmissionCAN1_MODE)
+              {
+                CheckmsgtransmissionC_a_Disable
+                  (&localB->CheckmsgtransmissionCAN1_o,
+                   &localDW->CheckmsgtransmissionCAN1_o);
+              }
+
+              /* End of Disable for SubSystem: '<S526>/Check msg transmission CAN1' */
+
+              /* Disable for Enabled SubSystem: '<S526>/Check msg transmission CAN2' */
+              if (localDW->CheckmsgtransmissionCAN2_b.CheckmsgtransmissionCAN2_MODE)
+              {
+                Checkmsgtransmission_al_Disable
+                  (&localB->CheckmsgtransmissionCAN2_b,
+                   &localDW->CheckmsgtransmissionCAN2_b);
+              }
+
+              /* End of Disable for SubSystem: '<S526>/Check msg transmission CAN2' */
+
+              /* Disable for Outport: '<S526>/Send CAN1' */
+              localB->CheckmsgtransmissionCAN1_o.Equal7 = false;
+
+              /* Disable for Outport: '<S526>/Send CAN2' */
+              localB->CheckmsgtransmissionCAN2_b.Equal7 = false;
+              localDW->Transmissionsubtasks_MODE_i3 = false;
             }
 
             /* End of Disable for SubSystem: '<S456>/Transmission subtasks' */
 
             /* Disable for Outport: '<S456>/Send CAN1' */
-            localB->Transmissionsubtasks_j.CheckmsgtransmissionCAN1_ma.Equal7 =
-              false;
+            localB->CheckmsgtransmissionCAN1_o.Equal7 = false;
 
             /* Disable for Outport: '<S456>/Receive CAN1' */
             localB->Receptionsubstasks_k.AND = false;
 
             /* Disable for Outport: '<S456>/Send CAN2' */
-            localB->Transmissionsubtasks_j.CheckmsgtransmissionCAN2_j4.Equal7 =
-              false;
+            localB->CheckmsgtransmissionCAN2_b.Equal7 = false;
 
             /* Disable for Outport: '<S456>/Receive CAN2' */
             localB->Receptionsubstasks_k.AND1 = false;
@@ -18578,6 +19098,8 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
        *  Constant: '<S472>/Constant'
        *  Constant: '<S474>/Constant1'
        *  Constant: '<S480>/Constant'
+       *  Constant: '<S499>/Constant'
+       *  Constant: '<S530>/Constant'
        *  Constant: '<S590>/Constant'
        *  Constant: '<S620>/Constant'
        *  DataStoreRead: '<S144>/Data Store Read10'
@@ -18798,6 +19320,8 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
        *  RelationalOperator: '<S473>/Equal3'
        *  RelationalOperator: '<S474>/Equal3'
        *  RelationalOperator: '<S476>/Equal16'
+       *  RelationalOperator: '<S495>/Equal16'
+       *  RelationalOperator: '<S526>/Equal16'
        *  RelationalOperator: '<S556>/Equal16'
        *  RelationalOperator: '<S586>/Equal16'
        *  RelationalOperator: '<S616>/Equal16'
@@ -19419,23 +19943,45 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
             /* End of Disable for SubSystem: '<S455>/Reception substasks' */
 
             /* Disable for Enabled SubSystem: '<S455>/Transmission subtasks1' */
-            if (localDW->Transmissionsubtasks1_n.Transmissionsubtasks1_MODE) {
-              Transmissionsubtasks1_Disable(&localB->Transmissionsubtasks1_n,
-                &localDW->Transmissionsubtasks1_n);
+            if (localDW->Transmissionsubtasks1_MODE) {
+              /* Disable for Enabled SubSystem: '<S495>/Check msg transmission CAN1' */
+              if (localDW->CheckmsgtransmissionCAN1_ma.CheckmsgtransmissionCAN1_MODE)
+              {
+                CheckmsgtransmissionC_a_Disable
+                  (&localB->CheckmsgtransmissionCAN1_ma,
+                   &localDW->CheckmsgtransmissionCAN1_ma);
+              }
+
+              /* End of Disable for SubSystem: '<S495>/Check msg transmission CAN1' */
+
+              /* Disable for Enabled SubSystem: '<S495>/Check msg transmission CAN2' */
+              if (localDW->CheckmsgtransmissionCAN2_j4.CheckmsgtransmissionCAN2_MODE)
+              {
+                Checkmsgtransmission_al_Disable
+                  (&localB->CheckmsgtransmissionCAN2_j4,
+                   &localDW->CheckmsgtransmissionCAN2_j4);
+              }
+
+              /* End of Disable for SubSystem: '<S495>/Check msg transmission CAN2' */
+
+              /* Disable for Outport: '<S495>/Send CAN1' */
+              localB->CheckmsgtransmissionCAN1_ma.Equal7 = false;
+
+              /* Disable for Outport: '<S495>/Send CAN2' */
+              localB->CheckmsgtransmissionCAN2_j4.Equal7 = false;
+              localDW->Transmissionsubtasks1_MODE = false;
             }
 
             /* End of Disable for SubSystem: '<S455>/Transmission subtasks1' */
 
             /* Disable for Outport: '<S455>/Send CAN1' */
-            localB->Transmissionsubtasks1_n.CheckmsgtransmissionCAN1_ma.Equal7 =
-              false;
+            localB->CheckmsgtransmissionCAN1_ma.Equal7 = false;
 
             /* Disable for Outport: '<S455>/Receive CAN1' */
             localB->Receptionsubstasks_m.AND = false;
 
             /* Disable for Outport: '<S455>/Send CAN2' */
-            localB->Transmissionsubtasks1_n.CheckmsgtransmissionCAN2_j4.Equal7 =
-              false;
+            localB->CheckmsgtransmissionCAN2_j4.Equal7 = false;
 
             /* Disable for Outport: '<S455>/Receive CAN2' */
             localB->Receptionsubstasks_m.AND1 = false;
@@ -19455,23 +20001,45 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
             /* End of Disable for SubSystem: '<S456>/Reception substasks' */
 
             /* Disable for Enabled SubSystem: '<S456>/Transmission subtasks' */
-            if (localDW->Transmissionsubtasks_j.Transmissionsubtasks1_MODE) {
-              Transmissionsubtasks1_Disable(&localB->Transmissionsubtasks_j,
-                &localDW->Transmissionsubtasks_j);
+            if (localDW->Transmissionsubtasks_MODE_i3) {
+              /* Disable for Enabled SubSystem: '<S526>/Check msg transmission CAN1' */
+              if (localDW->CheckmsgtransmissionCAN1_o.CheckmsgtransmissionCAN1_MODE)
+              {
+                CheckmsgtransmissionC_a_Disable
+                  (&localB->CheckmsgtransmissionCAN1_o,
+                   &localDW->CheckmsgtransmissionCAN1_o);
+              }
+
+              /* End of Disable for SubSystem: '<S526>/Check msg transmission CAN1' */
+
+              /* Disable for Enabled SubSystem: '<S526>/Check msg transmission CAN2' */
+              if (localDW->CheckmsgtransmissionCAN2_b.CheckmsgtransmissionCAN2_MODE)
+              {
+                Checkmsgtransmission_al_Disable
+                  (&localB->CheckmsgtransmissionCAN2_b,
+                   &localDW->CheckmsgtransmissionCAN2_b);
+              }
+
+              /* End of Disable for SubSystem: '<S526>/Check msg transmission CAN2' */
+
+              /* Disable for Outport: '<S526>/Send CAN1' */
+              localB->CheckmsgtransmissionCAN1_o.Equal7 = false;
+
+              /* Disable for Outport: '<S526>/Send CAN2' */
+              localB->CheckmsgtransmissionCAN2_b.Equal7 = false;
+              localDW->Transmissionsubtasks_MODE_i3 = false;
             }
 
             /* End of Disable for SubSystem: '<S456>/Transmission subtasks' */
 
             /* Disable for Outport: '<S456>/Send CAN1' */
-            localB->Transmissionsubtasks_j.CheckmsgtransmissionCAN1_ma.Equal7 =
-              false;
+            localB->CheckmsgtransmissionCAN1_o.Equal7 = false;
 
             /* Disable for Outport: '<S456>/Receive CAN1' */
             localB->Receptionsubstasks_k.AND = false;
 
             /* Disable for Outport: '<S456>/Send CAN2' */
-            localB->Transmissionsubtasks_j.CheckmsgtransmissionCAN2_j4.Equal7 =
-              false;
+            localB->CheckmsgtransmissionCAN2_b.Equal7 = false;
 
             /* Disable for Outport: '<S456>/Receive CAN2' */
             localB->Receptionsubstasks_k.AND1 = false;
@@ -19786,6 +20354,8 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
      *  Constant: '<S472>/Constant'
      *  Constant: '<S474>/Constant1'
      *  Constant: '<S480>/Constant'
+     *  Constant: '<S499>/Constant'
+     *  Constant: '<S530>/Constant'
      *  Constant: '<S590>/Constant'
      *  Constant: '<S620>/Constant'
      *  DataStoreRead: '<S144>/Data Store Read10'
@@ -20006,6 +20576,8 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
      *  RelationalOperator: '<S473>/Equal3'
      *  RelationalOperator: '<S474>/Equal3'
      *  RelationalOperator: '<S476>/Equal16'
+     *  RelationalOperator: '<S495>/Equal16'
+     *  RelationalOperator: '<S526>/Equal16'
      *  RelationalOperator: '<S556>/Equal16'
      *  RelationalOperator: '<S586>/Equal16'
      *  RelationalOperator: '<S616>/Equal16'
@@ -20025,12 +20597,12 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
        *  Constant: '<S172>/Constant'
        *  DataStoreRead: '<S144>/Data Store Read10'
        */
-      rtb_AND_kh = (localDW->basic_cycle_count == 0.0);
+      rtb_AND_ir = (localDW->basic_cycle_count == 0.0);
 
       /* Outputs for Enabled SubSystem: '<S172>/input generator basic cycle 0' incorporates:
        *  EnablePort: '<S1015>/Enable'
        */
-      if (rtb_AND_kh) {
+      if (rtb_AND_ir) {
         if (!localDW->inputgeneratorbasiccycle0_MODE) {
           localDW->inputgeneratorbasiccycle0_MODE = true;
         }
@@ -20078,10 +20650,10 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
            *  Constant: '<S1015>/Constant4'
            *  RelationalOperator: '<S1019>/Equal1'
            */
-          rtb_AND_kp = ((*rtd_Local_Ticks == 92.0) && reset_ing_s);
+          rtb_AND_nk = ((*rtd_Local_Ticks == 92.0) && reset_ing_s);
 
           /* Outputs for Enabled SubSystem: '<S1019>/RESET Board - Return to initialization' */
-          RESETBoardReturntoinitializatio(rtb_AND_kp,
+          RESETBoardReturntoinitializatio(rtb_AND_nk,
             &localC->RESETBoardReturntoinitializat_p, &localDW->Desync_Positive,
             &localDW->Initialization_flag, rtd_Master_ID, rtd_New_Msg_Ready_CAN1,
             rtd_New_Msg_Ready_CAN2, &localDW->Reset_Board_j, &localDW->Role_ID,
@@ -20099,10 +20671,10 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
         if ((*rtd_Local_Ticks >= 510.0) && (*rtd_Local_Ticks < localC->Sum16_n))
         {
           /* RelationalOperator: '<S1020>/Equal2' */
-          rtb_Equal2_mh3 = (*rtd_Local_Ticks == 510.0);
+          rtb_Equal2_os = (*rtd_Local_Ticks == 510.0);
 
           /* Outputs for Enabled SubSystem: '<S1020>/Reset variables' */
-          Resetvariables(rtb_Equal2_mh3, &localDW->BC0_Sync_processed,
+          Resetvariables(rtb_Equal2_os, &localDW->BC0_Sync_processed,
                          &localDW->Desync_Positive, rtd_Toggle_Pin_A0);
 
           /* End of Outputs for SubSystem: '<S1020>/Reset variables' */
@@ -20299,10 +20871,10 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
            *  Logic: '<S1021>/AND'
            *  Logic: '<S1021>/NOT'
            */
-          rtb_AND1_g1 = (rtb_AND10_m && (!rtb_AND6_p));
+          rtb_AND1_lmv = (rtb_AND10_m && (!rtb_AND6_p));
 
           /* Outputs for Enabled SubSystem: '<S1021>/Reset Tx msg counter' */
-          ResetTxmsgcounter(rtb_AND1_g1, rtd_Tx_msg_count_CAN1,
+          ResetTxmsgcounter(rtb_AND1_lmv, rtd_Tx_msg_count_CAN1,
                             rtd_Tx_msg_count_CAN2);
 
           /* End of Outputs for SubSystem: '<S1021>/Reset Tx msg counter' */
@@ -20367,10 +20939,10 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
            *  Logic: '<S1022>/AND2'
            *  RelationalOperator: '<S1022>/Equal3'
            */
-          rtb_AND_ix = (rtb_AND10_m && localDW->new_msg_Rx_i);
+          rtb_AND_i1 = (rtb_AND10_m && localDW->new_msg_Rx_i);
 
           /* Outputs for Enabled SubSystem: '<S1022>/Local Time Update' */
-          LocalTimeUpdate_e(rtb_AND_ix, 70.0, &localDW->BC0_Sync_processed,
+          LocalTimeUpdate_e(rtb_AND_i1, 70.0, &localDW->BC0_Sync_processed,
                             &localDW->Desync_Positive, &localDW->Desync_Ticks,
                             rtd_Local_Ticks, rtd_Toggle_Pin_A0,
                             &localDW->Toggle_Pin_D10);
@@ -20633,10 +21205,10 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
            *  RelationalOperator: '<S1081>/Equal'
            *  RelationalOperator: '<S1081>/Equal13'
            */
-          rtb_AND1_bg = ((*rtd_Local_Ticks == 140.0) && (*rtd_Board_ID == 5.0));
+          rtb_AND1_ml = ((*rtd_Local_Ticks == 140.0) && (*rtd_Board_ID == 5.0));
 
           /* Outputs for Enabled SubSystem: '<S1081>/Reset Tx msg counter' */
-          ResetTxmsgcounter(rtb_AND1_bg, rtd_Tx_msg_count_CAN1,
+          ResetTxmsgcounter(rtb_AND1_ml, rtd_Tx_msg_count_CAN1,
                             rtd_Tx_msg_count_CAN2);
 
           /* End of Outputs for SubSystem: '<S1081>/Reset Tx msg counter' */
@@ -20856,10 +21428,10 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
            *  Logic: '<S1082>/AND'
            *  Logic: '<S1082>/NOT'
            */
-          rtb_AND1_al = (rtb_AND10_m && (!rtb_AND6_p));
+          rtb_AND1_o = (rtb_AND10_m && (!rtb_AND6_p));
 
           /* Outputs for Enabled SubSystem: '<S1082>/Reset Tx msg counter' */
-          ResetTxmsgcounter(rtb_AND1_al, rtd_Tx_msg_count_CAN1,
+          ResetTxmsgcounter(rtb_AND1_o, rtd_Tx_msg_count_CAN1,
                             rtd_Tx_msg_count_CAN2);
 
           /* End of Outputs for SubSystem: '<S1082>/Reset Tx msg counter' */
@@ -21017,27 +21589,27 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
             }
 
             /* DataStoreRead: '<S1085>/Data Store Read' */
-            rtb_DataStoreRead_a = *rtd_Local_Ticks;
+            rtb_DataStoreRead_kr = *rtd_Local_Ticks;
 
             /* RelationalOperator: '<S1085>/Equal2' */
-            rtb_AND10_m = (rtb_DataStoreRead_a > 90.0);
+            rtb_AND10_m = (rtb_DataStoreRead_kr > 90.0);
 
             /* Logic: '<S1085>/AND' incorporates:
              *  Constant: '<S1085>/Constant6'
              *  RelationalOperator: '<S1085>/GreaterThan2'
              */
-            rtb_AND_h = (rtb_AND10_m && (*rtd_Tx_msg_count_CAN1 <= 7.0));
+            rtb_AND_gl = (rtb_AND10_m && (*rtd_Tx_msg_count_CAN1 <= 7.0));
 
             /* Logic: '<S1085>/AND1' incorporates:
              *  Constant: '<S1085>/Constant7'
              *  RelationalOperator: '<S1085>/GreaterThan3'
              */
-            rtb_AND1_e = (rtb_AND10_m && (*rtd_Tx_msg_count_CAN2 <= 7.0));
+            rtb_AND1_l = (rtb_AND10_m && (*rtd_Tx_msg_count_CAN2 <= 7.0));
 
             /* Outputs for Enabled SubSystem: '<S1085>/Msg_Value_Data_Encoded' incorporates:
              *  EnablePort: '<S1089>/Enable'
              */
-            if (rtb_DataStoreRead_a == 90.0) {
+            if (rtb_DataStoreRead_kr == 90.0) {
               localB->Constant_c = ((uint8_T)0U);
               v_set_s = v_set;
 
@@ -21078,10 +21650,10 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
               rtb_Switch1_or -= rtb_Subtract_idx_0;
 
               /* DataTypeConversion: '<S1102>/Cast' */
-              rtb_Cast_c = rtb_AND10_m;
+              rtb_Cast_ho = rtb_AND10_m;
 
               /* Outputs for Atomic SubSystem: '<S1102>/Bit Shift' */
-              BitShift1(rtb_Cast_c, &localB->BitShift_ad);
+              BitShift1(rtb_Cast_ho, &localB->BitShift_ad);
 
               /* End of Outputs for SubSystem: '<S1102>/Bit Shift' */
 
@@ -21089,13 +21661,13 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
               rtb_Subtract_idx_0 *= localC->Power1_gd;
 
               /* Product: '<S1102>/Divide' */
-              rtb_Subtract_idx_1 = rtb_Switch1_or / localC->Power_f2;
+              rtb_Subtract_idx_2 = rtb_Switch1_or / localC->Power_f2;
 
               /* Rounding: '<S1102>/Fix1' */
-              if (rtb_Subtract_idx_1 < 0.0) {
-                rtb_Subtract_idx_1 = ceil(rtb_Subtract_idx_1);
+              if (rtb_Subtract_idx_2 < 0.0) {
+                rtb_Subtract_idx_2 = ceil(rtb_Subtract_idx_2);
               } else {
-                rtb_Subtract_idx_1 = floor(rtb_Subtract_idx_1);
+                rtb_Subtract_idx_2 = floor(rtb_Subtract_idx_2);
               }
 
               /* End of Rounding: '<S1102>/Fix1' */
@@ -21106,7 +21678,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
                */
               localB->Plus_j = (uint8_T)((uint32_T)(uint8_T)((uint32_T)
                 localB->BitShift_ad.y + (uint8_T)rtb_Subtract_idx_0) + (uint8_T)
-                rtb_Subtract_idx_1);
+                rtb_Subtract_idx_2);
 
               /* Switch: '<S1103>/Switch2' incorporates:
                *  Constant: '<S1089>/Constant8'
@@ -21142,10 +21714,10 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
               rtb_Subtract_idx_0 -= rtb_Switch1_or;
 
               /* DataTypeConversion: '<S1103>/Cast' */
-              rtb_Cast_nn = rtb_AND10_m;
+              rtb_Cast_hz = rtb_AND10_m;
 
               /* Outputs for Atomic SubSystem: '<S1103>/Bit Shift' */
-              BitShift1(rtb_Cast_nn, &localB->BitShift_ns);
+              BitShift1(rtb_Cast_hz, &localB->BitShift_ns);
 
               /* End of Outputs for SubSystem: '<S1103>/Bit Shift' */
 
@@ -21153,13 +21725,13 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
               rtb_Switch1_or *= localC->Power1_f5;
 
               /* Product: '<S1103>/Divide' */
-              rtb_Subtract_idx_1 = rtb_Subtract_idx_0 / localC->Power_c;
+              rtb_Subtract_idx_2 = rtb_Subtract_idx_0 / localC->Power_c;
 
               /* Rounding: '<S1103>/Fix1' */
-              if (rtb_Subtract_idx_1 < 0.0) {
-                rtb_Subtract_idx_1 = ceil(rtb_Subtract_idx_1);
+              if (rtb_Subtract_idx_2 < 0.0) {
+                rtb_Subtract_idx_2 = ceil(rtb_Subtract_idx_2);
               } else {
-                rtb_Subtract_idx_1 = floor(rtb_Subtract_idx_1);
+                rtb_Subtract_idx_2 = floor(rtb_Subtract_idx_2);
               }
 
               /* End of Rounding: '<S1103>/Fix1' */
@@ -21170,7 +21742,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
                */
               localB->Plus_b = (uint8_T)((uint32_T)(uint8_T)((uint32_T)
                 localB->BitShift_ns.y + (uint8_T)rtb_Switch1_or) + (uint8_T)
-                rtb_Subtract_idx_1);
+                rtb_Subtract_idx_2);
 
               /* Switch: '<S1104>/Switch2' incorporates:
                *  Constant: '<S1089>/Constant10'
@@ -21207,10 +21779,10 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
               rtb_Subtract_idx_0 -= rtb_Switch1_or;
 
               /* DataTypeConversion: '<S1104>/Cast' */
-              rtb_Cast_jf = rtb_AND10_m;
+              rtb_Cast_c = rtb_AND10_m;
 
               /* Outputs for Atomic SubSystem: '<S1104>/Bit Shift' */
-              BitShift1(rtb_Cast_jf, &localB->BitShift_c);
+              BitShift1(rtb_Cast_c, &localB->BitShift_c1);
 
               /* End of Outputs for SubSystem: '<S1104>/Bit Shift' */
 
@@ -21218,13 +21790,13 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
               rtb_Switch1_or *= localC->Power1_l;
 
               /* Product: '<S1104>/Divide' */
-              rtb_Subtract_idx_1 = rtb_Subtract_idx_0 / localC->Power_j;
+              rtb_Subtract_idx_2 = rtb_Subtract_idx_0 / localC->Power_j;
 
               /* Rounding: '<S1104>/Fix1' */
-              if (rtb_Subtract_idx_1 < 0.0) {
-                rtb_Subtract_idx_1 = ceil(rtb_Subtract_idx_1);
+              if (rtb_Subtract_idx_2 < 0.0) {
+                rtb_Subtract_idx_2 = ceil(rtb_Subtract_idx_2);
               } else {
-                rtb_Subtract_idx_1 = floor(rtb_Subtract_idx_1);
+                rtb_Subtract_idx_2 = floor(rtb_Subtract_idx_2);
               }
 
               /* End of Rounding: '<S1104>/Fix1' */
@@ -21234,14 +21806,14 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
                *  DataTypeConversion: '<S1104>/Cast2'
                */
               localB->Plus_cz = (uint8_T)((uint32_T)(uint8_T)((uint32_T)
-                localB->BitShift_c.y + (uint8_T)rtb_Switch1_or) + (uint8_T)
-                rtb_Subtract_idx_1);
+                localB->BitShift_c1.y + (uint8_T)rtb_Switch1_or) + (uint8_T)
+                rtb_Subtract_idx_2);
             }
 
             /* End of Outputs for SubSystem: '<S1085>/Msg_Value_Data_Encoded' */
 
             /* Outputs for Enabled SubSystem: '<S1085>/Check msg transmission CAN1' */
-            CheckmsgtransmissionCAN1(rtb_AND_h, rtb_DataStoreRead_a, 90.0,
+            CheckmsgtransmissionCAN1(rtb_AND_gl, rtb_DataStoreRead_kr, 90.0,
               localB->Plus_cz, localB->Plus_j, localB->Plus_b,
               localB->Constant_c, &localB->CheckmsgtransmissionCAN1_a,
               &localC->CheckmsgtransmissionCAN1_a,
@@ -21252,7 +21824,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
             /* End of Outputs for SubSystem: '<S1085>/Check msg transmission CAN1' */
 
             /* Outputs for Enabled SubSystem: '<S1085>/Check msg transmission CAN2' */
-            CheckmsgtransmissionCAN2(rtb_AND1_e, rtb_DataStoreRead_a, 90.0,
+            CheckmsgtransmissionCAN2(rtb_AND1_l, rtb_DataStoreRead_kr, 90.0,
               localB->Plus_cz, localB->Plus_j, localB->Plus_b,
               localB->Constant_c, &localB->CheckmsgtransmissionCAN2_c,
               &localC->CheckmsgtransmissionCAN2_c,
@@ -21590,7 +22162,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
        *  RelationalOperator: '<S1085>/Equal16'
        *  RelationalOperator: '<S172>/Equal1'
        */
-      if (rtb_AND_kh) {
+      if (rtb_AND_ir) {
         localB->signal1_f =
           localB->COMMTaskSyncbc0_e.Transmissionsubtasks_l.Equal7_a;
         localB->signal2_c =
@@ -21830,12 +22402,12 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
       /* RelationalOperator: '<S173>/Equal' incorporates:
        *  Constant: '<S173>/Constant'
        */
-      rtb_AND_kh = (localDW->basic_cycle_count == 0.0);
+      rtb_AND_ir = (localDW->basic_cycle_count == 0.0);
 
       /* Outputs for Enabled SubSystem: '<S173>/vehicle emulator basic cycle 0' incorporates:
        *  EnablePort: '<S1168>/Enable'
        */
-      if (rtb_AND_kh) {
+      if (rtb_AND_ir) {
         if (!localDW->vehicleemulatorbasiccycle0_MODE) {
           localDW->vehicleemulatorbasiccycle0_MODE = true;
         }
@@ -21886,10 +22458,10 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
            *  Constant: '<S1168>/Constant4'
            *  RelationalOperator: '<S1171>/Equal2'
            */
-          rtb_AND_mf = ((*rtd_Local_Ticks == 252.0) && reset_vem_s);
+          rtb_AND_cj = ((*rtd_Local_Ticks == 252.0) && reset_vem_s);
 
           /* Outputs for Enabled SubSystem: '<S1171>/RESET Board - Return to initialization' */
-          RESETBoardReturntoinitializatio(rtb_AND_mf,
+          RESETBoardReturntoinitializatio(rtb_AND_cj,
             &localC->RESETBoardReturntoinitializat_g, &localDW->Desync_Positive,
             &localDW->Initialization_flag, rtd_Master_ID, rtd_New_Msg_Ready_CAN1,
             rtd_New_Msg_Ready_CAN2, &localDW->Reset_Board, &localDW->Role_ID,
@@ -22107,10 +22679,10 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
            *  Logic: '<S1173>/AND'
            *  Logic: '<S1173>/NOT'
            */
-          rtb_AND1_nj = (rtb_AND10_m && (!rtb_AND6_p));
+          rtb_AND1_ll = (rtb_AND10_m && (!rtb_AND6_p));
 
           /* Outputs for Enabled SubSystem: '<S1173>/Reset Tx msg counter' */
-          ResetTxmsgcounter(rtb_AND1_nj, rtd_Tx_msg_count_CAN1,
+          ResetTxmsgcounter(rtb_AND1_ll, rtd_Tx_msg_count_CAN1,
                             rtd_Tx_msg_count_CAN2);
 
           /* End of Outputs for SubSystem: '<S1173>/Reset Tx msg counter' */
@@ -22475,10 +23047,10 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
           rtb_AND6_p = (*rtd_Board_ID == 6.0);
 
           /* Logic: '<S1246>/AND' */
-          rtb_AND_g3 = (rtb_AND10_m && rtb_AND6_p);
+          rtb_AND_ee = (rtb_AND10_m && rtb_AND6_p);
 
           /* Outputs for Enabled SubSystem: '<S1246>/Process_Messages' */
-          Process_Messages_g(rtb_AND_g3, rtb_DataStoreRead1_px,
+          Process_Messages_g(rtb_AND_ee, rtb_DataStoreRead1_px,
                              rtb_DataStoreRead2_g, &rtb_DataStoreRead_ok,
                              &rtb_DataStoreRead3_l, localDW->Role_ID,
                              &localB->Process_Messages_ml,
@@ -22492,10 +23064,10 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
            *  DataStoreRead: '<S1246>/Data Store Read5'
            *  Logic: '<S1246>/NOT'
            */
-          rtb_AND1_b = (rtb_AND10_m && (!rtb_AND6_p));
+          rtb_AND1_md = (rtb_AND10_m && (!rtb_AND6_p));
 
           /* Outputs for Enabled SubSystem: '<S1246>/Reset Tx msg counter' */
-          ResetTxmsgcounter(rtb_AND1_b, rtd_Tx_msg_count_CAN1,
+          ResetTxmsgcounter(rtb_AND1_md, rtd_Tx_msg_count_CAN1,
                             rtd_Tx_msg_count_CAN2);
 
           /* End of Outputs for SubSystem: '<S1246>/Reset Tx msg counter' */
@@ -22520,12 +23092,12 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
               localDW->mc_counter = 1.0;
 
               /* Outputs for Atomic SubSystem: '<S1361>/Bit Shift' */
-              BitShift(localDW->Msg_Rx.Buffer_2, &localB->BitShift_m);
+              BitShift(localDW->Msg_Rx.Buffer_2, &localB->BitShift_my);
 
               /* End of Outputs for SubSystem: '<S1361>/Bit Shift' */
 
               /* Outputs for Atomic SubSystem: '<S1361>/Bit Shift1' */
-              BitShift1(localB->BitShift_m.y, &localB->BitShift1_a);
+              BitShift1(localB->BitShift_my.y, &localB->BitShift1_a);
 
               /* End of Outputs for SubSystem: '<S1361>/Bit Shift1' */
 
@@ -22536,13 +23108,13 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
               rtb_Switch1_or = localDW->Msg_Rx.Buffer_2 - localB->BitShift1_a.y;
 
               /* Product: '<S1361>/Divide' */
-              rtb_Subtract_idx_1 = rtb_Switch1_or / localC->Power1;
+              rtb_Subtract_idx_2 = rtb_Switch1_or / localC->Power1;
 
               /* Rounding: '<S1361>/Fix1' */
-              if (rtb_Subtract_idx_1 < 0.0) {
-                rtb_Subtract_idx_0 = ceil(rtb_Subtract_idx_1);
+              if (rtb_Subtract_idx_2 < 0.0) {
+                rtb_Subtract_idx_0 = ceil(rtb_Subtract_idx_2);
               } else {
-                rtb_Subtract_idx_0 = floor(rtb_Subtract_idx_1);
+                rtb_Subtract_idx_0 = floor(rtb_Subtract_idx_2);
               }
 
               /* End of Rounding: '<S1361>/Fix1' */
@@ -22555,7 +23127,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
                *  Sum: '<S1361>/Minus1'
                *  Sum: '<S1361>/Minus2'
                */
-              if (localB->BitShift_m.y > ((uint8_T)0U)) {
+              if (localB->BitShift_my.y > ((uint8_T)0U)) {
                 localDW->torque_fr = ((rtb_Switch1_or - rtb_Subtract_idx_0 *
                   localC->Power1) * localC->Power + rtb_Subtract_idx_0) * (-1.0);
               } else {
@@ -22584,13 +23156,13 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
                 localB->BitShift1_i5.y;
 
               /* Product: '<S1362>/Divide' */
-              rtb_Subtract_idx_1 = rtb_Subtract_idx_0 / localC->Power1_k;
+              rtb_Subtract_idx_2 = rtb_Subtract_idx_0 / localC->Power1_k;
 
               /* Rounding: '<S1362>/Fix1' */
-              if (rtb_Subtract_idx_1 < 0.0) {
-                rtb_Switch1_or = ceil(rtb_Subtract_idx_1);
+              if (rtb_Subtract_idx_2 < 0.0) {
+                rtb_Switch1_or = ceil(rtb_Subtract_idx_2);
               } else {
-                rtb_Switch1_or = floor(rtb_Subtract_idx_1);
+                rtb_Switch1_or = floor(rtb_Subtract_idx_2);
               }
 
               /* End of Rounding: '<S1362>/Fix1' */
@@ -22632,13 +23204,13 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
                 localB->BitShift1_ci.y;
 
               /* Product: '<S1363>/Divide' */
-              rtb_Subtract_idx_1 = rtb_Subtract_idx_0 / localC->Power1_kp;
+              rtb_Subtract_idx_2 = rtb_Subtract_idx_0 / localC->Power1_kp;
 
               /* Rounding: '<S1363>/Fix1' */
-              if (rtb_Subtract_idx_1 < 0.0) {
-                rtb_Switch1_or = ceil(rtb_Subtract_idx_1);
+              if (rtb_Subtract_idx_2 < 0.0) {
+                rtb_Switch1_or = ceil(rtb_Subtract_idx_2);
               } else {
-                rtb_Switch1_or = floor(rtb_Subtract_idx_1);
+                rtb_Switch1_or = floor(rtb_Subtract_idx_2);
               }
 
               /* End of Rounding: '<S1363>/Fix1' */
@@ -22680,13 +23252,13 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
                 localB->BitShift1_gr.y;
 
               /* Product: '<S1364>/Divide' */
-              rtb_Subtract_idx_1 = rtb_Subtract_idx_0 / localC->Power1_g;
+              rtb_Subtract_idx_2 = rtb_Subtract_idx_0 / localC->Power1_g;
 
               /* Rounding: '<S1364>/Fix1' */
-              if (rtb_Subtract_idx_1 < 0.0) {
-                rtb_Switch1_or = ceil(rtb_Subtract_idx_1);
+              if (rtb_Subtract_idx_2 < 0.0) {
+                rtb_Switch1_or = ceil(rtb_Subtract_idx_2);
               } else {
-                rtb_Switch1_or = floor(rtb_Subtract_idx_1);
+                rtb_Switch1_or = floor(rtb_Subtract_idx_2);
               }
 
               /* End of Rounding: '<S1364>/Fix1' */
@@ -22763,10 +23335,10 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
            *  RelationalOperator: '<S1247>/Equal'
            *  RelationalOperator: '<S1247>/Equal13'
            */
-          rtb_AND1_j = ((*rtd_Local_Ticks == 210.0) && (*rtd_Board_ID == 6.0));
+          rtb_AND1_ot = ((*rtd_Local_Ticks == 210.0) && (*rtd_Board_ID == 6.0));
 
           /* Outputs for Enabled SubSystem: '<S1247>/Reset Tx msg counter' */
-          ResetTxmsgcounter(rtb_AND1_j, rtd_Tx_msg_count_CAN1,
+          ResetTxmsgcounter(rtb_AND1_ot, rtd_Tx_msg_count_CAN1,
                             rtd_Tx_msg_count_CAN2);
 
           /* End of Outputs for SubSystem: '<S1247>/Reset Tx msg counter' */
@@ -23027,10 +23599,10 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
            *  RelationalOperator: '<S1249>/Equal1'
            *  RelationalOperator: '<S1249>/Equal3'
            */
-          rtb_AND1_kk = ((*rtd_Local_Ticks == 72.0) && localDW->new_msg_Rx);
+          rtb_AND1_feo = ((*rtd_Local_Ticks == 72.0) && localDW->new_msg_Rx);
 
           /* Outputs for Enabled SubSystem: '<S1249>/Local Time Update' */
-          LocalTimeUpdate(rtb_AND1_kk, 70.0, &localDW->BC1_Sync_processed,
+          LocalTimeUpdate(rtb_AND1_feo, 70.0, &localDW->BC1_Sync_processed,
                           &localDW->Desync_Positive, &localDW->Desync_Ticks,
                           rtd_Local_Ticks, rtd_Toggle_Pin_A0,
                           &localDW->Toggle_Pin_D10);
@@ -23128,10 +23700,10 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
             }
 
             /* DataStoreRead: '<S1251>/Data Store Read' */
-            rtb_DataStoreRead_iu4 = *rtd_Local_Ticks;
+            rtb_DataStoreRead_m1 = *rtd_Local_Ticks;
 
             /* RelationalOperator: '<S1251>/Equal2' */
-            rtb_AND10_m = (rtb_DataStoreRead_iu4 > 450.0);
+            rtb_AND10_m = (rtb_DataStoreRead_m1 > 450.0);
 
             /* Logic: '<S1251>/AND' incorporates:
              *  Constant: '<S1251>/Constant6'
@@ -23143,12 +23715,12 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
              *  Constant: '<S1251>/Constant7'
              *  RelationalOperator: '<S1251>/GreaterThan3'
              */
-            rtb_AND1_c = (rtb_AND10_m && (*rtd_Tx_msg_count_CAN2 <= 7.0));
+            rtb_AND1_bz = (rtb_AND10_m && (*rtd_Tx_msg_count_CAN2 <= 7.0));
 
             /* Outputs for Enabled SubSystem: '<S1251>/Msg_Value_Data_Encoded' incorporates:
              *  EnablePort: '<S1255>/Enable'
              */
-            if (rtb_DataStoreRead_iu4 == 450.0) {
+            if (rtb_DataStoreRead_m1 == 450.0) {
               localB->Constant17 = ((uint8_T)0U);
               localB->Constant18 = ((uint8_T)0U);
               localB->Constant19 = ((uint8_T)0U);
@@ -23197,7 +23769,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
             /* End of Outputs for SubSystem: '<S1251>/Msg_Value_Data_Encoded' */
 
             /* Outputs for Enabled SubSystem: '<S1251>/Check msg transmission CAN1' */
-            CheckmsgtransmissionCAN1_m(rtb_AND_i, rtb_DataStoreRead_iu4, 450.0,
+            CheckmsgtransmissionCAN1_m(rtb_AND_i, rtb_DataStoreRead_m1, 450.0,
               localB->Plus_a, localB->Plus_k, localB->Plus_i, localB->Plus_ny,
               localB->Constant17, localB->Constant18, localB->Constant19,
               &localB->CheckmsgtransmissionCAN1_j,
@@ -23209,7 +23781,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
             /* End of Outputs for SubSystem: '<S1251>/Check msg transmission CAN1' */
 
             /* Outputs for Enabled SubSystem: '<S1251>/Check msg transmission CAN2' */
-            CheckmsgtransmissionCAN2_j(rtb_AND1_c, rtb_DataStoreRead_iu4, 450.0,
+            CheckmsgtransmissionCAN2_j(rtb_AND1_bz, rtb_DataStoreRead_m1, 450.0,
               localB->Plus_a, localB->Plus_k, localB->Plus_i, localB->Plus_ny,
               localB->Constant17, localB->Constant18, localB->Constant19,
               &localB->CheckmsgtransmissionCAN2_f,
@@ -23347,27 +23919,27 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
             }
 
             /* DataStoreRead: '<S1281>/Data Store Read' */
-            rtb_DataStoreRead_j = *rtd_Local_Ticks;
+            rtb_DataStoreRead_jv = *rtd_Local_Ticks;
 
             /* RelationalOperator: '<S1281>/Equal2' */
-            rtb_AND10_m = (rtb_DataStoreRead_j > 160.0);
+            rtb_AND10_m = (rtb_DataStoreRead_jv > 160.0);
 
             /* Logic: '<S1281>/AND' incorporates:
              *  Constant: '<S1281>/Constant6'
              *  RelationalOperator: '<S1281>/GreaterThan2'
              */
-            rtb_AND_f = (rtb_AND10_m && (*rtd_Tx_msg_count_CAN1 <= 7.0));
+            rtb_AND_jq = (rtb_AND10_m && (*rtd_Tx_msg_count_CAN1 <= 7.0));
 
             /* Logic: '<S1281>/AND1' incorporates:
              *  Constant: '<S1281>/Constant7'
              *  RelationalOperator: '<S1281>/GreaterThan3'
              */
-            rtb_AND1_kp = (rtb_AND10_m && (*rtd_Tx_msg_count_CAN2 <= 7.0));
+            rtb_AND1_dp = (rtb_AND10_m && (*rtd_Tx_msg_count_CAN2 <= 7.0));
 
             /* Outputs for Enabled SubSystem: '<S1281>/Msg_Value_Data_Encoded' incorporates:
              *  EnablePort: '<S1285>/Enable'
              */
-            if (rtb_DataStoreRead_j == 160.0) {
+            if (rtb_DataStoreRead_jv == 160.0) {
               localB->Constant = ((uint8_T)0U);
 
               /* Switch: '<S1298>/Switch2' incorporates:
@@ -23406,10 +23978,10 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
               rtb_Switch1_or -= rtb_Subtract_idx_0;
 
               /* DataTypeConversion: '<S1298>/Cast' */
-              rtb_Cast_h = rtb_AND10_m;
+              rtb_Cast_f0 = rtb_AND10_m;
 
               /* Outputs for Atomic SubSystem: '<S1298>/Bit Shift' */
-              BitShift1(rtb_Cast_h, &localB->BitShift_iw);
+              BitShift1(rtb_Cast_f0, &localB->BitShift_iw);
 
               /* End of Outputs for SubSystem: '<S1298>/Bit Shift' */
 
@@ -23417,13 +23989,13 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
               rtb_Subtract_idx_0 *= localC->Power1_gm;
 
               /* Product: '<S1298>/Divide' */
-              rtb_Subtract_idx_1 = rtb_Switch1_or / localC->Power_n;
+              rtb_Subtract_idx_2 = rtb_Switch1_or / localC->Power_n;
 
               /* Rounding: '<S1298>/Fix1' */
-              if (rtb_Subtract_idx_1 < 0.0) {
-                rtb_Subtract_idx_1 = ceil(rtb_Subtract_idx_1);
+              if (rtb_Subtract_idx_2 < 0.0) {
+                rtb_Subtract_idx_2 = ceil(rtb_Subtract_idx_2);
               } else {
-                rtb_Subtract_idx_1 = floor(rtb_Subtract_idx_1);
+                rtb_Subtract_idx_2 = floor(rtb_Subtract_idx_2);
               }
 
               /* End of Rounding: '<S1298>/Fix1' */
@@ -23434,7 +24006,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
                */
               localB->Plus = (uint8_T)((uint32_T)(uint8_T)((uint32_T)
                 localB->BitShift_iw.y + (uint8_T)rtb_Subtract_idx_0) + (uint8_T)
-                rtb_Subtract_idx_1);
+                rtb_Subtract_idx_2);
 
               /* Switch: '<S1299>/Switch2' incorporates:
                *  Constant: '<S1285>/Constant5'
@@ -23471,10 +24043,10 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
               rtb_Subtract_idx_0 -= rtb_Switch1_or;
 
               /* DataTypeConversion: '<S1299>/Cast' */
-              rtb_Cast_hl = rtb_AND10_m;
+              rtb_Cast_l = rtb_AND10_m;
 
               /* Outputs for Atomic SubSystem: '<S1299>/Bit Shift' */
-              BitShift1(rtb_Cast_hl, &localB->BitShift_f5);
+              BitShift1(rtb_Cast_l, &localB->BitShift_f5);
 
               /* End of Outputs for SubSystem: '<S1299>/Bit Shift' */
 
@@ -23482,13 +24054,13 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
               rtb_Switch1_or *= localC->Power1_h;
 
               /* Product: '<S1299>/Divide' */
-              rtb_Subtract_idx_1 = rtb_Subtract_idx_0 / localC->Power_e;
+              rtb_Subtract_idx_2 = rtb_Subtract_idx_0 / localC->Power_e;
 
               /* Rounding: '<S1299>/Fix1' */
-              if (rtb_Subtract_idx_1 < 0.0) {
-                rtb_Subtract_idx_1 = ceil(rtb_Subtract_idx_1);
+              if (rtb_Subtract_idx_2 < 0.0) {
+                rtb_Subtract_idx_2 = ceil(rtb_Subtract_idx_2);
               } else {
-                rtb_Subtract_idx_1 = floor(rtb_Subtract_idx_1);
+                rtb_Subtract_idx_2 = floor(rtb_Subtract_idx_2);
               }
 
               /* End of Rounding: '<S1299>/Fix1' */
@@ -23499,7 +24071,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
                */
               localB->Plus_n = (uint8_T)((uint32_T)(uint8_T)((uint32_T)
                 localB->BitShift_f5.y + (uint8_T)rtb_Switch1_or) + (uint8_T)
-                rtb_Subtract_idx_1);
+                rtb_Subtract_idx_2);
 
               /* Switch: '<S1300>/Switch2' incorporates:
                *  Constant: '<S1285>/Constant11'
@@ -23536,10 +24108,10 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
               rtb_Subtract_idx_0 -= rtb_Switch1_or;
 
               /* DataTypeConversion: '<S1300>/Cast' */
-              rtb_Cast_ev = rtb_AND10_m;
+              rtb_Cast_m = rtb_AND10_m;
 
               /* Outputs for Atomic SubSystem: '<S1300>/Bit Shift' */
-              BitShift1(rtb_Cast_ev, &localB->BitShift_pf);
+              BitShift1(rtb_Cast_m, &localB->BitShift_pf);
 
               /* End of Outputs for SubSystem: '<S1300>/Bit Shift' */
 
@@ -23547,13 +24119,13 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
               rtb_Switch1_or *= localC->Power1_gc;
 
               /* Product: '<S1300>/Divide' */
-              rtb_Subtract_idx_1 = rtb_Subtract_idx_0 / localC->Power_m;
+              rtb_Subtract_idx_2 = rtb_Subtract_idx_0 / localC->Power_m;
 
               /* Rounding: '<S1300>/Fix1' */
-              if (rtb_Subtract_idx_1 < 0.0) {
-                rtb_Subtract_idx_1 = ceil(rtb_Subtract_idx_1);
+              if (rtb_Subtract_idx_2 < 0.0) {
+                rtb_Subtract_idx_2 = ceil(rtb_Subtract_idx_2);
               } else {
-                rtb_Subtract_idx_1 = floor(rtb_Subtract_idx_1);
+                rtb_Subtract_idx_2 = floor(rtb_Subtract_idx_2);
               }
 
               /* End of Rounding: '<S1300>/Fix1' */
@@ -23564,7 +24136,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
                */
               localB->Plus_p = (uint8_T)((uint32_T)(uint8_T)((uint32_T)
                 localB->BitShift_pf.y + (uint8_T)rtb_Switch1_or) + (uint8_T)
-                rtb_Subtract_idx_1);
+                rtb_Subtract_idx_2);
 
               /* Switch: '<S1301>/Switch2' incorporates:
                *  Constant: '<S1285>/Constant14'
@@ -23601,10 +24173,10 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
               rtb_Subtract_idx_0 -= rtb_Switch1_or;
 
               /* DataTypeConversion: '<S1301>/Cast' */
-              rtb_Cast_lt = rtb_AND10_m;
+              rtb_Cast_b = rtb_AND10_m;
 
               /* Outputs for Atomic SubSystem: '<S1301>/Bit Shift' */
-              BitShift1(rtb_Cast_lt, &localB->BitShift_bv);
+              BitShift1(rtb_Cast_b, &localB->BitShift_bv);
 
               /* End of Outputs for SubSystem: '<S1301>/Bit Shift' */
 
@@ -23612,13 +24184,13 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
               rtb_Switch1_or *= localC->Power1_f;
 
               /* Product: '<S1301>/Divide' */
-              rtb_Subtract_idx_1 = rtb_Subtract_idx_0 / localC->Power_d;
+              rtb_Subtract_idx_2 = rtb_Subtract_idx_0 / localC->Power_d;
 
               /* Rounding: '<S1301>/Fix1' */
-              if (rtb_Subtract_idx_1 < 0.0) {
-                rtb_Subtract_idx_1 = ceil(rtb_Subtract_idx_1);
+              if (rtb_Subtract_idx_2 < 0.0) {
+                rtb_Subtract_idx_2 = ceil(rtb_Subtract_idx_2);
               } else {
-                rtb_Subtract_idx_1 = floor(rtb_Subtract_idx_1);
+                rtb_Subtract_idx_2 = floor(rtb_Subtract_idx_2);
               }
 
               /* End of Rounding: '<S1301>/Fix1' */
@@ -23629,13 +24201,13 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
                */
               localB->Plus_c = (uint8_T)((uint32_T)(uint8_T)((uint32_T)
                 localB->BitShift_bv.y + (uint8_T)rtb_Switch1_or) + (uint8_T)
-                rtb_Subtract_idx_1);
+                rtb_Subtract_idx_2);
             }
 
             /* End of Outputs for SubSystem: '<S1281>/Msg_Value_Data_Encoded' */
 
             /* Outputs for Enabled SubSystem: '<S1281>/Check msg transmission CAN1' */
-            CheckmsgtransmissionCAN1_p(rtb_AND_f, rtb_DataStoreRead_j, 160.0,
+            CheckmsgtransmissionCAN1_p(rtb_AND_jq, rtb_DataStoreRead_jv, 160.0,
               localB->Plus_n, localB->Plus, localB->Plus_p, localB->Plus_c,
               localB->Constant, &localB->CheckmsgtransmissionCAN1_n,
               &localC->CheckmsgtransmissionCAN1_n,
@@ -23646,7 +24218,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
             /* End of Outputs for SubSystem: '<S1281>/Check msg transmission CAN1' */
 
             /* Outputs for Enabled SubSystem: '<S1281>/Check msg transmission CAN2' */
-            CheckmsgtransmissionCAN2_p(rtb_AND1_kp, rtb_DataStoreRead_j, 160.0,
+            CheckmsgtransmissionCAN2_p(rtb_AND1_dp, rtb_DataStoreRead_jv, 160.0,
               localB->Plus_n, localB->Plus, localB->Plus_p, localB->Plus_c,
               localB->Constant, &localB->CheckmsgtransmissionCAN2_a,
               &localC->CheckmsgtransmissionCAN2_a,
@@ -24082,7 +24654,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
        *  RelationalOperator: '<S1281>/Equal16'
        *  RelationalOperator: '<S173>/Equal1'
        */
-      if (rtb_AND_kh) {
+      if (rtb_AND_ir) {
         localB->signal1_i =
           localB->COMMTaskSyncbc0_a.Transmissionsubtasks_l.Equal7_a;
         localB->signal2_e =
@@ -25131,23 +25703,45 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
             /* End of Disable for SubSystem: '<S455>/Reception substasks' */
 
             /* Disable for Enabled SubSystem: '<S455>/Transmission subtasks1' */
-            if (localDW->Transmissionsubtasks1_n.Transmissionsubtasks1_MODE) {
-              Transmissionsubtasks1_Disable(&localB->Transmissionsubtasks1_n,
-                &localDW->Transmissionsubtasks1_n);
+            if (localDW->Transmissionsubtasks1_MODE) {
+              /* Disable for Enabled SubSystem: '<S495>/Check msg transmission CAN1' */
+              if (localDW->CheckmsgtransmissionCAN1_ma.CheckmsgtransmissionCAN1_MODE)
+              {
+                CheckmsgtransmissionC_a_Disable
+                  (&localB->CheckmsgtransmissionCAN1_ma,
+                   &localDW->CheckmsgtransmissionCAN1_ma);
+              }
+
+              /* End of Disable for SubSystem: '<S495>/Check msg transmission CAN1' */
+
+              /* Disable for Enabled SubSystem: '<S495>/Check msg transmission CAN2' */
+              if (localDW->CheckmsgtransmissionCAN2_j4.CheckmsgtransmissionCAN2_MODE)
+              {
+                Checkmsgtransmission_al_Disable
+                  (&localB->CheckmsgtransmissionCAN2_j4,
+                   &localDW->CheckmsgtransmissionCAN2_j4);
+              }
+
+              /* End of Disable for SubSystem: '<S495>/Check msg transmission CAN2' */
+
+              /* Disable for Outport: '<S495>/Send CAN1' */
+              localB->CheckmsgtransmissionCAN1_ma.Equal7 = false;
+
+              /* Disable for Outport: '<S495>/Send CAN2' */
+              localB->CheckmsgtransmissionCAN2_j4.Equal7 = false;
+              localDW->Transmissionsubtasks1_MODE = false;
             }
 
             /* End of Disable for SubSystem: '<S455>/Transmission subtasks1' */
 
             /* Disable for Outport: '<S455>/Send CAN1' */
-            localB->Transmissionsubtasks1_n.CheckmsgtransmissionCAN1_ma.Equal7 =
-              false;
+            localB->CheckmsgtransmissionCAN1_ma.Equal7 = false;
 
             /* Disable for Outport: '<S455>/Receive CAN1' */
             localB->Receptionsubstasks_m.AND = false;
 
             /* Disable for Outport: '<S455>/Send CAN2' */
-            localB->Transmissionsubtasks1_n.CheckmsgtransmissionCAN2_j4.Equal7 =
-              false;
+            localB->CheckmsgtransmissionCAN2_j4.Equal7 = false;
 
             /* Disable for Outport: '<S455>/Receive CAN2' */
             localB->Receptionsubstasks_m.AND1 = false;
@@ -25167,23 +25761,45 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
             /* End of Disable for SubSystem: '<S456>/Reception substasks' */
 
             /* Disable for Enabled SubSystem: '<S456>/Transmission subtasks' */
-            if (localDW->Transmissionsubtasks_j.Transmissionsubtasks1_MODE) {
-              Transmissionsubtasks1_Disable(&localB->Transmissionsubtasks_j,
-                &localDW->Transmissionsubtasks_j);
+            if (localDW->Transmissionsubtasks_MODE_i3) {
+              /* Disable for Enabled SubSystem: '<S526>/Check msg transmission CAN1' */
+              if (localDW->CheckmsgtransmissionCAN1_o.CheckmsgtransmissionCAN1_MODE)
+              {
+                CheckmsgtransmissionC_a_Disable
+                  (&localB->CheckmsgtransmissionCAN1_o,
+                   &localDW->CheckmsgtransmissionCAN1_o);
+              }
+
+              /* End of Disable for SubSystem: '<S526>/Check msg transmission CAN1' */
+
+              /* Disable for Enabled SubSystem: '<S526>/Check msg transmission CAN2' */
+              if (localDW->CheckmsgtransmissionCAN2_b.CheckmsgtransmissionCAN2_MODE)
+              {
+                Checkmsgtransmission_al_Disable
+                  (&localB->CheckmsgtransmissionCAN2_b,
+                   &localDW->CheckmsgtransmissionCAN2_b);
+              }
+
+              /* End of Disable for SubSystem: '<S526>/Check msg transmission CAN2' */
+
+              /* Disable for Outport: '<S526>/Send CAN1' */
+              localB->CheckmsgtransmissionCAN1_o.Equal7 = false;
+
+              /* Disable for Outport: '<S526>/Send CAN2' */
+              localB->CheckmsgtransmissionCAN2_b.Equal7 = false;
+              localDW->Transmissionsubtasks_MODE_i3 = false;
             }
 
             /* End of Disable for SubSystem: '<S456>/Transmission subtasks' */
 
             /* Disable for Outport: '<S456>/Send CAN1' */
-            localB->Transmissionsubtasks_j.CheckmsgtransmissionCAN1_ma.Equal7 =
-              false;
+            localB->CheckmsgtransmissionCAN1_o.Equal7 = false;
 
             /* Disable for Outport: '<S456>/Receive CAN1' */
             localB->Receptionsubstasks_k.AND = false;
 
             /* Disable for Outport: '<S456>/Send CAN2' */
-            localB->Transmissionsubtasks_j.CheckmsgtransmissionCAN2_j4.Equal7 =
-              false;
+            localB->CheckmsgtransmissionCAN2_b.Equal7 = false;
 
             /* Disable for Outport: '<S456>/Receive CAN2' */
             localB->Receptionsubstasks_k.AND1 = false;
