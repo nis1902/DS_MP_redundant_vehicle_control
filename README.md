@@ -10,10 +10,10 @@ https://github.com/pineapplezex/HANCoder_TTA
 The goal of this project is to improve the existing Triple Modular Redundant (TMR) function. His TMR implimentation included 3 board with 2 roles, master and slave. Based on timings the roles switched between the boards.
 
 ## Contents
-* [Setup of System](#Setup_of_System)
+* [Setup of System](#Setup-of-System)
 * [Configuration](#Configuration)
-* [Features Added](#Features_Added)
-* [Definition of Roles](#Definition_of_Roles)
+* [Features Added](#Features-Added)
+* [Definition of Roles](#Definition-of-Roles)
 
 ## Setup of System
 Here will be explained how the system is ran.
