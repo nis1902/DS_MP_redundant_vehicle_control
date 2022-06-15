@@ -1,6 +1,7 @@
 # DS_MP_redundant_vehicle_control
 ![Logo](https://github.com/nis1902/DS_MP_redundant_vehicle_control/blob/master/Figures/Logo.png)
-This repository is used to store all the documentation including code for the minor project for a Redundant Vehicle Control in Distributed Systems - group 2
+This repository is used to store all the documentation including code for the minor project for a Redundant Vehicle Control in Distributed Systems - group 2.
+Here, a quick overview of the system will be given. More detailed data can be found on the [Wiki](https://github.com/nis1902/DS_MP_redundant_vehicle_control/wiki) page.
 
 ## Participants
 - Bram Diepenbrock
