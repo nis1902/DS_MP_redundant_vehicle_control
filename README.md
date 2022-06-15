@@ -15,8 +15,7 @@ This Redundant Vehicle Controller is based on the repository from pineapplezex:
 https://github.com/pineapplezex/HANCoder_TTA
 
 ## Goal
-The goal of this project is to improve the existing Triple Modular Redundant (TMR) function. His TMR implimentation included 3 board with 2 roles, master and slave. Based on timings the roles switched between the boards.
-
+The goal of this project was to implement a system with incorporated high availability, TMR, membership service and fault detection.
 ## Contents
 * [Setup of System](#Setup-of-System)
 * [Configuration](#Configuration)
