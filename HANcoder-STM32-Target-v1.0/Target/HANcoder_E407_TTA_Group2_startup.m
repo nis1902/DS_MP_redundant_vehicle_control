@@ -411,7 +411,7 @@ script_run.Value = 0;
 
 testV_1 = Simulink.Parameter; % Define as parameter
 testV_1.StorageClass = 'ExportedGlobal'; % Only Exported Global will be visible in HANtune
-testV_1.Value = 0;
+testV_1.Value = 1;
 testV_2 = Simulink.Parameter; % Define as parameter
 testV_2.StorageClass = 'ExportedGlobal'; % Only Exported Global will be visible in HANtune
 testV_2.Value = 0;
@@ -419,18 +419,6 @@ testV_3 = Simulink.Parameter; % Define as parameter
 testV_3.StorageClass = 'ExportedGlobal'; % Only Exported Global will be visible in HANtune
 testV_3.Value = 0;
 
-board1_online = Simulink.Parameter; % Define as parameter
-board1_online.StorageClass = 'ExportedGlobal'; % Only Exported Global will be visible in HANtune
-board1_online.Value = 1;
-board2_online = Simulink.Parameter; % Define as parameter
-board2_online.StorageClass = 'ExportedGlobal'; % Only Exported Global will be visible in HANtune
-board2_online.Value = 1;
-board3_online = Simulink.Parameter; % Define as parameter
-board3_online.StorageClass = 'ExportedGlobal'; % Only Exported Global will be visible in HANtune
-board3_online.Value = 1;
-board4_online = Simulink.Parameter; % Define as parameter
-board4_online.StorageClass = 'ExportedGlobal'; % Only Exported Global will be visible in HANtune
-board4_online.Value =1;
 %% Signals
 % Defining signals for viewing in HANtune
 LedValue = Simulink.Signal; % Define as signal

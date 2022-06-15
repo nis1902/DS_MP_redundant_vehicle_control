@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'HANcoder_E407_TTA_Group2'.
  *
- * Model version                  : 1.278
+ * Model version                  : 1.279
  * Simulink Coder version         : 9.0 (R2018b) 24-May-2018
- * C/C++ source code generated on : Tue Jun 14 21:46:30 2022
+ * C/C++ source code generated on : Wed Jun 15 14:23:13 2022
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -1082,9 +1082,6 @@ typedef struct {
   msg_buffer_type output_control1_msg; /* '<S176>/Data Store Memory47' */
   msg_buffer_type output_control2_msg; /* '<S176>/Data Store Memory49' */
   msg_buffer_type Msg_Rx_d;            /* '<S175>/Data Store Memory11' */
-  real32_T Voter_error;                /* '<S293>/Data Store Memory' */
-  real32_T Master_error;               /* '<S293>/Data Store Memory1' */
-  real32_T Slave_error;                /* '<S293>/Data Store Memory2' */
   int32_T FindNonzeroElements2_DIMS1;  /* '<S299>/Find Nonzero Elements2' */
   int32_T Switch_DIMS1;                /* '<S299>/Switch' */
   int32_T FindNonzeroElements_DIMS1;   /* '<S299>/Find Nonzero Elements' */
@@ -1308,6 +1305,7 @@ typedef struct {
   real_T Board_ID;                     /* '<S10>/Data Store Memory13' */
   real_T Voter_ID;                     /* '<S10>/Data Store Memory22' */
   real_T BackUp_ID;                    /* '<S10>/Data Store Memory24' */
+  real_T Slave_ID;                     /* '<S10>/Data Store Memory26' */
   real_T Master_ID;                    /* '<S10>/Data Store Memory5' */
   real_T Tx_msg_count_CAN1;            /* '<S10>/Data Store Memory' */
   real_T Tx_msg_count_CAN2;            /* '<S10>/Data Store Memory20' */
@@ -1628,7 +1626,6 @@ typedef struct {
   const boolean_T Cast_h;              /* '<S397>/Cast' */
   const boolean_T Cast_pq;             /* '<S396>/Cast' */
   const boolean_T NOT_p;               /* '<S396>/NOT' */
-  const boolean_T NOT_k;               /* '<S293>/NOT' */
   rtC_COMMTaskSyncbc0 COMMTaskSyncbc1_g;/* '<S1266>/COMM Task - Sync bc 1' */
   rtC_CheckmsgtransmissionCAN2_n CheckmsgtransmissionCAN2_a;/* '<S1378>/Check msg transmission CAN2' */
   rtC_CheckmsgtransmissionCAN1_d CheckmsgtransmissionCAN1_n;/* '<S1378>/Check msg transmission CAN1' */
@@ -1805,6 +1802,7 @@ extern real_T torque_fl_set_s;         /* '<S757>/Saturation1' */
 extern real_T torque_ar_set_s;         /* '<S757>/Saturation2' */
 extern real_T torque_al_set_s;         /* '<S757>/Saturation3' */
 extern real_T Desync_Sync_bc0_s;       /* '<S402>/Saturation' */
+extern real_T decision_voter_s;        /* '<S293>/Constant' */
 extern real_T Vote1_s;                 /* '<S299>/Plus' */
 extern real_T Vote2_s;                 /* '<S299>/Plus1' */
 extern real_T Vote3_s;                 /* '<S299>/Plus2' */
@@ -1867,9 +1865,10 @@ extern boolean_T out2_rx_s;            /* '<S836>/OR' */
 extern boolean_T out1_rx_s;            /* '<S807>/OR' */
 extern boolean_T new_error_rx_s;       /* '<S774>/Data Store Read5' */
 extern boolean_T reset_s;              /* '<S185>/Data Store Read' */
-extern boolean_T Master_error_s;       /* '<S296>/AND1' */
-extern boolean_T Voter_error_s;        /* '<S295>/AND1' */
-extern boolean_T Slave_error_s;        /* '<S297>/AND1' */
+extern boolean_T Master_error_s;       /* '<S296>/OR' */
+extern boolean_T Voter_error_s;        /* '<S295>/OR' */
+extern boolean_T Slave_error_s;        /* '<S297>/OR' */
+extern boolean_T membership_s;         /* '<S293>/NOT' */
 extern real_T Tx_temporal_msg_CAN2;    /* '<S29>/Cast To Double' */
 extern uint32_T TxCAN2_counter_s;      /* '<S29>/Sum1' */
 extern uint32_T TxID_CAN2_s;           /* '<S29>/Data Store Read3' */
@@ -2059,6 +2058,9 @@ extern real_T speed_k_i;               /* Variable: speed_k_i
 extern real_T speed_k_p;               /* Variable: speed_k_p
                                         * Referenced by: '<S757>/Gain5'
                                         */
+extern real_T testV_1;                 /* Variable: testV_1
+                                        * Referenced by: '<S293>/Constant'
+                                        */
 extern real_T torque_a_k_d;            /* Variable: torque_a_k_d
                                         * Referenced by: '<S767>/Gain7'
                                         */
@@ -2100,16 +2102,6 @@ extern boolean_T switch_manipulate_torque;/* Variable: switch_manipulate_torque
 extern boolean_T torque_fr_set_manipulated;/* Variable: torque_fr_set_manipulated
                                             * Referenced by: '<S596>/Constant2'
                                             */
-
-/*
- * Exported States
- *
- * Note: Exported states are block states with an exported global
- * storage class designation.  Code generation will declare the memory for these
- * states and exports their symbols.
- *
- */
-extern real_T Slave_ID;                /* '<S10>/Data Store Memory26' */
 
 /* Model entry point functions */
 extern void HANcoder_E407_TTA_Group2_initialize(void);

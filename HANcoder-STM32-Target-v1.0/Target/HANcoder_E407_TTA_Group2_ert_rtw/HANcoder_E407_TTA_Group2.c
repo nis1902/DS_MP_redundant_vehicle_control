@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'HANcoder_E407_TTA_Group2'.
  *
- * Model version                  : 1.278
+ * Model version                  : 1.279
  * Simulink Coder version         : 9.0 (R2018b) 24-May-2018
- * C/C++ source code generated on : Tue Jun 14 21:46:30 2022
+ * C/C++ source code generated on : Wed Jun 15 14:23:13 2022
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -99,6 +99,7 @@ real_T torque_fl_set_s;                /* '<S757>/Saturation1' */
 real_T torque_ar_set_s;                /* '<S757>/Saturation2' */
 real_T torque_al_set_s;                /* '<S757>/Saturation3' */
 real_T Desync_Sync_bc0_s;              /* '<S402>/Saturation' */
+real_T decision_voter_s;               /* '<S293>/Constant' */
 real_T Vote1_s;                        /* '<S299>/Plus' */
 real_T Vote2_s;                        /* '<S299>/Plus1' */
 real_T Vote3_s;                        /* '<S299>/Plus2' */
@@ -161,9 +162,10 @@ boolean_T out2_rx_s;                   /* '<S836>/OR' */
 boolean_T out1_rx_s;                   /* '<S807>/OR' */
 boolean_T new_error_rx_s;              /* '<S774>/Data Store Read5' */
 boolean_T reset_s;                     /* '<S185>/Data Store Read' */
-boolean_T Master_error_s;              /* '<S296>/AND1' */
-boolean_T Voter_error_s;               /* '<S295>/AND1' */
-boolean_T Slave_error_s;               /* '<S297>/AND1' */
+boolean_T Master_error_s;              /* '<S296>/OR' */
+boolean_T Voter_error_s;               /* '<S295>/OR' */
+boolean_T Slave_error_s;               /* '<S297>/OR' */
+boolean_T membership_s;                /* '<S293>/NOT' */
 real_T Tx_temporal_msg_CAN2;           /* '<S29>/Cast To Double' */
 uint32_T TxCAN2_counter_s;             /* '<S29>/Sum1' */
 uint32_T TxID_CAN2_s;                  /* '<S29>/Data Store Read3' */
@@ -346,6 +348,9 @@ real_T speed_k_i = 0.001;              /* Variable: speed_k_i
 real_T speed_k_p = 20.0;               /* Variable: speed_k_p
                                         * Referenced by: '<S757>/Gain5'
                                         */
+real_T testV_1 = 0.0;                  /* Variable: testV_1
+                                        * Referenced by: '<S293>/Constant'
+                                        */
 real_T torque_a_k_d = 0.0;             /* Variable: torque_a_k_d
                                         * Referenced by: '<S767>/Gain7'
                                         */
@@ -387,9 +392,6 @@ boolean_T switch_manipulate_torque = 0;/* Variable: switch_manipulate_torque
 boolean_T torque_fr_set_manipulated = 0;/* Variable: torque_fr_set_manipulated
                                          * Referenced by: '<S596>/Constant2'
                                          */
-
-/* Exported block states */
-real_T Slave_ID;                       /* '<S10>/Data Store Memory26' */
 
 /* Block signals (default storage) */
 BlockIO rtB;
@@ -499,10 +501,10 @@ void TimeoutEventIRQ_TIMEOUT_TIM4_PIN_PD12(void)
                   &rtDWork.Msg_Tx_CAN1, &rtDWork.Msg_Tx_CAN2,
                   &rtDWork.New_Msg_Ready_CAN1, &rtDWork.New_Msg_Ready_CAN2,
                   &rtDWork.RxID_CAN1, &rtDWork.RxID_CAN2, &rtDWork.Rx_State_CAN1,
-                  &rtDWork.Rx_State_CAN2, &rtDWork.Toggle_Pin_A0,
-                  &rtDWork.Toggle_Pin_D12, &rtDWork.Toggle_Pin_D13,
-                  &rtDWork.Toggle_Pin_D8, &rtDWork.Toggle_Pin_D9,
-                  &rtDWork.TxID_CAN1, &rtDWork.TxID_CAN2,
+                  &rtDWork.Rx_State_CAN2, &rtDWork.Slave_ID,
+                  &rtDWork.Toggle_Pin_A0, &rtDWork.Toggle_Pin_D12,
+                  &rtDWork.Toggle_Pin_D13, &rtDWork.Toggle_Pin_D8,
+                  &rtDWork.Toggle_Pin_D9, &rtDWork.TxID_CAN1, &rtDWork.TxID_CAN2,
                   &rtDWork.Tx_msg_count_CAN1, &rtDWork.Tx_msg_count_CAN2,
                   &rtDWork.Voter_ID);
 
@@ -520,10 +522,10 @@ void TimeoutEventIRQ_TIMEOUT_TIM4_PIN_PD12(void)
                   &rtDWork.Msg_Tx_CAN1, &rtDWork.Msg_Tx_CAN2,
                   &rtDWork.New_Msg_Ready_CAN1, &rtDWork.New_Msg_Ready_CAN2,
                   &rtDWork.RxID_CAN1, &rtDWork.RxID_CAN2, &rtDWork.Rx_State_CAN1,
-                  &rtDWork.Rx_State_CAN2, &rtDWork.Toggle_Pin_A0,
-                  &rtDWork.Toggle_Pin_D12, &rtDWork.Toggle_Pin_D13,
-                  &rtDWork.Toggle_Pin_D8, &rtDWork.Toggle_Pin_D9,
-                  &rtDWork.TxID_CAN1, &rtDWork.TxID_CAN2,
+                  &rtDWork.Rx_State_CAN2, &rtDWork.Slave_ID,
+                  &rtDWork.Toggle_Pin_A0, &rtDWork.Toggle_Pin_D12,
+                  &rtDWork.Toggle_Pin_D13, &rtDWork.Toggle_Pin_D8,
+                  &rtDWork.Toggle_Pin_D9, &rtDWork.TxID_CAN1, &rtDWork.TxID_CAN2,
                   &rtDWork.Tx_msg_count_CAN1, &rtDWork.Tx_msg_count_CAN2,
                   &rtDWork.Voter_ID);
 
@@ -9856,12 +9858,13 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
                msg_buffer_type *rtd_Msg_Tx_CAN2, boolean_T
                *rtd_New_Msg_Ready_CAN1, boolean_T *rtd_New_Msg_Ready_CAN2,
                uint32_T *rtd_RxID_CAN1, uint32_T *rtd_RxID_CAN2, uint8_T
-               *rtd_Rx_State_CAN1, uint8_T *rtd_Rx_State_CAN2, boolean_T
-               *rtd_Toggle_Pin_A0, real_T *rtd_Toggle_Pin_D12, real_T
-               *rtd_Toggle_Pin_D13, real_T *rtd_Toggle_Pin_D8, real_T
-               *rtd_Toggle_Pin_D9, uint32_T *rtd_TxID_CAN1, uint32_T
-               *rtd_TxID_CAN2, real_T *rtd_Tx_msg_count_CAN1, real_T
-               *rtd_Tx_msg_count_CAN2, real_T *rtd_Voter_ID)
+               *rtd_Rx_State_CAN1, uint8_T *rtd_Rx_State_CAN2, real_T
+               *rtd_Slave_ID, boolean_T *rtd_Toggle_Pin_A0, real_T
+               *rtd_Toggle_Pin_D12, real_T *rtd_Toggle_Pin_D13, real_T
+               *rtd_Toggle_Pin_D8, real_T *rtd_Toggle_Pin_D9, uint32_T
+               *rtd_TxID_CAN1, uint32_T *rtd_TxID_CAN2, real_T
+               *rtd_Tx_msg_count_CAN1, real_T *rtd_Tx_msg_count_CAN2, real_T
+               *rtd_Voter_ID)
 {
   int_T outCnt;
   boolean_T rtb_OR1_l;
@@ -9877,10 +9880,10 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
   boolean_T rtb_AND8_p;
   boolean_T rtb_AND7_d;
   int32_T tmp;
-  int8_T rtb_FindNonzeroElements2[4];
   real_T rtb_signal1[29];
-  int8_T rtb_FindNonzeroElements1[4];
   real_T rtb_signal2[29];
+  int8_T rtb_FindNonzeroElements2[4];
+  int8_T rtb_FindNonzeroElements1[4];
   boolean_T rtb_AND17_f;
   boolean_T rtb_AND17_b;
   boolean_T rtb_AND17_n4;
@@ -9943,6 +9946,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
   boolean_T rtb_DataStoreRead2_fw;
   msg_buffer_type rtb_DataStoreRead_g;
   msg_buffer_type rtb_DataStoreRead3_on;
+  real_T rtb_DataStoreRead5_es;
   boolean_T rtb_AND1_a3;
   boolean_T rtb_DataStoreRead1_fw;
   boolean_T rtb_DataStoreRead2_oz;
@@ -10966,10 +10970,325 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
          */
         if ((*rtd_Local_Ticks >= 900.0) && (*rtd_Local_Ticks < localC->Sum15_j) &&
             (*rtd_Local_Ticks == 900.0)) {
+          /* DataStoreRead: '<S293>/Data Store Read' */
+          Error2_s = localDW->error_log2_stored;
+
+          /* Outputs for Atomic SubSystem: '<S296>/Bit Shift14' */
+          /* MATLAB Function: '<S339>/bit_shift' */
+          /* MATLAB Function 'Logic and Bit Operations/Bit Shift/bit_shift': '<S354>:1' */
+          /* '<S354>:1:8' */
+          tau_fr1_disagree_s = (uint8_T)((uint32_T)Error2_s >> 7);
+
+          /* End of Outputs for SubSystem: '<S296>/Bit Shift14' */
+
+          /* Outputs for Atomic SubSystem: '<S296>/Bit Shift' */
+          BitShift3(Error2_s, &localB->BitShift_c);
+
+          /* End of Outputs for SubSystem: '<S296>/Bit Shift' */
+
+          /* Outputs for Atomic SubSystem: '<S296>/Bit Shift7' */
+          /* MATLAB Function: '<S345>/bit_shift' */
+          /* MATLAB Function 'Logic and Bit Operations/Bit Shift/bit_shift': '<S360>:1' */
+          /* '<S360>:1:8' */
+          tau_fl1_disagree_s = (uint8_T)((uint32_T)localB->BitShift_c.y >> 7);
+
+          /* End of Outputs for SubSystem: '<S296>/Bit Shift7' */
+
+          /* Outputs for Atomic SubSystem: '<S296>/Bit Shift1' */
+          BitShift1_o(Error2_s, &localB->BitShift1_n);
+
+          /* End of Outputs for SubSystem: '<S296>/Bit Shift1' */
+
+          /* Outputs for Atomic SubSystem: '<S296>/Bit Shift8' */
+          /* MATLAB Function: '<S346>/bit_shift' */
+          /* MATLAB Function 'Logic and Bit Operations/Bit Shift/bit_shift': '<S361>:1' */
+          /* '<S361>:1:8' */
+          tau_ar1_disagree_s = (uint8_T)((uint32_T)localB->BitShift1_n.y >> 7);
+
+          /* End of Outputs for SubSystem: '<S296>/Bit Shift8' */
+
+          /* Outputs for Atomic SubSystem: '<S296>/Bit Shift2' */
+          BitShift2(Error2_s, &localB->BitShift2_ip);
+
+          /* End of Outputs for SubSystem: '<S296>/Bit Shift2' */
+
+          /* Outputs for Atomic SubSystem: '<S296>/Bit Shift9' */
+          /* MATLAB Function: '<S347>/bit_shift' */
+          /* MATLAB Function 'Logic and Bit Operations/Bit Shift/bit_shift': '<S362>:1' */
+          /* '<S362>:1:8' */
+          tau_al1_disagree_s = (uint8_T)((uint32_T)localB->BitShift2_ip.y >> 7);
+
+          /* End of Outputs for SubSystem: '<S296>/Bit Shift9' */
+
+          /* Outputs for Atomic SubSystem: '<S296>/Bit Shift3' */
+          BitShift4(Error2_s, &localB->BitShift3_g);
+
+          /* End of Outputs for SubSystem: '<S296>/Bit Shift3' */
+
+          /* Outputs for Atomic SubSystem: '<S296>/Bit Shift10' */
+          /* MATLAB Function: '<S335>/bit_shift' */
+          /* MATLAB Function 'Logic and Bit Operations/Bit Shift/bit_shift': '<S350>:1' */
+          /* '<S350>:1:8' */
+          TMR_miss_out1 = (uint8_T)((uint32_T)localB->BitShift3_g.y >> 7);
+
+          /* End of Outputs for SubSystem: '<S296>/Bit Shift10' */
+
+          /* Outputs for Atomic SubSystem: '<S296>/Bit Shift5' */
+          BitShift5(Error2_s, &localB->BitShift5_c);
+
+          /* End of Outputs for SubSystem: '<S296>/Bit Shift5' */
+
+          /* Outputs for Atomic SubSystem: '<S296>/Bit Shift11' */
+          /* MATLAB Function: '<S336>/bit_shift' */
+          /* MATLAB Function 'Logic and Bit Operations/Bit Shift/bit_shift': '<S351>:1' */
+          /* '<S351>:1:8' */
+          TMR_miss1_set = (uint8_T)((uint32_T)localB->BitShift5_c.y >> 7);
+
+          /* End of Outputs for SubSystem: '<S296>/Bit Shift11' */
+
+          /* Outputs for Atomic SubSystem: '<S296>/Bit Shift6' */
+          BitShift6(Error2_s, &localB->BitShift6_e);
+
+          /* End of Outputs for SubSystem: '<S296>/Bit Shift6' */
+
+          /* Outputs for Atomic SubSystem: '<S296>/Bit Shift12' */
+          /* MATLAB Function: '<S337>/bit_shift' */
+          /* MATLAB Function 'Logic and Bit Operations/Bit Shift/bit_shift': '<S352>:1' */
+          /* '<S352>:1:8' */
+          TMR_miss1_sensor = (uint8_T)((uint32_T)localB->BitShift6_e.y >> 7);
+
+          /* End of Outputs for SubSystem: '<S296>/Bit Shift12' */
+
+          /* Outputs for Atomic SubSystem: '<S296>/Bit Shift4' */
+          BitShift1(Error2_s, &localB->BitShift4_l);
+
+          /* End of Outputs for SubSystem: '<S296>/Bit Shift4' */
+
+          /* Outputs for Atomic SubSystem: '<S296>/Bit Shift13' */
+          BitShift10(localB->BitShift4_l.y, &localB->BitShift13_p);
+
+          /* End of Outputs for SubSystem: '<S296>/Bit Shift13' */
+
+          /* Logic: '<S296>/OR' */
+          Master_error_s = ((tau_fr1_disagree_s != 0) || (tau_fl1_disagree_s !=
+            0) || (tau_ar1_disagree_s != 0) || (tau_al1_disagree_s != 0) ||
+                            (TMR_miss_out1 != 0) || (TMR_miss1_set != 0) ||
+                            (TMR_miss1_sensor != 0) || (localB->BitShift13_p.y
+            != 0));
+
+          /* DataStoreRead: '<S293>/Data Store Read1' */
+          Error1_s = localDW->error_log1_stored;
+
+          /* Outputs for Atomic SubSystem: '<S295>/Bit Shift14' */
+          /* MATLAB Function: '<S309>/bit_shift' */
+          /* MATLAB Function 'Logic and Bit Operations/Bit Shift/bit_shift': '<S324>:1' */
+          /* '<S324>:1:8' */
+          tau_fr_disagree_s = (uint8_T)((uint32_T)Error1_s >> 7);
+
+          /* End of Outputs for SubSystem: '<S295>/Bit Shift14' */
+
+          /* Outputs for Atomic SubSystem: '<S295>/Bit Shift' */
+          BitShift3(Error1_s, &localB->BitShift_f);
+
+          /* End of Outputs for SubSystem: '<S295>/Bit Shift' */
+
+          /* Outputs for Atomic SubSystem: '<S295>/Bit Shift7' */
+          /* MATLAB Function: '<S315>/bit_shift' */
+          /* MATLAB Function 'Logic and Bit Operations/Bit Shift/bit_shift': '<S330>:1' */
+          /* '<S330>:1:8' */
+          tau_fl_disagree_s = (uint8_T)((uint32_T)localB->BitShift_f.y >> 7);
+
+          /* End of Outputs for SubSystem: '<S295>/Bit Shift7' */
+
+          /* Outputs for Atomic SubSystem: '<S295>/Bit Shift1' */
+          BitShift1_o(Error1_s, &localB->BitShift1_ow);
+
+          /* End of Outputs for SubSystem: '<S295>/Bit Shift1' */
+
+          /* Outputs for Atomic SubSystem: '<S295>/Bit Shift8' */
+          /* MATLAB Function: '<S316>/bit_shift' */
+          /* MATLAB Function 'Logic and Bit Operations/Bit Shift/bit_shift': '<S331>:1' */
+          /* '<S331>:1:8' */
+          tau_ar_disagree_s = (uint8_T)((uint32_T)localB->BitShift1_ow.y >> 7);
+
+          /* End of Outputs for SubSystem: '<S295>/Bit Shift8' */
+
+          /* Outputs for Atomic SubSystem: '<S295>/Bit Shift2' */
+          BitShift2(Error1_s, &localB->BitShift2_j);
+
+          /* End of Outputs for SubSystem: '<S295>/Bit Shift2' */
+
+          /* Outputs for Atomic SubSystem: '<S295>/Bit Shift9' */
+          /* MATLAB Function: '<S317>/bit_shift' */
+          /* MATLAB Function 'Logic and Bit Operations/Bit Shift/bit_shift': '<S332>:1' */
+          /* '<S332>:1:8' */
+          tau_al_disagree_s = (uint8_T)((uint32_T)localB->BitShift2_j.y >> 7);
+
+          /* End of Outputs for SubSystem: '<S295>/Bit Shift9' */
+
+          /* Outputs for Atomic SubSystem: '<S295>/Bit Shift3' */
+          BitShift4(Error1_s, &localB->BitShift3_d);
+
+          /* End of Outputs for SubSystem: '<S295>/Bit Shift3' */
+
+          /* Outputs for Atomic SubSystem: '<S295>/Bit Shift10' */
+          BitShift10(localB->BitShift3_d.y, &localB->BitShift10_o);
+
+          /* End of Outputs for SubSystem: '<S295>/Bit Shift10' */
+
+          /* Outputs for Atomic SubSystem: '<S295>/Bit Shift5' */
+          BitShift5(Error1_s, &localB->BitShift5_k);
+
+          /* End of Outputs for SubSystem: '<S295>/Bit Shift5' */
+
+          /* Outputs for Atomic SubSystem: '<S295>/Bit Shift11' */
+          /* MATLAB Function: '<S306>/bit_shift' */
+          /* MATLAB Function 'Logic and Bit Operations/Bit Shift/bit_shift': '<S321>:1' */
+          /* '<S321>:1:8' */
+          TMR_miss_set = (uint8_T)((uint32_T)localB->BitShift5_k.y >> 7);
+
+          /* End of Outputs for SubSystem: '<S295>/Bit Shift11' */
+
+          /* Outputs for Atomic SubSystem: '<S295>/Bit Shift6' */
+          BitShift6(Error1_s, &localB->BitShift6_l);
+
+          /* End of Outputs for SubSystem: '<S295>/Bit Shift6' */
+
+          /* Outputs for Atomic SubSystem: '<S295>/Bit Shift12' */
+          /* MATLAB Function: '<S307>/bit_shift' */
+          /* MATLAB Function 'Logic and Bit Operations/Bit Shift/bit_shift': '<S322>:1' */
+          /* '<S322>:1:8' */
+          TMR_miss_sensor = (uint8_T)((uint32_T)localB->BitShift6_l.y >> 7);
+
+          /* End of Outputs for SubSystem: '<S295>/Bit Shift12' */
+
+          /* Outputs for Atomic SubSystem: '<S295>/Bit Shift4' */
+          BitShift1(Error1_s, &localB->BitShift4_m);
+
+          /* End of Outputs for SubSystem: '<S295>/Bit Shift4' */
+
+          /* Outputs for Atomic SubSystem: '<S295>/Bit Shift13' */
+          BitShift10(localB->BitShift4_m.y, &localB->BitShift13);
+
+          /* End of Outputs for SubSystem: '<S295>/Bit Shift13' */
+
+          /* Logic: '<S295>/OR' */
+          Voter_error_s = ((tau_fr_disagree_s != 0) || (tau_fl_disagree_s != 0) ||
+                           (tau_ar_disagree_s != 0) || (tau_al_disagree_s != 0) ||
+                           (localB->BitShift10_o.y != 0) || (TMR_miss_set != 0) ||
+                           (TMR_miss_sensor != 0) || (localB->BitShift13.y != 0));
+
+          /* DataStoreRead: '<S293>/Data Store Read2' */
+          Error3_s = localDW->error_log3_stored;
+
+          /* Outputs for Atomic SubSystem: '<S297>/Bit Shift14' */
+          /* MATLAB Function: '<S369>/bit_shift' */
+          /* MATLAB Function 'Logic and Bit Operations/Bit Shift/bit_shift': '<S384>:1' */
+          /* '<S384>:1:8' */
+          tau_fr2_disagree_s = (uint8_T)((uint32_T)Error3_s >> 7);
+
+          /* End of Outputs for SubSystem: '<S297>/Bit Shift14' */
+
+          /* Outputs for Atomic SubSystem: '<S297>/Bit Shift' */
+          BitShift3(Error3_s, &localB->BitShift_e);
+
+          /* End of Outputs for SubSystem: '<S297>/Bit Shift' */
+
+          /* Outputs for Atomic SubSystem: '<S297>/Bit Shift7' */
+          /* MATLAB Function: '<S375>/bit_shift' */
+          /* MATLAB Function 'Logic and Bit Operations/Bit Shift/bit_shift': '<S390>:1' */
+          /* '<S390>:1:8' */
+          tau_fl2_disagree_s = (uint8_T)((uint32_T)localB->BitShift_e.y >> 7);
+
+          /* End of Outputs for SubSystem: '<S297>/Bit Shift7' */
+
+          /* Outputs for Atomic SubSystem: '<S297>/Bit Shift1' */
+          BitShift1_o(Error3_s, &localB->BitShift1_nl);
+
+          /* End of Outputs for SubSystem: '<S297>/Bit Shift1' */
+
+          /* Outputs for Atomic SubSystem: '<S297>/Bit Shift8' */
+          /* MATLAB Function: '<S376>/bit_shift' */
+          /* MATLAB Function 'Logic and Bit Operations/Bit Shift/bit_shift': '<S391>:1' */
+          /* '<S391>:1:8' */
+          tau_ar2_disagree_s = (uint8_T)((uint32_T)localB->BitShift1_nl.y >> 7);
+
+          /* End of Outputs for SubSystem: '<S297>/Bit Shift8' */
+
+          /* Outputs for Atomic SubSystem: '<S297>/Bit Shift2' */
+          BitShift2(Error3_s, &localB->BitShift2_o);
+
+          /* End of Outputs for SubSystem: '<S297>/Bit Shift2' */
+
+          /* Outputs for Atomic SubSystem: '<S297>/Bit Shift9' */
+          /* MATLAB Function: '<S377>/bit_shift' */
+          /* MATLAB Function 'Logic and Bit Operations/Bit Shift/bit_shift': '<S392>:1' */
+          /* '<S392>:1:8' */
+          tau_al2_disagree_s = (uint8_T)((uint32_T)localB->BitShift2_o.y >> 7);
+
+          /* End of Outputs for SubSystem: '<S297>/Bit Shift9' */
+
+          /* Outputs for Atomic SubSystem: '<S297>/Bit Shift3' */
+          BitShift4(Error3_s, &localB->BitShift3_e);
+
+          /* End of Outputs for SubSystem: '<S297>/Bit Shift3' */
+
+          /* Outputs for Atomic SubSystem: '<S297>/Bit Shift10' */
+          /* MATLAB Function: '<S365>/bit_shift' */
+          /* MATLAB Function 'Logic and Bit Operations/Bit Shift/bit_shift': '<S380>:1' */
+          /* '<S380>:1:8' */
+          TMR_miss_out2 = (uint8_T)((uint32_T)localB->BitShift3_e.y >> 7);
+
+          /* End of Outputs for SubSystem: '<S297>/Bit Shift10' */
+
+          /* Outputs for Atomic SubSystem: '<S297>/Bit Shift5' */
+          BitShift5(Error3_s, &localB->BitShift5_c0);
+
+          /* End of Outputs for SubSystem: '<S297>/Bit Shift5' */
+
+          /* Outputs for Atomic SubSystem: '<S297>/Bit Shift11' */
+          /* MATLAB Function: '<S366>/bit_shift' */
+          /* MATLAB Function 'Logic and Bit Operations/Bit Shift/bit_shift': '<S381>:1' */
+          /* '<S381>:1:8' */
+          TMR_miss2_set = (uint8_T)((uint32_T)localB->BitShift5_c0.y >> 7);
+
+          /* End of Outputs for SubSystem: '<S297>/Bit Shift11' */
+
+          /* Outputs for Atomic SubSystem: '<S297>/Bit Shift6' */
+          BitShift6(Error3_s, &localB->BitShift6_j);
+
+          /* End of Outputs for SubSystem: '<S297>/Bit Shift6' */
+
+          /* Outputs for Atomic SubSystem: '<S297>/Bit Shift12' */
+          /* MATLAB Function: '<S367>/bit_shift' */
+          /* MATLAB Function 'Logic and Bit Operations/Bit Shift/bit_shift': '<S382>:1' */
+          /* '<S382>:1:8' */
+          TMR_miss2_sensor = (uint8_T)((uint32_T)localB->BitShift6_j.y >> 7);
+
+          /* End of Outputs for SubSystem: '<S297>/Bit Shift12' */
+
+          /* Outputs for Atomic SubSystem: '<S297>/Bit Shift4' */
+          BitShift1(Error3_s, &localB->BitShift4_c);
+
+          /* End of Outputs for SubSystem: '<S297>/Bit Shift4' */
+
+          /* Outputs for Atomic SubSystem: '<S297>/Bit Shift13' */
+          BitShift10(localB->BitShift4_c.y, &localB->BitShift13_a);
+
+          /* End of Outputs for SubSystem: '<S297>/Bit Shift13' */
+
+          /* Logic: '<S297>/OR' */
+          Slave_error_s = ((tau_fr2_disagree_s != 0) || (tau_fl2_disagree_s != 0)
+                           || (tau_ar2_disagree_s != 0) || (tau_al2_disagree_s
+            != 0) || (TMR_miss_out2 != 0) || (TMR_miss2_set != 0) ||
+                           (TMR_miss2_sensor != 0) || (localB->BitShift13_a.y !=
+            0));
+          decision_voter_s = testV_1;
+
           /* Outputs for Enabled SubSystem: '<S293>/Decision Voter' incorporates:
            *  EnablePort: '<S294>/Enable'
            */
-          if (1.0 > 0.0) {
+          if (decision_voter_s > 0.0) {
             /* MinMax: '<S299>/Max1' incorporates:
              *  DataStoreRead: '<S299>/Data Store Read25'
              */
@@ -11311,7 +11630,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
                               10.0);
 
             /* DataStoreWrite: '<S294>/Data Store Write4' */
-            Slave_ID = Slave_ID_s;
+            *rtd_Slave_ID = Slave_ID_s;
 
             /* DataStoreWrite: '<S294>/Data Store Write3' incorporates:
              *  Constant: '<S294>/Constant3'
@@ -11321,24 +11640,25 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
 
           /* End of Outputs for SubSystem: '<S293>/Decision Voter' */
 
+          /* Logic: '<S293>/NOT' incorporates:
+           *  Constant: '<S293>/Constant'
+           *  Sum: '<S299>/Subtract1'
+           */
+          membership_s = (decision_voter_s == 0.0);
+
           /* Outputs for Enabled SubSystem: '<S293>/Membership' incorporates:
            *  EnablePort: '<S298>/Enable'
            */
-          if (localC->NOT_k) {
+          if (membership_s) {
             /* Outputs for Enabled SubSystem: '<S298>/Value Voter Scenario' incorporates:
              *  EnablePort: '<S395>/Enable'
              */
-            if (localDW->Voter_error > 0.0F) {
+            if (Voter_error_s) {
               /* DataStoreWrite: '<S395>/Data Store Write1' */
               *rtd_BackUp_ID = *rtd_Voter_ID;
 
               /* DataStoreWrite: '<S395>/Data Store Write' */
-              Slave_ID = *rtd_BackUp_ID;
-
-              /* DataStoreWrite: '<S395>/Data Store Write2' incorporates:
-               *  DataStoreRead: '<S395>/Data Store Read2'
-               */
-              *rtd_Voter_ID = Slave_ID;
+              *rtd_Slave_ID = *rtd_BackUp_ID;
             }
 
             /* End of Outputs for SubSystem: '<S298>/Value Voter Scenario' */
@@ -11346,14 +11666,12 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
             /* Outputs for Enabled SubSystem: '<S298>/Master Scenario' incorporates:
              *  EnablePort: '<S393>/Enable'
              */
-            if (localDW->Master_error > 0.0F) {
-              /* DataStoreWrite: '<S393>/Data Store Write1' incorporates:
-               *  DataStoreRead: '<S393>/Data Store Read'
-               */
-              *rtd_Master_ID = Slave_ID;
+            if (Master_error_s) {
+              /* DataStoreWrite: '<S393>/Data Store Write1' */
+              *rtd_Master_ID = *rtd_Slave_ID;
 
               /* DataStoreWrite: '<S393>/Data Store Write' */
-              Slave_ID = *rtd_BackUp_ID;
+              *rtd_Slave_ID = *rtd_BackUp_ID;
 
               /* DataStoreWrite: '<S393>/Data Store Write2' */
               *rtd_BackUp_ID = *rtd_Master_ID;
@@ -11364,340 +11682,15 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
             /* Outputs for Enabled SubSystem: '<S298>/Slave Scenario' incorporates:
              *  EnablePort: '<S394>/Enable'
              */
-            if (localDW->Slave_error > 0.0F) {
-              /* DataStoreWrite: '<S394>/Data Store Write1' incorporates:
-               *  DataStoreRead: '<S394>/Data Store Read'
-               */
-              *rtd_BackUp_ID = Slave_ID;
-
-              /* DataStoreWrite: '<S394>/Data Store Write' */
-              Slave_ID = *rtd_BackUp_ID;
+            if (Slave_error_s) {
+              /* DataStoreWrite: '<S394>/Data Store Write1' */
+              *rtd_BackUp_ID = *rtd_Slave_ID;
             }
 
             /* End of Outputs for SubSystem: '<S298>/Slave Scenario' */
           }
 
           /* End of Outputs for SubSystem: '<S293>/Membership' */
-
-          /* DataStoreRead: '<S293>/Data Store Read' incorporates:
-           *  Constant: '<S293>/Constant'
-           *  DataStoreRead: '<S298>/Data Store Read3'
-           *  DataStoreRead: '<S298>/Data Store Read4'
-           *  DataStoreRead: '<S298>/Data Store Read5'
-           *  Sum: '<S299>/Subtract1'
-           */
-          Error2_s = localDW->error_log2_stored;
-
-          /* Outputs for Atomic SubSystem: '<S296>/Bit Shift14' */
-          /* MATLAB Function: '<S339>/bit_shift' */
-          /* MATLAB Function 'Logic and Bit Operations/Bit Shift/bit_shift': '<S354>:1' */
-          /* '<S354>:1:8' */
-          tau_fr1_disagree_s = (uint8_T)((uint32_T)Error2_s >> 7);
-
-          /* End of Outputs for SubSystem: '<S296>/Bit Shift14' */
-
-          /* Outputs for Atomic SubSystem: '<S296>/Bit Shift' */
-          BitShift3(Error2_s, &localB->BitShift_c);
-
-          /* End of Outputs for SubSystem: '<S296>/Bit Shift' */
-
-          /* Outputs for Atomic SubSystem: '<S296>/Bit Shift7' */
-          /* MATLAB Function: '<S345>/bit_shift' */
-          /* MATLAB Function 'Logic and Bit Operations/Bit Shift/bit_shift': '<S360>:1' */
-          /* '<S360>:1:8' */
-          tau_fl1_disagree_s = (uint8_T)((uint32_T)localB->BitShift_c.y >> 7);
-
-          /* End of Outputs for SubSystem: '<S296>/Bit Shift7' */
-
-          /* Outputs for Atomic SubSystem: '<S296>/Bit Shift1' */
-          BitShift1_o(Error2_s, &localB->BitShift1_n);
-
-          /* End of Outputs for SubSystem: '<S296>/Bit Shift1' */
-
-          /* Outputs for Atomic SubSystem: '<S296>/Bit Shift8' */
-          /* MATLAB Function: '<S346>/bit_shift' */
-          /* MATLAB Function 'Logic and Bit Operations/Bit Shift/bit_shift': '<S361>:1' */
-          /* '<S361>:1:8' */
-          tau_ar1_disagree_s = (uint8_T)((uint32_T)localB->BitShift1_n.y >> 7);
-
-          /* End of Outputs for SubSystem: '<S296>/Bit Shift8' */
-
-          /* Outputs for Atomic SubSystem: '<S296>/Bit Shift2' */
-          BitShift2(Error2_s, &localB->BitShift2_ip);
-
-          /* End of Outputs for SubSystem: '<S296>/Bit Shift2' */
-
-          /* Outputs for Atomic SubSystem: '<S296>/Bit Shift9' */
-          /* MATLAB Function: '<S347>/bit_shift' */
-          /* MATLAB Function 'Logic and Bit Operations/Bit Shift/bit_shift': '<S362>:1' */
-          /* '<S362>:1:8' */
-          tau_al1_disagree_s = (uint8_T)((uint32_T)localB->BitShift2_ip.y >> 7);
-
-          /* End of Outputs for SubSystem: '<S296>/Bit Shift9' */
-
-          /* Outputs for Atomic SubSystem: '<S296>/Bit Shift3' */
-          BitShift4(Error2_s, &localB->BitShift3_g);
-
-          /* End of Outputs for SubSystem: '<S296>/Bit Shift3' */
-
-          /* Outputs for Atomic SubSystem: '<S296>/Bit Shift10' */
-          /* MATLAB Function: '<S335>/bit_shift' */
-          /* MATLAB Function 'Logic and Bit Operations/Bit Shift/bit_shift': '<S350>:1' */
-          /* '<S350>:1:8' */
-          TMR_miss_out1 = (uint8_T)((uint32_T)localB->BitShift3_g.y >> 7);
-
-          /* End of Outputs for SubSystem: '<S296>/Bit Shift10' */
-
-          /* Outputs for Atomic SubSystem: '<S296>/Bit Shift5' */
-          BitShift5(Error2_s, &localB->BitShift5_c);
-
-          /* End of Outputs for SubSystem: '<S296>/Bit Shift5' */
-
-          /* Outputs for Atomic SubSystem: '<S296>/Bit Shift11' */
-          /* MATLAB Function: '<S336>/bit_shift' */
-          /* MATLAB Function 'Logic and Bit Operations/Bit Shift/bit_shift': '<S351>:1' */
-          /* '<S351>:1:8' */
-          TMR_miss1_set = (uint8_T)((uint32_T)localB->BitShift5_c.y >> 7);
-
-          /* End of Outputs for SubSystem: '<S296>/Bit Shift11' */
-
-          /* Outputs for Atomic SubSystem: '<S296>/Bit Shift6' */
-          BitShift6(Error2_s, &localB->BitShift6_e);
-
-          /* End of Outputs for SubSystem: '<S296>/Bit Shift6' */
-
-          /* Outputs for Atomic SubSystem: '<S296>/Bit Shift12' */
-          /* MATLAB Function: '<S337>/bit_shift' */
-          /* MATLAB Function 'Logic and Bit Operations/Bit Shift/bit_shift': '<S352>:1' */
-          /* '<S352>:1:8' */
-          TMR_miss1_sensor = (uint8_T)((uint32_T)localB->BitShift6_e.y >> 7);
-
-          /* End of Outputs for SubSystem: '<S296>/Bit Shift12' */
-
-          /* Outputs for Atomic SubSystem: '<S296>/Bit Shift4' */
-          BitShift1(Error2_s, &localB->BitShift4_l);
-
-          /* End of Outputs for SubSystem: '<S296>/Bit Shift4' */
-
-          /* Outputs for Atomic SubSystem: '<S296>/Bit Shift13' */
-          BitShift10(localB->BitShift4_l.y, &localB->BitShift13_p);
-
-          /* End of Outputs for SubSystem: '<S296>/Bit Shift13' */
-
-          /* Logic: '<S296>/AND1' */
-          Master_error_s = ((tau_fr1_disagree_s != 0) && (tau_fl1_disagree_s !=
-            0) && (tau_ar1_disagree_s != 0) && (tau_al1_disagree_s != 0) &&
-                            (TMR_miss_out1 != 0) && (TMR_miss1_set != 0) &&
-                            (TMR_miss1_sensor != 0) && (localB->BitShift13_p.y
-            != 0));
-
-          /* DataStoreRead: '<S293>/Data Store Read1' */
-          Error1_s = localDW->error_log1_stored;
-
-          /* Outputs for Atomic SubSystem: '<S295>/Bit Shift14' */
-          /* MATLAB Function: '<S309>/bit_shift' */
-          /* MATLAB Function 'Logic and Bit Operations/Bit Shift/bit_shift': '<S324>:1' */
-          /* '<S324>:1:8' */
-          tau_fr_disagree_s = (uint8_T)((uint32_T)Error1_s >> 7);
-
-          /* End of Outputs for SubSystem: '<S295>/Bit Shift14' */
-
-          /* Outputs for Atomic SubSystem: '<S295>/Bit Shift' */
-          BitShift3(Error1_s, &localB->BitShift_f);
-
-          /* End of Outputs for SubSystem: '<S295>/Bit Shift' */
-
-          /* Outputs for Atomic SubSystem: '<S295>/Bit Shift7' */
-          /* MATLAB Function: '<S315>/bit_shift' */
-          /* MATLAB Function 'Logic and Bit Operations/Bit Shift/bit_shift': '<S330>:1' */
-          /* '<S330>:1:8' */
-          tau_fl_disagree_s = (uint8_T)((uint32_T)localB->BitShift_f.y >> 7);
-
-          /* End of Outputs for SubSystem: '<S295>/Bit Shift7' */
-
-          /* Outputs for Atomic SubSystem: '<S295>/Bit Shift1' */
-          BitShift1_o(Error1_s, &localB->BitShift1_ow);
-
-          /* End of Outputs for SubSystem: '<S295>/Bit Shift1' */
-
-          /* Outputs for Atomic SubSystem: '<S295>/Bit Shift8' */
-          /* MATLAB Function: '<S316>/bit_shift' */
-          /* MATLAB Function 'Logic and Bit Operations/Bit Shift/bit_shift': '<S331>:1' */
-          /* '<S331>:1:8' */
-          tau_ar_disagree_s = (uint8_T)((uint32_T)localB->BitShift1_ow.y >> 7);
-
-          /* End of Outputs for SubSystem: '<S295>/Bit Shift8' */
-
-          /* Outputs for Atomic SubSystem: '<S295>/Bit Shift2' */
-          BitShift2(Error1_s, &localB->BitShift2_j);
-
-          /* End of Outputs for SubSystem: '<S295>/Bit Shift2' */
-
-          /* Outputs for Atomic SubSystem: '<S295>/Bit Shift9' */
-          /* MATLAB Function: '<S317>/bit_shift' */
-          /* MATLAB Function 'Logic and Bit Operations/Bit Shift/bit_shift': '<S332>:1' */
-          /* '<S332>:1:8' */
-          tau_al_disagree_s = (uint8_T)((uint32_T)localB->BitShift2_j.y >> 7);
-
-          /* End of Outputs for SubSystem: '<S295>/Bit Shift9' */
-
-          /* Outputs for Atomic SubSystem: '<S295>/Bit Shift3' */
-          BitShift4(Error1_s, &localB->BitShift3_d);
-
-          /* End of Outputs for SubSystem: '<S295>/Bit Shift3' */
-
-          /* Outputs for Atomic SubSystem: '<S295>/Bit Shift10' */
-          BitShift10(localB->BitShift3_d.y, &localB->BitShift10_o);
-
-          /* End of Outputs for SubSystem: '<S295>/Bit Shift10' */
-
-          /* Outputs for Atomic SubSystem: '<S295>/Bit Shift5' */
-          BitShift5(Error1_s, &localB->BitShift5_k);
-
-          /* End of Outputs for SubSystem: '<S295>/Bit Shift5' */
-
-          /* Outputs for Atomic SubSystem: '<S295>/Bit Shift11' */
-          /* MATLAB Function: '<S306>/bit_shift' */
-          /* MATLAB Function 'Logic and Bit Operations/Bit Shift/bit_shift': '<S321>:1' */
-          /* '<S321>:1:8' */
-          TMR_miss_set = (uint8_T)((uint32_T)localB->BitShift5_k.y >> 7);
-
-          /* End of Outputs for SubSystem: '<S295>/Bit Shift11' */
-
-          /* Outputs for Atomic SubSystem: '<S295>/Bit Shift6' */
-          BitShift6(Error1_s, &localB->BitShift6_l);
-
-          /* End of Outputs for SubSystem: '<S295>/Bit Shift6' */
-
-          /* Outputs for Atomic SubSystem: '<S295>/Bit Shift12' */
-          /* MATLAB Function: '<S307>/bit_shift' */
-          /* MATLAB Function 'Logic and Bit Operations/Bit Shift/bit_shift': '<S322>:1' */
-          /* '<S322>:1:8' */
-          TMR_miss_sensor = (uint8_T)((uint32_T)localB->BitShift6_l.y >> 7);
-
-          /* End of Outputs for SubSystem: '<S295>/Bit Shift12' */
-
-          /* Outputs for Atomic SubSystem: '<S295>/Bit Shift4' */
-          BitShift1(Error1_s, &localB->BitShift4_m);
-
-          /* End of Outputs for SubSystem: '<S295>/Bit Shift4' */
-
-          /* Outputs for Atomic SubSystem: '<S295>/Bit Shift13' */
-          BitShift10(localB->BitShift4_m.y, &localB->BitShift13);
-
-          /* End of Outputs for SubSystem: '<S295>/Bit Shift13' */
-
-          /* Logic: '<S295>/AND1' */
-          Voter_error_s = ((tau_fr_disagree_s != 0) && (tau_fl_disagree_s != 0) &&
-                           (tau_ar_disagree_s != 0) && (tau_al_disagree_s != 0) &&
-                           (localB->BitShift10_o.y != 0) && (TMR_miss_set != 0) &&
-                           (TMR_miss_sensor != 0) && (localB->BitShift13.y != 0));
-
-          /* DataStoreRead: '<S293>/Data Store Read2' */
-          Error3_s = localDW->error_log3_stored;
-
-          /* Outputs for Atomic SubSystem: '<S297>/Bit Shift14' */
-          /* MATLAB Function: '<S369>/bit_shift' */
-          /* MATLAB Function 'Logic and Bit Operations/Bit Shift/bit_shift': '<S384>:1' */
-          /* '<S384>:1:8' */
-          tau_fr2_disagree_s = (uint8_T)((uint32_T)Error3_s >> 7);
-
-          /* End of Outputs for SubSystem: '<S297>/Bit Shift14' */
-
-          /* Outputs for Atomic SubSystem: '<S297>/Bit Shift' */
-          BitShift3(Error3_s, &localB->BitShift_e);
-
-          /* End of Outputs for SubSystem: '<S297>/Bit Shift' */
-
-          /* Outputs for Atomic SubSystem: '<S297>/Bit Shift7' */
-          /* MATLAB Function: '<S375>/bit_shift' */
-          /* MATLAB Function 'Logic and Bit Operations/Bit Shift/bit_shift': '<S390>:1' */
-          /* '<S390>:1:8' */
-          tau_fl2_disagree_s = (uint8_T)((uint32_T)localB->BitShift_e.y >> 7);
-
-          /* End of Outputs for SubSystem: '<S297>/Bit Shift7' */
-
-          /* Outputs for Atomic SubSystem: '<S297>/Bit Shift1' */
-          BitShift1_o(Error3_s, &localB->BitShift1_nl);
-
-          /* End of Outputs for SubSystem: '<S297>/Bit Shift1' */
-
-          /* Outputs for Atomic SubSystem: '<S297>/Bit Shift8' */
-          /* MATLAB Function: '<S376>/bit_shift' */
-          /* MATLAB Function 'Logic and Bit Operations/Bit Shift/bit_shift': '<S391>:1' */
-          /* '<S391>:1:8' */
-          tau_ar2_disagree_s = (uint8_T)((uint32_T)localB->BitShift1_nl.y >> 7);
-
-          /* End of Outputs for SubSystem: '<S297>/Bit Shift8' */
-
-          /* Outputs for Atomic SubSystem: '<S297>/Bit Shift2' */
-          BitShift2(Error3_s, &localB->BitShift2_o);
-
-          /* End of Outputs for SubSystem: '<S297>/Bit Shift2' */
-
-          /* Outputs for Atomic SubSystem: '<S297>/Bit Shift9' */
-          /* MATLAB Function: '<S377>/bit_shift' */
-          /* MATLAB Function 'Logic and Bit Operations/Bit Shift/bit_shift': '<S392>:1' */
-          /* '<S392>:1:8' */
-          tau_al2_disagree_s = (uint8_T)((uint32_T)localB->BitShift2_o.y >> 7);
-
-          /* End of Outputs for SubSystem: '<S297>/Bit Shift9' */
-
-          /* Outputs for Atomic SubSystem: '<S297>/Bit Shift3' */
-          BitShift4(Error3_s, &localB->BitShift3_e);
-
-          /* End of Outputs for SubSystem: '<S297>/Bit Shift3' */
-
-          /* Outputs for Atomic SubSystem: '<S297>/Bit Shift10' */
-          /* MATLAB Function: '<S365>/bit_shift' */
-          /* MATLAB Function 'Logic and Bit Operations/Bit Shift/bit_shift': '<S380>:1' */
-          /* '<S380>:1:8' */
-          TMR_miss_out2 = (uint8_T)((uint32_T)localB->BitShift3_e.y >> 7);
-
-          /* End of Outputs for SubSystem: '<S297>/Bit Shift10' */
-
-          /* Outputs for Atomic SubSystem: '<S297>/Bit Shift5' */
-          BitShift5(Error3_s, &localB->BitShift5_c0);
-
-          /* End of Outputs for SubSystem: '<S297>/Bit Shift5' */
-
-          /* Outputs for Atomic SubSystem: '<S297>/Bit Shift11' */
-          /* MATLAB Function: '<S366>/bit_shift' */
-          /* MATLAB Function 'Logic and Bit Operations/Bit Shift/bit_shift': '<S381>:1' */
-          /* '<S381>:1:8' */
-          TMR_miss2_set = (uint8_T)((uint32_T)localB->BitShift5_c0.y >> 7);
-
-          /* End of Outputs for SubSystem: '<S297>/Bit Shift11' */
-
-          /* Outputs for Atomic SubSystem: '<S297>/Bit Shift6' */
-          BitShift6(Error3_s, &localB->BitShift6_j);
-
-          /* End of Outputs for SubSystem: '<S297>/Bit Shift6' */
-
-          /* Outputs for Atomic SubSystem: '<S297>/Bit Shift12' */
-          /* MATLAB Function: '<S367>/bit_shift' */
-          /* MATLAB Function 'Logic and Bit Operations/Bit Shift/bit_shift': '<S382>:1' */
-          /* '<S382>:1:8' */
-          TMR_miss2_sensor = (uint8_T)((uint32_T)localB->BitShift6_j.y >> 7);
-
-          /* End of Outputs for SubSystem: '<S297>/Bit Shift12' */
-
-          /* Outputs for Atomic SubSystem: '<S297>/Bit Shift4' */
-          BitShift1(Error3_s, &localB->BitShift4_c);
-
-          /* End of Outputs for SubSystem: '<S297>/Bit Shift4' */
-
-          /* Outputs for Atomic SubSystem: '<S297>/Bit Shift13' */
-          BitShift10(localB->BitShift4_c.y, &localB->BitShift13_a);
-
-          /* End of Outputs for SubSystem: '<S297>/Bit Shift13' */
-
-          /* Logic: '<S297>/AND1' */
-          Slave_error_s = ((tau_fr2_disagree_s != 0) && (tau_fl2_disagree_s != 0)
-                           && (tau_ar2_disagree_s != 0) && (tau_al2_disagree_s
-            != 0) && (TMR_miss_out2 != 0) && (TMR_miss2_set != 0) &&
-                           (TMR_miss2_sensor != 0) && (localB->BitShift13_a.y !=
-            0));
         }
 
         /* End of Outputs for SubSystem: '<S184>/Decision Voter and Membership' */
@@ -11814,9 +11807,9 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
          *  Constant: '<S175>/Constant31'
          *  Constant: '<S293>/Constant'
          *  DataStoreRead: '<S175>/Data Store Read6'
-         *  DataStoreRead: '<S298>/Data Store Read3'
-         *  DataStoreRead: '<S298>/Data Store Read4'
-         *  DataStoreRead: '<S298>/Data Store Read5'
+         *  DataStoreWrite: '<S293>/Data Store Write'
+         *  DataStoreWrite: '<S293>/Data Store Write1'
+         *  DataStoreWrite: '<S293>/Data Store Write2'
          *  Logic: '<S175>/AND10'
          *  Logic: '<S175>/AND14'
          *  Logic: '<S175>/AND15'
@@ -14267,6 +14260,9 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
           /* DataStoreRead: '<S565>/Data Store Read3' */
           rtb_DataStoreRead3_on = *rtd_Msg_Rx_CAN2;
 
+          /* DataStoreRead: '<S565>/Data Store Read5' */
+          rtb_DataStoreRead5_es = *rtd_Slave_ID;
+
           /* RelationalOperator: '<S565>/Equal' */
           rtb_AND_kh = (*rtd_Local_Ticks == 700.0);
 
@@ -14289,7 +14285,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
 
             /* Outputs for Enabled SubSystem: '<S836>/Demux message CAN1 and check coherence' */
             DemuxmessageCAN1andcheckcoher_e(rtb_DataStoreRead1_ov,
-              &rtb_DataStoreRead_g, Slave_ID,
+              &rtb_DataStoreRead_g, rtb_DataStoreRead5_es,
               &localB->DemuxmessageCAN1andcheckcohe_md,
               &localDW->DemuxmessageCAN1andcheckcohe_md,
               &localDW->msg_count_DEBUG_i);
@@ -14298,7 +14294,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
 
             /* Outputs for Enabled SubSystem: '<S836>/Demux message CAN1 and check coherence1' */
             DemuxmessageCAN1andcheckcoher_m(rtb_DataStoreRead2_fw,
-              &rtb_DataStoreRead3_on, Slave_ID,
+              &rtb_DataStoreRead3_on, rtb_DataStoreRead5_es,
               &localB->DemuxmessageCAN1andcheckcoher_a,
               &localDW->DemuxmessageCAN1andcheckcoher_a,
               &localDW->msg_count_DEBUG_i);
@@ -14306,7 +14302,6 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
             /* End of Outputs for SubSystem: '<S836>/Demux message CAN1 and check coherence1' */
 
             /* Switch: '<S836>/Switch' incorporates:
-             *  DataStoreRead: '<S565>/Data Store Read5'
              *  DataStoreWrite: '<S836>/Data Store Write'
              */
             if (localB->DemuxmessageCAN1andcheckcohe_md.Equal) {
@@ -14386,7 +14381,6 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
           /* End of Outputs for SubSystem: '<S565>/Process_Messages' */
 
           /* Logic: '<S565>/AND1' incorporates:
-           *  DataStoreRead: '<S565>/Data Store Read5'
            *  Logic: '<S565>/AND'
            *  Logic: '<S565>/NOT'
            */
@@ -18596,7 +18590,6 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
          *  DataStoreRead: '<S559>/Data Store Read2'
          *  DataStoreRead: '<S560>/Data Store Read1'
          *  DataStoreRead: '<S560>/Data Store Read2'
-         *  DataStoreRead: '<S565>/Data Store Read5'
          *  DataStoreRead: '<S894>/Data Store Read6'
          *  DataStoreRead: '<S921>/Data Store Read1'
          *  DataStoreRead: '<S947>/Data Store Read6'
@@ -19421,19 +19414,18 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
        *  DataStoreRead: '<S192>/Data Store Read5'
        *  DataStoreRead: '<S194>/Data Store Read5'
        *  DataStoreRead: '<S196>/Data Store Read5'
-       *  DataStoreRead: '<S298>/Data Store Read3'
-       *  DataStoreRead: '<S298>/Data Store Read4'
-       *  DataStoreRead: '<S298>/Data Store Read5'
        *  DataStoreRead: '<S558>/Data Store Read1'
        *  DataStoreRead: '<S558>/Data Store Read2'
        *  DataStoreRead: '<S559>/Data Store Read1'
        *  DataStoreRead: '<S559>/Data Store Read2'
        *  DataStoreRead: '<S560>/Data Store Read1'
        *  DataStoreRead: '<S560>/Data Store Read2'
-       *  DataStoreRead: '<S565>/Data Store Read5'
        *  DataStoreRead: '<S894>/Data Store Read6'
        *  DataStoreRead: '<S921>/Data Store Read1'
        *  DataStoreRead: '<S947>/Data Store Read6'
+       *  DataStoreWrite: '<S293>/Data Store Write'
+       *  DataStoreWrite: '<S293>/Data Store Write1'
+       *  DataStoreWrite: '<S293>/Data Store Write2'
        *  DataStoreWrite: '<S398>/Data Store Write2'
        *  DataStoreWrite: '<S991>/Data Store Write2'
        *  Logic: '<S1022>/AND14'
@@ -20640,19 +20632,18 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
      *  DataStoreRead: '<S192>/Data Store Read5'
      *  DataStoreRead: '<S194>/Data Store Read5'
      *  DataStoreRead: '<S196>/Data Store Read5'
-     *  DataStoreRead: '<S298>/Data Store Read3'
-     *  DataStoreRead: '<S298>/Data Store Read4'
-     *  DataStoreRead: '<S298>/Data Store Read5'
      *  DataStoreRead: '<S558>/Data Store Read1'
      *  DataStoreRead: '<S558>/Data Store Read2'
      *  DataStoreRead: '<S559>/Data Store Read1'
      *  DataStoreRead: '<S559>/Data Store Read2'
      *  DataStoreRead: '<S560>/Data Store Read1'
      *  DataStoreRead: '<S560>/Data Store Read2'
-     *  DataStoreRead: '<S565>/Data Store Read5'
      *  DataStoreRead: '<S894>/Data Store Read6'
      *  DataStoreRead: '<S921>/Data Store Read1'
      *  DataStoreRead: '<S947>/Data Store Read6'
+     *  DataStoreWrite: '<S293>/Data Store Write'
+     *  DataStoreWrite: '<S293>/Data Store Write1'
+     *  DataStoreWrite: '<S293>/Data Store Write2'
      *  DataStoreWrite: '<S398>/Data Store Write2'
      *  DataStoreWrite: '<S991>/Data Store Write2'
      *  Logic: '<S1022>/AND14'
@@ -27561,7 +27552,7 @@ void HANcoder_E407_TTA_Group2_initialize(void)
     rtDWork.BackUp_ID = 1.0;
 
     /* Start for DataStoreMemory: '<S10>/Data Store Memory26' */
-    Slave_ID = 1.0;
+    rtDWork.Slave_ID = 1.0;
 
     /* Start for DataStoreMemory: '<S10>/Data Store Memory5' */
     rtDWork.Master_ID = 1.0;
