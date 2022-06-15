@@ -38,7 +38,7 @@ Input_Gen_Board = 5;
 Vehicle_Em_Board = 6;
 
 % COMMunication Model
-COMM_Period = 50;
+COMM_Period = 60;
 % COMM_PHASE
 % CAN1
 % init
@@ -67,7 +67,7 @@ max_num_msgs_CAN2 = max_num_msgs_CAN1;
 DEBUG_wait = 20000; % insert this in a TM to make the system wait there for DEBUG
 basic_cycle_start = 0;
 COMM_duration = COMM_Period;
-COMP_duration = 20;
+COMP_duration = 50;
 
 %% Definition of Time marks
 % Time mark types
@@ -91,14 +91,14 @@ TM_Type_bc0(end+1)  = COMP;
 TM_bc0_3        = TM_bc0_2  + COMP_duration;   % COMP LocalTime update (LA - Desync)
 TM_Data_bc0(end+1)  = TM_bc0_3;
 TM_Type_bc0(end+1)  = COMP;
-TM_bc0_3_2      = TM_bc0_3   + 2;               % COMP LocalTime update (LT Update)
+TM_bc0_3_2      = TM_bc0_3   + 6;               % COMP LocalTime update (LT Update)
 TM_Data_bc0(end+1)  = TM_bc0_3_2;
 TM_Type_bc0(end+1)  = COMP;
 
 TM_bc0_4         = TM_bc0_3   + COMP_duration;	% COMP Generate vote <Input gen.: Check TO>
 TM_Data_bc0(end+1)  = TM_bc0_4;
 TM_Type_bc0(end+1)  = COMP;
-TM_bc0_4_2       = TM_bc0_4    + 2;               % <Input gen.: Reset Board>
+TM_bc0_4_2       = TM_bc0_4    + 6;               % <Input gen.: Reset Board>
 TM_Data_bc0(end+1)  = TM_bc0_4_2;
 TM_Type_bc0(end+1)  = COMP;
 
@@ -122,7 +122,7 @@ TM_Type_bc0(end+1)  = COMM;
 TM_bc0_9      = TM_bc0_8  + COMM_duration;	% COMP Check Message <Vehicle Em.: Check Time Outs>
 TM_Data_bc0(end+1)  = TM_bc0_9;
 TM_Type_bc0(end+1)  = COMP;
-TM_bc0_9_2    = TM_bc0_9 + 2;               % <Vehicle Em.: Reset Board> 
+TM_bc0_9_2    = TM_bc0_9 + 6;               % <Vehicle Em.: Reset Board> 
 TM_Data_bc0(end+1)  = TM_bc0_9_2;
 TM_Type_bc0(end+1)  = COMP;
 
@@ -183,7 +183,7 @@ TM_Type_bc1(end+1)       = COMM;
 TM_Check_Set_Values      = TM_COMM_Set_Values + COMM_duration;           % COMP Check Set values 
 TM_Data_bc1(end+1)       = TM_Check_Set_Values;
 TM_Type_bc1(end+1)       = COMP;
-TM_Check_Set_Values_2    = TM_Check_Set_Values + 2;                      % <Controller: Update msg> 
+TM_Check_Set_Values_2    = TM_Check_Set_Values + 6;                      % <Controller: Update msg> 
 TM_Data_bc1(end+1)       = TM_Check_Set_Values_2;                        
 TM_Type_bc1(end+1)       = COMP;
 
@@ -194,7 +194,7 @@ TM_Type_bc1(end+1)       = COMM;
 TM_Check_Sensor_Values   = TM_COMM_Sensor_Values + COMM_duration;        % COMP Check Sensor values <Input gen.: Time Outs>
 TM_Data_bc1(end+1)       = TM_Check_Sensor_Values;
 TM_Type_bc1(end+1)       = COMP;
-TM_Check_Sensor_Values_2 = TM_Check_Sensor_Values + 2;                   % <Controller: Update msg>
+TM_Check_Sensor_Values_2 = TM_Check_Sensor_Values + 6;                   % <Controller: Update msg>
 TM_Data_bc1(end+1)       = TM_Check_Sensor_Values_2;                     % <Input gen.: Reset Board>
 TM_Type_bc1(end+1)       = COMP;
 
@@ -215,7 +215,7 @@ TM_COMM_Output_Control1  = TM_Velocity + COMM_duration;                  % COMM 
 TM_Data_bc1(end+1)       = TM_COMM_Output_Control1;
 TM_Type_bc1(end+1)       = COMP;
 
-TM_COMM_Output_Control1_2 = TM_COMM_Output_Control1 + 2;                   % <Controller: Update msg>
+TM_COMM_Output_Control1_2 = TM_COMM_Output_Control1 + 6;                   % <Controller: Update msg>
 TM_Data_bc1(end+1)        = TM_COMM_Output_Control1_2;                     % <Input gen.: Reset Board>
 TM_Type_bc1(end+1)        = COMP;
 
@@ -247,7 +247,7 @@ TM_Type_bc1(end+1)       = COMM;
 TM_Check_Output_Emulator = TM_COMM_Output_Emulator + COMM_duration;      % COMP Check Output Controller 2
 TM_Data_bc1(end+1)       = TM_Check_Output_Emulator;
 TM_Type_bc1(end+1)       = COMP;
-TM_Check_Output_Emulator_2 = TM_Check_Output_Emulator + 2;               % <Vehicle Em.: Update msg>
+TM_Check_Output_Emulator_2 = TM_Check_Output_Emulator + 6;               % <Vehicle Em.: Update msg>
 TM_Data_bc1(end+1)       = TM_Check_Output_Emulator_2;
 TM_Type_bc1(end+1)       = COMP;
 
@@ -258,7 +258,7 @@ TM_Type_bc1(end+1)  = COMM;
 TM_bc1_19       = TM_bc1_18 + COMM_duration;	% Check error log
 TM_Data_bc1(end+1)  = TM_bc1_19;
 TM_Type_bc1(end+1)  = COMP;
-TM_bc1_19_2       = TM_bc1_19 + 2;	% Check error log
+TM_bc1_19_2       = TM_bc1_19 + 6;	% Check error log
 TM_Data_bc1(end+1)  = TM_bc1_19_2;
 TM_Type_bc1(end+1)  = COMP;
 
@@ -266,7 +266,7 @@ TM_Type_bc1(end+1)  = COMP;
 TM_Reset_Var_bc1         = TM_bc1_19 + COMP_duration;     % Reset Variables Basic Cycle 1
 TM_Data_bc1(end+1)       = TM_Reset_Var_bc1;
 TM_Type_bc1(end+1)       = COMP;
-TM_Reset_Var_bc1_2       = TM_Reset_Var_bc1 + 2;                         % COMP Reset Variables
+TM_Reset_Var_bc1_2       = TM_Reset_Var_bc1 + 6;                         % COMP Reset Variables
 TM_Data_bc1(end+1)       = TM_Reset_Var_bc1_2;
 TM_Type_bc1(end+1)       = COMP;
 
@@ -300,7 +300,7 @@ comm_delay_estimation2 = ...
 
 % Maximum desync: maximum allowed ticks to be corrected by Desync (Update
 % LT) during a basic cycle
-max_desync = 15;
+max_desync = 30;
 min_desync = (-1)*max_desync;
 
 % Initialization
