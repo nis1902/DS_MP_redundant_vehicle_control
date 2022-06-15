@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'HANcoder_E407_TTA_Group2'.
  *
- * Model version                  : 1.269
+ * Model version                  : 1.278
  * Simulink Coder version         : 9.0 (R2018b) 24-May-2018
- * C/C++ source code generated on : Wed Jun  8 20:43:15 2022
+ * C/C++ source code generated on : Tue Jun 14 21:46:30 2022
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -101,7 +101,6 @@ extern void BitShift10(uint8_T rtu_u, rtB_BitShift10 *localB);
 extern void BitShift2(uint8_T rtu_u, rtB_BitShift2 *localB);
 extern void BitShift5(uint8_T rtu_u, rtB_BitShift5 *localB);
 extern void BitShift6(uint8_T rtu_u, rtB_BitShift6 *localB);
-extern void BitShift(uint8_T rtu_u, rtB_BitShift *localB);
 extern void BitShift1_m(uint8_T rtu_u, rtB_BitShift1_j *localB);
 extern void BitShift2_n(uint8_T rtu_u, rtB_BitShift2_g *localB);
 extern void DemuxmessageCAN1andchec_Disable(rtB_DemuxmessageCAN1andcheckcoh
@@ -200,6 +199,15 @@ extern void CheckmsgtransmissionCAN2_p(boolean_T rtu_Enable, uint16_T
   *localC, rtDW_CheckmsgtransmissionCAN2_d *localDW, real_T *rtd_Board_ID,
   msg_buffer_type *rtd_Msg_Tx_CAN2, uint32_T *rtd_TxID_CAN2, real_T
   *rtd_Tx_msg_count_CAN2, uint8_T *rtd_basic_cycle_count);
+extern void Transmissionsubtasks_k_Disable(rtB_Transmissionsubtasks_l *localB,
+  rtDW_Transmissionsubtasks_ke *localDW);
+extern void Transmissionsubtasks_i(boolean_T rtu_Enable, real_T rtu_Time_Mark,
+  rtB_Transmissionsubtasks_l *localB, const rtC_Transmissionsubtasks_h *localC,
+  rtDW_Transmissionsubtasks_ke *localDW, real_T *rtd_Board_ID, uint16_T
+  *rtd_Local_Ticks, msg_buffer_type *rtd_Msg_Tx_CAN1, msg_buffer_type
+  *rtd_Msg_Tx_CAN2, uint32_T *rtd_TxID_CAN1, uint32_T *rtd_TxID_CAN2, real_T
+  *rtd_Tx_msg_count_CAN1, real_T *rtd_Tx_msg_count_CAN2, uint8_T
+  *rtd_basic_cycle_count);
 extern void Process_Messages_Disable(rtB_Process_Messages *localB,
   rtDW_Process_Messages *localDW);
 extern void Process_Messages(boolean_T rtu_Enable, boolean_T rtu_new_CAN1_msg,
@@ -264,12 +272,12 @@ extern void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
                       *rtd_Msg_Tx_CAN2, boolean_T *rtd_New_Msg_Ready_CAN1,
                       boolean_T *rtd_New_Msg_Ready_CAN2, uint32_T *rtd_RxID_CAN1,
                       uint32_T *rtd_RxID_CAN2, uint8_T *rtd_Rx_State_CAN1,
-                      uint8_T *rtd_Rx_State_CAN2, real_T *rtd_Slave_ID,
-                      boolean_T *rtd_Toggle_Pin_A0, real_T *rtd_Toggle_Pin_D12,
-                      real_T *rtd_Toggle_Pin_D13, real_T *rtd_Toggle_Pin_D8,
-                      real_T *rtd_Toggle_Pin_D9, uint32_T *rtd_TxID_CAN1,
-                      uint32_T *rtd_TxID_CAN2, real_T *rtd_Tx_msg_count_CAN1,
-                      real_T *rtd_Tx_msg_count_CAN2, real_T *rtd_Voter_ID);
+                      uint8_T *rtd_Rx_State_CAN2, boolean_T *rtd_Toggle_Pin_A0,
+                      real_T *rtd_Toggle_Pin_D12, real_T *rtd_Toggle_Pin_D13,
+                      real_T *rtd_Toggle_Pin_D8, real_T *rtd_Toggle_Pin_D9,
+                      uint32_T *rtd_TxID_CAN1, uint32_T *rtd_TxID_CAN2, real_T
+                      *rtd_Tx_msg_count_CAN1, real_T *rtd_Tx_msg_count_CAN2,
+                      real_T *rtd_Voter_ID);
 
 #endif                                 /* RTW_HEADER_HANcoder_E407_TTA_Group2_private_h_ */
 
