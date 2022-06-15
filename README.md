@@ -1,6 +1,6 @@
 # DS_MP_redundant_vehicle_control
 ![Logo](https://github.com/nis1902/DS_MP_redundant_vehicle_control/blob/master/Figures/Logo.png)
-This repository is used to store all the documentation including code for the minor project for a Redundant Vehicle Control in Distributed Systems - group 2
+This repository is used to store all the documentation including code for the minor project for a Redundant Vehicle Control in Distributed Systems - group 2. In the ReadMe the setup of the system and configuration is provided together with a small summary of the project. Visit the [wiki](https://github.com/nis1902/DS_MP_redundant_vehicle_control/wiki) for more detailed information.
 
 ## Participants
 - Bram Diepenbrock
@@ -10,8 +10,7 @@ This repository is used to store all the documentation including code for the mi
 - Mohammed Azeez Ur Rahman
 
 ## Disclaimer
-This Redundant Vehicle Controller is based on the repository from pineapplezex:
-https://github.com/pineapplezex/HANCoder_TTA
+This Redundant Vehicle Controller is a fork from @pineapplezex, [HANCoder_TTA](https://github.com/pineapplezex/HANCoder_TTA)
 
 ## Goal
 The goal of this project is to improve the existing Triple Modular Redundant (TMR) function. His TMR implimentation included 3 board with 2 roles, master and slave. Based on timings the roles switched between the boards.
