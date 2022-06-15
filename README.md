@@ -2,6 +2,13 @@
 ![Logo](https://github.com/nis1902/DS_MP_redundant_vehicle_control/blob/master/Figures/Logo.png)
 This repository is used to store all the documentation including code for the minor project for a Redundant Vehicle Control in Distributed Systems - group 2
 
+## Participants
+- Bram Diepenbrock
+- Natalia Staniszewska
+- Basavaprabhu Mundas
+- Cheffry Bislik
+- Mohammed Azeez Ur Rahman
+
 ## Disclaimer
 This Redundant Vehicle Controller is based on the repository from pineapplezex:
 https://github.com/pineapplezex/HANCoder_TTA
