@@ -43,7 +43,7 @@ contains information about constants, parameters and type definitions </li>
 <li><i>HANcoder_E407_TTA_Group2.a2l</i>: After each build of the Simulink model an .a2l file will be created. This can be then used in HANtune in order to observe the signals and messages</li>
 </ul>
 
-The last part of the setup is the HANtune template (<i>DS_TTA_Monitor (1).hml</i>) which can be found in [HANtune_build_6](https://github.com/nis1902/DS_MP_redundant_vehicle_control/tree/master/HANtune_build_6) folder. This file contains several windows for checking the communication and overall testting of the system.
+The last part of the setup is the HANtune template (<i>Final_DS_TTA_Monitor_group2.hml</i>) which can be found in [HANtune_build_6](https://github.com/nis1902/DS_MP_redundant_vehicle_control/tree/master/HANtune_build_6) folder. This file contains several windows for checking the communication and overall testting of the system.
 
 ## Configuration
 At the moment the system is setup the way that only board IDs from 1 to 6 are allowed (see also the hardware setup). Therefore, before builiding the software the user must ensure the correct wiring (on connector CON3 on the STM32-E407). 
