@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'HANcoder_E407_TTA_Group2'.
  *
- * Model version                  : 1.278
+ * Model version                  : 1.279
  * Simulink Coder version         : 9.0 (R2018b) 24-May-2018
- * C/C++ source code generated on : Tue Jun 14 21:46:30 2022
+ * C/C++ source code generated on : Wed Jun 15 14:23:13 2022
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -272,12 +272,12 @@ extern void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
                       *rtd_Msg_Tx_CAN2, boolean_T *rtd_New_Msg_Ready_CAN1,
                       boolean_T *rtd_New_Msg_Ready_CAN2, uint32_T *rtd_RxID_CAN1,
                       uint32_T *rtd_RxID_CAN2, uint8_T *rtd_Rx_State_CAN1,
-                      uint8_T *rtd_Rx_State_CAN2, boolean_T *rtd_Toggle_Pin_A0,
-                      real_T *rtd_Toggle_Pin_D12, real_T *rtd_Toggle_Pin_D13,
-                      real_T *rtd_Toggle_Pin_D8, real_T *rtd_Toggle_Pin_D9,
-                      uint32_T *rtd_TxID_CAN1, uint32_T *rtd_TxID_CAN2, real_T
-                      *rtd_Tx_msg_count_CAN1, real_T *rtd_Tx_msg_count_CAN2,
-                      real_T *rtd_Voter_ID);
+                      uint8_T *rtd_Rx_State_CAN2, real_T *rtd_Slave_ID,
+                      boolean_T *rtd_Toggle_Pin_A0, real_T *rtd_Toggle_Pin_D12,
+                      real_T *rtd_Toggle_Pin_D13, real_T *rtd_Toggle_Pin_D8,
+                      real_T *rtd_Toggle_Pin_D9, uint32_T *rtd_TxID_CAN1,
+                      uint32_T *rtd_TxID_CAN2, real_T *rtd_Tx_msg_count_CAN1,
+                      real_T *rtd_Tx_msg_count_CAN2, real_T *rtd_Voter_ID);
 
 #endif                                 /* RTW_HEADER_HANcoder_E407_TTA_Group2_private_h_ */
 

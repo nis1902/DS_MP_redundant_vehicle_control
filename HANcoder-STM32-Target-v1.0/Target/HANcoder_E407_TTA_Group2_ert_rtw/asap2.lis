@@ -18,6 +18,8 @@ speed_k_i
 
 speed_k_p 
 
+testV_1 
+
 torque_a_k_d 
 
 torque_a_k_i 
@@ -106,6 +108,7 @@ torque_fl_set_s
 torque_ar_set_s
 torque_al_set_s
 Desync_Sync_bc0_s
+decision_voter_s
 Vote1_s
 Vote2_s
 Vote3_s
@@ -171,6 +174,7 @@ reset_s
 Master_error_s
 Voter_error_s
 Slave_error_s
+membership_s
 Tx_temporal_msg_CAN2
 TxCAN2_counter_s
 TxID_CAN2_s
@@ -185,4 +189,3 @@ Rx_msg_ticks_CAN1
 Tx_temporal_msg_CAN1
 TxCAN1_counter_s
 TxID_CAN1_s
-Slave_ID
