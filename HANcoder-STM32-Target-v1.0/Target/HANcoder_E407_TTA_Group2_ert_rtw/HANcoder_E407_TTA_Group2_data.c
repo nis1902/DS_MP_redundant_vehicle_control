@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'HANcoder_E407_TTA_Group2'.
  *
- * Model version                  : 1.293
+ * Model version                  : 1.279
  * Simulink Coder version         : 9.0 (R2018b) 24-May-2018
- * C/C++ source code generated on : Wed Jun 15 20:34:01 2022
+ * C/C++ source code generated on : Wed Jun 15 14:23:13 2022
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -216,7 +216,6 @@ const ConstBlockIO rtConstB = {
     0U,                                /* '<S703>/Cast' */
     0U,                                /* '<S703>/Cast1' */
     0U,                                /* '<S703>/Cast2' */
-    0U,                                /* '<S397>/Cast1' */
     0U,                                /* '<S396>/Cast6' */
     0U,                                /* '<S152>/Cast1' */
     0U,                                /* '<S127>/Cast' */

@@ -10,8 +10,6 @@ delta_a_set
 
 delta_f_set 
 
-membership_switch 
-
 script_run 
 
 speed_k_d 
@@ -19,6 +17,8 @@ speed_k_d
 speed_k_i 
 
 speed_k_p 
+
+testV_1 
 
 torque_a_k_d 
 
@@ -74,9 +74,6 @@ Role_ID_s
 sync_bc0_miss_counter_s
 sync_bc1_miss_counter_s
 Board_4_error_counter_s
-Voter_ID_s
-Slave_ID_s
-BackUP_ID_s
 votes_Board_1_DEBUG
 votes_Board_2_DEBUG
 votes_Board_3_DEBUG
@@ -116,6 +113,9 @@ Vote1_s
 Vote2_s
 Vote3_s
 Vote4_s
+Voter_ID_s
+BackUp_ID_s
+Slave_ID_s
 TM1_timeout_counter_s
 TM2_timeout_counter_s
 TM3_timeout_counter_s

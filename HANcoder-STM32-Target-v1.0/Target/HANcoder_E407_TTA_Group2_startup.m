@@ -282,7 +282,6 @@ Vote1_ID = 11;
 Vote2_ID = 12;
 Vote3_ID = 13;
 Vote4_ID = 14;
-
 SetValues_ID = 21;
 SensorValues_ID = 22;
 OutControl1_ID = 23;
@@ -410,9 +409,9 @@ script_run.Value = 0;
 
 % Test Values
 
-membership_switch = Simulink.Parameter; % Define as parameter
-membership_switch.StorageClass = 'ExportedGlobal'; % Only Exported Global will be visible in HANtune
-membership_switch.Value = 1;
+testV_1 = Simulink.Parameter; % Define as parameter
+testV_1.StorageClass = 'ExportedGlobal'; % Only Exported Global will be visible in HANtune
+testV_1.Value = 1;
 testV_2 = Simulink.Parameter; % Define as parameter
 testV_2.StorageClass = 'ExportedGlobal'; % Only Exported Global will be visible in HANtune
 testV_2.Value = 0;

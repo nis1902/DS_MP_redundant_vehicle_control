@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'HANcoder_E407_TTA_Group2'.
  *
- * Model version                  : 1.293
+ * Model version                  : 1.279
  * Simulink Coder version         : 9.0 (R2018b) 24-May-2018
- * C/C++ source code generated on : Wed Jun 15 20:34:01 2022
+ * C/C++ source code generated on : Wed Jun 15 14:23:13 2022
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -65,9 +65,6 @@ real_T Role_ID_s;                      /* '<S174>/Data Store Read1' */
 real_T sync_bc0_miss_counter_s;        /* '<S174>/Data Store Read11' */
 real_T sync_bc1_miss_counter_s;        /* '<S174>/Data Store Read12' */
 real_T Board_4_error_counter_s;        /* '<S174>/Data Store Read14' */
-real_T Voter_ID_s;                     /* '<S174>/Data Store Read15' */
-real_T Slave_ID_s;                     /* '<S174>/Data Store Read16' */
-real_T BackUP_ID_s;                    /* '<S174>/Data Store Read17' */
 real_T votes_Board_1_DEBUG;            /* '<S174>/Data Store Read3' */
 real_T votes_Board_2_DEBUG;            /* '<S174>/Data Store Read3' */
 real_T votes_Board_3_DEBUG;            /* '<S174>/Data Store Read3' */
@@ -102,11 +99,14 @@ real_T torque_fl_set_s;                /* '<S757>/Saturation1' */
 real_T torque_ar_set_s;                /* '<S757>/Saturation2' */
 real_T torque_al_set_s;                /* '<S757>/Saturation3' */
 real_T Desync_Sync_bc0_s;              /* '<S402>/Saturation' */
-real_T decision_voter_s;               /* '<S293>/Switch' */
+real_T decision_voter_s;               /* '<S293>/Constant' */
 real_T Vote1_s;                        /* '<S299>/Plus' */
 real_T Vote2_s;                        /* '<S299>/Plus1' */
 real_T Vote3_s;                        /* '<S299>/Plus2' */
 real_T Vote4_s;                        /* '<S299>/Plus3' */
+real_T Voter_ID_s;                     /* '<S299>/Minus1' */
+real_T BackUp_ID_s;                    /* '<S299>/Minus2' */
+real_T Slave_ID_s;                     /* '<S299>/Abs1' */
 real_T TM1_timeout_counter_s;          /* '<S289>/Switch' */
 real_T TM2_timeout_counter_s;          /* '<S290>/Switch' */
 real_T TM3_timeout_counter_s;          /* '<S291>/Switch' */
@@ -336,9 +336,6 @@ real_T delta_f_set = 0.0;              /* Variable: delta_f_set
                                         *   '<S717>/Constant10'
                                         *   '<S1186>/Constant10'
                                         */
-real_T membership_switch = 1.0;        /* Variable: membership_switch
-                                        * Referenced by: '<S293>/Constant1'
-                                        */
 real_T script_run = 0.0;               /* Variable: script_run
                                         * Referenced by: '<S10>/Constant'
                                         */
@@ -350,6 +347,9 @@ real_T speed_k_i = 0.001;              /* Variable: speed_k_i
                                         */
 real_T speed_k_p = 20.0;               /* Variable: speed_k_p
                                         * Referenced by: '<S757>/Gain5'
+                                        */
+real_T testV_1 = 0.0;                  /* Variable: testV_1
+                                        * Referenced by: '<S293>/Constant'
                                         */
 real_T torque_a_k_d = 0.0;             /* Variable: torque_a_k_d
                                         * Referenced by: '<S767>/Gain7'
@@ -9891,31 +9891,31 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
   boolean_T rtb_AND17;
   uint8_T rtb_Switch_j_Buffer_1;
   boolean_T rtb_DataStoreRead1_bw;
-  boolean_T rtb_DataStoreRead2_e;
+  boolean_T rtb_DataStoreRead2_ah;
   msg_buffer_type rtb_DataStoreRead_pt;
   msg_buffer_type rtb_DataStoreRead3_nn;
   real_T rtb_DataStoreRead15_lu;
   boolean_T rtb_AND1_pd;
   boolean_T rtb_DataStoreRead1_il;
-  boolean_T rtb_DataStoreRead2_oh;
+  boolean_T rtb_DataStoreRead2_f3;
   msg_buffer_type rtb_DataStoreRead_m3;
   msg_buffer_type rtb_DataStoreRead3_ez;
   boolean_T rtb_AND_lt;
   boolean_T rtb_AND1_ob;
   boolean_T rtb_DataStoreRead1_j2;
-  boolean_T rtb_DataStoreRead2_fq;
+  boolean_T rtb_DataStoreRead2_i5;
   msg_buffer_type rtb_DataStoreRead_ak;
   msg_buffer_type rtb_DataStoreRead3_d4;
   boolean_T rtb_AND_e1;
   boolean_T rtb_AND1_hy;
   boolean_T rtb_DataStoreRead1_ax;
-  boolean_T rtb_DataStoreRead2_cx;
+  boolean_T rtb_DataStoreRead2_c5;
   msg_buffer_type rtb_DataStoreRead_l5i;
   msg_buffer_type rtb_DataStoreRead3_dw;
   boolean_T rtb_AND_kn;
   boolean_T rtb_AND1_dc;
   boolean_T rtb_DataStoreRead1_l5;
-  boolean_T rtb_DataStoreRead2_p2;
+  boolean_T rtb_DataStoreRead2_j3;
   msg_buffer_type rtb_DataStoreRead_c5;
   msg_buffer_type rtb_DataStoreRead3_j;
   boolean_T rtb_AND_gh;
@@ -9929,7 +9929,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
   boolean_T rtb_Equal2_d2;
   boolean_T rtb_NOT_n;
   boolean_T rtb_DataStoreRead1_db;
-  boolean_T rtb_DataStoreRead2_at;
+  boolean_T rtb_DataStoreRead2_ej;
   msg_buffer_type rtb_DataStoreRead_c;
   msg_buffer_type rtb_DataStoreRead3_a;
   real_T rtb_DataStoreRead8_dl;
@@ -9937,13 +9937,13 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
   boolean_T rtb_AND1_dt;
   boolean_T rtb_Equal1_hs;
   boolean_T rtb_DataStoreRead1_j3;
-  boolean_T rtb_DataStoreRead2_oa;
+  boolean_T rtb_DataStoreRead2_ak;
   msg_buffer_type rtb_DataStoreRead_hx;
   msg_buffer_type rtb_DataStoreRead3_pe;
   real_T rtb_DataStoreRead5_fq;
   boolean_T rtb_AND1_bh;
   boolean_T rtb_DataStoreRead1_ov;
-  boolean_T rtb_DataStoreRead2_bem;
+  boolean_T rtb_DataStoreRead2_fw;
   msg_buffer_type rtb_DataStoreRead_g;
   msg_buffer_type rtb_DataStoreRead3_on;
   real_T rtb_DataStoreRead5_es;
@@ -9974,23 +9974,23 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
   real_T rtb_DataStoreRead15_f;
   boolean_T rtb_AND1_gd;
   boolean_T rtb_AND_m5;
-  boolean_T rtb_NOT1_ct;
-  boolean_T rtb_AND_j2;
-  boolean_T rtb_AND_d2;
-  boolean_T rtb_AND_n3;
-  boolean_T rtb_AND_cp;
+  boolean_T rtb_AND_aj;
+  boolean_T rtb_AND_p1;
+  boolean_T rtb_AND_akl;
+  boolean_T rtb_AND_nb;
+  boolean_T rtb_AND_dlr;
   boolean_T rtb_Equal2_bd;
-  boolean_T rtb_AND_f;
+  boolean_T rtb_AND_li;
   boolean_T rtb_Equal1_dc;
   boolean_T rtb_NOT_ao;
-  boolean_T rtb_AND_mt;
+  boolean_T rtb_AND_kp;
   boolean_T rtb_Equal2_jn;
   boolean_T rtb_DataStoreRead1_m4;
   boolean_T rtb_DataStoreRead2_dy;
   msg_buffer_type rtb_DataStoreRead_lg;
   msg_buffer_type rtb_DataStoreRead3_fl;
   boolean_T rtb_AND1_g1;
-  boolean_T rtb_AND_l5;
+  boolean_T rtb_AND_ix;
   boolean_T rtb_Equal2_ns;
   boolean_T rtb_AND1_bg;
   boolean_T rtb_DataStoreRead1_ig;
@@ -10001,7 +10001,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
   boolean_T rtb_AND2_d0;
   boolean_T rtb_Equal12_a;
   boolean_T rtb_NOT_aaw;
-  boolean_T rtb_AND_gl;
+  boolean_T rtb_AND_mf;
   boolean_T rtb_Equal1_pi;
   boolean_T rtb_DataStoreRead1_my;
   boolean_T rtb_DataStoreRead2_bz;
@@ -10014,7 +10014,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
   boolean_T rtb_DataStoreRead2_g;
   msg_buffer_type rtb_DataStoreRead_by;
   msg_buffer_type rtb_DataStoreRead3_l;
-  boolean_T rtb_AND_jv;
+  boolean_T rtb_AND_g3;
   boolean_T rtb_AND1_gt;
   boolean_T rtb_AND1_j;
   boolean_T rtb_DataStoreRead1_ce;
@@ -10044,25 +10044,25 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
   uint8_T rtb_Cast21;
   uint8_T rtb_Cast22;
   uint16_T rtb_DataStoreRead_dm;
-  boolean_T rtb_AND_c4;
+  boolean_T rtb_AND_l;
   boolean_T rtb_AND1_oa3;
   uint16_T rtb_DataStoreRead_a;
-  boolean_T rtb_AND_nd;
+  boolean_T rtb_AND_h;
   boolean_T rtb_AND1_fl;
   uint16_T rtb_DataStoreRead_k;
-  boolean_T rtb_AND_oq;
+  boolean_T rtb_AND_fw;
   boolean_T rtb_AND1_cg;
   uint16_T rtb_DataStoreRead_nyu;
-  boolean_T rtb_AND_cl;
+  boolean_T rtb_AND_ne;
   boolean_T rtb_AND1_ev;
   uint16_T rtb_DataStoreRead_e;
-  boolean_T rtb_AND_ml;
+  boolean_T rtb_AND_cj;
   boolean_T rtb_AND1_ib;
   uint16_T rtb_DataStoreRead_j;
-  boolean_T rtb_AND_bf;
+  boolean_T rtb_AND_i;
   boolean_T rtb_AND1_b5;
   uint16_T rtb_DataStoreRead_f2;
-  boolean_T rtb_AND_h;
+  boolean_T rtb_AND_f;
   boolean_T rtb_AND1_kx;
   uint8_T rtb_Cast_oc;
   uint8_T rtb_Cast_j;
@@ -11283,23 +11283,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
             != 0) || (TMR_miss_out2 != 0) || (TMR_miss2_set != 0) ||
                            (TMR_miss2_sensor != 0) || (localB->BitShift13_a.y !=
             0));
-
-          /* Switch: '<S293>/Switch' incorporates:
-           *  Constant: '<S293>/Constant'
-           *  Constant: '<S293>/Constant1'
-           *  DataStoreWrite: '<S293>/Data Store Write'
-           *  DataStoreWrite: '<S293>/Data Store Write1'
-           *  DataStoreWrite: '<S293>/Data Store Write2'
-           *  Logic: '<S293>/AND1'
-           */
-          if (membership_switch > 0.0) {
-            decision_voter_s = 1.0;
-          } else {
-            decision_voter_s = ((!Voter_error_s) && (!Master_error_s) &&
-                                (!Slave_error_s));
-          }
-
-          /* End of Switch: '<S293>/Switch' */
+          decision_voter_s = testV_1;
 
           /* Outputs for Enabled SubSystem: '<S293>/Decision Voter' incorporates:
            *  EnablePort: '<S294>/Enable'
@@ -11534,10 +11518,10 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
              *  Constant: '<S299>/Index Corrector1'
              *  MinMax: '<S299>/Min1'
              */
-            rtb_Switch1_or = (real_T)outCnt + 1.0;
+            Voter_ID_s = (real_T)outCnt + 1.0;
 
             /* DataStoreWrite: '<S294>/Data Store Write1' */
-            *rtd_Voter_ID = rtb_Switch1_or;
+            *rtd_Voter_ID = Voter_ID_s;
 
             /* Find: '<S299>/Find Nonzero Elements' incorporates:
              *  Constant: '<S300>/Constant'
@@ -11580,10 +11564,10 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
              *  Constant: '<S299>/Index Corrector'
              *  MinMax: '<S299>/Min'
              */
-            rtb_Subtract_idx_0 = (real_T)outCnt + 1.0;
+            rtb_Switch1_or = (real_T)outCnt + 1.0;
 
             /* DataStoreWrite: '<S294>/Data Store Write13' */
-            *rtd_Master_ID = rtb_Subtract_idx_0;
+            *rtd_Master_ID = rtb_Switch1_or;
 
             /* MinMax: '<S299>/Min4' */
             outCnt = rtb_FindNonzeroElements2[0];
@@ -11597,7 +11581,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
              *  Constant: '<S299>/Index Corrector2'
              *  MinMax: '<S299>/Min4'
              */
-            rtb_Subtract_idx_1 = (real_T)outCnt + 1.0;
+            BackUp_ID_s = (real_T)outCnt + 1.0;
 
             /* Switch: '<S294>/Switch16' incorporates:
              *  Constant: '<S294>/Constant9'
@@ -11608,15 +11592,15 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
              *  Switch: '<S294>/Switch1'
              *  Switch: '<S294>/Switch2'
              */
-            if (rtb_Subtract_idx_0 == *rtd_Board_ID) {
+            if (rtb_Switch1_or == *rtd_Board_ID) {
               localDW->Role_ID = 1.0;
-            } else if (rtb_Switch1_or == *rtd_Board_ID) {
+            } else if (Voter_ID_s == *rtd_Board_ID) {
               /* Switch: '<S294>/Switch1' incorporates:
                *  Constant: '<S294>/Constant2'
                *  DataStoreWrite: '<S294>/Data Store Write15'
                */
               localDW->Role_ID = 2.0;
-            } else if (rtb_Subtract_idx_1 == *rtd_Board_ID) {
+            } else if (BackUp_ID_s == *rtd_Board_ID) {
               /* Switch: '<S294>/Switch2' incorporates:
                *  Constant: '<S294>/Constant5'
                *  DataStoreWrite: '<S294>/Data Store Write15'
@@ -11635,16 +11619,18 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
             /* End of Switch: '<S294>/Switch16' */
 
             /* DataStoreWrite: '<S294>/Data Store Write2' */
-            *rtd_BackUp_ID = rtb_Subtract_idx_1;
+            *rtd_BackUp_ID = BackUp_ID_s;
 
-            /* DataStoreWrite: '<S294>/Data Store Write4' incorporates:
-             *  Abs: '<S299>/Abs1'
+            /* Abs: '<S299>/Abs1' incorporates:
              *  Constant: '<S299>/Constant16'
              *  Sum: '<S299>/Subtract2'
              *  Sum: '<S299>/Subtract3'
              */
-            *rtd_Slave_ID = fabs(((rtb_Subtract_idx_0 + rtb_Switch1_or) +
-                                  rtb_Subtract_idx_1) - 10.0);
+            Slave_ID_s = fabs(((rtb_Switch1_or + Voter_ID_s) + BackUp_ID_s) -
+                              10.0);
+
+            /* DataStoreWrite: '<S294>/Data Store Write4' */
+            *rtd_Slave_ID = Slave_ID_s;
 
             /* DataStoreWrite: '<S294>/Data Store Write3' incorporates:
              *  Constant: '<S294>/Constant3'
@@ -11655,6 +11641,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
           /* End of Outputs for SubSystem: '<S293>/Decision Voter' */
 
           /* Logic: '<S293>/NOT' incorporates:
+           *  Constant: '<S293>/Constant'
            *  Sum: '<S299>/Subtract1'
            */
           membership_s = (decision_voter_s == 0.0);
@@ -11663,209 +11650,41 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
            *  EnablePort: '<S298>/Enable'
            */
           if (membership_s) {
-            /* Outputs for Enabled SubSystem: '<S298>/Master Scenario' incorporates:
-             *  EnablePort: '<S393>/Enable'
-             */
-            if (Master_error_s) {
-              /* DataStoreWrite: '<S393>/Data Store Write' incorporates:
-               *  DataStoreRead: '<S393>/Data Store Read3'
-               */
-              *rtd_Slave_ID = localDW->tempM1;
-
-              /* DataStoreWrite: '<S393>/Data Store Write1' incorporates:
-               *  DataStoreRead: '<S393>/Data Store Read4'
-               */
-              *rtd_Master_ID = localDW->tempM2;
-
-              /* Switch: '<S393>/Switch16' incorporates:
-               *  Constant: '<S393>/Constant9'
-               *  DataStoreRead: '<S393>/Data Store Read3'
-               *  DataStoreRead: '<S393>/Data Store Read4'
-               *  DataStoreRead: '<S393>/Data Store Read5'
-               *  DataStoreWrite: '<S393>/Data Store Write15'
-               *  RelationalOperator: '<S393>/Equal1'
-               *  RelationalOperator: '<S393>/Equal2'
-               *  RelationalOperator: '<S393>/Equal6'
-               *  Switch: '<S393>/Switch1'
-               *  Switch: '<S393>/Switch2'
-               */
-              if (localDW->tempM2 == *rtd_Board_ID) {
-                localDW->Role_ID = 1.0;
-              } else if (localDW->tempM1 == *rtd_Board_ID) {
-                /* Switch: '<S393>/Switch1' incorporates:
-                 *  Constant: '<S393>/Constant4'
-                 *  DataStoreWrite: '<S393>/Data Store Write15'
-                 */
-                localDW->Role_ID = 3.0;
-              } else if (localDW->tempM3 == *rtd_Board_ID) {
-                /* Switch: '<S393>/Switch2' incorporates:
-                 *  Constant: '<S393>/Constant5'
-                 *  DataStoreWrite: '<S393>/Data Store Write15'
-                 *  Switch: '<S393>/Switch1'
-                 */
-                localDW->Role_ID = 4.0;
-              } else {
-                /* DataStoreWrite: '<S393>/Data Store Write15' incorporates:
-                 *  Constant: '<S393>/Constant2'
-                 *  Switch: '<S393>/Switch1'
-                 *  Switch: '<S393>/Switch2'
-                 */
-                localDW->Role_ID = 2.0;
-              }
-
-              /* End of Switch: '<S393>/Switch16' */
-
-              /* DataStoreWrite: '<S393>/Data Store Write2' incorporates:
-               *  DataStoreRead: '<S393>/Data Store Read5'
-               */
-              *rtd_BackUp_ID = localDW->tempM3;
-
-              /* DataStoreWrite: '<S393>/Data Store Write4' */
-              localDW->tempM2 = *rtd_Slave_ID;
-
-              /* DataStoreWrite: '<S393>/Data Store Write3' */
-              localDW->tempM1 = *rtd_BackUp_ID;
-
-              /* DataStoreWrite: '<S393>/Data Store Write5' */
-              localDW->tempM3 = *rtd_Master_ID;
-            }
-
-            /* End of Outputs for SubSystem: '<S298>/Master Scenario' */
-
             /* Outputs for Enabled SubSystem: '<S298>/Value Voter Scenario' incorporates:
              *  EnablePort: '<S395>/Enable'
              */
             if (Voter_error_s) {
-              /* DataStoreWrite: '<S395>/Data Store Write' incorporates:
-               *  DataStoreRead: '<S395>/Data Store Read3'
-               */
-              *rtd_Slave_ID = localDW->V1_Temp;
+              /* DataStoreWrite: '<S395>/Data Store Write1' */
+              *rtd_BackUp_ID = *rtd_Voter_ID;
 
-              /* DataStoreWrite: '<S395>/Data Store Write1' incorporates:
-               *  DataStoreRead: '<S395>/Data Store Read4'
-               */
-              *rtd_BackUp_ID = localDW->V2_Temp;
-
-              /* Switch: '<S395>/Switch16' incorporates:
-               *  Constant: '<S395>/Constant2'
-               *  DataStoreRead: '<S395>/Data Store Read3'
-               *  DataStoreRead: '<S395>/Data Store Read4'
-               *  DataStoreRead: '<S395>/Data Store Read5'
-               *  DataStoreWrite: '<S395>/Data Store Write15'
-               *  RelationalOperator: '<S395>/Equal1'
-               *  RelationalOperator: '<S395>/Equal2'
-               *  RelationalOperator: '<S395>/Equal6'
-               *  Switch: '<S395>/Switch1'
-               *  Switch: '<S395>/Switch2'
-               */
-              if (localDW->V3_Temp == *rtd_Board_ID) {
-                localDW->Role_ID = 2.0;
-              } else if (localDW->V1_Temp == *rtd_Board_ID) {
-                /* Switch: '<S395>/Switch1' incorporates:
-                 *  Constant: '<S395>/Constant4'
-                 *  DataStoreWrite: '<S395>/Data Store Write15'
-                 */
-                localDW->Role_ID = 3.0;
-              } else if (localDW->V2_Temp == *rtd_Board_ID) {
-                /* Switch: '<S395>/Switch2' incorporates:
-                 *  Constant: '<S395>/Constant5'
-                 *  DataStoreWrite: '<S395>/Data Store Write15'
-                 *  Switch: '<S395>/Switch1'
-                 */
-                localDW->Role_ID = 4.0;
-              } else {
-                /* DataStoreWrite: '<S395>/Data Store Write15' incorporates:
-                 *  Constant: '<S395>/Constant9'
-                 *  Switch: '<S395>/Switch1'
-                 *  Switch: '<S395>/Switch2'
-                 */
-                localDW->Role_ID = 1.0;
-              }
-
-              /* End of Switch: '<S395>/Switch16' */
-
-              /* DataStoreWrite: '<S395>/Data Store Write2' incorporates:
-               *  DataStoreRead: '<S395>/Data Store Read5'
-               */
-              *rtd_Voter_ID = localDW->V3_Temp;
-
-              /* DataStoreWrite: '<S395>/Data Store Write4' */
-              localDW->V2_Temp = *rtd_Voter_ID;
-
-              /* DataStoreWrite: '<S395>/Data Store Write3' */
-              localDW->V1_Temp = *rtd_BackUp_ID;
-
-              /* DataStoreWrite: '<S395>/Data Store Write5' */
-              localDW->V3_Temp = *rtd_Slave_ID;
+              /* DataStoreWrite: '<S395>/Data Store Write' */
+              *rtd_Slave_ID = *rtd_BackUp_ID;
             }
 
             /* End of Outputs for SubSystem: '<S298>/Value Voter Scenario' */
+
+            /* Outputs for Enabled SubSystem: '<S298>/Master Scenario' incorporates:
+             *  EnablePort: '<S393>/Enable'
+             */
+            if (Master_error_s) {
+              /* DataStoreWrite: '<S393>/Data Store Write1' */
+              *rtd_Master_ID = *rtd_Slave_ID;
+
+              /* DataStoreWrite: '<S393>/Data Store Write' */
+              *rtd_Slave_ID = *rtd_BackUp_ID;
+
+              /* DataStoreWrite: '<S393>/Data Store Write2' */
+              *rtd_BackUp_ID = *rtd_Master_ID;
+            }
+
+            /* End of Outputs for SubSystem: '<S298>/Master Scenario' */
 
             /* Outputs for Enabled SubSystem: '<S298>/Slave Scenario' incorporates:
              *  EnablePort: '<S394>/Enable'
              */
             if (Slave_error_s) {
-              /* DataStoreWrite: '<S394>/Data Store Write' incorporates:
-               *  DataStoreRead: '<S394>/Data Store Read3'
-               */
-              *rtd_Slave_ID = localDW->S1_Temp;
-
-              /* DataStoreWrite: '<S394>/Data Store Write1' incorporates:
-               *  DataStoreRead: '<S394>/Data Store Read4'
-               */
-              *rtd_BackUp_ID = localDW->S2_Temp;
-
-              /* Switch: '<S394>/Switch16' incorporates:
-               *  Constant: '<S394>/Constant2'
-               *  DataStoreRead: '<S394>/Data Store Read3'
-               *  DataStoreRead: '<S394>/Data Store Read4'
-               *  DataStoreRead: '<S394>/Data Store Read5'
-               *  DataStoreWrite: '<S394>/Data Store Write15'
-               *  RelationalOperator: '<S394>/Equal1'
-               *  RelationalOperator: '<S394>/Equal2'
-               *  RelationalOperator: '<S394>/Equal6'
-               *  Switch: '<S394>/Switch1'
-               *  Switch: '<S394>/Switch2'
-               */
-              if (localDW->S3_Temp == *rtd_Board_ID) {
-                localDW->Role_ID = 2.0;
-              } else if (localDW->S1_Temp == *rtd_Board_ID) {
-                /* Switch: '<S394>/Switch1' incorporates:
-                 *  Constant: '<S394>/Constant4'
-                 *  DataStoreWrite: '<S394>/Data Store Write15'
-                 */
-                localDW->Role_ID = 3.0;
-              } else if (localDW->S2_Temp == *rtd_Board_ID) {
-                /* Switch: '<S394>/Switch2' incorporates:
-                 *  Constant: '<S394>/Constant5'
-                 *  DataStoreWrite: '<S394>/Data Store Write15'
-                 *  Switch: '<S394>/Switch1'
-                 */
-                localDW->Role_ID = 4.0;
-              } else {
-                /* DataStoreWrite: '<S394>/Data Store Write15' incorporates:
-                 *  Constant: '<S394>/Constant9'
-                 *  Switch: '<S394>/Switch1'
-                 *  Switch: '<S394>/Switch2'
-                 */
-                localDW->Role_ID = 1.0;
-              }
-
-              /* End of Switch: '<S394>/Switch16' */
-
-              /* DataStoreWrite: '<S394>/Data Store Write2' incorporates:
-               *  DataStoreRead: '<S394>/Data Store Read5'
-               */
-              *rtd_Voter_ID = localDW->S3_Temp;
-
-              /* DataStoreWrite: '<S394>/Data Store Write4' */
-              localDW->S2_Temp = *rtd_Slave_ID;
-
-              /* DataStoreWrite: '<S394>/Data Store Write3' */
-              localDW->S1_Temp = *rtd_BackUp_ID;
-
-              /* DataStoreWrite: '<S394>/Data Store Write5' */
-              localDW->S3_Temp = *rtd_Voter_ID;
+              /* DataStoreWrite: '<S394>/Data Store Write1' */
+              *rtd_BackUp_ID = *rtd_Slave_ID;
             }
 
             /* End of Outputs for SubSystem: '<S298>/Slave Scenario' */
@@ -11972,15 +11791,6 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
           /* DataStoreWrite: '<S397>/Data Store Write6' */
           localDW->BC0_Vote4_processed = localC->Cast_h;
 
-          /* DataStoreWrite: '<S397>/Data Store Write7' */
-          localDW->error_log1_stored = localC->Cast1_g4;
-
-          /* DataStoreWrite: '<S397>/Data Store Write8' */
-          localDW->error_log2_stored = localC->Cast1_g4;
-
-          /* DataStoreWrite: '<S397>/Data Store Write9' */
-          localDW->error_log3_stored = localC->Cast1_g4;
-
           /* DataStoreWrite: '<S397>/Data Store Write5' incorporates:
            *  Constant: '<S397>/Constant3'
            */
@@ -11995,6 +11805,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
          *  Constant: '<S175>/Constant28'
          *  Constant: '<S175>/Constant29'
          *  Constant: '<S175>/Constant31'
+         *  Constant: '<S293>/Constant'
          *  DataStoreRead: '<S175>/Data Store Read6'
          *  DataStoreWrite: '<S293>/Data Store Write'
          *  DataStoreWrite: '<S293>/Data Store Write1'
@@ -12017,6 +11828,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
          *  RelationalOperator: '<S184>/Equal'
          *  RelationalOperator: '<S185>/Equal2'
          *  RelationalOperator: '<S186>/Equal2'
+         *  Sum: '<S299>/Subtract1'
          */
         rtb_AND6_d_tmp = !localDW->BC0_Sync_processed;
 
@@ -12033,7 +11845,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
           rtb_DataStoreRead1_bw = *rtd_New_Msg_Ready_CAN1;
 
           /* DataStoreRead: '<S187>/Data Store Read2' */
-          rtb_DataStoreRead2_e = *rtd_New_Msg_Ready_CAN2;
+          rtb_DataStoreRead2_ah = *rtd_New_Msg_Ready_CAN2;
 
           /* DataStoreRead: '<S187>/Data Store Read' */
           rtb_DataStoreRead_pt = *rtd_Msg_Rx_CAN1;
@@ -12071,7 +11883,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
             /* End of Outputs for SubSystem: '<S398>/Demux message CAN1 and check coherence' */
 
             /* Outputs for Enabled SubSystem: '<S398>/Demux message CAN1 and check coherence1' */
-            DemuxmessageCAN1andcheckcoher_p(rtb_DataStoreRead2_e,
+            DemuxmessageCAN1andcheckcoher_p(rtb_DataStoreRead2_ah,
               &rtb_DataStoreRead3_nn, 0.0, rtb_DataStoreRead15_lu,
               &localB->DemuxmessageCAN1andcheckcohe_p3,
               &localDW->DemuxmessageCAN1andcheckcohe_p3,
@@ -12528,7 +12340,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
           rtb_DataStoreRead1_il = *rtd_New_Msg_Ready_CAN1;
 
           /* DataStoreRead: '<S191>/Data Store Read2' */
-          rtb_DataStoreRead2_oh = *rtd_New_Msg_Ready_CAN2;
+          rtb_DataStoreRead2_f3 = *rtd_New_Msg_Ready_CAN2;
 
           /* DataStoreRead: '<S191>/Data Store Read' */
           rtb_DataStoreRead_m3 = *rtd_Msg_Rx_CAN1;
@@ -12549,7 +12361,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
 
           /* Outputs for Enabled SubSystem: '<S191>/Process_Messages1' */
           Process_Messages1(rtb_AND_lt, rtb_DataStoreRead1_il,
-                            rtb_DataStoreRead2_oh, &rtb_DataStoreRead_m3,
+                            rtb_DataStoreRead2_f3, &rtb_DataStoreRead_m3,
                             &rtb_DataStoreRead3_ez, 1.0,
                             &localB->Process_Messages1_c,
                             &localDW->Process_Messages1_c, &localDW->Msg_Rx_d,
@@ -12649,7 +12461,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
           rtb_DataStoreRead1_j2 = *rtd_New_Msg_Ready_CAN1;
 
           /* DataStoreRead: '<S193>/Data Store Read2' */
-          rtb_DataStoreRead2_fq = *rtd_New_Msg_Ready_CAN2;
+          rtb_DataStoreRead2_i5 = *rtd_New_Msg_Ready_CAN2;
 
           /* DataStoreRead: '<S193>/Data Store Read' */
           rtb_DataStoreRead_ak = *rtd_Msg_Rx_CAN1;
@@ -12670,7 +12482,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
 
           /* Outputs for Enabled SubSystem: '<S193>/Process_Messages' */
           Process_Messages1(rtb_AND_e1, rtb_DataStoreRead1_j2,
-                            rtb_DataStoreRead2_fq, &rtb_DataStoreRead_ak,
+                            rtb_DataStoreRead2_i5, &rtb_DataStoreRead_ak,
                             &rtb_DataStoreRead3_d4, 2.0,
                             &localB->Process_Messages_g4,
                             &localDW->Process_Messages_g4, &localDW->Msg_Rx_d,
@@ -12770,7 +12582,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
           rtb_DataStoreRead1_ax = *rtd_New_Msg_Ready_CAN1;
 
           /* DataStoreRead: '<S195>/Data Store Read2' */
-          rtb_DataStoreRead2_cx = *rtd_New_Msg_Ready_CAN2;
+          rtb_DataStoreRead2_c5 = *rtd_New_Msg_Ready_CAN2;
 
           /* DataStoreRead: '<S195>/Data Store Read' */
           rtb_DataStoreRead_l5i = *rtd_Msg_Rx_CAN1;
@@ -12791,7 +12603,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
 
           /* Outputs for Enabled SubSystem: '<S195>/Process_Messages' */
           Process_Messages1(rtb_AND_kn, rtb_DataStoreRead1_ax,
-                            rtb_DataStoreRead2_cx, &rtb_DataStoreRead_l5i,
+                            rtb_DataStoreRead2_c5, &rtb_DataStoreRead_l5i,
                             &rtb_DataStoreRead3_dw, 3.0,
                             &localB->Process_Messages_gc,
                             &localDW->Process_Messages_gc, &localDW->Msg_Rx_d,
@@ -12890,7 +12702,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
           rtb_DataStoreRead1_l5 = *rtd_New_Msg_Ready_CAN1;
 
           /* DataStoreRead: '<S197>/Data Store Read2' */
-          rtb_DataStoreRead2_p2 = *rtd_New_Msg_Ready_CAN2;
+          rtb_DataStoreRead2_j3 = *rtd_New_Msg_Ready_CAN2;
 
           /* DataStoreRead: '<S197>/Data Store Read' */
           rtb_DataStoreRead_c5 = *rtd_Msg_Rx_CAN1;
@@ -12911,7 +12723,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
 
           /* Outputs for Enabled SubSystem: '<S197>/Process_Messages' */
           Process_Messages1(rtb_AND_gh, rtb_DataStoreRead1_l5,
-                            rtb_DataStoreRead2_p2, &rtb_DataStoreRead_c5,
+                            rtb_DataStoreRead2_j3, &rtb_DataStoreRead_c5,
                             &rtb_DataStoreRead3_j, 4.0,
                             &localB->Process_Messages_c,
                             &localDW->Process_Messages_c, &localDW->Msg_Rx_d,
@@ -14101,7 +13913,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
           rtb_DataStoreRead1_db = *rtd_New_Msg_Ready_CAN1;
 
           /* DataStoreRead: '<S561>/Data Store Read2' */
-          rtb_DataStoreRead2_at = *rtd_New_Msg_Ready_CAN2;
+          rtb_DataStoreRead2_ej = *rtd_New_Msg_Ready_CAN2;
 
           /* DataStoreRead: '<S561>/Data Store Read' */
           rtb_DataStoreRead_c = *rtd_Msg_Rx_CAN1;
@@ -14115,15 +13927,19 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
           /* RelationalOperator: '<S561>/Equal' */
           rtb_AND_kh = (*rtd_Local_Ticks == 970.0);
 
-          /* RelationalOperator: '<S561>/Equal2' */
-          rtb_AND10_m = (*rtd_Board_ID != *rtd_Voter_ID);
+          /* Logic: '<S561>/AND4' incorporates:
+           *  RelationalOperator: '<S561>/Equal2'
+           *  RelationalOperator: '<S561>/Equal3'
+           */
+          rtb_AND10_m = ((*rtd_BackUp_ID != *rtd_Board_ID) && (*rtd_Board_ID != *
+            rtd_Voter_ID));
 
           /* Logic: '<S561>/AND' */
           rtb_AND_kz = (rtb_AND_kh && rtb_AND10_m);
 
           /* Outputs for Enabled SubSystem: '<S561>/Process_Messages' */
           Process_Messages(rtb_AND_kz, rtb_DataStoreRead1_db,
-                           rtb_DataStoreRead2_at, &rtb_DataStoreRead_c,
+                           rtb_DataStoreRead2_ej, &rtb_DataStoreRead_c,
                            &rtb_DataStoreRead3_a, rtb_DataStoreRead8_dl,
                            &localB->Process_Messages_l,
                            &localDW->Process_Messages_l, &localDW->Msg_Rx_f,
@@ -14251,7 +14067,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
           rtb_DataStoreRead1_j3 = *rtd_New_Msg_Ready_CAN1;
 
           /* DataStoreRead: '<S564>/Data Store Read2' */
-          rtb_DataStoreRead2_oa = *rtd_New_Msg_Ready_CAN2;
+          rtb_DataStoreRead2_ak = *rtd_New_Msg_Ready_CAN2;
 
           /* DataStoreRead: '<S564>/Data Store Read' */
           rtb_DataStoreRead_hx = *rtd_Msg_Rx_CAN1;
@@ -14292,7 +14108,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
             /* End of Outputs for SubSystem: '<S807>/Demux message CAN1 and check coherence' */
 
             /* Outputs for Enabled SubSystem: '<S807>/Demux message CAN1 and check coherence1' */
-            DemuxmessageCAN1andcheckcoher_m(rtb_DataStoreRead2_oa,
+            DemuxmessageCAN1andcheckcoher_m(rtb_DataStoreRead2_ak,
               &rtb_DataStoreRead3_pe, rtb_DataStoreRead5_fq,
               &localB->DemuxmessageCAN1andcheckcohe_gs,
               &localDW->DemuxmessageCAN1andcheckcohe_gs,
@@ -14436,7 +14252,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
           rtb_DataStoreRead1_ov = *rtd_New_Msg_Ready_CAN1;
 
           /* DataStoreRead: '<S565>/Data Store Read2' */
-          rtb_DataStoreRead2_bem = *rtd_New_Msg_Ready_CAN2;
+          rtb_DataStoreRead2_fw = *rtd_New_Msg_Ready_CAN2;
 
           /* DataStoreRead: '<S565>/Data Store Read' */
           rtb_DataStoreRead_g = *rtd_Msg_Rx_CAN1;
@@ -14477,7 +14293,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
             /* End of Outputs for SubSystem: '<S836>/Demux message CAN1 and check coherence' */
 
             /* Outputs for Enabled SubSystem: '<S836>/Demux message CAN1 and check coherence1' */
-            DemuxmessageCAN1andcheckcoher_m(rtb_DataStoreRead2_bem,
+            DemuxmessageCAN1andcheckcoher_m(rtb_DataStoreRead2_fw,
               &rtb_DataStoreRead3_on, rtb_DataStoreRead5_es,
               &localB->DemuxmessageCAN1andcheckcoher_a,
               &localDW->DemuxmessageCAN1andcheckcoher_a,
@@ -16822,11 +16638,14 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
            */
           rtb_AND_kh = (localDW->Role_ID == 2.0);
 
-          /* Logic: '<S551>/NOT1' */
-          rtb_NOT1_ct = !rtb_AND_kh;
+          /* Logic: '<S551>/AND' incorporates:
+           *  Logic: '<S551>/NOT1'
+           *  RelationalOperator: '<S551>/Equal3'
+           */
+          rtb_AND_aj = ((*rtd_Board_ID != *rtd_BackUp_ID) && (!rtb_AND_kh));
 
           /* Outputs for Enabled SubSystem: '<S551>/Reception substasks' */
-          Receptionsubstasks(rtb_NOT1_ct, 910.0, &localB->Receptionsubstasks_c,
+          Receptionsubstasks(rtb_AND_aj, 910.0, &localB->Receptionsubstasks_c,
                              &localC->Receptionsubstasks_c,
                              &localDW->Receptionsubstasks_c, rtd_Local_Ticks,
                              &localDW->Msg_Rx_f, rtd_New_Msg_Ready_CAN1,
@@ -16854,7 +16673,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
              *  Constant: '<S573>/Constant6'
              *  RelationalOperator: '<S573>/GreaterThan2'
              */
-            rtb_AND_c4 = (rtb_AND_kh && (*rtd_Tx_msg_count_CAN1 <= 7.0));
+            rtb_AND_l = (rtb_AND_kh && (*rtd_Tx_msg_count_CAN1 <= 7.0));
 
             /* Logic: '<S573>/AND1' incorporates:
              *  Constant: '<S573>/Constant7'
@@ -16883,7 +16702,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
             /* End of Outputs for SubSystem: '<S573>/Msg_Value_Data_Encoded' */
 
             /* Outputs for Enabled SubSystem: '<S573>/Check msg transmission CAN1' */
-            CheckmsgtransmissionCAN1(rtb_AND_c4, rtb_DataStoreRead_dm, 910.0,
+            CheckmsgtransmissionCAN1(rtb_AND_l, rtb_DataStoreRead_dm, 910.0,
               localB->DataStoreRead4_a, localB->DataStoreRead5_j,
               localB->DataStoreRead6_a, localB->Constant_h,
               &localB->CheckmsgtransmissionCAN1_e,
@@ -17015,10 +16834,10 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
            *  Logic: '<S552>/NOT'
            *  RelationalOperator: '<S552>/Equal1'
            */
-          rtb_AND_j2 = ((*rtd_Board_ID != *rtd_BackUp_ID) && (!rtb_AND_kh));
+          rtb_AND_p1 = ((*rtd_Board_ID != *rtd_BackUp_ID) && (!rtb_AND_kh));
 
           /* Outputs for Enabled SubSystem: '<S552>/Reception substasks' */
-          Receptionsubstasks(rtb_AND_j2, 540.0, &localB->Receptionsubstasks_m,
+          Receptionsubstasks(rtb_AND_p1, 540.0, &localB->Receptionsubstasks_m,
                              &localC->Receptionsubstasks_m,
                              &localDW->Receptionsubstasks_m, rtd_Local_Ticks,
                              &localDW->Msg_Rx_f, rtd_New_Msg_Ready_CAN1,
@@ -17046,7 +16865,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
              *  Constant: '<S592>/Constant6'
              *  RelationalOperator: '<S592>/GreaterThan2'
              */
-            rtb_AND_nd = (rtb_AND_kh && (*rtd_Tx_msg_count_CAN1 <= 7.0));
+            rtb_AND_h = (rtb_AND_kh && (*rtd_Tx_msg_count_CAN1 <= 7.0));
 
             /* Logic: '<S592>/AND1' incorporates:
              *  Constant: '<S592>/Constant7'
@@ -17346,7 +17165,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
             /* End of Outputs for SubSystem: '<S592>/Msg_Value_Data_Encoded' */
 
             /* Outputs for Enabled SubSystem: '<S592>/Check msg transmission CAN1' */
-            CheckmsgtransmissionCAN1_m(rtb_AND_nd, rtb_DataStoreRead_a, 540.0,
+            CheckmsgtransmissionCAN1_m(rtb_AND_h, rtb_DataStoreRead_a, 540.0,
               localB->Plus_mi, localB->Plus_km, localB->Plus_p2, localB->Plus_gd,
               localB->Cast_f, localB->Cast1_a, localB->Constant_c,
               &localB->CheckmsgtransmissionCAN1_ma,
@@ -17478,10 +17297,10 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
            *  Logic: '<S553>/NOT'
            *  RelationalOperator: '<S553>/Equal1'
            */
-          rtb_AND_d2 = ((*rtd_Board_ID != *rtd_BackUp_ID) && (!rtb_AND_kh));
+          rtb_AND_akl = ((*rtd_Board_ID != *rtd_BackUp_ID) && (!rtb_AND_kh));
 
           /* Outputs for Enabled SubSystem: '<S553>/Reception substasks' */
-          Receptionsubstasks(rtb_AND_d2, 640.0, &localB->Receptionsubstasks_k,
+          Receptionsubstasks(rtb_AND_akl, 640.0, &localB->Receptionsubstasks_k,
                              &localC->Receptionsubstasks_k,
                              &localDW->Receptionsubstasks_k, rtd_Local_Ticks,
                              &localDW->Msg_Rx_f, rtd_New_Msg_Ready_CAN1,
@@ -17509,7 +17328,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
              *  Constant: '<S623>/Constant6'
              *  RelationalOperator: '<S623>/GreaterThan2'
              */
-            rtb_AND_oq = (rtb_AND_kh && (*rtd_Tx_msg_count_CAN1 <= 7.0));
+            rtb_AND_fw = (rtb_AND_kh && (*rtd_Tx_msg_count_CAN1 <= 7.0));
 
             /* Logic: '<S623>/AND1' incorporates:
              *  Constant: '<S623>/Constant7'
@@ -17797,7 +17616,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
             /* End of Outputs for SubSystem: '<S623>/Msg_Value_Data_Encoded' */
 
             /* Outputs for Enabled SubSystem: '<S623>/Check msg transmission CAN1' */
-            CheckmsgtransmissionCAN1_m(rtb_AND_oq, rtb_DataStoreRead_k, 640.0,
+            CheckmsgtransmissionCAN1_m(rtb_AND_fw, rtb_DataStoreRead_k, 640.0,
               localB->Plus_jk, localB->Plus_cm, localB->Plus_jt, localB->Plus_f,
               localB->Cast, localB->Cast1, localB->Constant_m,
               &localB->CheckmsgtransmissionCAN1_o,
@@ -17929,10 +17748,10 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
            *  Logic: '<S554>/NOT'
            *  RelationalOperator: '<S554>/Equal1'
            */
-          rtb_AND_n3 = ((*rtd_Board_ID != *rtd_BackUp_ID) && (!rtb_AND_kh));
+          rtb_AND_nb = ((*rtd_Board_ID != *rtd_BackUp_ID) && (!rtb_AND_kh));
 
           /* Outputs for Enabled SubSystem: '<S554>/Reception substasks' */
-          Receptionsubstasks(rtb_AND_n3, 800.0, &localB->Receptionsubstasks_o,
+          Receptionsubstasks(rtb_AND_nb, 800.0, &localB->Receptionsubstasks_o,
                              &localC->Receptionsubstasks_o,
                              &localDW->Receptionsubstasks_o, rtd_Local_Ticks,
                              &localDW->Msg_Rx_f, rtd_New_Msg_Ready_CAN1,
@@ -17960,7 +17779,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
              *  Constant: '<S653>/Constant6'
              *  RelationalOperator: '<S653>/GreaterThan2'
              */
-            rtb_AND_cl = (rtb_AND_kh && (*rtd_Tx_msg_count_CAN1 <= 7.0));
+            rtb_AND_ne = (rtb_AND_kh && (*rtd_Tx_msg_count_CAN1 <= 7.0));
 
             /* Logic: '<S653>/AND1' incorporates:
              *  Constant: '<S653>/Constant7'
@@ -18245,7 +18064,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
             /* End of Outputs for SubSystem: '<S653>/Msg_Value_Data_Encoded' */
 
             /* Outputs for Enabled SubSystem: '<S653>/Check msg transmission CAN1' */
-            CheckmsgtransmissionCAN1_m(rtb_AND_cl, rtb_DataStoreRead_nyu, 800.0,
+            CheckmsgtransmissionCAN1_m(rtb_AND_ne, rtb_DataStoreRead_nyu, 800.0,
               localB->Plus_j, localB->Plus_m, localB->Plus_ne, localB->Plus_in,
               localB->DataStoreRead4, localB->DataStoreRead5,
               localB->DataStoreRead6, &localB->CheckmsgtransmissionCAN1_mr,
@@ -18376,10 +18195,10 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
            *  Logic: '<S555>/NOT'
            *  RelationalOperator: '<S555>/Equal1'
            */
-          rtb_AND_cp = ((*rtd_BackUp_ID != *rtd_Board_ID) && (!rtb_AND_kh));
+          rtb_AND_dlr = ((*rtd_BackUp_ID != *rtd_Board_ID) && (!rtb_AND_kh));
 
           /* Outputs for Enabled SubSystem: '<S555>/Reception substasks' */
-          Receptionsubstasks(rtb_AND_cp, 270.0, &localB->Receptionsubstasks_ck,
+          Receptionsubstasks(rtb_AND_dlr, 270.0, &localB->Receptionsubstasks_ck,
                              &localC->Receptionsubstasks_ck,
                              &localDW->Receptionsubstasks_ck, rtd_Local_Ticks,
                              &localDW->Msg_Rx_f, rtd_New_Msg_Ready_CAN1,
@@ -18407,7 +18226,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
              *  Constant: '<S683>/Constant6'
              *  RelationalOperator: '<S683>/GreaterThan2'
              */
-            rtb_AND_ml = (rtb_AND_kh && (*rtd_Tx_msg_count_CAN1 <= 7.0));
+            rtb_AND_cj = (rtb_AND_kh && (*rtd_Tx_msg_count_CAN1 <= 7.0));
 
             /* Logic: '<S683>/AND1' incorporates:
              *  Constant: '<S683>/Constant7'
@@ -18463,7 +18282,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
             /* End of Outputs for SubSystem: '<S683>/Msg_Value_Data_Encoded' */
 
             /* Outputs for Enabled SubSystem: '<S683>/Check msg transmission CAN1' */
-            CheckmsgtransmissionCAN1_p(rtb_AND_ml, rtb_DataStoreRead_e, 270.0,
+            CheckmsgtransmissionCAN1_p(rtb_AND_cj, rtb_DataStoreRead_e, 270.0,
               localB->Plus_nb, localB->Plus_d, localB->Plus_g, localB->Plus_l,
               localB->Constant_k, &localB->CheckmsgtransmissionCAN1_pq,
               &localC->CheckmsgtransmissionCAN1_pq,
@@ -18592,10 +18411,10 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
            *  Logic: '<S556>/NOT1'
            *  RelationalOperator: '<S556>/Equal1'
            */
-          rtb_AND_f = ((*rtd_BackUp_ID != *rtd_Board_ID) && (!rtb_Equal2_bd));
+          rtb_AND_li = ((*rtd_BackUp_ID != *rtd_Board_ID) && (!rtb_Equal2_bd));
 
           /* Outputs for Enabled SubSystem: '<S556>/Reception substasks' */
-          Receptionsubstasks(rtb_AND_f, 160.0, &localB->Receptionsubstasks_j,
+          Receptionsubstasks(rtb_AND_li, 160.0, &localB->Receptionsubstasks_j,
                              &localC->Receptionsubstasks_j,
                              &localDW->Receptionsubstasks_j, rtd_Local_Ticks,
                              &localDW->Msg_Rx_f, rtd_New_Msg_Ready_CAN1,
@@ -19574,6 +19393,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
        *  Constant: '<S195>/Constant1'
        *  Constant: '<S196>/Constant4'
        *  Constant: '<S197>/Constant1'
+       *  Constant: '<S293>/Constant'
        *  Constant: '<S567>/Constant2'
        *  Constant: '<S568>/Constant51'
        *  Constant: '<S569>/Constant'
@@ -19801,6 +19621,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
        *  RelationalOperator: '<S623>/Equal16'
        *  RelationalOperator: '<S653>/Equal16'
        *  RelationalOperator: '<S683>/Equal16'
+       *  Sum: '<S299>/Subtract1'
        */
       if (rtb_Equal_kj) {
         localB->signal1_n = localB->OR1_o;
@@ -19836,15 +19657,6 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
 
       /* DataStoreRead: '<S174>/Data Store Read14' */
       Board_4_error_counter_s = localDW->Board4_error_counter;
-
-      /* DataStoreRead: '<S174>/Data Store Read15' */
-      Voter_ID_s = *rtd_Voter_ID;
-
-      /* DataStoreRead: '<S174>/Data Store Read16' */
-      Slave_ID_s = *rtd_Slave_ID;
-
-      /* DataStoreRead: '<S174>/Data Store Read17' */
-      BackUP_ID_s = *rtd_BackUp_ID;
 
       /* DataStoreRead: '<S174>/Data Store Read2' */
       BC0_sync_processed_s = localDW->BC0_Sync_processed;
@@ -20799,6 +20611,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
      *  Constant: '<S195>/Constant1'
      *  Constant: '<S196>/Constant4'
      *  Constant: '<S197>/Constant1'
+     *  Constant: '<S293>/Constant'
      *  Constant: '<S567>/Constant2'
      *  Constant: '<S568>/Constant51'
      *  Constant: '<S569>/Constant'
@@ -21026,6 +20839,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
      *  RelationalOperator: '<S623>/Equal16'
      *  RelationalOperator: '<S653>/Equal16'
      *  RelationalOperator: '<S683>/Equal16'
+     *  Sum: '<S299>/Subtract1'
      */
     rtb_Equal_kj = (*rtd_Board_ID == 5.0);
 
@@ -21094,10 +20908,10 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
            *  Constant: '<S1112>/Constant4'
            *  RelationalOperator: '<S1116>/Equal1'
            */
-          rtb_AND_mt = ((*rtd_Local_Ticks == 166.0) && reset_ing_s);
+          rtb_AND_kp = ((*rtd_Local_Ticks == 166.0) && reset_ing_s);
 
           /* Outputs for Enabled SubSystem: '<S1116>/RESET Board - Return to initialization' */
-          RESETBoardReturntoinitializatio(rtb_AND_mt,
+          RESETBoardReturntoinitializatio(rtb_AND_kp,
             &localC->RESETBoardReturntoinitializat_p, &localDW->Desync_Positive,
             &localDW->Initialization_flag, rtd_Master_ID, rtd_New_Msg_Ready_CAN1,
             rtd_New_Msg_Ready_CAN2, &localDW->Reset_Board_j, &localDW->Role_ID,
@@ -21383,10 +21197,10 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
            *  Logic: '<S1119>/AND2'
            *  RelationalOperator: '<S1119>/Equal3'
            */
-          rtb_AND_l5 = (rtb_AND10_m && localDW->new_msg_Rx_i);
+          rtb_AND_ix = (rtb_AND10_m && localDW->new_msg_Rx_i);
 
           /* Outputs for Enabled SubSystem: '<S1119>/Local Time Update' */
-          LocalTimeUpdate_e(rtb_AND_l5, 110.0, &localDW->BC0_Sync_processed,
+          LocalTimeUpdate_e(rtb_AND_ix, 110.0, &localDW->BC0_Sync_processed,
                             &localDW->Desync_Positive, &localDW->Desync_Ticks,
                             rtd_Local_Ticks, rtd_Toggle_Pin_A0,
                             &localDW->Toggle_Pin_D10);
@@ -22555,10 +22369,10 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
            *  Constant: '<S1265>/Constant4'
            *  RelationalOperator: '<S1268>/Equal2'
            */
-          rtb_AND_gl = ((*rtd_Local_Ticks == 436.0) && reset_vem_s);
+          rtb_AND_mf = ((*rtd_Local_Ticks == 436.0) && reset_vem_s);
 
           /* Outputs for Enabled SubSystem: '<S1268>/RESET Board - Return to initialization' */
-          RESETBoardReturntoinitializatio(rtb_AND_gl,
+          RESETBoardReturntoinitializatio(rtb_AND_mf,
             &localC->RESETBoardReturntoinitializat_g, &localDW->Desync_Positive,
             &localDW->Initialization_flag, rtd_Master_ID, rtd_New_Msg_Ready_CAN1,
             rtd_New_Msg_Ready_CAN2, &localDW->Reset_Board, &localDW->Role_ID,
@@ -23145,10 +22959,10 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
           rtb_AND6_p = (*rtd_Board_ID == 6.0);
 
           /* Logic: '<S1343>/AND' */
-          rtb_AND_jv = (rtb_AND10_m && rtb_AND6_p);
+          rtb_AND_g3 = (rtb_AND10_m && rtb_AND6_p);
 
           /* Outputs for Enabled SubSystem: '<S1343>/Process_Messages' */
-          Process_Messages_g(rtb_AND_jv, rtb_DataStoreRead1_px,
+          Process_Messages_g(rtb_AND_g3, rtb_DataStoreRead1_px,
                              rtb_DataStoreRead2_g, &rtb_DataStoreRead_by,
                              &rtb_DataStoreRead3_l, localDW->Role_ID,
                              &localB->Process_Messages_ml,
@@ -23807,7 +23621,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
              *  Constant: '<S1348>/Constant6'
              *  RelationalOperator: '<S1348>/GreaterThan2'
              */
-            rtb_AND_bf = (rtb_AND10_m && (*rtd_Tx_msg_count_CAN1 <= 7.0));
+            rtb_AND_i = (rtb_AND10_m && (*rtd_Tx_msg_count_CAN1 <= 7.0));
 
             /* Logic: '<S1348>/AND1' incorporates:
              *  Constant: '<S1348>/Constant7'
@@ -23867,7 +23681,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
             /* End of Outputs for SubSystem: '<S1348>/Msg_Value_Data_Encoded' */
 
             /* Outputs for Enabled SubSystem: '<S1348>/Check msg transmission CAN1' */
-            CheckmsgtransmissionCAN1_m(rtb_AND_bf, rtb_DataStoreRead_j, 800.0,
+            CheckmsgtransmissionCAN1_m(rtb_AND_i, rtb_DataStoreRead_j, 800.0,
               localB->Plus_a, localB->Plus_k, localB->Plus_i, localB->Plus_ny,
               localB->Constant17, localB->Constant18, localB->Constant19,
               &localB->CheckmsgtransmissionCAN1_j,
@@ -24026,7 +23840,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
              *  Constant: '<S1378>/Constant6'
              *  RelationalOperator: '<S1378>/GreaterThan2'
              */
-            rtb_AND_h = (rtb_AND10_m && (*rtd_Tx_msg_count_CAN1 <= 7.0));
+            rtb_AND_f = (rtb_AND10_m && (*rtd_Tx_msg_count_CAN1 <= 7.0));
 
             /* Logic: '<S1378>/AND1' incorporates:
              *  Constant: '<S1378>/Constant7'
@@ -24305,7 +24119,7 @@ void TTASystem(rtB_TTASystem *localB, const rtC_TTASystem *localC,
             /* End of Outputs for SubSystem: '<S1378>/Msg_Value_Data_Encoded' */
 
             /* Outputs for Enabled SubSystem: '<S1378>/Check msg transmission CAN1' */
-            CheckmsgtransmissionCAN1_p(rtb_AND_h, rtb_DataStoreRead_f2, 270.0,
+            CheckmsgtransmissionCAN1_p(rtb_AND_f, rtb_DataStoreRead_f2, 270.0,
               localB->Plus_n, localB->Plus, localB->Plus_p, localB->Plus_c,
               localB->Constant, &localB->CheckmsgtransmissionCAN1_n,
               &localC->CheckmsgtransmissionCAN1_n,
