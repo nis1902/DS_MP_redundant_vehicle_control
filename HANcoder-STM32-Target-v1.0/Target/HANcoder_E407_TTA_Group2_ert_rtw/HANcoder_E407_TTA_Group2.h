@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'HANcoder_E407_TTA_Group2'.
  *
- * Model version                  : 1.279
+ * Model version                  : 1.293
  * Simulink Coder version         : 9.0 (R2018b) 24-May-2018
- * C/C++ source code generated on : Wed Jun 15 14:23:13 2022
+ * C/C++ source code generated on : Wed Jun 15 20:34:01 2022
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex
@@ -1072,6 +1072,15 @@ typedef struct {
   real_T delta_dot_f_prev;             /* '<S760>/Data Store Memory23' */
   real_T delta_dot_a_prev;             /* '<S760>/Data Store Memory24' */
   real_T speed_error_prev;             /* '<S757>/Data Store Memory44' */
+  real_T V1_Temp;                      /* '<S395>/Data Store Memory' */
+  real_T V2_Temp;                      /* '<S395>/Data Store Memory1' */
+  real_T V3_Temp;                      /* '<S395>/Data Store Memory2' */
+  real_T S1_Temp;                      /* '<S394>/Data Store Memory' */
+  real_T S2_Temp;                      /* '<S394>/Data Store Memory1' */
+  real_T S3_Temp;                      /* '<S394>/Data Store Memory2' */
+  real_T tempM1;                       /* '<S393>/Data Store Memory' */
+  real_T tempM2;                       /* '<S393>/Data Store Memory1' */
+  real_T tempM3;                       /* '<S393>/Data Store Memory2' */
   real_T BC0_TM1_timeout_counter;      /* '<S289>/Data Store Memory' */
   real_T BC0_TM2_timeout_counter;      /* '<S290>/Data Store Memory' */
   real_T BC0_TM3_timeout_counter;      /* '<S291>/Data Store Memory' */
@@ -1618,6 +1627,7 @@ typedef struct {
   const uint8_T Cast_nu;               /* '<S703>/Cast' */
   const uint8_T Cast1_g1;              /* '<S703>/Cast1' */
   const uint8_T Cast2_h;               /* '<S703>/Cast2' */
+  const uint8_T Cast1_g4;              /* '<S397>/Cast1' */
   const uint8_T Cast6_d;               /* '<S396>/Cast6' */
   const uint8_T Cast1_ix;              /* '<S152>/Cast1' */
   const uint8_T Cast_ed;               /* '<S127>/Cast' */
@@ -1768,6 +1778,9 @@ extern real_T Role_ID_s;               /* '<S174>/Data Store Read1' */
 extern real_T sync_bc0_miss_counter_s; /* '<S174>/Data Store Read11' */
 extern real_T sync_bc1_miss_counter_s; /* '<S174>/Data Store Read12' */
 extern real_T Board_4_error_counter_s; /* '<S174>/Data Store Read14' */
+extern real_T Voter_ID_s;              /* '<S174>/Data Store Read15' */
+extern real_T Slave_ID_s;              /* '<S174>/Data Store Read16' */
+extern real_T BackUP_ID_s;             /* '<S174>/Data Store Read17' */
 extern real_T votes_Board_1_DEBUG;     /* '<S174>/Data Store Read3' */
 extern real_T votes_Board_2_DEBUG;     /* '<S174>/Data Store Read3' */
 extern real_T votes_Board_3_DEBUG;     /* '<S174>/Data Store Read3' */
@@ -1802,14 +1815,11 @@ extern real_T torque_fl_set_s;         /* '<S757>/Saturation1' */
 extern real_T torque_ar_set_s;         /* '<S757>/Saturation2' */
 extern real_T torque_al_set_s;         /* '<S757>/Saturation3' */
 extern real_T Desync_Sync_bc0_s;       /* '<S402>/Saturation' */
-extern real_T decision_voter_s;        /* '<S293>/Constant' */
+extern real_T decision_voter_s;        /* '<S293>/Switch' */
 extern real_T Vote1_s;                 /* '<S299>/Plus' */
 extern real_T Vote2_s;                 /* '<S299>/Plus1' */
 extern real_T Vote3_s;                 /* '<S299>/Plus2' */
 extern real_T Vote4_s;                 /* '<S299>/Plus3' */
-extern real_T Voter_ID_s;              /* '<S299>/Minus1' */
-extern real_T BackUp_ID_s;             /* '<S299>/Minus2' */
-extern real_T Slave_ID_s;              /* '<S299>/Abs1' */
 extern real_T TM1_timeout_counter_s;   /* '<S289>/Switch' */
 extern real_T TM2_timeout_counter_s;   /* '<S290>/Switch' */
 extern real_T TM3_timeout_counter_s;   /* '<S291>/Switch' */
@@ -2046,6 +2056,9 @@ extern real_T delta_f_set;             /* Variable: delta_f_set
                                         *   '<S717>/Constant10'
                                         *   '<S1186>/Constant10'
                                         */
+extern real_T membership_switch;       /* Variable: membership_switch
+                                        * Referenced by: '<S293>/Constant1'
+                                        */
 extern real_T script_run;              /* Variable: script_run
                                         * Referenced by: '<S10>/Constant'
                                         */
@@ -2057,9 +2070,6 @@ extern real_T speed_k_i;               /* Variable: speed_k_i
                                         */
 extern real_T speed_k_p;               /* Variable: speed_k_p
                                         * Referenced by: '<S757>/Gain5'
-                                        */
-extern real_T testV_1;                 /* Variable: testV_1
-                                        * Referenced by: '<S293>/Constant'
                                         */
 extern real_T torque_a_k_d;            /* Variable: torque_a_k_d
                                         * Referenced by: '<S767>/Gain7'
